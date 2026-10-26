@@ -1,18 +1,55 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
+import { useEffect } from 'react';
+import { Platform } from 'react-native';
+import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {
+  useFonts as useDisplayFonts,
+  BigShouldersDisplay_600SemiBold,
+  BigShouldersDisplay_700Bold,
+  BigShouldersDisplay_800ExtraBold,
+  BigShouldersDisplay_900Black,
+} from '@expo-google-fonts/big-shoulders-display';
+import { Archivo_400Regular, Archivo_500Medium, Archivo_600SemiBold, Archivo_700Bold } from '@expo-google-fonts/archivo';
+import { colors } from '@byt/ui';
+import { ToastProvider } from '@/components/ui';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+void SplashScreen.preventAutoHideAsync().catch(() => undefined);
 
-SplashScreen.preventAutoHideAsync();
+export default function RootLayout() {
+  const [loaded, error] = useDisplayFonts({
+    BigShouldersDisplay_600SemiBold,
+    BigShouldersDisplay_700Bold,
+    BigShouldersDisplay_800ExtraBold,
+    BigShouldersDisplay_900Black,
+    Archivo_400Regular,
+    Archivo_500Medium,
+    Archivo_600SemiBold,
+    Archivo_700Bold,
+  });
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  useEffect(() => {
+    if (loaded || error) void SplashScreen.hideAsync().catch(() => undefined);
+  }, [loaded, error]);
+
+  useEffect(() => {
+    if (Platform.OS === 'web' && typeof document !== 'undefined') {
+      document.body.style.backgroundColor = colors.ink;
+      document.documentElement.style.colorScheme = 'dark';
+    }
+  }, []);
+
+  if (!loaded && !error) return null;
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ToastProvider>
+        <StatusBar style="light" />
+        <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.ink }, animation: 'fade' }}>
+          <Stack.Screen name="settings" options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
+        </Stack>
+      </ToastProvider>
+    </SafeAreaProvider>
   );
 }

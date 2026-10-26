@@ -61,7 +61,7 @@ const slot = (id: string, label: string, group: string, preferredRoles: string[]
   y,
 });
 
-const GK = slot('GK', 'GB', 'GK', ['GK'], 0.5, 0.06);
+const GK = slot('GK', 'GB', 'GK', ['GK'], 0.5, 0.05);
 const BACK_FOUR = [
   slot('LB', 'DG', 'DEF', ['LB'], 0.13, 0.27),
   slot('LCB', 'DC', 'DEF', ['CB'], 0.37, 0.22),
@@ -75,8 +75,8 @@ export const FOOTBALL_FORMATIONS: FormationDef[] = [
     label: 'Rapide · 1-1-1-2',
     slots: [
       GK,
-      slot('DEF', 'DEF', 'DEF', ['CB', 'LB', 'RB'], 0.5, 0.28),
-      slot('MID', 'MIL', 'MID', ['CM', 'CDM', 'CAM', 'LM', 'RM'], 0.5, 0.53),
+      slot('DEF', 'DEF', 'DEF', ['CB', 'LB', 'RB'], 0.5, 0.31),
+      slot('MID', 'MIL', 'MID', ['CM', 'CDM', 'CAM', 'LM', 'RM'], 0.5, 0.56),
       slot('LATT', 'ATT', 'ATT', ['ST', 'LW'], 0.3, 0.8),
       slot('RATT', 'ATT', 'ATT', ['ST', 'RW'], 0.7, 0.8),
     ],

@@ -1,0 +1,33 @@
+import { Text, View } from 'react-native';
+import Svg, { Path } from 'react-native-svg';
+import { colors, fonts } from '@byt/ui';
+
+/** Mark: a chamfered card plate with a pitch half-line — the product in one glyph. */
+export function LogoMark({ size = 40 }: { size?: number }) {
+  return (
+    <Svg width={size} height={size * 1.25} viewBox="0 0 40 50">
+      <Path d="M2 2 H30 L38 10 V48 H8 L2 42 Z" fill={colors.graphite} stroke={colors.accent} strokeWidth="2.4" />
+      <Path d="M8 27 H32" stroke={colors.accent} strokeWidth="2" opacity="0.7" />
+      <Path d="M20 21 a6 6 0 1 1 0 12 a6 6 0 1 1 0 -12" stroke={colors.accent} strokeWidth="2" fill="none" opacity="0.7" />
+      <Path d="M30 2 V10 H38" stroke={colors.gold} strokeWidth="2.4" fill="none" />
+    </Svg>
+  );
+}
+
+export function Logo({ size = 1, tagline = true }: { size?: number; tagline?: boolean }) {
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 * size }} accessibilityRole="header" accessibilityLabel="Build Your Team">
+      <LogoMark size={34 * size} />
+      <View>
+        <Text style={{ fontFamily: fonts.displayBlack, fontSize: 30 * size, lineHeight: 30 * size, color: colors.text, letterSpacing: 1.2 }}>
+          BUILD YOUR <Text style={{ color: colors.accent }}>TEAM</Text>
+        </Text>
+        {tagline && (
+          <Text style={{ fontFamily: fonts.bodySemi, fontSize: 11 * size, letterSpacing: 4 * size, color: colors.textDim, marginTop: 4 }}>
+            BID · BUILD · WIN
+          </Text>
+        )}
+      </View>
+    </View>
+  );
+}

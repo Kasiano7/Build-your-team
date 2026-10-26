@@ -54,7 +54,7 @@ export const TIMINGS = {
 export type Timings = typeof TIMINGS;
 const timingsOf = (ctx: EngineCtx): Timings => ctx.timings ?? TIMINGS;
 
-export const PARTICIPANT_COLORS = ['#2EE6D6', '#FFB547', '#FF5C7A', '#8C7CFF'];
+export const PARTICIPANT_COLORS = ['#5AA9FF', '#FFB547', '#FF6B8A', '#B18CFF'];
 
 const fail = (code: ErrorCode, details?: Record<string, unknown>): Outcome => ({ ok: false, code, details });
 

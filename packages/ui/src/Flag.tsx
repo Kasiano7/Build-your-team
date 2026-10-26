@@ -1,0 +1,123 @@
+/**
+ * Stylised flags drawn in SVG (emoji flags do not render on every platform).
+ * Unknown codes fall back to a neutral chip with the code.
+ */
+import { memo } from 'react';
+import { Text, View } from 'react-native';
+import Svg, { Circle, Path, Rect } from 'react-native-svg';
+
+type Spec =
+  | { h: string[] }
+  | { v: string[] }
+  | { nordic: [string, string] }
+  | { custom: 'JPN' | 'KOR' | 'BRA' | 'USA' | 'ENG' | 'SCO' | 'SUI' | 'MAR' | 'ALG' | 'TUN' | 'CMR' | 'GHA' | 'SEN' | 'CRO' | 'SRB' | 'POR' | 'URU' | 'ARG' | 'TUR' };
+
+const FLAGS: Record<string, Spec> = {
+  FRA: { v: ['#1F3C88', '#F4F4F4', '#D5263B'] },
+  ITA: { v: ['#1E8A4C', '#F4F4F4', '#CE2B37'] },
+  BEL: { v: ['#111', '#F8D11E', '#E1262D'] },
+  IRL: { v: ['#169B62', '#F4F4F4', '#FF883E'] },
+  CIV: { v: ['#F77F00', '#F4F4F4', '#009E60'] },
+  NGA: { v: ['#0A8754', '#F4F4F4', '#0A8754'] },
+  MLI: { v: ['#14B53A', '#FCD116', '#CE1126'] },
+  GER: { h: ['#111', '#DD0000', '#FFCE00'] },
+  AUT: { h: ['#C8102E', '#F4F4F4', '#C8102E'] },
+  NED: { h: ['#AE1C28', '#F4F4F4', '#21468B'] },
+  ESP: { h: ['#AA151B', '#F1BF00', '#F1BF00', '#AA151B'] },
+  COL: { h: ['#FCD116', '#FCD116', '#003893', '#CE1126'] },
+  POL: { h: ['#F4F4F4', '#DC143C'] },
+  DEN: { nordic: ['#C8102E', '#F4F4F4'] },
+  NOR: { nordic: ['#BA0C2F', '#F4F4F4'] },
+  SWE: { nordic: ['#006AA7', '#FECC00'] },
+  JPN: { custom: 'JPN' },
+  KOR: { custom: 'KOR' },
+  BRA: { custom: 'BRA' },
+  USA: { custom: 'USA' },
+  ENG: { custom: 'ENG' },
+  SCO: { custom: 'SCO' },
+  SUI: { custom: 'SUI' },
+  MAR: { custom: 'MAR' },
+  ALG: { custom: 'ALG' },
+  TUN: { custom: 'TUN' },
+  CMR: { custom: 'CMR' },
+  GHA: { custom: 'GHA' },
+  SEN: { custom: 'SEN' },
+  CRO: { custom: 'CRO' },
+  SRB: { custom: 'SRB' },
+  POR: { custom: 'POR' },
+  URU: { custom: 'URU' },
+  ARG: { custom: 'ARG' },
+  TUR: { custom: 'TUR' },
+};
+
+function Custom({ code }: { code: string }) {
+  switch (code) {
+    case 'JPN':
+      return (<><Rect width="30" height="20" fill="#F4F4F4" /><Circle cx="15" cy="10" r="5.5" fill="#BC002D" /></>);
+    case 'KOR':
+      return (<><Rect width="30" height="20" fill="#F4F4F4" /><Path d="M9.5 10a5.5 5.5 0 0 1 11 0z" fill="#CD2E3A" /><Path d="M9.5 10a5.5 5.5 0 0 0 11 0z" fill="#0047A0" /></>);
+    case 'BRA':
+      return (<><Rect width="30" height="20" fill="#009C3B" /><Path d="M15 2.5 27 10 15 17.5 3 10z" fill="#FFDF00" /><Circle cx="15" cy="10" r="4.4" fill="#002776" /></>);
+    case 'USA':
+      return (<>{[0, 1, 2, 3, 4, 5, 6].map((i) => (<Rect key={i} y={i * (20 / 7)} width="30" height={20 / 7} fill={i % 2 ? '#F4F4F4' : '#B22234'} />))}<Rect width="13" height="10.8" fill="#3C3B6E" /></>);
+    case 'ENG':
+      return (<><Rect width="30" height="20" fill="#F4F4F4" /><Rect x="12.5" width="5" height="20" fill="#CE1124" /><Rect y="7.5" width="30" height="5" fill="#CE1124" /></>);
+    case 'SCO':
+      return (<><Rect width="30" height="20" fill="#005EB8" /><Path d="M0 0 30 20M30 0 0 20" stroke="#F4F4F4" strokeWidth="3.5" /></>);
+    case 'SUI':
+      return (<><Rect width="30" height="20" fill="#DA291C" /><Rect x="13" y="4" width="4" height="12" fill="#F4F4F4" /><Rect x="9" y="8" width="12" height="4" fill="#F4F4F4" /></>);
+    case 'MAR':
+      return (<><Rect width="30" height="20" fill="#C1272D" /><Path d="M15 5.5l1.3 4h4.2l-3.4 2.5 1.3 4L15 13.5l-3.4 2.5 1.3-4-3.4-2.5h4.2z" fill="none" stroke="#006233" strokeWidth="1.1" /></>);
+    case 'ALG':
+      return (<><Rect width="15" height="20" fill="#006233" /><Rect x="15" width="15" height="20" fill="#F4F4F4" /><Circle cx="15" cy="10" r="4.6" fill="#D21034" /><Circle cx="16.4" cy="10" r="3.8" fill="#F4F4F4" /></>);
+    case 'TUN':
+      return (<><Rect width="30" height="20" fill="#E70013" /><Circle cx="15" cy="10" r="5.2" fill="#F4F4F4" /><Circle cx="15" cy="10" r="3.6" fill="#E70013" /><Circle cx="16.2" cy="10" r="3" fill="#F4F4F4" /></>);
+    case 'CMR':
+      return (<><Rect width="10" height="20" fill="#007A5E" /><Rect x="10" width="10" height="20" fill="#CE1126" /><Rect x="20" width="10" height="20" fill="#FCD116" /></>);
+    case 'GHA':
+      return (<><Rect width="30" height="6.67" fill="#CE1126" /><Rect y="6.67" width="30" height="6.67" fill="#FCD116" /><Rect y="13.33" width="30" height="6.67" fill="#006B3F" /><Circle cx="15" cy="10" r="2.3" fill="#111" /></>);
+    case 'SEN':
+      return (<><Rect width="10" height="20" fill="#00853F" /><Rect x="10" width="10" height="20" fill="#FDEF42" /><Rect x="20" width="10" height="20" fill="#E31B23" /><Circle cx="15" cy="10" r="2.2" fill="#00853F" /></>);
+    case 'CRO':
+      return (<><Rect width="30" height="6.67" fill="#FF0000" /><Rect y="6.67" width="30" height="6.67" fill="#F4F4F4" /><Rect y="13.33" width="30" height="6.67" fill="#171796" />{[0, 1, 2, 3].map((i) => (<Rect key={i} x={12 + (i % 2) * 3} y={6 + Math.floor(i / 2) * 3} width="3" height="3" fill={i === 0 || i === 3 ? '#FF0000' : '#F4F4F4'} />))}</>);
+    case 'SRB':
+      return (<><Rect width="30" height="6.67" fill="#C6363C" /><Rect y="6.67" width="30" height="6.67" fill="#0C4076" /><Rect y="13.33" width="30" height="6.67" fill="#F4F4F4" /></>);
+    case 'POR':
+      return (<><Rect width="12" height="20" fill="#046A38" /><Rect x="12" width="18" height="20" fill="#DA291C" /><Circle cx="12" cy="10" r="3.4" fill="#FFE900" /></>);
+    case 'URU':
+      return (<>{[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (<Rect key={i} y={i * (20 / 9)} width="30" height={20 / 9} fill={i % 2 ? '#0038A8' : '#F4F4F4'} />))}<Rect width="11" height="11.1" fill="#F4F4F4" /><Circle cx="5.5" cy="5.5" r="2.6" fill="#FCD116" /></>);
+    case 'ARG':
+      return (<><Rect width="30" height="20" fill="#74ACDF" /><Rect y="6.67" width="30" height="6.67" fill="#F4F4F4" /><Circle cx="15" cy="10" r="2" fill="#F6B40E" /></>);
+    case 'TUR':
+      return (<><Rect width="30" height="20" fill="#E30A17" /><Circle cx="12" cy="10" r="5" fill="#F4F4F4" /><Circle cx="13.3" cy="10" r="4" fill="#E30A17" /></>);
+    default:
+      return null;
+  }
+}
+
+export const Flag = memo(function Flag({ code, width }: { code: string; width: number }) {
+  const spec = FLAGS[code];
+  const height = (width * 2) / 3;
+  if (!spec) {
+    return (
+      <View style={{ width, height, borderRadius: 2, backgroundColor: '#2A3440', alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={{ color: '#C9D2DA', fontSize: height * 0.5, fontWeight: '700' }}>{code.slice(0, 3)}</Text>
+      </View>
+    );
+  }
+  return (
+    <Svg width={width} height={height} viewBox="0 0 30 20" style={{ borderRadius: 2 }}>
+      {'h' in spec && spec.h.map((c, i) => <Rect key={i} y={(20 / spec.h.length) * i} width="30" height={20 / spec.h.length} fill={c} />)}
+      {'v' in spec && spec.v.map((c, i) => <Rect key={i} x={(30 / spec.v.length) * i} width={30 / spec.v.length} height="20" fill={c} />)}
+      {'nordic' in spec && (
+        <>
+          <Rect width="30" height="20" fill={spec.nordic[0]} />
+          <Rect x="8" width="4" height="20" fill={spec.nordic[1]} />
+          <Rect y="8" width="30" height="4" fill={spec.nordic[1]} />
+        </>
+      )}
+      {'custom' in spec && <Custom code={spec.custom} />}
+      <Rect width="30" height="20" fill="none" stroke="rgba(0,0,0,0.25)" strokeWidth="0.6" />
+    </Svg>
+  );
+});

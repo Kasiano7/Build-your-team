@@ -4,7 +4,7 @@
  *  - Local development / tests: PGlite, the actual PostgreSQL engine compiled to WASM,
  *    persisted on disk (PGLITE_DIR) or in memory. Same SQL, same migrations.
  */
-import { readdirSync, readFileSync } from 'node:fs';
+import { mkdirSync, readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 export interface Queryable {
@@ -52,6 +52,7 @@ export async function createDb(opts: { databaseUrl?: string; pgliteDir?: string 
     };
   }
   const { PGlite } = await import('@electric-sql/pglite');
+  if (opts.pgliteDir) mkdirSync(opts.pgliteDir, { recursive: true });
   const db = opts.pgliteDir ? new PGlite(opts.pgliteDir) : new PGlite();
   await db.waitReady;
   return {
