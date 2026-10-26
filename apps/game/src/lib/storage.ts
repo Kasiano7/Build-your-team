@@ -54,4 +54,5 @@ export const keys = {
   spectator: (code: string) => `byt.spectator.${code}`,
   settings: 'byt.settings',
   nickname: 'byt.nickname',
+  serverUrl: 'byt.serverUrl',
 };

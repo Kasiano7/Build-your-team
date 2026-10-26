@@ -70,6 +70,7 @@ export class GameClient {
   private listeners = new Set<() => void>();
   private eventListeners = new Set<EventListener>();
   private token: string | null = null;
+  private appStateBound = false;
 
   subscribe = (fn: () => void) => {
     this.listeners.add(fn);
@@ -113,12 +114,22 @@ export class GameClient {
     socket.on('connect_error', () => this.set({ connection: 'offline' }));
     socket.on(S2C.update, (u: RoomUpdate) => this.applyUpdate(u));
     // Phones suspend sockets in the background: reconnect as soon as the app is foregrounded.
-    if (Platform.OS !== 'web') {
+    if (Platform.OS !== 'web' && !this.appStateBound) {
+      this.appStateBound = true;
       AppState.addEventListener('change', (s) => {
-        if (s === 'active' && !socket.connected) socket.connect();
+        if (s === 'active' && this.socket && !this.socket.connected) this.socket.connect();
       });
     }
     return socket;
+  }
+
+  /** Drop the current socket and connect again (e.g. after the server address changed). */
+  reconnect() {
+    if (!this.socket) return;
+    this.socket.removeAllListeners();
+    this.socket.disconnect();
+    this.socket = null;
+    this.ensureConnected();
   }
 
   private applyUpdate(u: RoomUpdate) {

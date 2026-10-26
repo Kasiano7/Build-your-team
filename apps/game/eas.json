@@ -8,7 +8,10 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
-      "environment": "development"
+      "environment": "development",
+      "env": {
+        "APP_VARIANT": "development"
+      }
     },
     "preview": {
       "distribution": "internal",
@@ -17,8 +20,7 @@
         "buildType": "apk"
       },
       "env": {
-        "EXPO_PUBLIC_SERVER_URL": "https://REPLACE-ME-staging-realtime.fly.dev",
-        "EXPO_PUBLIC_WEB_URL": "https://REPLACE-ME-staging.vercel.app"
+        "APP_VARIANT": "preview"
       }
     },
     "production": {

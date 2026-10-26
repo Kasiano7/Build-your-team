@@ -9,6 +9,8 @@ import { colors, fonts, radii } from '@byt/ui';
 import { Logo } from '@/components/Logo';
 import { Body, Button, Eyebrow, Screen } from '@/components/ui';
 import { TeamPitch } from '@/features/team/TeamPitch';
+import { appVariant, hasServerConfigured } from '@/lib/config';
+import { useServerSetting } from '@/lib/server-setting';
 import { getJSON, keys } from '@/lib/storage';
 import { warmUpSounds } from '@/lib/sound';
 import { useReduceMotion } from '@/state/settings';
@@ -46,6 +48,9 @@ export default function Home() {
   const { ids, characters } = useMemo(() => showcase(), []);
   const [landed, setLanded] = useState(reduce ? ids.length : 0);
   const [lastRoom, setLastRoom] = useState<string | null>(null);
+  const server = useServerSetting();
+  const testBuild = appVariant !== 'production';
+  const missingServer = testBuild && server.ready && !hasServerConfigured();
 
   useEffect(() => {
     if (reduce) return;
@@ -87,6 +92,19 @@ export default function Home() {
             <SettingsIcon />
           </Pressable>
         </View>
+
+        {testBuild && (
+          <Pressable
+            onPress={() => go('/settings')}
+            accessibilityRole="button"
+            accessibilityLabel="Configurer le serveur de jeu"
+            style={{ marginBottom: 12, padding: 12, borderRadius: radii.md, borderWidth: 1, borderColor: missingServer ? colors.warn : colors.line, backgroundColor: missingServer ? 'rgba(255,181,71,0.08)' : 'rgba(16,22,29,0.7)' }}
+          >
+            <Text style={{ fontFamily: fonts.bodySemi, fontSize: 13, color: missingServer ? colors.warn : colors.textDim }}>
+              {missingServer ? 'Version de test : aucun serveur configuré — touchez ici pour saisir l’adresse du serveur.' : `Version de test · serveur ${server.url} · modifier`}
+            </Text>
+          </Pressable>
+        )}
 
         <View style={{ flexDirection: wide ? 'row' : 'column-reverse', gap: wide ? 40 : 8, flex: 1, alignItems: wide ? 'center' : 'stretch' }}>
           <View style={{ flex: wide ? 1 : undefined, maxWidth: wide ? 520 : undefined, gap: 22 }}>

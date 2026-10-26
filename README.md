@@ -27,7 +27,7 @@ npm run dev:web
 
 **Démo à 4 :** ouvrez quatre fenêtres de navigateur, dont au moins trois en navigation privée ou avec des profils différents. En effet, chaque fenêtre garde sa session invitée dans `localStorage`. Dans la première, cliquez sur **Jouer** puis **Créer le salon**. Partagez le lien d'invitation (`/r/CODE`) ou saisissez le code dans les trois autres, puis lancez la partie depuis la première fenêtre.
 
-**Sur téléphone (même réseau Wi-Fi) :** lancez `npm run dev:web`, ou `npx expo start` dans `apps/game`, puis ouvrez l'URL réseau (`http://<IP-du-PC>:8081`) dans le navigateur du téléphone. Le client se connecte automatiquement au serveur sur `<IP-du-PC>:4000`. Pour l'application native, utilisez un build de développement EAS (voir `docs/STORE_RELEASE.md`).
+**Sur téléphone (même réseau Wi-Fi) :** lancez `npm run dev:web`, ou `npx expo start` dans `apps/game`, puis ouvrez l'URL réseau (`http://<IP-du-PC>:8081`) dans le navigateur du téléphone. Le client se connecte automatiquement au serveur sur `<IP-du-PC>:4000`. Pour l'application native, suivez [docs/PREVIEW_BUILD.md](docs/PREVIEW_BUILD.md).
 
 ## Tests
 
@@ -72,6 +72,7 @@ docs                 Documentation
 | [DESIGN_SYSTEM](docs/DESIGN_SYSTEM.md) | Couleurs, typographie, cartes, terrain, animations, accessibilité |
 | [DATA_LICENSING](docs/DATA_LICENSING.md) | Notes EA FC, fournisseurs sous licence, droits à l'image |
 | [DEPLOYMENT](docs/DEPLOYMENT.md) | Vercel (web), Fly.io ou Render (temps réel), Supabase (PostgreSQL) |
+| [PREVIEW_BUILD](docs/PREVIEW_BUILD.md) | **Tester sur vos téléphones** : build EAS preview pas à pas |
 | [STORE_RELEASE](docs/STORE_RELEASE.md) | EAS Build/Submit, TestFlight, Google Play, métadonnées |
 | [TEST_REPORT](docs/TEST_REPORT.md) | Ce qui est développé, testé, incomplet, et les limites connues |
 | [ROADMAP](docs/ROADMAP.md) | Prochaines étapes produit et commercialisation |

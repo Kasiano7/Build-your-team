@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
 import { colors, fonts, radii } from '@byt/ui';
 import { PageHeader } from '@/components/Header';
-import { Body, Panel, Screen, Segmented, Title } from '@/components/ui';
+import { Body, Button, Eyebrow, Field, Panel, Screen, Segmented, Title, useToast } from '@/components/ui';
+import { appVariant, canOverrideServer } from '@/lib/config';
+import { probeServer, saveServerUrl, useServerSetting } from '@/lib/server-setting';
 import { playSound } from '@/lib/sound';
 import { updateSettings, useSettings } from '@/state/settings';
 
@@ -22,6 +25,55 @@ function Toggle({ label, value, onChange, hint }: { label: string; value: boolea
         <View style={{ width: 24, height: 24, borderRadius: 12, backgroundColor: value ? colors.accentInk : colors.textDim }} />
       </View>
     </Pressable>
+  );
+}
+
+/** Test builds only: choose which game server the app talks to (e.g. a PC on the same Wi-Fi). */
+function ServerSection() {
+  const toast = useToast();
+  const { url } = useServerSetting();
+  const [value, setValue] = useState(url);
+  const [status, setStatus] = useState<{ ok: boolean; text: string } | null>(null);
+  const [busy, setBusy] = useState(false);
+  const test = async () => {
+    setBusy(true);
+    const r = await probeServer(value);
+    setBusy(false);
+    setStatus(r.ok ? { ok: true, text: `Serveur joignable (base : ${r.db})` } : { ok: false, text: r.reason });
+    return r.ok;
+  };
+  const save = async () => {
+    try {
+      const saved = await saveServerUrl(value);
+      if (saved) setValue(saved);
+      toast('Adresse du serveur enregistrée', 'success');
+      void test();
+    } catch {
+      setStatus({ ok: false, text: 'Adresse invalide — ex. 192.168.1.20 ou https://serveur.exemple.com' });
+    }
+  };
+  return (
+    <Panel style={{ gap: 12 }}>
+      <Eyebrow>Serveur de jeu · {appVariant === 'preview' ? 'version de test' : 'développement'}</Eyebrow>
+      <Field
+        label="Adresse"
+        value={value}
+        onChangeText={(t) => {
+          setValue(t);
+          setStatus(null);
+        }}
+        placeholder="192.168.1.20 ou https://…"
+        autoCapitalize="none"
+        autoCorrect={false}
+        keyboardType="url"
+        hint="Adresse IP du PC qui lance « npm run dev:server » (port 4000 par défaut), sur le même Wi-Fi."
+      />
+      {status && <Text style={{ fontFamily: fonts.bodySemi, fontSize: 13, color: status.ok ? colors.success : colors.danger }}>{status.text}</Text>}
+      <View style={{ flexDirection: 'row', gap: 10 }}>
+        <Button label="Tester" variant="secondary" onPress={test} loading={busy} style={{ flex: 1 }} />
+        <Button label="Enregistrer" onPress={save} style={{ flex: 1 }} />
+      </View>
+    </Panel>
   );
 }
 
@@ -56,6 +108,7 @@ export default function SettingsScreen() {
             />
             <Toggle label="Vibrations" hint="iOS et Android uniquement" value={s.haptics} onChange={(haptics) => updateSettings({ haptics })} />
           </Panel>
+          {canOverrideServer && <ServerSection />}
           <View style={{ padding: 14, borderRadius: radii.md, borderWidth: 1, borderColor: colors.line }}>
             <Body dim style={{ fontSize: 13 }}>
               Les réglages sont enregistrés sur cet appareil. « Système » suit l’option d’accessibilité « Réduire les animations » de votre appareil.

@@ -14,6 +14,7 @@ import {
 import { Archivo_400Regular, Archivo_500Medium, Archivo_600SemiBold, Archivo_700Bold } from '@expo-google-fonts/archivo';
 import { colors } from '@byt/ui';
 import { ToastProvider } from '@/components/ui';
+import '@/lib/server-setting';
 
 void SplashScreen.preventAutoHideAsync().catch(() => undefined);
 
