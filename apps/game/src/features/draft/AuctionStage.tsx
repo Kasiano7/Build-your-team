@@ -60,10 +60,10 @@ export function AuctionStage({
     scale.set(0.7);
     opacity.set(0);
     opacity.set(withTiming(1, { duration: 260 }));
-    flip.set(withDelay(80, withSpring(0, { damping: 14, stiffness: 90 })));
-    scale.set(withDelay(80, withSpring(1, { damping: 12, stiffness: 110 })));
+    flip.set(withDelay(40, withSpring(0, { damping: 16, stiffness: 170 })));
+    scale.set(withDelay(40, withSpring(1, { damping: 13, stiffness: 180 })));
     sweep.set(-1);
-    sweep.set(withDelay(650, withTiming(1.4, { duration: 900, easing: Easing.inOut(Easing.cubic) })));
+    sweep.set(withDelay(300, withTiming(1.4, { duration: 650, easing: Easing.inOut(Easing.cubic) })));
   }, [auction.id, reduce, flip, scale, opacity, sweep, fly, stamp]);
 
   // Pulse on new high bid.
@@ -79,7 +79,7 @@ export function AuctionStage({
   useEffect(() => {
     if (!closed) return;
     stamp.set(reduce ? 1 : withSpring(1, { damping: 9, stiffness: 160 }));
-    if (sold && !reduce) fly.set(withDelay(1500, withTiming(1, { duration: 650, easing: Easing.in(Easing.cubic) })));
+    if (sold && !reduce) fly.set(withDelay(850, withTiming(1, { duration: 500, easing: Easing.in(Easing.cubic) })));
   }, [closed, sold, reduce, stamp, fly]);
 
   const cardStyle = useAnimatedStyle(() => {

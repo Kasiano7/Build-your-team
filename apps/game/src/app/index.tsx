@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, Text, View, useWindowDimensions } from 'react-native';
 import { router } from 'expo-router';
 import Svg, { Path } from 'react-native-svg';
-import { footballDemoPack } from '@byt/football';
+import { footballRealPack } from '@byt/football';
 import { emptyTeam, getFormation, toPackMeta } from '@byt/game-engine';
 import type { Character, Team } from '@byt/shared';
 import { colors, fonts, radii } from '@byt/ui';
@@ -15,11 +15,11 @@ import { getJSON, keys } from '@/lib/storage';
 import { warmUpSounds } from '@/lib/sound';
 import { useReduceMotion } from '@/state/settings';
 
-const pack = footballDemoPack;
+const pack = footballRealPack;
 const meta = toPackMeta(pack);
 const formation = getFormation(pack, 'quick-5');
 
-/** Showcase line-up for the hero, picked from the fictional demo dataset. */
+/** Showcase line-up for the hero: the best-rated player per slot (estimated ratings). */
 function showcase(): { ids: string[]; characters: Record<string, Character> } {
   const best = (roles: string[], skip: string[] = []) =>
     pack.characters.filter((c) => roles.includes(c.roles[0]!) && !skip.includes(c.id)).sort((a, b) => b.overall - a.overall)[0]!;
@@ -158,7 +158,7 @@ export default function Home() {
               </Pressable>
             </View>
             <Text style={{ fontFamily: fonts.body, fontSize: 11, color: colors.textMute }}>
-              {pack.dataset.label}. Aucun argent réel n’est utilisé.
+              Joueurs réels : notes estimées par Build Your Team, sans lien avec EA SPORTS FC ni avec les joueurs. Aucun argent réel n’est utilisé.
             </Text>
           </View>
 

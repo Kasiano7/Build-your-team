@@ -1,0 +1,3307 @@
+{
+ "dataset": {
+  "id": "football-real",
+  "version": "1.0.0",
+  "label": "Joueurs réels · notes estimées par Build Your Team (non officielles)",
+  "fictional": false,
+  "source": "Liste Build Your Team — effectifs indicatifs saison 2025-2026 ; notes et statistiques estimées par un modèle interne",
+  "license": "Noms de personnes réelles : usage privé et tests uniquement tant que les droits nom/image (FIFPRO, joueurs) ne sont pas acquis. Aucune donnée EA SPORTS FC.",
+  "contentHash": "e540530b13e241704c0b600f85bb0023b7b9ad3febd02fa516316003bdb9b483"
+ },
+ "characters": [
+  {
+   "id": "real-thibaut-courtois",
+   "name": "Thibaut Courtois",
+   "shortName": "Courtois",
+   "nationality": "BEL",
+   "roles": [
+    "GK"
+   ],
+   "overall": 89,
+   "attributes": {
+    "DIV": 88,
+    "HAN": 90,
+    "KIC": 74,
+    "REF": 89,
+    "SPD": 54,
+    "POS": 88
+   },
+   "portraitSeed": 97260648,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-alisson-becker",
+   "name": "Alisson Becker",
+   "shortName": "Alisson",
+   "nationality": "BRA",
+   "roles": [
+    "GK"
+   ],
+   "overall": 88,
+   "attributes": {
+    "DIV": 91,
+    "HAN": 89,
+    "KIC": 73,
+    "REF": 91,
+    "SPD": 50,
+    "POS": 88
+   },
+   "portraitSeed": 891508872,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-gianluigi-donnarumma",
+   "name": "Gianluigi Donnarumma",
+   "shortName": "Donnarumma",
+   "nationality": "ITA",
+   "roles": [
+    "GK"
+   ],
+   "overall": 88,
+   "attributes": {
+    "DIV": 88,
+    "HAN": 87,
+    "KIC": 73,
+    "REF": 91,
+    "SPD": 52,
+    "POS": 88
+   },
+   "portraitSeed": 2929530858,
+   "affiliation": "Manchester City"
+  },
+  {
+   "id": "real-jan-oblak",
+   "name": "Jan Oblak",
+   "shortName": "Oblak",
+   "nationality": "SVN",
+   "roles": [
+    "GK"
+   ],
+   "overall": 87,
+   "attributes": {
+    "DIV": 88,
+    "HAN": 86,
+    "KIC": 74,
+    "REF": 89,
+    "SPD": 52,
+    "POS": 83
+   },
+   "portraitSeed": 3245952257,
+   "affiliation": "Atlético Madrid"
+  },
+  {
+   "id": "real-mike-maignan",
+   "name": "Mike Maignan",
+   "shortName": "Maignan",
+   "nationality": "FRA",
+   "roles": [
+    "GK"
+   ],
+   "overall": 87,
+   "attributes": {
+    "DIV": 89,
+    "HAN": 88,
+    "KIC": 70,
+    "REF": 92,
+    "SPD": 50,
+    "POS": 89
+   },
+   "portraitSeed": 3113564676,
+   "affiliation": "AC Milan"
+  },
+  {
+   "id": "real-emiliano-martinez",
+   "name": "Emiliano Martínez",
+   "shortName": "E. Martínez",
+   "nationality": "ARG",
+   "roles": [
+    "GK"
+   ],
+   "overall": 86,
+   "attributes": {
+    "DIV": 84,
+    "HAN": 83,
+    "KIC": 74,
+    "REF": 85,
+    "SPD": 48,
+    "POS": 87
+   },
+   "portraitSeed": 3622422621,
+   "affiliation": "Aston Villa"
+  },
+  {
+   "id": "real-david-raya",
+   "name": "David Raya",
+   "shortName": "Raya",
+   "nationality": "ESP",
+   "roles": [
+    "GK"
+   ],
+   "overall": 86,
+   "attributes": {
+    "DIV": 85,
+    "HAN": 83,
+    "KIC": 71,
+    "REF": 86,
+    "SPD": 53,
+    "POS": 83
+   },
+   "portraitSeed": 2349096504,
+   "affiliation": "Arsenal"
+  },
+  {
+   "id": "real-gregor-kobel",
+   "name": "Gregor Kobel",
+   "shortName": "Kobel",
+   "nationality": "SUI",
+   "roles": [
+    "GK"
+   ],
+   "overall": 86,
+   "attributes": {
+    "DIV": 85,
+    "HAN": 83,
+    "KIC": 71,
+    "REF": 89,
+    "SPD": 50,
+    "POS": 82
+   },
+   "portraitSeed": 2379504956,
+   "affiliation": "Borussia Dortmund"
+  },
+  {
+   "id": "real-marc-andre-ter-stegen",
+   "name": "Marc-André ter Stegen",
+   "shortName": "ter Stegen",
+   "nationality": "GER",
+   "roles": [
+    "GK"
+   ],
+   "overall": 85,
+   "attributes": {
+    "DIV": 88,
+    "HAN": 85,
+    "KIC": 73,
+    "REF": 85,
+    "SPD": 50,
+    "POS": 87
+   },
+   "portraitSeed": 3681422030,
+   "affiliation": "FC Barcelone"
+  },
+  {
+   "id": "real-ederson",
+   "name": "Ederson",
+   "shortName": "Ederson",
+   "nationality": "BRA",
+   "roles": [
+    "GK"
+   ],
+   "overall": 85,
+   "attributes": {
+    "DIV": 85,
+    "HAN": 83,
+    "KIC": 71,
+    "REF": 86,
+    "SPD": 50,
+    "POS": 87
+   },
+   "portraitSeed": 4256174337,
+   "affiliation": "Fenerbahçe"
+  },
+  {
+   "id": "real-diogo-costa",
+   "name": "Diogo Costa",
+   "shortName": "D. Costa",
+   "nationality": "POR",
+   "roles": [
+    "GK"
+   ],
+   "overall": 85,
+   "attributes": {
+    "DIV": 85,
+    "HAN": 84,
+    "KIC": 70,
+    "REF": 87,
+    "SPD": 48,
+    "POS": 87
+   },
+   "portraitSeed": 3588571625,
+   "affiliation": "FC Porto"
+  },
+  {
+   "id": "real-yann-sommer",
+   "name": "Yann Sommer",
+   "shortName": "Sommer",
+   "nationality": "SUI",
+   "roles": [
+    "GK"
+   ],
+   "overall": 84,
+   "attributes": {
+    "DIV": 82,
+    "HAN": 82,
+    "KIC": 71,
+    "REF": 85,
+    "SPD": 51,
+    "POS": 85
+   },
+   "portraitSeed": 1948725490,
+   "affiliation": "Inter"
+  },
+  {
+   "id": "real-unai-simon",
+   "name": "Unai Simón",
+   "shortName": "Unai Simón",
+   "nationality": "ESP",
+   "roles": [
+    "GK"
+   ],
+   "overall": 84,
+   "attributes": {
+    "DIV": 85,
+    "HAN": 79,
+    "KIC": 71,
+    "REF": 83,
+    "SPD": 52,
+    "POS": 80
+   },
+   "portraitSeed": 2404425070,
+   "affiliation": "Athletic Club"
+  },
+  {
+   "id": "real-joan-garcia",
+   "name": "Joan García",
+   "shortName": "Joan García",
+   "nationality": "ESP",
+   "roles": [
+    "GK"
+   ],
+   "overall": 83,
+   "attributes": {
+    "DIV": 81,
+    "HAN": 82,
+    "KIC": 72,
+    "REF": 88,
+    "SPD": 48,
+    "POS": 84
+   },
+   "portraitSeed": 3945892094,
+   "affiliation": "FC Barcelone"
+  },
+  {
+   "id": "real-guglielmo-vicario",
+   "name": "Guglielmo Vicario",
+   "shortName": "Vicario",
+   "nationality": "ITA",
+   "roles": [
+    "GK"
+   ],
+   "overall": 83,
+   "attributes": {
+    "DIV": 80,
+    "HAN": 83,
+    "KIC": 72,
+    "REF": 86,
+    "SPD": 48,
+    "POS": 80
+   },
+   "portraitSeed": 4215217321,
+   "affiliation": "Tottenham"
+  },
+  {
+   "id": "real-bart-verbruggen",
+   "name": "Bart Verbruggen",
+   "shortName": "Verbruggen",
+   "nationality": "NED",
+   "roles": [
+    "GK"
+   ],
+   "overall": 82,
+   "attributes": {
+    "DIV": 81,
+    "HAN": 81,
+    "KIC": 70,
+    "REF": 83,
+    "SPD": 48,
+    "POS": 79
+   },
+   "portraitSeed": 1603389943,
+   "affiliation": "Brighton"
+  },
+  {
+   "id": "real-lucas-chevalier",
+   "name": "Lucas Chevalier",
+   "shortName": "Chevalier",
+   "nationality": "FRA",
+   "roles": [
+    "GK"
+   ],
+   "overall": 82,
+   "attributes": {
+    "DIV": 85,
+    "HAN": 83,
+    "KIC": 68,
+    "REF": 85,
+    "SPD": 47,
+    "POS": 82
+   },
+   "portraitSeed": 1788382856,
+   "affiliation": "Paris Saint-Germain"
+  },
+  {
+   "id": "real-virgil-van-dijk",
+   "name": "Virgil van Dijk",
+   "shortName": "van Dijk",
+   "nationality": "NED",
+   "roles": [
+    "CB"
+   ],
+   "overall": 89,
+   "attributes": {
+    "PAC": 72,
+    "SHO": 45,
+    "PAS": 64,
+    "DRI": 61,
+    "DEF": 97,
+    "PHY": 93
+   },
+   "portraitSeed": 116989945,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-william-saliba",
+   "name": "William Saliba",
+   "shortName": "Saliba",
+   "nationality": "FRA",
+   "roles": [
+    "CB"
+   ],
+   "overall": 88,
+   "attributes": {
+    "PAC": 67,
+    "SHO": 49,
+    "PAS": 65,
+    "DRI": 64,
+    "DEF": 97,
+    "PHY": 89
+   },
+   "portraitSeed": 762110820,
+   "affiliation": "Arsenal"
+  },
+  {
+   "id": "real-ruben-dias",
+   "name": "Rúben Dias",
+   "shortName": "Rúben Dias",
+   "nationality": "POR",
+   "roles": [
+    "CB"
+   ],
+   "overall": 88,
+   "attributes": {
+    "PAC": 70,
+    "SHO": 46,
+    "PAS": 62,
+    "DRI": 65,
+    "DEF": 97,
+    "PHY": 91
+   },
+   "portraitSeed": 2447613253,
+   "affiliation": "Manchester City"
+  },
+  {
+   "id": "real-gabriel-magalhaes",
+   "name": "Gabriel Magalhães",
+   "shortName": "Gabriel",
+   "nationality": "BRA",
+   "roles": [
+    "CB"
+   ],
+   "overall": 87,
+   "attributes": {
+    "PAC": 70,
+    "SHO": 46,
+    "PAS": 67,
+    "DRI": 63,
+    "DEF": 87,
+    "PHY": 91
+   },
+   "portraitSeed": 202594878,
+   "affiliation": "Arsenal"
+  },
+  {
+   "id": "real-antonio-rudiger",
+   "name": "Antonio Rüdiger",
+   "shortName": "Rüdiger",
+   "nationality": "GER",
+   "roles": [
+    "CB"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 68,
+    "SHO": 43,
+    "PAS": 66,
+    "DRI": 65,
+    "DEF": 86,
+    "PHY": 92
+   },
+   "portraitSeed": 3116669722,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-marquinhos",
+   "name": "Marquinhos",
+   "shortName": "Marquinhos",
+   "nationality": "BRA",
+   "roles": [
+    "CB"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 70,
+    "SHO": 42,
+    "PAS": 66,
+    "DRI": 63,
+    "DEF": 90,
+    "PHY": 86
+   },
+   "portraitSeed": 547899024,
+   "affiliation": "Paris Saint-Germain"
+  },
+  {
+   "id": "real-alessandro-bastoni",
+   "name": "Alessandro Bastoni",
+   "shortName": "Bastoni",
+   "nationality": "ITA",
+   "roles": [
+    "CB",
+    "LB"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 70,
+    "SHO": 48,
+    "PAS": 68,
+    "DRI": 64,
+    "DEF": 87,
+    "PHY": 88
+   },
+   "portraitSeed": 1190443559,
+   "affiliation": "Inter"
+  },
+  {
+   "id": "real-josko-gvardiol",
+   "name": "Joško Gvardiol",
+   "shortName": "Gvardiol",
+   "nationality": "CRO",
+   "roles": [
+    "CB",
+    "LB"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 70,
+    "SHO": 47,
+    "PAS": 61,
+    "DRI": 64,
+    "DEF": 88,
+    "PHY": 85
+   },
+   "portraitSeed": 2507576175,
+   "affiliation": "Manchester City"
+  },
+  {
+   "id": "real-eder-militao",
+   "name": "Éder Militão",
+   "shortName": "Militão",
+   "nationality": "BRA",
+   "roles": [
+    "CB"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 75,
+    "SHO": 47,
+    "PAS": 63,
+    "DRI": 59,
+    "DEF": 87,
+    "PHY": 83
+   },
+   "portraitSeed": 3611141402,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-cristian-romero",
+   "name": "Cristian Romero",
+   "shortName": "Romero",
+   "nationality": "ARG",
+   "roles": [
+    "CB"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 66,
+    "SHO": 41,
+    "PAS": 65,
+    "DRI": 63,
+    "DEF": 85,
+    "PHY": 91
+   },
+   "portraitSeed": 3059415658,
+   "affiliation": "Tottenham"
+  },
+  {
+   "id": "real-ibrahima-konate",
+   "name": "Ibrahima Konaté",
+   "shortName": "Konaté",
+   "nationality": "FRA",
+   "roles": [
+    "CB"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 74,
+    "SHO": 41,
+    "PAS": 66,
+    "DRI": 64,
+    "DEF": 88,
+    "PHY": 93
+   },
+   "portraitSeed": 36320738,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-willian-pacho",
+   "name": "Willian Pacho",
+   "shortName": "Pacho",
+   "nationality": "ECU",
+   "roles": [
+    "CB"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 67,
+    "SHO": 45,
+    "PAS": 66,
+    "DRI": 58,
+    "DEF": 89,
+    "PHY": 88
+   },
+   "portraitSeed": 1316252718,
+   "affiliation": "Paris Saint-Germain"
+  },
+  {
+   "id": "real-ronald-araujo",
+   "name": "Ronald Araújo",
+   "shortName": "Araújo",
+   "nationality": "URU",
+   "roles": [
+    "CB",
+    "RB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 75,
+    "SHO": 41,
+    "PAS": 60,
+    "DRI": 62,
+    "DEF": 86,
+    "PHY": 90
+   },
+   "portraitSeed": 2182989438,
+   "affiliation": "FC Barcelone"
+  },
+  {
+   "id": "real-pau-cubarsi",
+   "name": "Pau Cubarsí",
+   "shortName": "Cubarsí",
+   "nationality": "ESP",
+   "roles": [
+    "CB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 70,
+    "SHO": 44,
+    "PAS": 67,
+    "DRI": 57,
+    "DEF": 89,
+    "PHY": 82
+   },
+   "portraitSeed": 3447566536,
+   "affiliation": "FC Barcelone"
+  },
+  {
+   "id": "real-dayot-upamecano",
+   "name": "Dayot Upamecano",
+   "shortName": "Upamecano",
+   "nationality": "FRA",
+   "roles": [
+    "CB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 74,
+    "SHO": 44,
+    "PAS": 60,
+    "DRI": 59,
+    "DEF": 89,
+    "PHY": 84
+   },
+   "portraitSeed": 2346491207,
+   "affiliation": "Bayern Munich"
+  },
+  {
+   "id": "real-jonathan-tah",
+   "name": "Jonathan Tah",
+   "shortName": "Tah",
+   "nationality": "GER",
+   "roles": [
+    "CB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 64,
+    "SHO": 45,
+    "PAS": 62,
+    "DRI": 57,
+    "DEF": 90,
+    "PHY": 82
+   },
+   "portraitSeed": 1573617441,
+   "affiliation": "Bayern Munich"
+  },
+  {
+   "id": "real-micky-van-de-ven",
+   "name": "Micky van de Ven",
+   "shortName": "van de Ven",
+   "nationality": "NED",
+   "roles": [
+    "CB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 71,
+    "SHO": 44,
+    "PAS": 63,
+    "DRI": 59,
+    "DEF": 84,
+    "PHY": 88
+   },
+   "portraitSeed": 3776593405,
+   "affiliation": "Tottenham"
+  },
+  {
+   "id": "real-lisandro-martinez",
+   "name": "Lisandro Martínez",
+   "shortName": "Li. Martínez",
+   "nationality": "ARG",
+   "roles": [
+    "CB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 66,
+    "SHO": 43,
+    "PAS": 64,
+    "DRI": 57,
+    "DEF": 90,
+    "PHY": 82
+   },
+   "portraitSeed": 2983593569,
+   "affiliation": "Manchester United"
+  },
+  {
+   "id": "real-kim-min-jae",
+   "name": "Kim Min-jae",
+   "shortName": "Kim Min-jae",
+   "nationality": "KOR",
+   "roles": [
+    "CB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 69,
+    "SHO": 41,
+    "PAS": 60,
+    "DRI": 63,
+    "DEF": 88,
+    "PHY": 91
+   },
+   "portraitSeed": 3258470333,
+   "affiliation": "Bayern Munich"
+  },
+  {
+   "id": "real-nico-schlotterbeck",
+   "name": "Nico Schlotterbeck",
+   "shortName": "Schlotterbeck",
+   "nationality": "GER",
+   "roles": [
+    "CB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 69,
+    "SHO": 43,
+    "PAS": 61,
+    "DRI": 57,
+    "DEF": 90,
+    "PHY": 86
+   },
+   "portraitSeed": 578856945,
+   "affiliation": "Borussia Dortmund"
+  },
+  {
+   "id": "real-marc-guehi",
+   "name": "Marc Guéhi",
+   "shortName": "Guéhi",
+   "nationality": "ENG",
+   "roles": [
+    "CB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 67,
+    "SHO": 43,
+    "PAS": 65,
+    "DRI": 57,
+    "DEF": 86,
+    "PHY": 86
+   },
+   "portraitSeed": 2300259240,
+   "affiliation": "Crystal Palace"
+  },
+  {
+   "id": "real-dean-huijsen",
+   "name": "Dean Huijsen",
+   "shortName": "Huijsen",
+   "nationality": "ESP",
+   "roles": [
+    "CB"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 66,
+    "SHO": 43,
+    "PAS": 70,
+    "DRI": 61,
+    "DEF": 88,
+    "PHY": 86
+   },
+   "portraitSeed": 2625403187,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-levi-colwill",
+   "name": "Levi Colwill",
+   "shortName": "Colwill",
+   "nationality": "ENG",
+   "roles": [
+    "CB"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 69,
+    "SHO": 46,
+    "PAS": 60,
+    "DRI": 63,
+    "DEF": 88,
+    "PHY": 84
+   },
+   "portraitSeed": 1496795393,
+   "affiliation": "Chelsea"
+  },
+  {
+   "id": "real-alessandro-buongiorno",
+   "name": "Alessandro Buongiorno",
+   "shortName": "Buongiorno",
+   "nationality": "ITA",
+   "roles": [
+    "CB"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 65,
+    "SHO": 42,
+    "PAS": 63,
+    "DRI": 60,
+    "DEF": 87,
+    "PHY": 84
+   },
+   "portraitSeed": 3765917845,
+   "affiliation": "Napoli"
+  },
+  {
+   "id": "real-castello-lukeba",
+   "name": "Castello Lukeba",
+   "shortName": "Lukeba",
+   "nationality": "FRA",
+   "roles": [
+    "CB"
+   ],
+   "overall": 82,
+   "attributes": {
+    "PAC": 65,
+    "SHO": 41,
+    "PAS": 63,
+    "DRI": 60,
+    "DEF": 82,
+    "PHY": 81
+   },
+   "portraitSeed": 2752184896,
+   "affiliation": "RB Leipzig"
+  },
+  {
+   "id": "real-leny-yoro",
+   "name": "Leny Yoro",
+   "shortName": "Yoro",
+   "nationality": "FRA",
+   "roles": [
+    "CB"
+   ],
+   "overall": 81,
+   "attributes": {
+    "PAC": 68,
+    "SHO": 45,
+    "PAS": 59,
+    "DRI": 60,
+    "DEF": 87,
+    "PHY": 85
+   },
+   "portraitSeed": 3178595674,
+   "affiliation": "Manchester United"
+  },
+  {
+   "id": "real-nuno-mendes",
+   "name": "Nuno Mendes",
+   "shortName": "Nuno Mendes",
+   "nationality": "POR",
+   "roles": [
+    "LB"
+   ],
+   "overall": 87,
+   "attributes": {
+    "PAC": 91,
+    "SHO": 56,
+    "PAS": 76,
+    "DRI": 81,
+    "DEF": 81,
+    "PHY": 77
+   },
+   "portraitSeed": 91000885,
+   "affiliation": "Paris Saint-Germain"
+  },
+  {
+   "id": "real-alejandro-grimaldo",
+   "name": "Alejandro Grimaldo",
+   "shortName": "Grimaldo",
+   "nationality": "ESP",
+   "roles": [
+    "LB",
+    "LM"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 86,
+    "SHO": 51,
+    "PAS": 76,
+    "DRI": 73,
+    "DEF": 83,
+    "PHY": 76
+   },
+   "portraitSeed": 1207726082,
+   "affiliation": "Bayer Leverkusen"
+  },
+  {
+   "id": "real-federico-dimarco",
+   "name": "Federico Dimarco",
+   "shortName": "Dimarco",
+   "nationality": "ITA",
+   "roles": [
+    "LB",
+    "LM"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 87,
+    "SHO": 52,
+    "PAS": 78,
+    "DRI": 74,
+    "DEF": 77,
+    "PHY": 75
+   },
+   "portraitSeed": 2873356107,
+   "affiliation": "Inter"
+  },
+  {
+   "id": "real-theo-hernandez",
+   "name": "Theo Hernández",
+   "shortName": "T. Hernández",
+   "nationality": "FRA",
+   "roles": [
+    "LB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 92,
+    "SHO": 54,
+    "PAS": 70,
+    "DRI": 77,
+    "DEF": 79,
+    "PHY": 71
+   },
+   "portraitSeed": 2882517150,
+   "affiliation": "Al-Hilal"
+  },
+  {
+   "id": "real-alphonso-davies",
+   "name": "Alphonso Davies",
+   "shortName": "Davies",
+   "nationality": "CAN",
+   "roles": [
+    "LB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 92,
+    "SHO": 56,
+    "PAS": 70,
+    "DRI": 71,
+    "DEF": 82,
+    "PHY": 75
+   },
+   "portraitSeed": 3977950607,
+   "affiliation": "Bayern Munich"
+  },
+  {
+   "id": "real-marc-cucurella",
+   "name": "Marc Cucurella",
+   "shortName": "Cucurella",
+   "nationality": "ESP",
+   "roles": [
+    "LB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 86,
+    "SHO": 51,
+    "PAS": 70,
+    "DRI": 75,
+    "DEF": 82,
+    "PHY": 71
+   },
+   "portraitSeed": 144745056,
+   "affiliation": "Chelsea"
+  },
+  {
+   "id": "real-andrew-robertson",
+   "name": "Andrew Robertson",
+   "shortName": "Robertson",
+   "nationality": "SCO",
+   "roles": [
+    "LB"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 80,
+    "SHO": 52,
+    "PAS": 78,
+    "DRI": 74,
+    "DEF": 75,
+    "PHY": 70
+   },
+   "portraitSeed": 2800174348,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-milos-kerkez",
+   "name": "Milos Kerkez",
+   "shortName": "Kerkez",
+   "nationality": "HUN",
+   "roles": [
+    "LB"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 88,
+    "SHO": 52,
+    "PAS": 74,
+    "DRI": 74,
+    "DEF": 79,
+    "PHY": 71
+   },
+   "portraitSeed": 3656829189,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-alejandro-balde",
+   "name": "Alejandro Balde",
+   "shortName": "Balde",
+   "nationality": "ESP",
+   "roles": [
+    "LB"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 90,
+    "SHO": 54,
+    "PAS": 69,
+    "DRI": 70,
+    "DEF": 81,
+    "PHY": 68
+   },
+   "portraitSeed": 990517855,
+   "affiliation": "FC Barcelone"
+  },
+  {
+   "id": "real-riccardo-calafiori",
+   "name": "Riccardo Calafiori",
+   "shortName": "Calafiori",
+   "nationality": "ITA",
+   "roles": [
+    "LB",
+    "CB"
+   ],
+   "overall": 82,
+   "attributes": {
+    "PAC": 83,
+    "SHO": 55,
+    "PAS": 68,
+    "DRI": 72,
+    "DEF": 78,
+    "PHY": 69
+   },
+   "portraitSeed": 3979368542,
+   "affiliation": "Arsenal"
+  },
+  {
+   "id": "real-ferland-mendy",
+   "name": "Ferland Mendy",
+   "shortName": "F. Mendy",
+   "nationality": "FRA",
+   "roles": [
+    "LB"
+   ],
+   "overall": 81,
+   "attributes": {
+    "PAC": 79,
+    "SHO": 52,
+    "PAS": 71,
+    "DRI": 68,
+    "DEF": 81,
+    "PHY": 72
+   },
+   "portraitSeed": 2180083552,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-achraf-hakimi",
+   "name": "Achraf Hakimi",
+   "shortName": "Hakimi",
+   "nationality": "MAR",
+   "roles": [
+    "RB",
+    "RM"
+   ],
+   "overall": 89,
+   "attributes": {
+    "PAC": 95,
+    "SHO": 60,
+    "PAS": 74,
+    "DRI": 84,
+    "DEF": 82,
+    "PHY": 76
+   },
+   "portraitSeed": 1155670733,
+   "affiliation": "Paris Saint-Germain"
+  },
+  {
+   "id": "real-jules-kounde",
+   "name": "Jules Koundé",
+   "shortName": "Koundé",
+   "nationality": "FRA",
+   "roles": [
+    "RB",
+    "CB"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 88,
+    "SHO": 54,
+    "PAS": 72,
+    "DRI": 74,
+    "DEF": 83,
+    "PHY": 77
+   },
+   "portraitSeed": 502476258,
+   "affiliation": "FC Barcelone"
+  },
+  {
+   "id": "real-trent-alexander-arnold",
+   "name": "Trent Alexander-Arnold",
+   "shortName": "Alexander-Arnold",
+   "nationality": "ENG",
+   "roles": [
+    "RB",
+    "CM"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 86,
+    "SHO": 53,
+    "PAS": 77,
+    "DRI": 78,
+    "DEF": 82,
+    "PHY": 77
+   },
+   "portraitSeed": 3956903001,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-reece-james",
+   "name": "Reece James",
+   "shortName": "R. James",
+   "nationality": "ENG",
+   "roles": [
+    "RB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 81,
+    "SHO": 57,
+    "PAS": 73,
+    "DRI": 75,
+    "DEF": 81,
+    "PHY": 75
+   },
+   "portraitSeed": 2725964295,
+   "affiliation": "Chelsea"
+  },
+  {
+   "id": "real-jeremie-frimpong",
+   "name": "Jeremie Frimpong",
+   "shortName": "Frimpong",
+   "nationality": "NED",
+   "roles": [
+    "RB",
+    "RM"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 88,
+    "SHO": 51,
+    "PAS": 73,
+    "DRI": 72,
+    "DEF": 78,
+    "PHY": 74
+   },
+   "portraitSeed": 4001663870,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-dani-carvajal",
+   "name": "Dani Carvajal",
+   "shortName": "Carvajal",
+   "nationality": "ESP",
+   "roles": [
+    "RB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 84,
+    "SHO": 55,
+    "PAS": 75,
+    "DRI": 75,
+    "DEF": 81,
+    "PHY": 73
+   },
+   "portraitSeed": 2876932499,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-pedro-porro",
+   "name": "Pedro Porro",
+   "shortName": "Porro",
+   "nationality": "ESP",
+   "roles": [
+    "RB"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 82,
+    "SHO": 54,
+    "PAS": 80,
+    "DRI": 76,
+    "DEF": 81,
+    "PHY": 70
+   },
+   "portraitSeed": 2760115339,
+   "affiliation": "Tottenham"
+  },
+  {
+   "id": "real-denzel-dumfries",
+   "name": "Denzel Dumfries",
+   "shortName": "Dumfries",
+   "nationality": "NED",
+   "roles": [
+    "RB",
+    "RM"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 83,
+    "SHO": 55,
+    "PAS": 74,
+    "DRI": 74,
+    "DEF": 79,
+    "PHY": 76
+   },
+   "portraitSeed": 4293398816,
+   "affiliation": "Inter"
+  },
+  {
+   "id": "real-giovanni-di-lorenzo",
+   "name": "Giovanni Di Lorenzo",
+   "shortName": "Di Lorenzo",
+   "nationality": "ITA",
+   "roles": [
+    "RB"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 82,
+    "SHO": 50,
+    "PAS": 74,
+    "DRI": 72,
+    "DEF": 76,
+    "PHY": 73
+   },
+   "portraitSeed": 4122579664,
+   "affiliation": "Napoli"
+  },
+  {
+   "id": "real-ben-white",
+   "name": "Ben White",
+   "shortName": "B. White",
+   "nationality": "ENG",
+   "roles": [
+    "RB",
+    "CB"
+   ],
+   "overall": 82,
+   "attributes": {
+    "PAC": 82,
+    "SHO": 51,
+    "PAS": 68,
+    "DRI": 69,
+    "DEF": 79,
+    "PHY": 71
+   },
+   "portraitSeed": 1948711627,
+   "affiliation": "Arsenal"
+  },
+  {
+   "id": "real-kyle-walker",
+   "name": "Kyle Walker",
+   "shortName": "Walker",
+   "nationality": "ENG",
+   "roles": [
+    "RB"
+   ],
+   "overall": 80,
+   "attributes": {
+    "PAC": 87,
+    "SHO": 54,
+    "PAS": 66,
+    "DRI": 70,
+    "DEF": 77,
+    "PHY": 67
+   },
+   "portraitSeed": 2779020384,
+   "affiliation": "Burnley"
+  },
+  {
+   "id": "real-rodri",
+   "name": "Rodri",
+   "shortName": "Rodri",
+   "nationality": "ESP",
+   "roles": [
+    "CDM",
+    "CM"
+   ],
+   "overall": 89,
+   "attributes": {
+    "PAC": 71,
+    "SHO": 67,
+    "PAS": 91,
+    "DRI": 76,
+    "DEF": 92,
+    "PHY": 88
+   },
+   "portraitSeed": 2475137271,
+   "affiliation": "Manchester City"
+  },
+  {
+   "id": "real-declan-rice",
+   "name": "Declan Rice",
+   "shortName": "Rice",
+   "nationality": "ENG",
+   "roles": [
+    "CDM",
+    "CM"
+   ],
+   "overall": 88,
+   "attributes": {
+    "PAC": 72,
+    "SHO": 63,
+    "PAS": 80,
+    "DRI": 73,
+    "DEF": 86,
+    "PHY": 84
+   },
+   "portraitSeed": 645972927,
+   "affiliation": "Arsenal"
+  },
+  {
+   "id": "real-joshua-kimmich",
+   "name": "Joshua Kimmich",
+   "shortName": "Kimmich",
+   "nationality": "GER",
+   "roles": [
+    "CDM",
+    "RB"
+   ],
+   "overall": 87,
+   "attributes": {
+    "PAC": 68,
+    "SHO": 67,
+    "PAS": 85,
+    "DRI": 76,
+    "DEF": 91,
+    "PHY": 83
+   },
+   "portraitSeed": 2890249529,
+   "affiliation": "Bayern Munich"
+  },
+  {
+   "id": "real-moises-caicedo",
+   "name": "Moisés Caicedo",
+   "shortName": "Caicedo",
+   "nationality": "ECU",
+   "roles": [
+    "CDM"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 67,
+    "SHO": 61,
+    "PAS": 81,
+    "DRI": 77,
+    "DEF": 92,
+    "PHY": 87
+   },
+   "portraitSeed": 2787819975,
+   "affiliation": "Chelsea"
+  },
+  {
+   "id": "real-joao-neves",
+   "name": "João Neves",
+   "shortName": "João Neves",
+   "nationality": "POR",
+   "roles": [
+    "CDM",
+    "CM"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 68,
+    "SHO": 65,
+    "PAS": 81,
+    "DRI": 80,
+    "DEF": 85,
+    "PHY": 81
+   },
+   "portraitSeed": 2284367869,
+   "affiliation": "Paris Saint-Germain"
+  },
+  {
+   "id": "real-aurelien-tchouameni",
+   "name": "Aurélien Tchouaméni",
+   "shortName": "Tchouaméni",
+   "nationality": "FRA",
+   "roles": [
+    "CDM",
+    "CB"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 70,
+    "SHO": 60,
+    "PAS": 77,
+    "DRI": 75,
+    "DEF": 89,
+    "PHY": 91
+   },
+   "portraitSeed": 245178119,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-bruno-guimaraes",
+   "name": "Bruno Guimarães",
+   "shortName": "B. Guimarães",
+   "nationality": "BRA",
+   "roles": [
+    "CDM",
+    "CM"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 70,
+    "SHO": 61,
+    "PAS": 77,
+    "DRI": 75,
+    "DEF": 86,
+    "PHY": 84
+   },
+   "portraitSeed": 1368232525,
+   "affiliation": "Newcastle"
+  },
+  {
+   "id": "real-martin-zubimendi",
+   "name": "Martín Zubimendi",
+   "shortName": "Zubimendi",
+   "nationality": "ESP",
+   "roles": [
+    "CDM"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 67,
+    "SHO": 61,
+    "PAS": 80,
+    "DRI": 73,
+    "DEF": 87,
+    "PHY": 80
+   },
+   "portraitSeed": 1305936157,
+   "affiliation": "Arsenal"
+  },
+  {
+   "id": "real-hakan-calhanoglu",
+   "name": "Hakan Çalhanoğlu",
+   "shortName": "Çalhanoğlu",
+   "nationality": "TUR",
+   "roles": [
+    "CDM",
+    "CM"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 67,
+    "SHO": 71,
+    "PAS": 86,
+    "DRI": 71,
+    "DEF": 83,
+    "PHY": 83
+   },
+   "portraitSeed": 444391586,
+   "affiliation": "Inter"
+  },
+  {
+   "id": "real-ryan-gravenberch",
+   "name": "Ryan Gravenberch",
+   "shortName": "Gravenberch",
+   "nationality": "NED",
+   "roles": [
+    "CDM",
+    "CM"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 67,
+    "SHO": 65,
+    "PAS": 80,
+    "DRI": 81,
+    "DEF": 83,
+    "PHY": 83
+   },
+   "portraitSeed": 4156980386,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-stanislav-lobotka",
+   "name": "Stanislav Lobotka",
+   "shortName": "Lobotka",
+   "nationality": "SVK",
+   "roles": [
+    "CDM"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 65,
+    "SHO": 63,
+    "PAS": 85,
+    "DRI": 75,
+    "DEF": 86,
+    "PHY": 82
+   },
+   "portraitSeed": 3754772742,
+   "affiliation": "Napoli"
+  },
+  {
+   "id": "real-granit-xhaka",
+   "name": "Granit Xhaka",
+   "shortName": "Xhaka",
+   "nationality": "SUI",
+   "roles": [
+    "CDM",
+    "CM"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 67,
+    "SHO": 62,
+    "PAS": 80,
+    "DRI": 74,
+    "DEF": 85,
+    "PHY": 84
+   },
+   "portraitSeed": 3453142853,
+   "affiliation": "Sunderland"
+  },
+  {
+   "id": "real-aleksandar-pavlovic",
+   "name": "Aleksandar Pavlović",
+   "shortName": "Pavlović",
+   "nationality": "GER",
+   "roles": [
+    "CDM"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 68,
+    "SHO": 63,
+    "PAS": 74,
+    "DRI": 72,
+    "DEF": 86,
+    "PHY": 82
+   },
+   "portraitSeed": 3300454583,
+   "affiliation": "Bayern Munich"
+  },
+  {
+   "id": "real-manuel-ugarte",
+   "name": "Manuel Ugarte",
+   "shortName": "Ugarte",
+   "nationality": "URU",
+   "roles": [
+    "CDM"
+   ],
+   "overall": 81,
+   "attributes": {
+    "PAC": 66,
+    "SHO": 63,
+    "PAS": 73,
+    "DRI": 67,
+    "DEF": 89,
+    "PHY": 79
+   },
+   "portraitSeed": 4242989805,
+   "affiliation": "Manchester United"
+  },
+  {
+   "id": "real-pedri",
+   "name": "Pedri",
+   "shortName": "Pedri",
+   "nationality": "ESP",
+   "roles": [
+    "CM",
+    "CAM"
+   ],
+   "overall": 89,
+   "attributes": {
+    "PAC": 76,
+    "SHO": 74,
+    "PAS": 97,
+    "DRI": 91,
+    "DEF": 80,
+    "PHY": 79
+   },
+   "portraitSeed": 1993304999,
+   "affiliation": "FC Barcelone"
+  },
+  {
+   "id": "real-vitinha",
+   "name": "Vitinha",
+   "shortName": "Vitinha",
+   "nationality": "POR",
+   "roles": [
+    "CM"
+   ],
+   "overall": 88,
+   "attributes": {
+    "PAC": 76,
+    "SHO": 77,
+    "PAS": 97,
+    "DRI": 86,
+    "DEF": 74,
+    "PHY": 76
+   },
+   "portraitSeed": 3966146560,
+   "affiliation": "Paris Saint-Germain"
+  },
+  {
+   "id": "real-federico-valverde",
+   "name": "Federico Valverde",
+   "shortName": "Valverde",
+   "nationality": "URU",
+   "roles": [
+    "CM",
+    "RM"
+   ],
+   "overall": 88,
+   "attributes": {
+    "PAC": 79,
+    "SHO": 78,
+    "PAS": 89,
+    "DRI": 85,
+    "DEF": 78,
+    "PHY": 87
+   },
+   "portraitSeed": 3500901863,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-frenkie-de-jong",
+   "name": "Frenkie de Jong",
+   "shortName": "de Jong",
+   "nationality": "NED",
+   "roles": [
+    "CM"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 75,
+    "SHO": 72,
+    "PAS": 84,
+    "DRI": 88,
+    "DEF": 72,
+    "PHY": 74
+   },
+   "portraitSeed": 2017125364,
+   "affiliation": "FC Barcelone"
+  },
+  {
+   "id": "real-nicolo-barella",
+   "name": "Nicolò Barella",
+   "shortName": "Barella",
+   "nationality": "ITA",
+   "roles": [
+    "CM"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 75,
+    "SHO": 76,
+    "PAS": 83,
+    "DRI": 82,
+    "DEF": 77,
+    "PHY": 77
+   },
+   "portraitSeed": 997323995,
+   "affiliation": "Inter"
+  },
+  {
+   "id": "real-alexis-mac-allister",
+   "name": "Alexis Mac Allister",
+   "shortName": "Mac Allister",
+   "nationality": "ARG",
+   "roles": [
+    "CM"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 77,
+    "SHO": 71,
+    "PAS": 91,
+    "DRI": 80,
+    "DEF": 75,
+    "PHY": 79
+   },
+   "portraitSeed": 2697879072,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-enzo-fernandez",
+   "name": "Enzo Fernández",
+   "shortName": "E. Fernández",
+   "nationality": "ARG",
+   "roles": [
+    "CM"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 73,
+    "SHO": 70,
+    "PAS": 92,
+    "DRI": 79,
+    "DEF": 72,
+    "PHY": 76
+   },
+   "portraitSeed": 1813385776,
+   "affiliation": "Chelsea"
+  },
+  {
+   "id": "real-dominik-szoboszlai",
+   "name": "Dominik Szoboszlai",
+   "shortName": "Szoboszlai",
+   "nationality": "HUN",
+   "roles": [
+    "CM",
+    "CAM"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 76,
+    "SHO": 81,
+    "PAS": 84,
+    "DRI": 84,
+    "DEF": 76,
+    "PHY": 80
+   },
+   "portraitSeed": 1144617050,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-scott-mctominay",
+   "name": "Scott McTominay",
+   "shortName": "McTominay",
+   "nationality": "SCO",
+   "roles": [
+    "CM"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 73,
+    "SHO": 78,
+    "PAS": 88,
+    "DRI": 83,
+    "DEF": 75,
+    "PHY": 84
+   },
+   "portraitSeed": 1147122581,
+   "affiliation": "Napoli"
+  },
+  {
+   "id": "real-tijjani-reijnders",
+   "name": "Tijjani Reijnders",
+   "shortName": "Reijnders",
+   "nationality": "NED",
+   "roles": [
+    "CM",
+    "CAM"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 72,
+    "SHO": 71,
+    "PAS": 88,
+    "DRI": 85,
+    "DEF": 71,
+    "PHY": 78
+   },
+   "portraitSeed": 2146500332,
+   "affiliation": "Manchester City"
+  },
+  {
+   "id": "real-eduardo-camavinga",
+   "name": "Eduardo Camavinga",
+   "shortName": "Camavinga",
+   "nationality": "FRA",
+   "roles": [
+    "CM",
+    "LB"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 75,
+    "SHO": 73,
+    "PAS": 83,
+    "DRI": 85,
+    "DEF": 71,
+    "PHY": 79
+   },
+   "portraitSeed": 1788699642,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-gavi",
+   "name": "Gavi",
+   "shortName": "Gavi",
+   "nationality": "ESP",
+   "roles": [
+    "CM"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 73,
+    "SHO": 74,
+    "PAS": 81,
+    "DRI": 81,
+    "DEF": 74,
+    "PHY": 74
+   },
+   "portraitSeed": 2526131296,
+   "affiliation": "FC Barcelone"
+  },
+  {
+   "id": "real-sandro-tonali",
+   "name": "Sandro Tonali",
+   "shortName": "Tonali",
+   "nationality": "ITA",
+   "roles": [
+    "CM"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 74,
+    "SHO": 72,
+    "PAS": 83,
+    "DRI": 84,
+    "DEF": 71,
+    "PHY": 78
+   },
+   "portraitSeed": 2022855591,
+   "affiliation": "Newcastle"
+  },
+  {
+   "id": "real-teun-koopmeiners",
+   "name": "Teun Koopmeiners",
+   "shortName": "Koopmeiners",
+   "nationality": "NED",
+   "roles": [
+    "CM"
+   ],
+   "overall": 82,
+   "attributes": {
+    "PAC": 71,
+    "SHO": 77,
+    "PAS": 85,
+    "DRI": 82,
+    "DEF": 68,
+    "PHY": 74
+   },
+   "portraitSeed": 3091489525,
+   "affiliation": "Juventus"
+  },
+  {
+   "id": "real-warren-zaire-emery",
+   "name": "Warren Zaïre-Emery",
+   "shortName": "Zaïre-Emery",
+   "nationality": "FRA",
+   "roles": [
+    "CM"
+   ],
+   "overall": 81,
+   "attributes": {
+    "PAC": 68,
+    "SHO": 66,
+    "PAS": 82,
+    "DRI": 75,
+    "DEF": 73,
+    "PHY": 72
+   },
+   "portraitSeed": 1334442844,
+   "affiliation": "Paris Saint-Germain"
+  },
+  {
+   "id": "real-kobbie-mainoo",
+   "name": "Kobbie Mainoo",
+   "shortName": "Mainoo",
+   "nationality": "ENG",
+   "roles": [
+    "CM"
+   ],
+   "overall": 80,
+   "attributes": {
+    "PAC": 68,
+    "SHO": 69,
+    "PAS": 83,
+    "DRI": 81,
+    "DEF": 68,
+    "PHY": 71
+   },
+   "portraitSeed": 2257201716,
+   "affiliation": "Manchester United"
+  },
+  {
+   "id": "real-jude-bellingham",
+   "name": "Jude Bellingham",
+   "shortName": "Bellingham",
+   "nationality": "ENG",
+   "roles": [
+    "CAM",
+    "CM"
+   ],
+   "overall": 89,
+   "attributes": {
+    "PAC": 80,
+    "SHO": 89,
+    "PAS": 88,
+    "DRI": 89,
+    "DEF": 48,
+    "PHY": 77
+   },
+   "portraitSeed": 580840230,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-jamal-musiala",
+   "name": "Jamal Musiala",
+   "shortName": "Musiala",
+   "nationality": "GER",
+   "roles": [
+    "CAM",
+    "LW"
+   ],
+   "overall": 89,
+   "attributes": {
+    "PAC": 77,
+    "SHO": 86,
+    "PAS": 91,
+    "DRI": 97,
+    "DEF": 48,
+    "PHY": 67
+   },
+   "portraitSeed": 1636500316,
+   "affiliation": "Bayern Munich"
+  },
+  {
+   "id": "real-florian-wirtz",
+   "name": "Florian Wirtz",
+   "shortName": "Wirtz",
+   "nationality": "GER",
+   "roles": [
+    "CAM",
+    "LW"
+   ],
+   "overall": 88,
+   "attributes": {
+    "PAC": 78,
+    "SHO": 80,
+    "PAS": 97,
+    "DRI": 97,
+    "DEF": 50,
+    "PHY": 68
+   },
+   "portraitSeed": 1229620346,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-martin-degaard",
+   "name": "Martin Ødegaard",
+   "shortName": "Ødegaard",
+   "nationality": "NOR",
+   "roles": [
+    "CAM"
+   ],
+   "overall": 87,
+   "attributes": {
+    "PAC": 76,
+    "SHO": 84,
+    "PAS": 96,
+    "DRI": 89,
+    "DEF": 51,
+    "PHY": 70
+   },
+   "portraitSeed": 2622361630,
+   "affiliation": "Arsenal"
+  },
+  {
+   "id": "real-bruno-fernandes",
+   "name": "Bruno Fernandes",
+   "shortName": "B. Fernandes",
+   "nationality": "POR",
+   "roles": [
+    "CAM",
+    "CM"
+   ],
+   "overall": 87,
+   "attributes": {
+    "PAC": 79,
+    "SHO": 86,
+    "PAS": 93,
+    "DRI": 90,
+    "DEF": 50,
+    "PHY": 66
+   },
+   "portraitSeed": 3032084945,
+   "affiliation": "Manchester United"
+  },
+  {
+   "id": "real-cole-palmer",
+   "name": "Cole Palmer",
+   "shortName": "Palmer",
+   "nationality": "ENG",
+   "roles": [
+    "CAM",
+    "RW"
+   ],
+   "overall": 87,
+   "attributes": {
+    "PAC": 80,
+    "SHO": 90,
+    "PAS": 87,
+    "DRI": 93,
+    "DEF": 45,
+    "PHY": 68
+   },
+   "portraitSeed": 2292982291,
+   "affiliation": "Chelsea"
+  },
+  {
+   "id": "real-kevin-de-bruyne",
+   "name": "Kevin De Bruyne",
+   "shortName": "De Bruyne",
+   "nationality": "BEL",
+   "roles": [
+    "CAM",
+    "CM"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 78,
+    "SHO": 83,
+    "PAS": 91,
+    "DRI": 91,
+    "DEF": 49,
+    "PHY": 67
+   },
+   "portraitSeed": 607649312,
+   "affiliation": "Napoli"
+  },
+  {
+   "id": "real-bernardo-silva",
+   "name": "Bernardo Silva",
+   "shortName": "B. Silva",
+   "nationality": "POR",
+   "roles": [
+    "CAM",
+    "RW"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 78,
+    "SHO": 82,
+    "PAS": 85,
+    "DRI": 94,
+    "DEF": 50,
+    "PHY": 69
+   },
+   "portraitSeed": 1222228675,
+   "affiliation": "Manchester City"
+  },
+  {
+   "id": "real-desire-doue",
+   "name": "Désiré Doué",
+   "shortName": "Doué",
+   "nationality": "FRA",
+   "roles": [
+    "CAM",
+    "RW"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 74,
+    "SHO": 79,
+    "PAS": 88,
+    "DRI": 95,
+    "DEF": 45,
+    "PHY": 64
+   },
+   "portraitSeed": 11843018,
+   "affiliation": "Paris Saint-Germain"
+  },
+  {
+   "id": "real-arda-guler",
+   "name": "Arda Güler",
+   "shortName": "Güler",
+   "nationality": "TUR",
+   "roles": [
+    "CAM"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 72,
+    "SHO": 76,
+    "PAS": 91,
+    "DRI": 83,
+    "DEF": 47,
+    "PHY": 67
+   },
+   "portraitSeed": 2756645331,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-xavi-simons",
+   "name": "Xavi Simons",
+   "shortName": "X. Simons",
+   "nationality": "NED",
+   "roles": [
+    "CAM"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 75,
+    "SHO": 74,
+    "PAS": 82,
+    "DRI": 91,
+    "DEF": 45,
+    "PHY": 67
+   },
+   "portraitSeed": 261149138,
+   "affiliation": "Tottenham"
+  },
+  {
+   "id": "real-nico-williams",
+   "name": "Nico Williams",
+   "shortName": "N. Williams",
+   "nationality": "ESP",
+   "roles": [
+    "LM",
+    "LW"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 91,
+    "SHO": 70,
+    "PAS": 83,
+    "DRI": 88,
+    "DEF": 50,
+    "PHY": 68
+   },
+   "portraitSeed": 3360381688,
+   "affiliation": "Athletic Club"
+  },
+  {
+   "id": "real-jeremy-doku",
+   "name": "Jérémy Doku",
+   "shortName": "Doku",
+   "nationality": "BEL",
+   "roles": [
+    "LM",
+    "LW"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 89,
+    "SHO": 74,
+    "PAS": 81,
+    "DRI": 91,
+    "DEF": 53,
+    "PHY": 67
+   },
+   "portraitSeed": 2936045904,
+   "affiliation": "Manchester City"
+  },
+  {
+   "id": "real-kaoru-mitoma",
+   "name": "Kaoru Mitoma",
+   "shortName": "Mitoma",
+   "nationality": "JPN",
+   "roles": [
+    "LM",
+    "LW"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 86,
+    "SHO": 71,
+    "PAS": 77,
+    "DRI": 88,
+    "DEF": 52,
+    "PHY": 69
+   },
+   "portraitSeed": 1750834808,
+   "affiliation": "Brighton"
+  },
+  {
+   "id": "real-anthony-gordon",
+   "name": "Anthony Gordon",
+   "shortName": "Gordon",
+   "nationality": "ENG",
+   "roles": [
+    "LM",
+    "LW"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 90,
+    "SHO": 72,
+    "PAS": 82,
+    "DRI": 82,
+    "DEF": 50,
+    "PHY": 65
+   },
+   "portraitSeed": 1396754567,
+   "affiliation": "Newcastle"
+  },
+  {
+   "id": "real-leroy-sane",
+   "name": "Leroy Sané",
+   "shortName": "Sané",
+   "nationality": "GER",
+   "roles": [
+    "LM",
+    "RW"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 92,
+    "SHO": 71,
+    "PAS": 77,
+    "DRI": 85,
+    "DEF": 50,
+    "PHY": 68
+   },
+   "portraitSeed": 846925925,
+   "affiliation": "Galatasaray"
+  },
+  {
+   "id": "real-alejandro-garnacho",
+   "name": "Alejandro Garnacho",
+   "shortName": "Garnacho",
+   "nationality": "ARG",
+   "roles": [
+    "LM",
+    "LW"
+   ],
+   "overall": 82,
+   "attributes": {
+    "PAC": 87,
+    "SHO": 70,
+    "PAS": 78,
+    "DRI": 81,
+    "DEF": 47,
+    "PHY": 69
+   },
+   "portraitSeed": 3144355520,
+   "affiliation": "Chelsea"
+  },
+  {
+   "id": "real-bukayo-saka",
+   "name": "Bukayo Saka",
+   "shortName": "Saka",
+   "nationality": "ENG",
+   "roles": [
+    "RM",
+    "RW"
+   ],
+   "overall": 88,
+   "attributes": {
+    "PAC": 87,
+    "SHO": 76,
+    "PAS": 85,
+    "DRI": 91,
+    "DEF": 56,
+    "PHY": 69
+   },
+   "portraitSeed": 2756060140,
+   "affiliation": "Arsenal"
+  },
+  {
+   "id": "real-michael-olise",
+   "name": "Michael Olise",
+   "shortName": "Olise",
+   "nationality": "FRA",
+   "roles": [
+    "RM",
+    "RW"
+   ],
+   "overall": 87,
+   "attributes": {
+    "PAC": 90,
+    "SHO": 72,
+    "PAS": 87,
+    "DRI": 94,
+    "DEF": 53,
+    "PHY": 69
+   },
+   "portraitSeed": 98928016,
+   "affiliation": "Bayern Munich"
+  },
+  {
+   "id": "real-bryan-mbeumo",
+   "name": "Bryan Mbeumo",
+   "shortName": "Mbeumo",
+   "nationality": "CMR",
+   "roles": [
+    "RM",
+    "RW"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 88,
+    "SHO": 78,
+    "PAS": 79,
+    "DRI": 83,
+    "DEF": 51,
+    "PHY": 65
+   },
+   "portraitSeed": 3349491408,
+   "affiliation": "Manchester United"
+  },
+  {
+   "id": "real-takefusa-kubo",
+   "name": "Takefusa Kubo",
+   "shortName": "Kubo",
+   "nationality": "JPN",
+   "roles": [
+    "RM",
+    "RW"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 87,
+    "SHO": 71,
+    "PAS": 77,
+    "DRI": 91,
+    "DEF": 49,
+    "PHY": 65
+   },
+   "portraitSeed": 3439964606,
+   "affiliation": "Real Sociedad"
+  },
+  {
+   "id": "real-jarrod-bowen",
+   "name": "Jarrod Bowen",
+   "shortName": "Bowen",
+   "nationality": "ENG",
+   "roles": [
+    "RM",
+    "RW"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 88,
+    "SHO": 72,
+    "PAS": 76,
+    "DRI": 83,
+    "DEF": 52,
+    "PHY": 68
+   },
+   "portraitSeed": 3870580016,
+   "affiliation": "West Ham"
+  },
+  {
+   "id": "real-federico-chiesa",
+   "name": "Federico Chiesa",
+   "shortName": "Chiesa",
+   "nationality": "ITA",
+   "roles": [
+    "RM",
+    "RW"
+   ],
+   "overall": 80,
+   "attributes": {
+    "PAC": 79,
+    "SHO": 66,
+    "PAS": 76,
+    "DRI": 82,
+    "DEF": 49,
+    "PHY": 66
+   },
+   "portraitSeed": 3091375969,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-kylian-mbappe",
+   "name": "Kylian Mbappé",
+   "shortName": "Mbappé",
+   "nationality": "FRA",
+   "roles": [
+    "ST",
+    "LW"
+   ],
+   "overall": 91,
+   "attributes": {
+    "PAC": 90,
+    "SHO": 97,
+    "PAS": 76,
+    "DRI": 95,
+    "DEF": 41,
+    "PHY": 83
+   },
+   "portraitSeed": 273111186,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-erling-haaland",
+   "name": "Erling Haaland",
+   "shortName": "Haaland",
+   "nationality": "NOR",
+   "roles": [
+    "ST"
+   ],
+   "overall": 91,
+   "attributes": {
+    "PAC": 86,
+    "SHO": 97,
+    "PAS": 77,
+    "DRI": 86,
+    "DEF": 38,
+    "PHY": 93
+   },
+   "portraitSeed": 2140599541,
+   "affiliation": "Manchester City"
+  },
+  {
+   "id": "real-harry-kane",
+   "name": "Harry Kane",
+   "shortName": "Kane",
+   "nationality": "ENG",
+   "roles": [
+    "ST"
+   ],
+   "overall": 90,
+   "attributes": {
+    "PAC": 87,
+    "SHO": 97,
+    "PAS": 77,
+    "DRI": 84,
+    "DEF": 41,
+    "PHY": 86
+   },
+   "portraitSeed": 2135622018,
+   "affiliation": "Bayern Munich"
+  },
+  {
+   "id": "real-ousmane-dembele",
+   "name": "Ousmane Dembélé",
+   "shortName": "Dembélé",
+   "nationality": "FRA",
+   "roles": [
+    "ST",
+    "RW"
+   ],
+   "overall": 90,
+   "attributes": {
+    "PAC": 91,
+    "SHO": 92,
+    "PAS": 76,
+    "DRI": 91,
+    "DEF": 38,
+    "PHY": 86
+   },
+   "portraitSeed": 2709634997,
+   "affiliation": "Paris Saint-Germain"
+  },
+  {
+   "id": "real-lautaro-martinez",
+   "name": "Lautaro Martínez",
+   "shortName": "Lautaro",
+   "nationality": "ARG",
+   "roles": [
+    "ST"
+   ],
+   "overall": 88,
+   "attributes": {
+    "PAC": 86,
+    "SHO": 97,
+    "PAS": 70,
+    "DRI": 87,
+    "DEF": 34,
+    "PHY": 84
+   },
+   "portraitSeed": 3460475795,
+   "affiliation": "Inter"
+  },
+  {
+   "id": "real-alexander-isak",
+   "name": "Alexander Isak",
+   "shortName": "Isak",
+   "nationality": "SWE",
+   "roles": [
+    "ST"
+   ],
+   "overall": 87,
+   "attributes": {
+    "PAC": 82,
+    "SHO": 93,
+    "PAS": 73,
+    "DRI": 88,
+    "DEF": 39,
+    "PHY": 78
+   },
+   "portraitSeed": 3151389547,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-julian-alvarez",
+   "name": "Julián Álvarez",
+   "shortName": "J. Álvarez",
+   "nationality": "ARG",
+   "roles": [
+    "ST"
+   ],
+   "overall": 87,
+   "attributes": {
+    "PAC": 81,
+    "SHO": 93,
+    "PAS": 72,
+    "DRI": 84,
+    "DEF": 39,
+    "PHY": 83
+   },
+   "portraitSeed": 129709741,
+   "affiliation": "Atlético Madrid"
+  },
+  {
+   "id": "real-robert-lewandowski",
+   "name": "Robert Lewandowski",
+   "shortName": "Lewandowski",
+   "nationality": "POL",
+   "roles": [
+    "ST"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 83,
+    "SHO": 93,
+    "PAS": 68,
+    "DRI": 82,
+    "DEF": 36,
+    "PHY": 78
+   },
+   "portraitSeed": 2054384877,
+   "affiliation": "FC Barcelone"
+  },
+  {
+   "id": "real-victor-osimhen",
+   "name": "Victor Osimhen",
+   "shortName": "Osimhen",
+   "nationality": "NGA",
+   "roles": [
+    "ST"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 87,
+    "SHO": 91,
+    "PAS": 72,
+    "DRI": 86,
+    "DEF": 38,
+    "PHY": 85
+   },
+   "portraitSeed": 289674977,
+   "affiliation": "Galatasaray"
+  },
+  {
+   "id": "real-viktor-gyokeres",
+   "name": "Viktor Gyökeres",
+   "shortName": "Gyökeres",
+   "nationality": "SWE",
+   "roles": [
+    "ST"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 83,
+    "SHO": 91,
+    "PAS": 74,
+    "DRI": 82,
+    "DEF": 36,
+    "PHY": 82
+   },
+   "portraitSeed": 3973140318,
+   "affiliation": "Arsenal"
+  },
+  {
+   "id": "real-serhou-guirassy",
+   "name": "Serhou Guirassy",
+   "shortName": "Guirassy",
+   "nationality": "GUI",
+   "roles": [
+    "ST"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 85,
+    "SHO": 95,
+    "PAS": 70,
+    "DRI": 83,
+    "DEF": 34,
+    "PHY": 77
+   },
+   "portraitSeed": 543950510,
+   "affiliation": "Borussia Dortmund"
+  },
+  {
+   "id": "real-hugo-ekitike",
+   "name": "Hugo Ekitiké",
+   "shortName": "Ekitiké",
+   "nationality": "FRA",
+   "roles": [
+    "ST"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 82,
+    "SHO": 90,
+    "PAS": 67,
+    "DRI": 90,
+    "DEF": 33,
+    "PHY": 78
+   },
+   "portraitSeed": 1223992596,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-ollie-watkins",
+   "name": "Ollie Watkins",
+   "shortName": "Watkins",
+   "nationality": "ENG",
+   "roles": [
+    "ST"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 90,
+    "SHO": 89,
+    "PAS": 68,
+    "DRI": 83,
+    "DEF": 38,
+    "PHY": 79
+   },
+   "portraitSeed": 3227473947,
+   "affiliation": "Aston Villa"
+  },
+  {
+   "id": "real-marcus-thuram",
+   "name": "Marcus Thuram",
+   "shortName": "M. Thuram",
+   "nationality": "FRA",
+   "roles": [
+    "ST"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 80,
+    "SHO": 89,
+    "PAS": 72,
+    "DRI": 78,
+    "DEF": 32,
+    "PHY": 86
+   },
+   "portraitSeed": 1817285253,
+   "affiliation": "Inter"
+  },
+  {
+   "id": "real-benjamin-sesko",
+   "name": "Benjamin Šeško",
+   "shortName": "Šeško",
+   "nationality": "SVN",
+   "roles": [
+    "ST"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 83,
+    "SHO": 87,
+    "PAS": 68,
+    "DRI": 78,
+    "DEF": 38,
+    "PHY": 84
+   },
+   "portraitSeed": 1804636557,
+   "affiliation": "Manchester United"
+  },
+  {
+   "id": "real-jonathan-david",
+   "name": "Jonathan David",
+   "shortName": "J. David",
+   "nationality": "CAN",
+   "roles": [
+    "ST"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 78,
+    "SHO": 88,
+    "PAS": 69,
+    "DRI": 83,
+    "DEF": 36,
+    "PHY": 78
+   },
+   "portraitSeed": 2043111234,
+   "affiliation": "Juventus"
+  },
+  {
+   "id": "real-dusan-vlahovic",
+   "name": "Dušan Vlahović",
+   "shortName": "Vlahović",
+   "nationality": "SRB",
+   "roles": [
+    "ST"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 81,
+    "SHO": 89,
+    "PAS": 66,
+    "DRI": 80,
+    "DEF": 34,
+    "PHY": 79
+   },
+   "portraitSeed": 599242668,
+   "affiliation": "Juventus"
+  },
+  {
+   "id": "real-darwin-nunez",
+   "name": "Darwin Núñez",
+   "shortName": "Núñez",
+   "nationality": "URU",
+   "roles": [
+    "ST"
+   ],
+   "overall": 82,
+   "attributes": {
+    "PAC": 86,
+    "SHO": 84,
+    "PAS": 64,
+    "DRI": 81,
+    "DEF": 33,
+    "PHY": 73
+   },
+   "portraitSeed": 1442262686,
+   "affiliation": "Al-Hilal"
+  },
+  {
+   "id": "real-alexander-s-rloth",
+   "name": "Alexander Sørloth",
+   "shortName": "Sørloth",
+   "nationality": "NOR",
+   "roles": [
+    "ST"
+   ],
+   "overall": 82,
+   "attributes": {
+    "PAC": 79,
+    "SHO": 85,
+    "PAS": 70,
+    "DRI": 76,
+    "DEF": 35,
+    "PHY": 81
+   },
+   "portraitSeed": 2893572303,
+   "affiliation": "Atlético Madrid"
+  },
+  {
+   "id": "real-rasmus-h-jlund",
+   "name": "Rasmus Højlund",
+   "shortName": "Højlund",
+   "nationality": "DEN",
+   "roles": [
+    "ST"
+   ],
+   "overall": 81,
+   "attributes": {
+    "PAC": 87,
+    "SHO": 83,
+    "PAS": 66,
+    "DRI": 76,
+    "DEF": 35,
+    "PHY": 76
+   },
+   "portraitSeed": 1433913031,
+   "affiliation": "Napoli"
+  },
+  {
+   "id": "real-vinicius-junior",
+   "name": "Vinícius Júnior",
+   "shortName": "Vinícius Jr",
+   "nationality": "BRA",
+   "roles": [
+    "LW"
+   ],
+   "overall": 90,
+   "attributes": {
+    "PAC": 97,
+    "SHO": 84,
+    "PAS": 81,
+    "DRI": 97,
+    "DEF": 38,
+    "PHY": 73
+   },
+   "portraitSeed": 1621164939,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-raphinha",
+   "name": "Raphinha",
+   "shortName": "Raphinha",
+   "nationality": "BRA",
+   "roles": [
+    "LW",
+    "RW"
+   ],
+   "overall": 89,
+   "attributes": {
+    "PAC": 97,
+    "SHO": 88,
+    "PAS": 77,
+    "DRI": 96,
+    "DEF": 38,
+    "PHY": 71
+   },
+   "portraitSeed": 2614093112,
+   "affiliation": "FC Barcelone"
+  },
+  {
+   "id": "real-khvicha-kvaratskhelia",
+   "name": "Khvicha Kvaratskhelia",
+   "shortName": "Kvaratskhelia",
+   "nationality": "GEO",
+   "roles": [
+    "LW"
+   ],
+   "overall": 88,
+   "attributes": {
+    "PAC": 96,
+    "SHO": 81,
+    "PAS": 78,
+    "DRI": 97,
+    "DEF": 38,
+    "PHY": 70
+   },
+   "portraitSeed": 695665551,
+   "affiliation": "Paris Saint-Germain"
+  },
+  {
+   "id": "real-luis-diaz",
+   "name": "Luis Díaz",
+   "shortName": "L. Díaz",
+   "nationality": "COL",
+   "roles": [
+    "LW"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 96,
+    "SHO": 82,
+    "PAS": 79,
+    "DRI": 86,
+    "DEF": 38,
+    "PHY": 70
+   },
+   "portraitSeed": 1960412098,
+   "affiliation": "Bayern Munich"
+  },
+  {
+   "id": "real-rafael-leao",
+   "name": "Rafael Leão",
+   "shortName": "Leão",
+   "nationality": "POR",
+   "roles": [
+    "LW"
+   ],
+   "overall": 85,
+   "attributes": {
+    "PAC": 96,
+    "SHO": 76,
+    "PAS": 74,
+    "DRI": 91,
+    "DEF": 34,
+    "PHY": 69
+   },
+   "portraitSeed": 2740098425,
+   "affiliation": "AC Milan"
+  },
+  {
+   "id": "real-son-heung-min",
+   "name": "Son Heung-min",
+   "shortName": "Son",
+   "nationality": "KOR",
+   "roles": [
+    "LW",
+    "ST"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 91,
+    "SHO": 84,
+    "PAS": 75,
+    "DRI": 87,
+    "DEF": 38,
+    "PHY": 66
+   },
+   "portraitSeed": 2100805063,
+   "affiliation": "Los Angeles FC"
+  },
+  {
+   "id": "real-bradley-barcola",
+   "name": "Bradley Barcola",
+   "shortName": "Barcola",
+   "nationality": "FRA",
+   "roles": [
+    "LW"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 97,
+    "SHO": 80,
+    "PAS": 74,
+    "DRI": 86,
+    "DEF": 35,
+    "PHY": 68
+   },
+   "portraitSeed": 2546305430,
+   "affiliation": "Paris Saint-Germain"
+  },
+  {
+   "id": "real-cody-gakpo",
+   "name": "Cody Gakpo",
+   "shortName": "Gakpo",
+   "nationality": "NED",
+   "roles": [
+    "LW"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 90,
+    "SHO": 80,
+    "PAS": 73,
+    "DRI": 89,
+    "DEF": 37,
+    "PHY": 66
+   },
+   "portraitSeed": 2879887648,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-rodrygo",
+   "name": "Rodrygo",
+   "shortName": "Rodrygo",
+   "nationality": "BRA",
+   "roles": [
+    "LW",
+    "RW"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 89,
+    "SHO": 79,
+    "PAS": 79,
+    "DRI": 94,
+    "DEF": 34,
+    "PHY": 64
+   },
+   "portraitSeed": 2434433405,
+   "affiliation": "Real Madrid"
+  },
+  {
+   "id": "real-gabriel-martinelli",
+   "name": "Gabriel Martinelli",
+   "shortName": "Martinelli",
+   "nationality": "BRA",
+   "roles": [
+    "LW"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 94,
+    "SHO": 78,
+    "PAS": 78,
+    "DRI": 88,
+    "DEF": 38,
+    "PHY": 65
+   },
+   "portraitSeed": 3715014266,
+   "affiliation": "Arsenal"
+  },
+  {
+   "id": "real-marcus-rashford",
+   "name": "Marcus Rashford",
+   "shortName": "Rashford",
+   "nationality": "ENG",
+   "roles": [
+    "LW"
+   ],
+   "overall": 82,
+   "attributes": {
+    "PAC": 92,
+    "SHO": 78,
+    "PAS": 76,
+    "DRI": 88,
+    "DEF": 34,
+    "PHY": 67
+   },
+   "portraitSeed": 2625861999,
+   "affiliation": "FC Barcelone"
+  },
+  {
+   "id": "real-jack-grealish",
+   "name": "Jack Grealish",
+   "shortName": "Grealish",
+   "nationality": "ENG",
+   "roles": [
+    "LW"
+   ],
+   "overall": 81,
+   "attributes": {
+    "PAC": 85,
+    "SHO": 75,
+    "PAS": 76,
+    "DRI": 89,
+    "DEF": 34,
+    "PHY": 65
+   },
+   "portraitSeed": 4099317145,
+   "affiliation": "Everton"
+  },
+  {
+   "id": "real-lamine-yamal",
+   "name": "Lamine Yamal",
+   "shortName": "Lamine Yamal",
+   "nationality": "ESP",
+   "roles": [
+    "RW"
+   ],
+   "overall": 91,
+   "attributes": {
+    "PAC": 97,
+    "SHO": 84,
+    "PAS": 86,
+    "DRI": 97,
+    "DEF": 40,
+    "PHY": 68
+   },
+   "portraitSeed": 633871913,
+   "affiliation": "FC Barcelone"
+  },
+  {
+   "id": "real-mohamed-salah",
+   "name": "Mohamed Salah",
+   "shortName": "Salah",
+   "nationality": "EGY",
+   "roles": [
+    "RW"
+   ],
+   "overall": 90,
+   "attributes": {
+    "PAC": 97,
+    "SHO": 86,
+    "PAS": 81,
+    "DRI": 96,
+    "DEF": 35,
+    "PHY": 69
+   },
+   "portraitSeed": 2656295417,
+   "affiliation": "Liverpool"
+  },
+  {
+   "id": "real-phil-foden",
+   "name": "Phil Foden",
+   "shortName": "Foden",
+   "nationality": "ENG",
+   "roles": [
+    "RW",
+    "CAM"
+   ],
+   "overall": 86,
+   "attributes": {
+    "PAC": 92,
+    "SHO": 80,
+    "PAS": 75,
+    "DRI": 97,
+    "DEF": 33,
+    "PHY": 67
+   },
+   "portraitSeed": 3283925510,
+   "affiliation": "Manchester City"
+  },
+  {
+   "id": "real-ademola-lookman",
+   "name": "Ademola Lookman",
+   "shortName": "Lookman",
+   "nationality": "NGA",
+   "roles": [
+    "RW",
+    "LW"
+   ],
+   "overall": 84,
+   "attributes": {
+    "PAC": 92,
+    "SHO": 74,
+    "PAS": 75,
+    "DRI": 84,
+    "DEF": 34,
+    "PHY": 64
+   },
+   "portraitSeed": 2717323113,
+   "affiliation": "Atalanta"
+  },
+  {
+   "id": "real-mohammed-kudus",
+   "name": "Mohammed Kudus",
+   "shortName": "Kudus",
+   "nationality": "GHA",
+   "roles": [
+    "RW"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 90,
+    "SHO": 79,
+    "PAS": 73,
+    "DRI": 90,
+    "DEF": 34,
+    "PHY": 64
+   },
+   "portraitSeed": 321969013,
+   "affiliation": "Tottenham"
+  },
+  {
+   "id": "real-pedro-neto",
+   "name": "Pedro Neto",
+   "shortName": "P. Neto",
+   "nationality": "POR",
+   "roles": [
+    "RW"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 93,
+    "SHO": 74,
+    "PAS": 77,
+    "DRI": 88,
+    "DEF": 34,
+    "PHY": 63
+   },
+   "portraitSeed": 1686335131,
+   "affiliation": "Chelsea"
+  },
+  {
+   "id": "real-antoine-semenyo",
+   "name": "Antoine Semenyo",
+   "shortName": "Semenyo",
+   "nationality": "GHA",
+   "roles": [
+    "RW"
+   ],
+   "overall": 83,
+   "attributes": {
+    "PAC": 90,
+    "SHO": 77,
+    "PAS": 74,
+    "DRI": 89,
+    "DEF": 32,
+    "PHY": 73
+   },
+   "portraitSeed": 2954520235,
+   "affiliation": "Bournemouth"
+  },
+  {
+   "id": "real-kingsley-coman",
+   "name": "Kingsley Coman",
+   "shortName": "Coman",
+   "nationality": "FRA",
+   "roles": [
+    "RW",
+    "LW"
+   ],
+   "overall": 82,
+   "attributes": {
+    "PAC": 94,
+    "SHO": 74,
+    "PAS": 72,
+    "DRI": 82,
+    "DEF": 33,
+    "PHY": 61
+   },
+   "portraitSeed": 609175161,
+   "affiliation": "Al-Nassr"
+  },
+  {
+   "id": "real-serge-gnabry",
+   "name": "Serge Gnabry",
+   "shortName": "Gnabry",
+   "nationality": "GER",
+   "roles": [
+    "RW"
+   ],
+   "overall": 82,
+   "attributes": {
+    "PAC": 84,
+    "SHO": 78,
+    "PAS": 75,
+    "DRI": 86,
+    "DEF": 35,
+    "PHY": 63
+   },
+   "portraitSeed": 828963724,
+   "affiliation": "Bayern Munich"
+  },
+  {
+   "id": "real-riyad-mahrez",
+   "name": "Riyad Mahrez",
+   "shortName": "Mahrez",
+   "nationality": "ALG",
+   "roles": [
+    "RW"
+   ],
+   "overall": 82,
+   "attributes": {
+    "PAC": 89,
+    "SHO": 77,
+    "PAS": 72,
+    "DRI": 91,
+    "DEF": 33,
+    "PHY": 64
+   },
+   "portraitSeed": 2416530529,
+   "affiliation": "Al-Ahli"
+  },
+  {
+   "id": "real-savinho",
+   "name": "Savinho",
+   "shortName": "Savinho",
+   "nationality": "BRA",
+   "roles": [
+    "RW"
+   ],
+   "overall": 82,
+   "attributes": {
+    "PAC": 84,
+    "SHO": 72,
+    "PAS": 74,
+    "DRI": 92,
+    "DEF": 32,
+    "PHY": 61
+   },
+   "portraitSeed": 1526688463,
+   "affiliation": "Manchester City"
+  },
+  {
+   "id": "real-dejan-kulusevski",
+   "name": "Dejan Kulusevski",
+   "shortName": "Kulusevski",
+   "nationality": "SWE",
+   "roles": [
+    "RW"
+   ],
+   "overall": 82,
+   "attributes": {
+    "PAC": 88,
+    "SHO": 77,
+    "PAS": 71,
+    "DRI": 83,
+    "DEF": 34,
+    "PHY": 67
+   },
+   "portraitSeed": 1902375177,
+   "affiliation": "Tottenham"
+  }
+ ]
+}

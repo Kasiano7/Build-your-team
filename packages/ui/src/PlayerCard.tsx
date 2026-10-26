@@ -7,7 +7,7 @@ import { memo } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import Svg, { Defs, LinearGradient, Path, Rect, Stop } from 'react-native-svg';
 import type { Character, PackMeta } from '@byt/shared';
-import { Avatar } from './Avatar';
+import { Avatar, Silhouette } from './Avatar';
 import { Flag } from './Flag';
 import { describeCharacter } from './describe';
 import { fonts, tierPalettes } from './tokens';
@@ -73,8 +73,10 @@ export const PlayerCard = memo(function PlayerCard({ character, pack, width, var
       <View style={{ position: 'absolute', right: full ? w * 0.02 : 0, top: full ? w * 0.08 : w * 0.06 }}>
         {character.portraitUrl ? (
           <Image source={{ uri: character.portraitUrl }} style={{ width: portraitSize, height: portraitSize }} />
-        ) : (
+        ) : pack.dataset.fictional ? (
           <Avatar seed={character.portraitSeed} size={portraitSize} />
+        ) : (
+          <Silhouette seed={character.portraitSeed} size={portraitSize} />
         )}
       </View>
 
@@ -116,6 +118,12 @@ export const PlayerCard = memo(function PlayerCard({ character, pack, width, var
             </Text>
           ))}
         </View>
+      )}
+
+      {full && !pack.dataset.fictional && (
+        <Text style={{ position: 'absolute', left: w * 0.1, bottom: w * 0.05, fontFamily: fonts.bodySemi, fontSize: Math.max(7, w * 0.042), color: p.sub, opacity: 0.75, letterSpacing: 0.6 }}>
+          NOTE ESTIMÉE
+        </Text>
       )}
 
       {outOfPosition && (

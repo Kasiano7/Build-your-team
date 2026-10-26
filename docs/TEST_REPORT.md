@@ -8,8 +8,8 @@ Ce rapport sépare **ce qui a été développé**, **ce qui a été réellement 
 
 | Suite | Commande | Résultat |
 |---|---|---|
-| Moteur de jeu (unitaires) | `npx vitest run packages` | **25/25 OK** |
-| Intégration temps réel : vrai `GameServer`, vrai SQL PostgreSQL via PGlite, clients socket.io-client indépendants | `npx vitest run services` | **13/13 OK** |
+| Moteur de jeu (unitaires, dont jeu complet avec le pack « Réels ») | `npx vitest run packages` | **26/26 OK** |
+| Intégration temps réel : vrai `GameServer`, vrai SQL PostgreSQL via PGlite, clients socket.io-client indépendants ; verrou et récupération de la base locale | `npx vitest run services` | **15/15 OK** |
 | TypeScript strict (tous les packages et l'app) | `npm run typecheck` | **OK** |
 | ESLint (`eslint-config-expo` et règles React Compiler) | `npx eslint src` (apps/game) | **0 problème** |
 | `expo-doctor` | `npx expo-doctor` | **20/20 contrôles OK** |
@@ -51,6 +51,12 @@ Autres comportements testés :
 - **Moteur** : réserve, chrono porté à 12 s, offre engageante, joueurs libres (le moins bien noté compatible, à 10M), plafond d'enchères, mode classique à 11 titulaires, changement de formation, échanges incompatibles refusés, départage par la note d'équipe.
 - **Import de données** : CSV avec champs entre guillemets, rejet des lignes invalides avec motif, doublons détectés par `externalId` et par identité, refus d'écraser une version publiée (CLI exécutée).
 
+### Mise à jour du 26/10/2026 (soir)
+
+- **Délai entre deux joueurs réduit de 6,8 s à 3,4 s** : animation « vendu » de 2,4 s, puis présentation du joueur suivant en 1 s. Mesuré dans l'interface (`e2e/timing.mjs`) : **3,47 s** entre la dernière passe et l'ouverture de l'enchère suivante, et 1,1 s entre le lancement et la première enchère. L'E2E à 4 navigateurs fait toute la draft en environ 1 min 10 s (contre 2 min auparavant).
+- **Mode « Joueurs réels »** testé : validation du pack, partie complète simulée en mode classique à 4, E2E à 4 navigateurs, captures (accueil, enchère desktop et mobile, vote).
+- **Base locale de dev** : deux serveurs lancés en même temps avaient corrompu la base embarquée. Un verrou empêche désormais un second serveur de l'ouvrir. En cas de corruption, une base neuve est créée automatiquement dans un nouveau dossier (tests ajoutés, et vérifié sur le serveur lancé dans le terminal).
+
 ## 2. Vérifications visuelles réalisées
 
 Captures Playwright examinées à chaque étape (dans `test-results/`, non versionné) : accueil (desktop et mobile), lobby, enchère (1440, 1280, 1024, 844×390 et 390×844), tampon VENDU, transfert vers le terrain, mode classique en 4-3-3 puis 4-4-2 avec banc, vote croisé, vote spectateurs, résultats et trophée.
@@ -90,7 +96,7 @@ Problèmes trouvés et **corrigés** pendant ces vérifications :
 | Connexion à un vrai PostgreSQL hébergé (`pg`) | Le chemin de code existe. Testé uniquement via PGlite, le même moteur et le même SQL, mais pas le même pilote réseau. |
 | Glisser-déposer des cartes | Non implémenté : on déplace en touchant la carte puis la destination. |
 | Image de résultat partageable (`og:image`) | Non implémenté : on partage un texte, un lien et une page de résultats publique `/vote/CODE`. |
-| Données de joueurs réels | Volontairement absentes, pour des raisons de licence. |
+| Données de joueurs réels | **Ajoutées** (mode « Réels », notes estimées, non officielles). Utilisation commerciale soumise aux droits nom/image : voir DATA_LICENSING §0. |
 | Référence graphique `references/squad-reference.png` | **Non fournie.** La direction artistique a été établie à partir du texte de la demande. |
 | Accessibilité avec lecteur d'écran (VoiceOver, TalkBack) | Libellés en place, **non testée** avec un lecteur d'écran réel. |
 

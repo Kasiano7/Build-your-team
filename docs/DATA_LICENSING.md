@@ -12,6 +12,33 @@
 | Noms / visages de vrais joueurs | Nécessite une licence de droits d'image (FIFPRO collectif + compléments clubs/ligues/joueurs non couverts). Photos d'agence « éditoriales » interdites en jeu. | Élevé |
 | MVP | Jeu de données **fictif** clairement étiqueté + avatars procéduraux originaux + couche d'import indépendante. | Faible |
 
+
+## 0. Mode « Joueurs réels » (ajouté le 26/10/2026, à la demande du propriétaire)
+
+Le jeu propose désormais deux jeux de joueurs, au choix à la création de la partie. Le mode **Réels** est celui par défaut.
+
+| | **Réels** (`football-real@1.0.0`, 162 joueurs) | **Fictifs** (`football-demo@1.0.0`, 180 joueurs) |
+|---|---|---|
+| Noms, nationalités, postes, clubs | Joueurs réels, effectifs **indicatifs** de la saison 2025-2026 (les transferts postérieurs à mi-2026 ne sont pas pris en compte) | Inventés |
+| Note générale | **Estimation Build Your Team** saisie à la main, sans copie de valeurs EA SPORTS FC | Générée |
+| PAC…PHY / DIV…POS | Calculées par notre modèle : profil type du poste, quelques traits par joueur et une petite variation déterministe (`scripts/generate-real-dataset.ts`) | Générées |
+| Portrait | **Silhouette neutre**, sans visage, pour ne jamais attribuer un faux visage à une personne réelle | Avatar procédural |
+| Étiquetage à l'écran | « Joueurs réels · notes estimées par Build Your Team (non officielles) » dans le lobby et la fiche joueur ; mention « NOTE ESTIMÉE » sur les cartes ; mentions sur l'accueil et dans la politique de confidentialité | « Données de démonstration — joueurs fictifs » |
+
+**Ce qui est respecté :**
+
+- aucune donnée EA SPORTS FC n'est reprise ;
+- aucune note inventée n'est présentée comme la note officielle d'un joueur ;
+- aucune photo n'est utilisée ;
+- aucune affiliation (EA, FIFPRO, clubs, joueurs) n'est revendiquée.
+
+**Ce qui reste à régler avant une sortie commerciale** (stores, monétisation, publicité) :
+
+- **Droits sur le nom et l'image.** Utiliser le nom de footballeurs réels dans un produit commercial nécessite une licence : FIFPRO pour la licence collective, plus des accords pour les joueurs non couverts (voir §4). Sans cette licence, le mode Réels est réservé aux **tests privés**. L'avertissement figure dans le champ `license` du jeu de données.
+- **Noms des clubs.** Ils sont cités comme simple information factuelle (aucun logo ni maillot). Leur usage commercial est à valider avec un avocat.
+- **Des notes « estimées » restent un jugement subjectif sur des personnes réelles.** Un ton neutre et un étiquetage clair limitent le risque. Un juriste doit valider le dispositif.
+- **Alternative pour la production :** fournisseur de statistiques sous licence + notes calculées par notre propre modèle (§5), ou retour au mode Fictifs par défaut. Pour basculer, il suffit de changer l'ordre de `builtInFootballPacks` dans `packages/football/src/index.ts`.
+
 ---
 
 ## 1. Les notes EA SPORTS FC peuvent-elles être reproduites commercialement ?

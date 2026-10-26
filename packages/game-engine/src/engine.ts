@@ -47,9 +47,9 @@ export type Outcome =
 
 /** Durations of non-configurable presentation phases (ms). */
 export const TIMINGS = {
-  revealMs: 2600,
-  soldDisplayMs: 4200,
-  unsoldDisplayMs: 2400,
+  revealMs: 1000,
+  soldDisplayMs: 2400,
+  unsoldDisplayMs: 1200,
 };
 export type Timings = typeof TIMINGS;
 const timingsOf = (ctx: EngineCtx): Timings => ctx.timings ?? TIMINGS;

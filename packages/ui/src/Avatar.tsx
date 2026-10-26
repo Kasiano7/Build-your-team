@@ -77,3 +77,30 @@ export const Avatar = memo(function Avatar({ seed, size }: { seed: number; size:
     </Svg>
   );
 });
+
+/**
+ * Neutral portrait for real people when no licensed photo is available:
+ * a kit-coloured silhouette, so no face is ever misattributed.
+ */
+export const Silhouette = memo(function Silhouette({ seed, size }: { seed: number; size: number }) {
+  const r = rng(seed);
+  const kit = KIT[Math.floor(r() * KIT.length)]!;
+  const id = `sil${seed}`;
+  return (
+    <Svg width={size} height={size} viewBox="0 0 100 100">
+      <Defs>
+        <LinearGradient id={`${id}k`} x1="0" y1="0" x2="0" y2="1">
+          <Stop offset="0" stopColor={kit} stopOpacity="1" />
+          <Stop offset="1" stopColor="#000" stopOpacity="0.9" />
+        </LinearGradient>
+        <LinearGradient id={`${id}h`} x1="0" y1="0" x2="0" y2="1">
+          <Stop offset="0" stopColor="#FFFFFF" stopOpacity="0.22" />
+          <Stop offset="1" stopColor="#FFFFFF" stopOpacity="0.06" />
+        </LinearGradient>
+      </Defs>
+      <Path d="M8 100 C 10 78, 28 70, 50 70 C 72 70, 90 78, 92 100 Z" fill={`url(#${id}k)`} />
+      <Rect x="43" y="56" width="14" height="17" rx="5" fill={`url(#${id}h)`} />
+      <Ellipse cx="50" cy="40" rx="17" ry="20" fill={`url(#${id}h)`} />
+    </Svg>
+  );
+});

@@ -61,6 +61,25 @@ describe('content pack', () => {
     expect(pack.dataset.fictional).toBe(true);
     expect(pack.dataset.label).toMatch(/fictifs/);
   });
+
+  it('real-players pack is valid, labelled as estimated, and plays a full game', async () => {
+    const { footballRealPack } = await import('@byt/football');
+    expect(validatePack(footballRealPack)).toEqual([]);
+    expect(footballRealPack.dataset.fictional).toBe(false);
+    expect(footballRealPack.dataset.label).toMatch(/estimées.*non officielles/);
+    expect(footballRealPack.dataset.license).toMatch(/Aucune donnée EA/);
+    const real = { pack: footballRealPack, now: 1_000_000 };
+    let s = createRoomState({ code: 'REALXX', settings: buildSettings(footballRealPack, { mode: 'classic', maxParticipants: 4 }), host: { id: 'p1', nickname: 'A' }, seed: 7, ctx: real });
+    for (const id of ['p2', 'p3', 'p4']) s = unwrap(addParticipant(s, id, id, real));
+    s = unwrap(startGame(s, 'p1', real));
+    let t = real.now;
+    for (let i = 0; i < 2000 && s.status === 'drafting'; i++) {
+      t = Math.max(t, nextDeadline(s)!);
+      s = unwrap(advance(s, { pack: footballRealPack, now: t }));
+    }
+    expect(s.status).toBe('voting');
+    for (const p of s.participants) expect(p.team.starters.every(Boolean)).toBe(true);
+  });
 });
 
 describe('lobby', () => {
@@ -317,7 +336,8 @@ describe('voting', () => {
 
 describe('timings', () => {
   it('sold display gives clients time for the transfer animation', () => {
-    expect(TIMINGS.soldDisplayMs).toBeGreaterThanOrEqual(3000);
+    expect(TIMINGS.soldDisplayMs).toBeGreaterThanOrEqual(2000);
+    expect(TIMINGS.revealMs + TIMINGS.soldDisplayMs).toBeLessThanOrEqual(3500);
   });
 });
 

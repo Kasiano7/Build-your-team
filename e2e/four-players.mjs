@@ -4,7 +4,7 @@
  *
  *   npm run dev:server        # realtime server on :4000
  *   npm run dev:web           # Expo web on :8081
- *   node e2e/four-players.mjs [baseUrl] [screenshotDir]
+ *   node e2e/four-players.mjs [baseUrl] [screenshotDir] [serverUrl]
  */
 import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
@@ -12,6 +12,8 @@ import { resolve } from 'node:path';
 
 const BASE = process.argv[2] ?? 'http://localhost:8081';
 const OUT = resolve(process.argv[3] ?? 'test-results/e2e');
+// Optional: game server address injected as the in-app setting (dev builds), to test against a private server.
+const SERVER = process.argv[4] ?? null;
 mkdirSync(OUT, { recursive: true });
 
 const log = (...a) => console.log(new Date().toISOString().slice(11, 19), ...a);
@@ -25,6 +27,7 @@ const players = [
 const errors = [];
 for (const p of players) {
   p.context = await browser.newContext({ viewport: p.viewport, deviceScaleFactor: 1 });
+  if (SERVER) await p.context.addInitScript((url) => localStorage.setItem('byt.serverUrl', url), SERVER);
   p.page = await p.context.newPage();
   p.page.on('pageerror', (e) => errors.push(`${p.name}: ${e}`));
 }

@@ -5,12 +5,12 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import type { ContentPack } from '@byt/shared';
-import { createFootballPack, footballDemoPack, type DatasetFile } from '@byt/football';
+import { builtInFootballPacks, createFootballPack, type DatasetFile } from '@byt/football';
 import { validatePack } from '@byt/game-engine';
 import { log } from './log';
 
 export function loadPacks(datasetsDir?: string): ContentPack[] {
-  const packs: ContentPack[] = [footballDemoPack];
+  const packs: ContentPack[] = [...builtInFootballPacks];
   const dir = datasetsDir ?? resolve(import.meta.dirname, '../../../packages/football/data/datasets');
   if (existsSync(dir)) {
     for (const file of readdirSync(dir).filter((f) => f.endsWith('.json') && !f.endsWith('.report.json'))) {

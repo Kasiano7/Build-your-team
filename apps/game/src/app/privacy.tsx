@@ -8,7 +8,7 @@ const SECTIONS: [string, string][] = [
   ['Où et combien de temps', 'Les données de partie sont stockées sur notre serveur de jeu (PostgreSQL) et supprimées après 30 jours. Le jeton de session est conservé sur votre appareil (stockage sécurisé sur iOS/Android, stockage local sur le web).'],
   ['Partage', 'Aucune donnée n’est vendue ni partagée à des fins publicitaires. Les autres joueurs du salon voient votre pseudo, votre équipe et vos enchères.'],
   ['Argent réel', 'Build Your Team n’utilise aucun argent réel : les budgets sont virtuels et n’ont aucune valeur.'],
-  ['Données des joueurs', 'Les footballeurs affichés dans cette version sont fictifs (données de démonstration). Toute ressemblance avec des personnes réelles est fortuite.'],
+  ['Données des joueurs', 'Le mode « Réels » affiche des noms de footballeurs réels avec des notes et statistiques estimées par Build Your Team : ce ne sont ni des notes officielles ni des notes EA SPORTS FC, et Build Your Team n’est affilié à aucun joueur, club ou éditeur. Aucune photo de joueur n’est utilisée. Le mode « Fictifs » utilise des joueurs entièrement inventés.'],
   ['Vos droits', 'Pour toute demande d’accès ou de suppression, contactez l’éditeur à l’adresse indiquée sur la fiche de l’application. (À compléter avant publication.)'],
 ];
 

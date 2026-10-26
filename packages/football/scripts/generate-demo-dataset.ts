@@ -8,6 +8,7 @@ import { createHash } from 'node:crypto';
 import { writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import type { Character } from '@byt/shared';
+import { GK_WEIGHTS, WEIGHTS } from './archetypes';
 
 let seed = 0x5eed2026;
 function rand(): number {
@@ -105,20 +106,6 @@ const CLUBS = [
 type Pos = 'GK' | 'CB' | 'LB' | 'RB' | 'CDM' | 'CM' | 'CAM' | 'LM' | 'RM' | 'LW' | 'RW' | 'ST';
 const COUNTS: Record<Pos, number> = { GK: 22, CB: 28, LB: 11, RB: 11, CDM: 14, CM: 18, CAM: 13, LM: 7, RM: 7, LW: 13, RW: 13, ST: 23 };
 
-const WEIGHTS: Record<Exclude<Pos, 'GK'>, number[]> = {
-  ST: [0.96, 1.04, 0.82, 0.96, 0.42, 0.92],
-  LW: [1.06, 0.92, 0.9, 1.04, 0.42, 0.78],
-  RW: [1.06, 0.92, 0.9, 1.04, 0.42, 0.78],
-  CAM: [0.9, 0.93, 1.02, 1.03, 0.55, 0.78],
-  CM: [0.86, 0.85, 1.0, 0.96, 0.86, 0.9],
-  CDM: [0.8, 0.74, 0.92, 0.86, 1.01, 0.98],
-  LM: [1.02, 0.86, 0.95, 1.0, 0.6, 0.8],
-  RM: [1.02, 0.86, 0.95, 1.0, 0.6, 0.8],
-  CB: [0.8, 0.52, 0.74, 0.72, 1.04, 1.01],
-  LB: [1.0, 0.64, 0.86, 0.88, 0.94, 0.86],
-  RB: [1.0, 0.64, 0.86, 0.88, 0.94, 0.86],
-};
-const GK_WEIGHTS = [1.0, 0.98, 0.84, 1.02, 0.58, 0.99];
 const SECONDARY: Partial<Record<Pos, Pos[]>> = {
   ST: ['LW', 'RW', 'CAM'],
   LW: ['LM', 'ST', 'RW'],
@@ -154,7 +141,7 @@ for (const [pos, count] of Object.entries(COUNTS) as [Pos, number][]) {
     n++;
     const { first, last, nation } = makeName();
     const overall = 64 + Math.round(29 * Math.pow(rand(), 1.6));
-    const weights = pos === 'GK' ? GK_WEIGHTS : WEIGHTS[pos];
+    const weights = pos === 'GK' ? GK_WEIGHTS : WEIGHTS[pos]!;
     const keys = pos === 'GK' ? ['DIV', 'HAN', 'KIC', 'REF', 'SPD', 'POS'] : ['PAC', 'SHO', 'PAS', 'DRI', 'DEF', 'PHY'];
     const attributes: Record<string, number> = {};
     keys.forEach((k, idx) => {

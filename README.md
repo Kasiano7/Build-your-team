@@ -4,7 +4,7 @@ Jeu d'enchères multijoueur entre amis, de 2 à 4 joueurs. Chacun a le même bud
 
 Une seule base de code **Expo / React Native** pour le **web, iOS et Android**. Un **serveur temps réel autoritaire** (Node.js, Socket.IO, PostgreSQL) gère les budgets, les enchères, les chronos et les votes.
 
-> Les joueurs affichés sont **fictifs** (« Données de démonstration — joueurs fictifs »). Aucun argent réel n'est utilisé.
+> Deux jeux de joueurs : **Réels** (par défaut ; notes **estimées** par Build Your Team, non officielles, sans données EA SPORTS FC ; usage commercial soumis aux droits nom/image, voir `docs/DATA_LICENSING.md`) et **Fictifs**. Aucun argent réel n'est utilisé.
 
 ## Démarrer en local (2 commandes)
 
@@ -82,6 +82,7 @@ docs                 Documentation
 | Commande | Effet |
 |---|---|
 | `npm run data:demo` | Régénère le dataset fictif (déterministe) |
+| `npm run data:real` | Régénère le dataset « Réels » depuis `packages/football/scripts/real-players.source.ts` |
 | `npm run data:import -- --file x.csv --id … --version … --label … --source … --license …` | Importe un dataset **sous licence**, versionné et validé |
 | `npm run typecheck` | Vérifie les types de tous les packages |
 | `node apps/game/scripts/generate-sounds.mjs` | Régénère les sons originaux |

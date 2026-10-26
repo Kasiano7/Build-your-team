@@ -4,7 +4,7 @@
  */
 import { useMemo, useState } from 'react';
 import { ScrollView, Text, View, useWindowDimensions } from 'react-native';
-import { footballDemoPack } from '@byt/football';
+import { footballRealPack } from '@byt/football';
 import { emptyTeam, getFormation, reformTeam, toPackMeta, bestSlotFor, placeCharacter } from '@byt/game-engine';
 import type { Character, Team } from '@byt/shared';
 import { PlayerCard, colors, fonts, radii } from '@byt/ui';
@@ -13,7 +13,7 @@ import { Body, Button, Eyebrow, Panel, Screen, Segmented, Title } from '@/compon
 import { TeamPitch } from '@/features/team/TeamPitch';
 import { playSound } from '@/lib/sound';
 
-const pack = footballDemoPack;
+const pack = footballRealPack;
 const meta = toPackMeta(pack);
 const characters: Record<string, Character> = Object.fromEntries(pack.characters.map((c) => [c.id, c]));
 
@@ -65,7 +65,7 @@ export default function Demo() {
           <PageHeader />
           <View style={{ padding: 12, borderRadius: radii.md, borderWidth: 1, borderColor: 'rgba(255,181,71,0.5)', backgroundColor: 'rgba(255,181,71,0.08)' }}>
             <Text style={{ fontFamily: fonts.bodySemi, color: colors.warn, fontSize: 14 }}>
-              Démo hors ligne — aucune connexion, aucun autre joueur. Données de démonstration : joueurs fictifs.
+              Démo hors ligne — aucune connexion, aucun autre joueur. Joueurs réels, notes estimées (non officielles).
             </Text>
           </View>
           <Title size={38}>Découvrir l’interface</Title>

@@ -25,7 +25,7 @@ Les deux modes utilisent exactement le même moteur. Un mode ne fait que décrir
 ## 3. Déroulement d'une enchère
 
 1. **Tirage.** Le serveur tire un joueur au hasard avec un PRNG à graine, dont l'état est conservé dans la partie. Seuls les joueurs dont **au moins un participant a besoin** sont candidats, c'est-à-dire ceux qui ont un emplacement titulaire libre compatible et le budget pour l'ouverture. Les bons joueurs sortent un peu plus souvent (poids `(note − 58)^1.6`).
-2. **Présentation** (2,6 s). La carte apparaît chez tout le monde en même temps. On ne peut pas encore enchérir.
+2. **Présentation** (1 s). La carte apparaît chez tout le monde en même temps. On ne peut pas encore enchérir.
 3. **Ouverture.** Le serveur fixe l'heure de fin `endsAt` d'après sa propre horloge. Les clients affichent le compte à rebours en tenant compte du décalage d'horloge mesuré à la connexion.
 4. **Participants éligibles.** Est éligible celui qui peut placer le joueur, sur un emplacement titulaire compatible ou sur le banc, et peut payer au moins la mise d'ouverture sans enfreindre la réserve (§4). Les autres sont « hors course » pour cette enchère.
 5. **Offres.**
@@ -40,7 +40,7 @@ Les deux modes utilisent exactement le même moteur. Un mode ne fait que décrir
    - **anticipée** dès que tous les éligibles, sauf le meilleur enchérisseur, ont passé ;
    - sinon, à l'heure de fin.
 9. **Résultat.**
-   - **Vendu** : le montant est débité du budget du gagnant et le joueur est placé automatiquement (§5). Animation de 4,2 s.
+   - **Vendu** : le montant est débité du budget du gagnant et le joueur est placé automatiquement (§5). Animation de 2,4 s ; la présentation du joueur suivant (1 s) enchaîne aussitôt.
    - **Invendu** si personne n'a enchéri. Le joueur sort du tirage mais reste disponible comme joueur libre (§6).
 10. **Enchère suivante**, ou fin de la draft.
 
@@ -130,4 +130,9 @@ L'écran de résultats indique quel critère a départagé le premier et le deux
 
 ## 9. Données des joueurs
 
-Cette version utilise **uniquement des joueurs fictifs** : 180 joueurs générés, libellés « Données de démonstration — joueurs fictifs ». Aucune note affichée n'est présentée comme celle d'un footballeur réel. Voir `DATA_LICENSING.md`.
+À la création de la partie, l'hôte choisit le jeu de joueurs :
+
+- **Réels** (par défaut) : 162 footballeurs réels, saison 2025-2026. Leurs notes et statistiques sont des **estimations de Build Your Team**, affichées comme telles (« NOTE ESTIMÉE », « non officielles »). Ce ne sont pas des notes EA SPORTS FC. Les cartes montrent une silhouette neutre, sans photo.
+- **Fictifs** : 180 joueurs entièrement inventés.
+
+Les règles sont identiques dans les deux cas. Voir `DATA_LICENSING.md` pour les conditions d'usage du mode Réels.

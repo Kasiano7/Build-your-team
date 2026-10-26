@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
 import { router } from 'expo-router';
-import { footballDemoPack } from '@byt/football';
+import { builtInFootballPacks } from '@byt/football';
 import { nicknameSchema } from '@byt/shared';
 import { colors } from '@byt/ui';
 import { PageHeader } from '@/components/Header';
@@ -10,13 +10,15 @@ import { errorMessage } from '@/lib/errors';
 import { getItem, keys, setItem } from '@/lib/storage';
 import { gameClient } from '@/state/game-client';
 
-const pack = footballDemoPack;
+// Shared rules (modes, formations) are identical across football packs.
+const pack = builtInFootballPacks[0]!;
 
 export default function CreateRoom() {
   const toast = useToast();
   const [nickname, setNickname] = useState('');
   const [nickError, setNickError] = useState<string | null>(null);
   const [players, setPlayers] = useState<2 | 3 | 4>(4);
+  const [packId, setPackId] = useState(builtInFootballPacks[0]!.id);
   const [mode, setMode] = useState<'quick' | 'classic'>('quick');
   const modeDef = pack.modes.find((m) => m.id === mode)!;
   const [budget, setBudget] = useState(modeDef.defaultBudget);
@@ -48,7 +50,7 @@ export default function CreateRoom() {
     await setItem(keys.nickname, parsed.data);
     const res = await gameClient.create({
       nickname: parsed.data,
-      packId: pack.id,
+      packId,
       mode,
       maxParticipants: players,
       budget,
@@ -92,6 +94,16 @@ export default function CreateRoom() {
                   { value: 3, label: '3', sub: 'vote croisé' },
                   { value: 4, label: '4', sub: 'vote croisé' },
                 ]}
+              />
+              <Segmented
+                label="Joueurs à recruter"
+                value={packId}
+                onChange={setPackId}
+                options={builtInFootballPacks.map((p) => ({
+                  value: p.id,
+                  label: p.dataset.fictional ? 'Fictifs' : 'Réels',
+                  sub: p.dataset.fictional ? 'démo, 100 % inventés' : 'notes estimées, non officielles',
+                }))}
               />
               <Segmented
                 label="Mode"

@@ -10,7 +10,7 @@ type Spec =
   | { h: string[] }
   | { v: string[] }
   | { nordic: [string, string] }
-  | { custom: 'JPN' | 'KOR' | 'BRA' | 'USA' | 'ENG' | 'SCO' | 'SUI' | 'MAR' | 'ALG' | 'TUN' | 'CMR' | 'GHA' | 'SEN' | 'CRO' | 'SRB' | 'POR' | 'URU' | 'ARG' | 'TUR' };
+  | { custom: 'CAN' | 'GEO' | 'JPN' | 'KOR' | 'BRA' | 'USA' | 'ENG' | 'SCO' | 'SUI' | 'MAR' | 'ALG' | 'TUN' | 'CMR' | 'GHA' | 'SEN' | 'CRO' | 'SRB' | 'POR' | 'URU' | 'ARG' | 'TUR' };
 
 const FLAGS: Record<string, Spec> = {
   FRA: { v: ['#1F3C88', '#F4F4F4', '#D5263B'] },
@@ -26,6 +26,14 @@ const FLAGS: Record<string, Spec> = {
   ESP: { h: ['#AA151B', '#F1BF00', '#F1BF00', '#AA151B'] },
   COL: { h: ['#FCD116', '#FCD116', '#003893', '#CE1126'] },
   POL: { h: ['#F4F4F4', '#DC143C'] },
+  HUN: { h: ['#CE2939', '#F4F4F4', '#477050'] },
+  SVN: { h: ['#F4F4F4', '#0057B8', '#ED1C24'] },
+  SVK: { h: ['#F4F4F4', '#0B4EA2', '#EE1C25'] },
+  ECU: { h: ['#FFD100', '#FFD100', '#034EA2', '#ED1C24'] },
+  EGY: { h: ['#CE1126', '#F4F4F4', '#111111'] },
+  GUI: { v: ['#CE1126', '#FCD116', '#009460'] },
+  CAN: { custom: 'CAN' },
+  GEO: { custom: 'GEO' },
   DEN: { nordic: ['#C8102E', '#F4F4F4'] },
   NOR: { nordic: ['#BA0C2F', '#F4F4F4'] },
   SWE: { nordic: ['#006AA7', '#FECC00'] },
@@ -52,6 +60,10 @@ const FLAGS: Record<string, Spec> = {
 
 function Custom({ code }: { code: string }) {
   switch (code) {
+    case 'CAN':
+      return (<><Rect width="30" height="20" fill="#F4F4F4" /><Rect width="7.5" height="20" fill="#D52B1E" /><Rect x="22.5" width="7.5" height="20" fill="#D52B1E" /><Path d="M15 5l1.2 2.6 1.6-.6-.5 3 1.7-1-.3 1.6 1.4.3-1.6 1.8.3 1.1h-3.2v2.2h-1.2v-2.2h-3.2l.3-1.1-1.6-1.8 1.4-.3-.3-1.6 1.7 1-.5-3 1.6.6z" fill="#D52B1E" /></>);
+    case 'GEO':
+      return (<><Rect width="30" height="20" fill="#F4F4F4" /><Rect x="13" width="4" height="20" fill="#E8112D" /><Rect y="8" width="30" height="4" fill="#E8112D" />{[[6, 4], [24, 4], [6, 16], [24, 16]].map(([x, y], i) => (<Path key={i} d={`M${x! - 1.6} ${y} H${x! + 1.6} M${x} ${y! - 1.6} V${y! + 1.6}`} stroke="#E8112D" strokeWidth="1.2" />))}</>);
     case 'JPN':
       return (<><Rect width="30" height="20" fill="#F4F4F4" /><Circle cx="15" cy="10" r="5.5" fill="#BC002D" /></>);
     case 'KOR':
