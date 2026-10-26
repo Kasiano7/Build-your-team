@@ -45,7 +45,7 @@ Chaque scénario a été vérifié à deux niveaux : dans le test d'intégration
 Autres comportements testés :
 
 - **2 joueurs avec vote spectateurs** : les joueurs ne peuvent pas voter, un seul vote par spectateur, plafond de 3 votes par IP, clôture par l'hôte, vote conservé après rechargement de la page, bascule automatique d'un spectateur arrivé en avance (intégration et E2E).
-- **Redémarrage du serveur** : un second serveur sur la même base recharge la partie en cours et ses chronos continuent.
+- **Redémarrage du serveur** : un second serveur sur la même base recharge la partie en cours et ses chronos continuent. Ce cas s'est aussi produit **pour de vrai** pendant le dernier E2E à 4 navigateurs : le serveur de dev (`tsx watch`) a redémarré en pleine draft. Les quatre clients se sont reconnectés et ont repris leur session, et la partie est allée jusqu'au vote et au résultat sans erreur.
 - **Rétention** : un salon de plus de 30 jours est supprimé, avec ses lignes liées en cascade.
 - **Modération** : retrait d'un participant par l'hôte avec révocation de sa session, refus des pseudos injurieux (y compris en leetspeak et avec accents), sans faux positif sur des noms réels comme « Dickson ».
 - **Moteur** : réserve, chrono porté à 12 s, offre engageante, joueurs libres (le moins bien noté compatible, à 10M), plafond d'enchères, mode classique à 11 titulaires, changement de formation, échanges incompatibles refusés, départage par la note d'équipe.
