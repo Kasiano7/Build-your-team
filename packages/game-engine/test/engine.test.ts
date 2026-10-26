@@ -320,3 +320,26 @@ describe('timings', () => {
     expect(TIMINGS.soldDisplayMs).toBeGreaterThanOrEqual(3000);
   });
 });
+
+describe('moderation & host tools', () => {
+  it('host can remove a participant in the lobby only', async () => {
+    const { kickParticipant } = await import('../src');
+    let s = makeRoom(3);
+    const notHost = kickParticipant(s, 'p2', 'p3', ctx());
+    expect(!notHost.ok && notHost.code).toBe('NOT_HOST');
+    const self = kickParticipant(s, 'p1', 'p1', ctx());
+    expect(!self.ok && self.code).toBe('UNKNOWN_TARGET');
+    s = unwrap(kickParticipant(s, 'p1', 'p3', ctx()));
+    expect(s.participants.map((p) => p.id)).toEqual(['p1', 'p2']);
+    const started = unwrap(startGame(s, 'p1', ctx()));
+    const late = kickParticipant(started, 'p1', 'p2', ctx());
+    expect(!late.ok && late.code).toBe('WRONG_PHASE');
+  });
+
+  it('blocks offensive nicknames, including leetspeak and accents', async () => {
+    const { nicknameSchema } = await import('@byt/shared');
+    for (const bad of ['Connard', 'c0nn4rd', 'FuCk you', 'NTM', 'Enculé']) expect(nicknameSchema.safeParse(bad).success).toBe(false);
+    // Short blocked terms only match whole words: no false positive on real names.
+    for (const ok of ['Camille', 'Zoé', 'Ntmanga', 'Dickson', 'Alex 2']) expect(nicknameSchema.safeParse(ok).success).toBe(true);
+  });
+});

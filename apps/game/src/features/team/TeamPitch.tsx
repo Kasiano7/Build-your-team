@@ -3,7 +3,7 @@
  * empty slots show their tactical label, the slot the current auction would
  * fill pulses, and newly acquired players land with an arrival animation.
  */
-import { memo, useEffect, useRef } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Platform, Pressable, Text, View } from 'react-native';
 import Animated, {
   Easing,
@@ -44,8 +44,8 @@ const EmptySlot = memo(function EmptySlot({ w, label, target, selected, reduce }
   const pulse = useSharedValue(0);
   useEffect(() => {
     if (target && !reduce) {
-      pulse.value = 0;
-      pulse.value = withRepeat(withTiming(1, { duration: 900, easing: Easing.inOut(Easing.quad) }), -1, true);
+      pulse.set(0);
+      pulse.set(withRepeat(withTiming(1, { duration: 900, easing: Easing.inOut(Easing.quad) }), -1, true));
     } else pulse.value = 0;
   }, [target, reduce, pulse]);
   const glow = useAnimatedStyle(() => ({ opacity: target ? 0.35 + pulse.value * 0.65 : 1, transform: [{ scale: target ? 1 + pulse.value * 0.05 : 1 }] }));
@@ -64,7 +64,7 @@ const EmptySlot = memo(function EmptySlot({ w, label, target, selected, reduce }
 /** Card landing: drops from above with overshoot, plus an expanding ring on the turf. */
 function Arrival({ children, w, reduce: reduceNow, animate: animateNow }: { children: React.ReactNode; w: number; reduce: boolean; animate: boolean }) {
   // Decided once, at mount: later renders must not restart or cancel the landing.
-  const animate = useRef(animateNow && !reduceNow).current;
+  const [animate] = useState(() => animateNow && !reduceNow);
   const reduce = !animate;
   const y = useSharedValue(reduce ? 0 : -w * 1.6);
   const s = useSharedValue(reduce ? 1 : 1.5);
@@ -72,10 +72,10 @@ function Arrival({ children, w, reduce: reduceNow, animate: animateNow }: { chil
   const ring = useSharedValue(0);
   useEffect(() => {
     if (reduce) return;
-    o.value = withDelay(350, withTiming(1, { duration: 220 }));
-    y.value = withDelay(350, withSpring(0, { damping: 13, stiffness: 140 }));
-    s.value = withDelay(350, withSpring(1, { damping: 12, stiffness: 140 }));
-    ring.value = withDelay(620, withTiming(1, { duration: 900, easing: Easing.out(Easing.cubic) }));
+    o.set(withDelay(350, withTiming(1, { duration: 220 })));
+    y.set(withDelay(350, withSpring(0, { damping: 13, stiffness: 140 })));
+    s.set(withDelay(350, withSpring(1, { damping: 12, stiffness: 140 })));
+    ring.set(withDelay(620, withTiming(1, { duration: 900, easing: Easing.out(Easing.cubic) })));
   }, [reduce, o, y, s, ring]);
   const card = useAnimatedStyle(() => ({ opacity: o.value, transform: [{ translateY: y.value }, { scale: s.value }] }));
   const ringStyle = useAnimatedStyle(() => ({
@@ -97,13 +97,9 @@ function Arrival({ children, w, reduce: reduceNow, animate: animateNow }: { chil
 
 export function TeamPitch({ pack, formation, team, characters, targetSlot = null, selectedSlot = null, onSlotPress, animateArrivals = true, accent }: TeamPitchProps) {
   const reduce = useReduceMotion();
-  const known = useRef<Set<string> | null>(null);
-  if (known.current === null) known.current = new Set(team.starters.filter((x): x is string => !!x));
-  const fresh = new Set<string>();
-  for (const id of team.starters) if (id && !known.current.has(id)) fresh.add(id);
-  useEffect(() => {
-    for (const id of team.starters) if (id) known.current!.add(id);
-  });
+  // Cards present when this pitch mounted never animate; later arrivals do (Arrival decides at its own mount).
+  const [initial] = useState(() => new Set(team.starters.filter((x): x is string => !!x)));
+  const fresh = new Set(team.starters.filter((id): id is string => !!id && !initial.has(id)));
 
   return (
     <Pitch

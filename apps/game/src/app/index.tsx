@@ -43,12 +43,12 @@ export default function Home() {
   const { width, height } = useWindowDimensions();
   const wide = width >= 920;
   const reduce = useReduceMotion();
-  const { ids, characters } = useMemo(showcase, []);
+  const { ids, characters } = useMemo(() => showcase(), []);
   const [landed, setLanded] = useState(reduce ? ids.length : 0);
   const [lastRoom, setLastRoom] = useState<string | null>(null);
 
   useEffect(() => {
-    if (reduce) return setLanded(ids.length);
+    if (reduce) return;
     const order = [0, 1, 2, 3, 4];
     let i = 0;
     const t = setInterval(() => {

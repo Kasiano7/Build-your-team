@@ -21,6 +21,7 @@ import {
   createRoomSchema,
   formationSchema,
   joinRoomSchema,
+  kickSchema,
   leaveSchema,
   passSchema,
   resumeSchema,
@@ -48,6 +49,7 @@ import {
   changeFormation,
   closeVoting,
   createRoomState,
+  kickParticipant,
   nextDeadline,
   passAuction,
   placeBid,
@@ -73,6 +75,8 @@ export interface ServerOptions {
   corsOrigin?: string | string[];
   /** Max spectator votes accepted from one IP address per room. */
   spectatorVotesPerIp?: number;
+  /** Rooms untouched for this many days are deleted (privacy policy: 30). */
+  retentionDays?: number;
 }
 
 interface RoomRuntime {
@@ -137,6 +141,7 @@ export class GameServer {
       this.schedule(rt);
     }
     this.sweeper = setInterval(() => this.sweep(), 60_000);
+    void this.purge();
     await new Promise<void>((resolve) => this.http.listen(port, resolve));
     const address = this.http.address();
     const actual = typeof address === 'object' && address ? address.port : port;
@@ -234,8 +239,20 @@ export class GameServer {
     }, delay);
   }
 
+  private lastPurge = 0;
+  private async purge(): Promise<void> {
+    this.lastPurge = Date.now();
+    try {
+      const n = await this.repo.purgeOlderThan(this.opts.retentionDays ?? 30);
+      if (n) log('info', 'rooms_purged', { count: n });
+    } catch (err) {
+      log('error', 'purge_failed', { err: String(err) });
+    }
+  }
+
   private sweep(): void {
     const now = Date.now();
+    if (now - this.lastPurge > 24 * 3600_000) void this.purge();
     for (const [code, rt] of this.rooms) {
       const idle = now - rt.lastActivity;
       const connected = [...rt.sockets.values()].some((s) => s.size > 0);
@@ -394,6 +411,25 @@ export class GameServer {
       return res;
     });
 
+    handle(C2S.kick, kickSchema, async ({ actionId, participantId: target }) => {
+      const code = data.roomCode;
+      const res = await member(actionId, (rt, pid, ctx) => kickParticipant(rt.state, pid, target, ctx));
+      const rt = code ? this.rooms.get(code) : undefined;
+      if (res.ok && rt) {
+        for (const [hash, id] of rt.sessions) if (id === target) rt.sessions.delete(hash);
+        for (const sid of rt.sockets.get(target) ?? []) {
+          const s = this.io.sockets.sockets.get(sid);
+          if (s) {
+            // The kicked client still receives this last update, then is detached.
+            s.emit(S2C.update, { view: toRoomView(rt.state, this.ctx(rt.state).pack, Date.now()), events: [] });
+            this.detach(s, true);
+          }
+        }
+        rt.sockets.delete(target);
+      }
+      return res;
+    });
+
     handle(C2S.spectate, spectateSchema, async ({ roomCode, spectatorId }) => {
       const rt = await this.getRuntime(roomCode);
       if (!rt) return fail('ROOM_NOT_FOUND');
@@ -529,8 +565,19 @@ function json(res: ServerResponse, status: number, body: unknown): void {
   res.end(JSON.stringify(body));
 }
 
+/**
+ * Client IP for spectator-vote anti-abuse. Proxy headers are only trusted when
+ * TRUST_PROXY is set (they can be forged otherwise). Fly.io sets Fly-Client-IP;
+ * with a generic proxy the LAST X-Forwarded-For hop is the one it appended.
+ */
 function clientIp(socket: Socket): string {
-  const fwd = socket.handshake.headers['x-forwarded-for'];
-  const first = (Array.isArray(fwd) ? fwd[0] : fwd)?.split(',')[0]?.trim();
-  return first || socket.handshake.address || 'unknown';
+  if (process.env.TRUST_PROXY) {
+    const h = socket.handshake.headers;
+    const fly = h['fly-client-ip'];
+    if (typeof fly === 'string' && fly) return fly;
+    const fwd = h['x-forwarded-for'];
+    const hops = (Array.isArray(fwd) ? fwd.join(',') : fwd ?? '').split(',').map((x) => x.trim()).filter(Boolean);
+    if (hops.length) return hops[hops.length - 1]!;
+  }
+  return socket.handshake.address || 'unknown';
 }

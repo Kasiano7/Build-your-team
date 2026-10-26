@@ -72,6 +72,7 @@ export function TeamView({ view, pack, participant, editable, showTarget }: { vi
       )}
       <View style={{ flex: 1 }}>
         <TeamPitch
+          key={participant.id}
           pack={pack}
           formation={formation}
           team={participant.team}

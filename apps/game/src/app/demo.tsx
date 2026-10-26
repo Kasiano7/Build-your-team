@@ -33,7 +33,7 @@ export default function Demo() {
   const [team, setTeam] = useState<Team>(() => emptyTeam(getFormation(pack, 'quick-5'), 0));
   const [cursor, setCursor] = useState(0);
   const order = useMemo(() => [...pack.characters].sort((a, b) => (a.id < b.id ? -1 : 1)).filter((_, i) => i % 7 === 0), []);
-  const tiers = useMemo(byTier, []);
+  const tiers = useMemo(() => byTier(), []);
 
   const changeFormation = (id: string) => {
     setFormationId(id);

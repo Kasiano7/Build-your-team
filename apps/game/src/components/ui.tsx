@@ -282,15 +282,19 @@ export const useToast = () => useContext(ToastContext);
 /* ------------------------------------------------------------------ */
 
 export function ConnectionBadge({ state }: { state: 'idle' | 'connecting' | 'online' | 'offline' }) {
-  const [visible, setVisible] = useState(state !== 'online');
+  // Show "connected" briefly after a (re)connection, then hide; always show non-online states.
+  const [prev, setPrev] = useState(state);
+  const [flash, setFlash] = useState(false);
+  if (prev !== state) {
+    setPrev(state);
+    setFlash(state === 'online' && prev !== 'idle');
+  }
   useEffect(() => {
-    if (state === 'online') {
-      const t = setTimeout(() => setVisible(false), 1200);
-      return () => clearTimeout(t);
-    }
-    setVisible(true);
-  }, [state]);
-  if (!visible || state === 'idle') return null;
+    if (!flash) return;
+    const t = setTimeout(() => setFlash(false), 1200);
+    return () => clearTimeout(t);
+  }, [flash]);
+  if (state === 'idle' || (state === 'online' && !flash)) return null;
   const color = state === 'online' ? colors.success : state === 'connecting' ? colors.warn : colors.danger;
   const label = state === 'online' ? 'Connecté' : state === 'connecting' ? 'Connexion…' : 'Hors ligne — reconnexion…';
   return (

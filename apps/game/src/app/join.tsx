@@ -26,7 +26,7 @@ export default function JoinRoom() {
     const n = nicknameSchema.safeParse(nickname);
     const next = {
       code: c.success ? undefined : `Le code comporte ${ROOM_CODE_LENGTH} caractères.`,
-      nick: n.success ? undefined : 'Pseudo de 2 à 16 caractères.',
+      nick: n.success ? undefined : n.error.issues.some((i) => i.message === 'NICKNAME_BLOCKED') ? 'Ce pseudo n’est pas autorisé.' : 'Pseudo de 2 à 16 caractères.',
     };
     setErrors(next);
     if (!c.success || !n.success) return;

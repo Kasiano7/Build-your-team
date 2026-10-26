@@ -1,0 +1,8 @@
+externalId,name,shortName,nationality,position,secondaryPositions,overall,birthDate,club,PAC,SHO,PAS,DRI,DEF,PHY,DIV,HAN,KIC,REF,SPD,POS
+x-001,Sample Striker,Striker,FRA,ST,LW|RW,84,2000-01-01,Example FC,88,85,74,83,40,78,,,,,,
+x-002,Sample Keeper,Keeper,ESP,GK,,81,1995-05-05,Example FC,,,,,,,82,80,70,84,45,79
+x-003,"Doe, Jane",Doe,BRA,CM,CDM,79,1999-09-09,Example FC,70,72,81,78,70,74,,,,,,
+x-001,Duplicate Id,Dup,FRA,ST,,70,2001-01-01,Example FC,70,70,70,70,40,70,,,,,,
+x-004,Sample Striker,Striker,FRA,ST,,70,2000-01-01,Other FC,70,70,70,70,40,70,,,,,,
+x-005,Bad Position,Bad,FRA,XX,,70,,,70,70,70,70,40,70,,,,,,
+x-006,Missing Stats,Missing,GER,CB,,75,,,70,,70,70,80,80,,,,,,

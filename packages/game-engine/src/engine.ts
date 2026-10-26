@@ -190,6 +190,15 @@ export function removeParticipant(state: RoomState, id: string, ctx: EngineCtx):
   return { ok: true, state: next, events: [{ type: 'participant_left', participantId: id }] };
 }
 
+/** Host removes a participant from the lobby (e.g. offensive nickname). */
+export function kickParticipant(state: RoomState, hostId: string, targetId: string, ctx: EngineCtx): Outcome {
+  const host = findParticipant(state, hostId);
+  if (!host) return fail('NOT_IN_ROOM');
+  if (!host.isHost) return fail('NOT_HOST');
+  if (targetId === hostId || !findParticipant(state, targetId)) return fail('UNKNOWN_TARGET');
+  return removeParticipant(state, targetId, ctx);
+}
+
 export function setConnected(state: RoomState, id: string, connected: boolean, ctx: EngineCtx): Outcome {
   const p = findParticipant(state, id);
   if (!p) return fail('NOT_IN_ROOM');

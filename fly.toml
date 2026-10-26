@@ -1,0 +1,59 @@
+# Fly.io — serveur temps réel Build Your Team (@byt/realtime)
+# Référence : https://fly.io/docs/reference/configuration/
+#
+# ⚠ UNE SEULE INSTANCE (une seule Machine) doit tourner :
+#   l'état des salons est en mémoire et les joueurs restent connectés en
+#   WebSocket à ce processus. Deux Machines = salons « coupés en deux ».
+#   Vérifier avec `fly scale show` et forcer si besoin : `fly scale count 1`.
+#   Ne JAMAIS passer à `fly scale count 2` (il faudrait sticky sessions +
+#   propriété des salons, hors périmètre MVP).
+#
+# Déploiement (depuis la racine du repo, contexte Docker = racine) :
+#   fly deploy --ha=false   (sans --ha=false, le 1er déploiement crée 2 Machines)
+# Secrets (jamais dans ce fichier) :
+#   fly secrets set DATABASE_URL="postgresql://...?sslmode=require"
+#   fly secrets set CORS_ORIGIN="https://buildyourteam.app,https://www.buildyourteam.app"
+
+app = "REPLACE-ME-byt-realtime"
+primary_region = "cdg"
+
+[build]
+  dockerfile = "services/realtime/Dockerfile"
+
+[env]
+  PORT = "4000"
+  LOG_LEVEL = "info"
+  NODE_ENV = "production"
+
+[http_service]
+  internal_port = 4000
+  force_https = true
+  # Jamais d'arrêt automatique : les parties en cours vivent en mémoire.
+  auto_stop_machines = "off"
+  auto_start_machines = false
+  min_machines_running = 1
+
+  [http_service.concurrency]
+    # WebSockets longue durée → on compte des connexions, pas des requêtes.
+    type = "connections"
+    soft_limit = 800
+    hard_limit = 1000
+
+  [[http_service.checks]]
+    grace_period = "30s"
+    interval = "15s"
+    timeout = "5s"
+    method = "GET"
+    path = "/health"
+
+[deploy]
+  # Une seule Machine : « rolling » la remplace (arrêt → mise à jour →
+  # démarrage → health check) sans faire coexister deux instances.
+  # Ne pas utiliser bluegreen/canary (deux instances simultanées).
+  # Les salons sont rechargés depuis PostgreSQL au redémarrage ; les clients
+  # se reconnectent automatiquement (coupure de quelques secondes).
+  strategy = "rolling"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"

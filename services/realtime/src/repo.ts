@@ -83,6 +83,15 @@ export class RoomRepository {
     return new Map(res.rows.map((r) => [r.session_token_hash, r.id]));
   }
 
+  /** Data retention: rooms (and, by cascade, every related row) older than `days` are deleted. */
+  async purgeOlderThan(days: number): Promise<number> {
+    const res = await this.db.query<{ code: string }>(
+      `DELETE FROM rooms WHERE updated_at < now() - make_interval(days => $1::int) RETURNING code`,
+      [days],
+    );
+    return res.rows.length;
+  }
+
   async roomExists(code: string): Promise<boolean> {
     const res = await this.db.query('SELECT 1 FROM rooms WHERE code = $1', [code]);
     return res.rows.length > 0;

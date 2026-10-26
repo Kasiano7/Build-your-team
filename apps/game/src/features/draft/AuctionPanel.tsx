@@ -27,12 +27,16 @@ export function AuctionPanel({ view, pack, me, compact, dense }: { view: RoomVie
   const target = me ? targetSlotFor(pack, view, me) : null;
   const targetLabel = me && target ? (target.kind === 'starter' ? formationOf(pack, me.team.formationId).slots[target.index]!.label : 'Banc') : null;
 
-  useEffect(() => setCustom(''), [a.id]);
+  const [customFor, setCustomFor] = useState(a.id);
+  if (customFor !== a.id) {
+    setCustomFor(a.id);
+    setCustom('');
+  }
 
   const amountPulse = useSharedValue(1);
   useEffect(() => {
     if (!high || reduce) return;
-    amountPulse.value = withSequence(withTiming(1.18, { duration: 120 }), withSpring(1, { damping: 9, stiffness: 200 }));
+    amountPulse.set(withSequence(withTiming(1.18, { duration: 120 }), withSpring(1, { damping: 9, stiffness: 200 })));
   }, [high?.id, reduce, amountPulse, high]);
   const amountStyle = useAnimatedStyle(() => ({ transform: [{ scale: amountPulse.value }] }));
 

@@ -6,6 +6,7 @@
  * retried command is applied at most once.
  */
 import { z } from 'zod';
+import { isNicknameAllowed } from './moderation';
 import type {
   Auction,
   AuctionSummary,
@@ -27,7 +28,8 @@ export const nicknameSchema = z
   .trim()
   .min(2, 'NICKNAME_TOO_SHORT')
   .max(16, 'NICKNAME_TOO_LONG')
-  .regex(/^[\p{L}\p{N} _.\-']+$/u, 'NICKNAME_INVALID');
+  .regex(/^[\p{L}\p{N} _.\-']+$/u, 'NICKNAME_INVALID')
+  .refine(isNicknameAllowed, 'NICKNAME_BLOCKED');
 
 export const roomCodeSchema = z
   .string()
@@ -69,6 +71,7 @@ export const formationSchema = z.object({ actionId: actionIdSchema, formationId:
 export const voteSchema = z.object({ actionId: actionIdSchema, targetId: z.string().min(1).max(64) });
 export const closeVoteSchema = z.object({ actionId: actionIdSchema });
 export const leaveSchema = z.object({ actionId: actionIdSchema });
+export const kickSchema = z.object({ actionId: actionIdSchema, participantId: z.string().min(1).max(64) });
 
 export const spectateSchema = z.object({
   roomCode: roomCodeSchema,
@@ -87,6 +90,7 @@ export const C2S = {
   join: 'room:join',
   resume: 'room:resume',
   leave: 'room:leave',
+  kick: 'room:kick',
   start: 'room:start',
   bid: 'auction:bid',
   pass: 'auction:pass',

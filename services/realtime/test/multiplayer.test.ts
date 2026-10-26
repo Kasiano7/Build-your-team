@@ -262,6 +262,24 @@ describe('four-client multiplayer game', () => {
   });
 });
 
+describe('lobby moderation', () => {
+  it('the host removes a participant; the removed session is revoked', async () => {
+    const h = new Client('kick-host');
+    const g = new Client('kick-guest');
+    const created = await h.session(C2S.create, { nickname: 'Host', packId: footballDemoPack.id, mode: 'quick', maxParticipants: 3 });
+    await g.session(C2S.join, { roomCode: created.roomCode, nickname: 'Guest' });
+    const notHost = await g.emit(C2S.kick, { actionId: randomUUID(), participantId: h.participantId });
+    expect(notHost).toMatchObject({ ok: false, code: 'NOT_HOST' });
+    const res = await h.emit(C2S.kick, { actionId: randomUUID(), participantId: g.participantId });
+    expect(res.ok).toBe(true);
+    await h.waitFor((v) => v.participants.length === 1);
+    const again = await new Client('kick-again').emit(C2S.resume, { roomCode: created.roomCode, sessionToken: g.token });
+    expect(again).toMatchObject({ ok: false, code: 'INVALID_SESSION' });
+    const bad = await new Client('bad-nick').emit(C2S.join, { roomCode: created.roomCode, nickname: 'c0nn4rd' });
+    expect(bad).toMatchObject({ ok: false, code: 'INVALID_PAYLOAD', message: 'NICKNAME_BLOCKED' });
+  });
+});
+
 describe('two-player game with spectator voting', () => {
   it('spectators vote through a link, with one vote per spectator and an IP cap', async () => {
     const a = new Client('host2');
@@ -328,4 +346,20 @@ describe('server restart', () => {
     c.disconnect();
     await second.stop();
   }, 60000);
+});
+
+describe('data retention', () => {
+  it('purges rooms older than the retention period, with all their rows', async () => {
+    const { RoomRepository } = await import('../src/repo');
+    const repo = new RoomRepository(db);
+    const before = await db.query<{ code: string }>('SELECT code FROM rooms ORDER BY created_at LIMIT 1');
+    const old = before.rows[0]!.code;
+    await db.query(`UPDATE rooms SET updated_at = now() - interval '31 days' WHERE code = $1`, [old]);
+    const purged = await repo.purgeOlderThan(30);
+    expect(purged).toBe(1);
+    const left = await db.query('SELECT 1 FROM participants WHERE room_code = $1', [old]);
+    expect(left.rows).toHaveLength(0);
+    const events = await db.query('SELECT 1 FROM game_events WHERE room_code = $1', [old]);
+    expect(events.rows).toHaveLength(0);
+  });
 });

@@ -33,6 +33,10 @@ export function Lobby({ view, pack, meId, onLeave }: { view: RoomView; pack: Pac
       void copy();
     }
   };
+  const kick = async (id: string, name: string) => {
+    const res = await gameClient.kick(id);
+    toast(res.ok ? `${name} a été retiré du salon` : errorMessage(res.code), res.ok ? 'success' : 'error');
+  };
   const start = async () => {
     const res = await gameClient.start();
     if (!res.ok) toast(errorMessage(res.code), 'error');
@@ -121,6 +125,17 @@ export function Lobby({ view, pack, meId, onLeave }: { view: RoomView; pack: Pac
                     </Text>
                   )}
                 </View>
+                {isHost && p && p.id !== meId && (
+                  <Pressable
+                    onPress={() => kick(p.id, p.nickname)}
+                    accessibilityRole="button"
+                    accessibilityLabel={`Retirer ${p.nickname} du salon`}
+                    hitSlop={8}
+                    style={{ paddingHorizontal: 10, paddingVertical: 6, borderRadius: 8, borderWidth: 1, borderColor: colors.line }}
+                  >
+                    <Text style={{ fontFamily: fonts.bodySemi, fontSize: 12, color: colors.textDim }}>Retirer</Text>
+                  </Pressable>
+                )}
               </Animated.View>
             ))}
           </View>

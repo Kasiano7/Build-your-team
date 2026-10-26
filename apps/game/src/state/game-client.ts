@@ -37,6 +37,8 @@ export interface GameSnapshot {
   offsetMs: number;
   /** True when the stored session could not be resumed (expired / unknown room). */
   sessionLost: boolean;
+  /** True when the host removed this participant from the lobby. */
+  removed: boolean;
 }
 
 interface StoredSession {
@@ -63,6 +65,7 @@ export class GameClient {
     view: null,
     offsetMs: 0,
     sessionLost: false,
+    removed: false,
   };
   private listeners = new Set<() => void>();
   private eventListeners = new Set<EventListener>();
@@ -125,6 +128,14 @@ export class GameClient {
     let spectatorVote = this.snapshot.spectatorVote;
     if (this.snapshot.spectatorId && u.view.voting) {
       spectatorVote = u.view.voting.votes.find((v) => v.voterId === this.snapshot.spectatorId)?.targetId ?? spectatorVote;
+    }
+    const { role, participantId, roomCode } = this.snapshot;
+    if (role === 'player' && participantId && !u.view.participants.some((p) => p.id === participantId)) {
+      // Removed by the host: forget the local session.
+      if (roomCode) void removeItem(keys.session(roomCode));
+      this.token = null;
+      this.set({ view: u.view, role: null, participantId: null, removed: true });
+      return;
     }
     this.set({ view: u.view, spectatorVote });
     if (u.events.length) for (const l of this.eventListeners) l(u.events, u.view);
@@ -189,6 +200,7 @@ export class GameClient {
       pack: ack.pack,
       view: ack.view,
       sessionLost: false,
+      removed: false,
     });
     if (persist) {
       const me = ack.view.participants.find((p) => p.id === ack.participantId);
@@ -266,6 +278,7 @@ export class GameClient {
   formation = (formationId: string) => this.act(C2S.formation, { formationId });
   vote = (targetId: string) => this.act(C2S.vote, { targetId });
   closeVote = () => this.act(C2S.closeVote, {});
+  kick = (participantId: string) => this.act(C2S.kick, { participantId });
 
   async leave(): Promise<void> {
     const { roomCode, view } = this.snapshot;
@@ -278,7 +291,7 @@ export class GameClient {
   /** Forget the current room locally (does not leave it server side). */
   reset() {
     this.token = null;
-    this.set({ role: null, roomCode: null, participantId: null, spectatorId: null, spectatorVote: null, view: null, sessionLost: false });
+    this.set({ role: null, roomCode: null, participantId: null, spectatorId: null, spectatorVote: null, view: null, sessionLost: false, removed: false });
   }
 }
 

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://raw.githubusercontent.com/expo/eas-cli/main/packages/eas-json/schema/eas.schema.json",
+  "cli": {
+    "version": ">= 25.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "environment": "development"
+    },
+    "preview": {
+      "distribution": "internal",
+      "environment": "preview",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_SERVER_URL": "https://REPLACE-ME-staging-realtime.fly.dev",
+        "EXPO_PUBLIC_WEB_URL": "https://REPLACE-ME-staging.vercel.app"
+      }
+    },
+    "production": {
+      "distribution": "store",
+      "environment": "production",
+      "autoIncrement": true,
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "env": {
+        "EXPO_PUBLIC_SERVER_URL": "https://REPLACE-ME-realtime.example.com",
+        "EXPO_PUBLIC_WEB_URL": "https://REPLACE-ME.example.com"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "track": "internal",
+        "releaseStatus": "draft"
+      },
+      "ios": {
+        "appleId": "REPLACE-ME@example.com",
+        "ascAppId": "REPLACE_ME_ASC_APP_ID",
+        "appleTeamId": "REPLACE_ME_TEAM_ID"
+      }
+    }
+  }
+}

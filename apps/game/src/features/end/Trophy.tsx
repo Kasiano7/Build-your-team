@@ -12,8 +12,8 @@ export function Trophy({ size = 140 }: { size?: number }) {
   const glow = useSharedValue(0);
   useEffect(() => {
     if (reduce) return;
-    rise.value = withSpring(1, { damping: 10, stiffness: 80 });
-    glow.value = withDelay(500, withRepeat(withTiming(1, { duration: 1800, easing: Easing.inOut(Easing.sin) }), -1, true));
+    rise.set(withSpring(1, { damping: 10, stiffness: 80 }));
+    glow.set(withDelay(500, withRepeat(withTiming(1, { duration: 1800, easing: Easing.inOut(Easing.sin) }), -1, true)));
   }, [reduce, rise, glow]);
   const style = useAnimatedStyle(() => ({ opacity: rise.value, transform: [{ translateY: (1 - rise.value) * 60 }, { scale: 0.6 + rise.value * 0.4 }] }));
   const halo = useAnimatedStyle(() => ({ opacity: 0.55 + glow.value * 0.45, transform: [{ scale: 1 + glow.value * 0.06 }] }));
@@ -74,7 +74,7 @@ function Confetti({ size }: { size: number }) {
 function Piece({ x, delay, color, rot, h, w }: { x: number; delay: number; color: string; rot: number; h: number; w: number }) {
   const t = useSharedValue(0);
   useEffect(() => {
-    t.value = withDelay(delay, withTiming(1, { duration: 2200, easing: Easing.out(Easing.quad) }));
+    t.set(withDelay(delay, withTiming(1, { duration: 2200, easing: Easing.out(Easing.quad) })));
   }, [t, delay]);
   const style = useAnimatedStyle(() => ({
     opacity: t.value === 0 ? 0 : 1 - t.value,

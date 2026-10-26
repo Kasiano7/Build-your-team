@@ -48,29 +48,29 @@ export function AuctionStage({
 
   // Reveal on every new auction.
   useEffect(() => {
-    fly.value = 0;
-    stamp.value = 0;
+    fly.set(0);
+    stamp.set(0);
     if (reduce) {
-      flip.value = 0;
-      scale.value = 1;
-      opacity.value = 1;
+      flip.set(0);
+      scale.set(1);
+      opacity.set(1);
       return;
     }
-    flip.value = 90;
-    scale.value = 0.7;
-    opacity.value = 0;
-    opacity.value = withTiming(1, { duration: 260 });
-    flip.value = withDelay(80, withSpring(0, { damping: 14, stiffness: 90 }));
-    scale.value = withDelay(80, withSpring(1, { damping: 12, stiffness: 110 }));
-    sweep.value = -1;
-    sweep.value = withDelay(650, withTiming(1.4, { duration: 900, easing: Easing.inOut(Easing.cubic) }));
+    flip.set(90);
+    scale.set(0.7);
+    opacity.set(0);
+    opacity.set(withTiming(1, { duration: 260 }));
+    flip.set(withDelay(80, withSpring(0, { damping: 14, stiffness: 90 })));
+    scale.set(withDelay(80, withSpring(1, { damping: 12, stiffness: 110 })));
+    sweep.set(-1);
+    sweep.set(withDelay(650, withTiming(1.4, { duration: 900, easing: Easing.inOut(Easing.cubic) })));
   }, [auction.id, reduce, flip, scale, opacity, sweep, fly, stamp]);
 
   // Pulse on new high bid.
   const bidCount = auction.bids.length;
   useEffect(() => {
     if (bidCount === 0 || reduce) return;
-    bump.value = withSequence(withTiming(1.06, { duration: 110 }), withSpring(1, { damping: 10, stiffness: 220 }));
+    bump.set(withSequence(withTiming(1.06, { duration: 110 }), withSpring(1, { damping: 10, stiffness: 220 })));
   }, [bidCount, reduce, bump]);
 
   // Closing choreography.
@@ -78,8 +78,8 @@ export function AuctionStage({
   const sold = auction.result?.type === 'sold';
   useEffect(() => {
     if (!closed) return;
-    stamp.value = reduce ? 1 : withSpring(1, { damping: 9, stiffness: 160 });
-    if (sold && !reduce) fly.value = withDelay(1500, withTiming(1, { duration: 650, easing: Easing.in(Easing.cubic) }));
+    stamp.set(reduce ? 1 : withSpring(1, { damping: 9, stiffness: 160 }));
+    if (sold && !reduce) fly.set(withDelay(1500, withTiming(1, { duration: 650, easing: Easing.in(Easing.cubic) })));
   }, [closed, sold, reduce, stamp, fly]);
 
   const cardStyle = useAnimatedStyle(() => {

@@ -1,0 +1,36 @@
+# Render Blueprint — alternative à Fly.io pour le serveur temps réel.
+# Référence : https://render.com/docs/blueprint-spec
+#
+# ⚠ UNE SEULE INSTANCE doit tourner (état des salons en mémoire + WebSockets
+#   persistants) : numInstances = 1, ne pas activer l'autoscaling.
+# ⚠ Ne pas utiliser le plan "free" : il s'endort après 15 min sans trafic et
+#   peut redémarrer à tout moment (https://render.com/docs/free).
+#
+# Render injecte sa propre variable PORT ; le serveur la lit (process.env.PORT),
+# il n'y a donc rien à configurer côté port.
+
+services:
+  - type: web
+    name: byt-realtime
+    runtime: docker
+    dockerfilePath: ./services/realtime/Dockerfile
+    dockerContext: .
+    region: frankfurt
+    # 0.5 CPU / 512 Mo (identifiant de plan actuel de la Blueprint spec).
+    plan: 0.5c-512mb
+    numInstances: 1
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    # Délai entre SIGTERM et SIGKILL : le serveur ferme proprement ses connexions.
+    maxShutdownDelaySeconds: 30
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: LOG_LEVEL
+        value: info
+      # Chaîne Supabase (pooler en mode session, port 5432, IPv4) avec ?sslmode=require
+      - key: DATABASE_URL
+        sync: false
+      # Ex. : https://buildyourteam.app,https://www.buildyourteam.app
+      - key: CORS_ORIGIN
+        sync: false

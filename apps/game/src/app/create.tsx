@@ -29,16 +29,18 @@ export default function CreateRoom() {
     gameClient.ensureConnected();
   }, []);
 
-  useEffect(() => {
-    setBudget(modeDef.defaultBudget);
-    setFormationId(modeDef.defaultFormationId);
-    setTimer(mode === 'quick' ? 15 : 20);
-  }, [mode, modeDef.defaultBudget, modeDef.defaultFormationId]);
+  const changeMode = (next: 'quick' | 'classic') => {
+    const def = pack.modes.find((m) => m.id === next)!;
+    setMode(next);
+    setBudget(def.defaultBudget);
+    setFormationId(def.defaultFormationId);
+    setTimer(next === 'quick' ? 15 : 20);
+  };
 
   const submit = async () => {
     const parsed = nicknameSchema.safeParse(nickname);
     if (!parsed.success) {
-      setNickError('Pseudo de 2 à 16 caractères (lettres, chiffres, espaces).');
+      setNickError(parsed.error.issues.some((i) => i.message === 'NICKNAME_BLOCKED') ? 'Ce pseudo n’est pas autorisé.' : 'Pseudo de 2 à 16 caractères (lettres, chiffres, espaces).');
       return;
     }
     setNickError(null);
@@ -94,7 +96,7 @@ export default function CreateRoom() {
               <Segmented
                 label="Mode"
                 value={mode}
-                onChange={setMode}
+                onChange={changeMode}
                 options={pack.modes.map((m) => ({ value: m.id, label: m.label, sub: m.id === 'quick' ? '5 joueurs' : '11 + 3 remplaçants' }))}
               />
               <Segmented label="Budget de départ" value={budget} onChange={setBudget} options={modeDef.allowedBudgets.map((b) => ({ value: b, label: `${b}M` }))} />

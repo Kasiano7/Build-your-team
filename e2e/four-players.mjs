@@ -120,15 +120,18 @@ while (Date.now() < deadline) {
   // 11. Disconnect / reconnect Bruno once, mid-draft.
   if (!reconnected && no >= 4) {
     reconnected = true;
+    await A.page.waitForTimeout(800); // let the last sale reach every screen
     const before = await tid(A.page, 'budget-1').textContent();
     await B.page.close();
     await A.page.waitForTimeout(1500);
     B.page = await B.context.newPage();
     await B.page.goto(`${BASE}/room/${code}`);
     await B.page.getByText(/VOTRE ÉQUIPE/).first().waitFor({ timeout: 15000 });
+    await B.page.waitForTimeout(500);
     const after = await tid(B.page, 'budget-1').textContent();
-    log('reconnect: budget before', before, 'after', after);
-    if (before !== after) errors.push(`budget mismatch after reconnect ${before} vs ${after}`);
+    const hostNow = await tid(A.page, 'budget-1').textContent();
+    log('reconnect: Bruno budget before', before, '| after (own screen)', after, '| host screen now', hostNow);
+    if (after !== hostNow) errors.push(`budget diverges after reconnect: ${after} vs host ${hostNow}`);
   }
 }
 

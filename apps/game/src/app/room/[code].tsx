@@ -18,16 +18,14 @@ export default function RoomScreen() {
   const code = (raw ?? '').toUpperCase();
   const g = useGame();
   const settings = useSettings();
-  const [checking, setChecking] = useState(true);
+  const validCode = roomCodeSchema.safeParse(code).success;
+  const [checking, setChecking] = useState(validCode);
 
   useEffect(() => {
     gameClient.ensureConnected();
-    if (!roomCodeSchema.safeParse(code).success) {
-      setChecking(false);
-      return;
-    }
+    if (!validCode) return;
     void gameClient.resume(code).finally(() => setChecking(false));
-  }, [code]);
+  }, [code, validCode]);
 
   // Landscape is preferred during the draft on phones (large pitch + readable panel), menus stay free.
   const status = g.view?.status;
@@ -65,6 +63,19 @@ export default function RoomScreen() {
       </Pressable>
     </View>
   );
+
+  if (g.removed && g.roomCode === code) {
+    return (
+      <Screen>
+        {topBar}
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24, gap: 14 }}>
+          <Title size={30}>Vous avez été retiré du salon</Title>
+          <Body dim style={{ textAlign: 'center' }}>L’hôte vous a retiré de la partie avant son lancement.</Body>
+          <Button label="Accueil" onPress={() => { gameClient.reset(); router.replace('/'); }} />
+        </View>
+      </Screen>
+    );
+  }
 
   if (!mine) {
     return (

@@ -1,0 +1,36 @@
+# Contexte de build Docker = racine du monorepo (voir services/realtime/Dockerfile).
+# Seuls les fichiers nécessaires au serveur temps réel sont envoyés au daemon.
+
+# Dépendances et artefacts locaux (réinstallés par `npm ci` dans l'image)
+**/node_modules
+**/.expo
+**/dist
+**/web-build
+**/*.tsbuildinfo
+**/*.log
+
+# Données locales / secrets
+**/.env
+**/.env.*
+services/realtime/.data
+
+# Application Expo et UI : seul leur package.json est requis (cohérence du lockfile)
+apps/game/*
+!apps/game/package.json
+packages/ui/*
+!packages/ui/package.json
+
+# Tests, outils et documentation inutiles à l'exécution
+**/test
+e2e
+test-results
+playwright-report
+references
+docs
+.claude
+.git
+.gitattributes
+.gitignore
+vitest.config.mts
+fly.toml
+render.yaml
