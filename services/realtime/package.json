@@ -1,0 +1,25 @@
+{
+  "name": "@byt/realtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "start": "tsx src/main.ts",
+    "migrate": "tsx src/migrate-cli.ts"
+  },
+  "dependencies": {
+    "@byt/football": "*",
+    "@byt/game-engine": "*",
+    "@byt/shared": "*",
+    "@electric-sql/pglite": "^0.5.12",
+    "pg": "^8.23.1",
+    "socket.io": "^4.8.4",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.15.0",
+    "socket.io-client": "^4.8.4"
+  }
+}
