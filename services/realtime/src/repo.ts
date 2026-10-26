@@ -17,16 +17,30 @@ export interface PersistMeta {
 
 const ts = (ms: number) => new Date(ms).toISOString();
 
+/** JSON with sorted keys, to compare documents regardless of JSONB key order. */
+function stableJson(value: unknown): string {
+  if (Array.isArray(value)) return `[${value.map(stableJson).join(',')}]`;
+  if (value && typeof value === 'object') {
+    return `{${Object.keys(value as object)
+      .sort()
+      .map((k) => `${JSON.stringify(k)}:${stableJson((value as Record<string, unknown>)[k])}`)
+      .join(',')}}`;
+  }
+  return JSON.stringify(value);
+}
+
 export class RoomRepository {
   constructor(private readonly db: Db) {}
 
   async registerPack(pack: ContentPack): Promise<void> {
-    const existing = await this.db.query<{ content_hash: string | null }>(
-      'SELECT content_hash FROM content_packs WHERE id = $1',
+    const { characters, ...definition } = pack;
+    const existing = await this.db.query<{ content_hash: string | null; definition: unknown }>(
+      'SELECT content_hash, definition FROM content_packs WHERE id = $1',
       [pack.id],
     );
-    if (existing.rows[0] && existing.rows[0].content_hash === (pack.dataset.contentHash ?? null)) return;
-    const { characters, ...definition } = pack;
+    const row = existing.rows[0];
+    const storedDefinition = typeof row?.definition === 'string' ? JSON.parse(row.definition) : row?.definition;
+    if (row && row.content_hash === (pack.dataset.contentHash ?? null) && stableJson(storedDefinition) === stableJson(definition)) return;
     await this.db.transaction(async (tx) => {
       await tx.query('INSERT INTO universes(id, label) VALUES ($1, $2) ON CONFLICT (id) DO NOTHING', [
         pack.universeId,

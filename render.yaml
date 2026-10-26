@@ -28,6 +28,8 @@ services:
         value: production
       - key: LOG_LEVEL
         value: info
+      - key: TRUST_PROXY
+        value: "1"
       # Chaîne Supabase (pooler en mode session, port 5432, IPv4) avec ?sslmode=require
       - key: DATABASE_URL
         sync: false

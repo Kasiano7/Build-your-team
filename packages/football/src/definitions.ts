@@ -72,7 +72,7 @@ const BACK_FOUR = [
 export const FOOTBALL_FORMATIONS: FormationDef[] = [
   {
     id: 'quick-5',
-    label: 'Rapide · 1-1-1-2',
+    label: '1-1-1-2',
     slots: [
       GK,
       slot('DEF', 'DEF', 'DEF', ['CB', 'LB', 'RB'], 0.5, 0.31),

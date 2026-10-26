@@ -57,6 +57,7 @@ npm run dev:web      # Expo (Metro) : web sur http://localhost:8081 + QR code po
 | `DATASETS_DIR` | non | `packages/football/data/datasets` | Datasets sous licence produits par `npm run data:import` (voir `docs/DATA_LICENSING.md`). Le pack démo fictif est toujours inclus. |
 | `TIME_SCALE` | non | `1` | Accélère les minuteurs (tests uniquement — laisser à 1 en prod). |
 | `LOG_LEVEL` | non | (tout) | `error` = erreurs seulement, `silent` = aucun log. |
+| `TRUST_PROXY` | **oui derrière un proxy** | (désactivé) | Si défini, l’IP client (anti-abus du vote spectateur) est lue dans `Fly-Client-IP`, sinon dans le **dernier** saut de `X-Forwarded-For`. À activer sur Fly.io / Render ; sans proxy, laisser vide (en-têtes falsifiables). |
 | `MIGRATIONS_DIR` | non | `<repo>/database/migrations` | Dossier des migrations SQL appliquées au démarrage. |
 
 ### Client (`apps/game`) — injectées **au moment du build** (publiques, jamais de secret)
