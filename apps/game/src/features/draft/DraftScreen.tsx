@@ -13,6 +13,7 @@ import { gameClient } from '@/state/game-client';
 import { TeamView } from '../team/TeamView';
 import { AuctionPanel } from './AuctionPanel';
 import { ParticipantsStrip } from './ParticipantsStrip';
+import { StealJoker, useStealAnnouncements } from './StealJoker';
 
 export function DraftScreen({ view, pack, meId }: { view: RoomView; pack: PackMeta; meId: string }) {
   const { width, height } = useWindowDimensions();
@@ -40,6 +41,8 @@ export function DraftScreen({ view, pack, meId }: { view: RoomView; pack: PackMe
     [meId],
   );
 
+  useStealAnnouncements(meId);
+
   // When I win a player, bring my pitch into view so the arrival is visible.
   useEffect(
     () =>
@@ -49,6 +52,7 @@ export function DraftScreen({ view, pack, meId }: { view: RoomView; pack: PackMe
     [meId],
   );
 
+  const steal = <StealJoker view={view} pack={pack} me={me} victim={viewed} onStolen={() => setViewedId(meId)} />;
   const header = (
     <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 10, paddingHorizontal: 4 }}>
       <Text style={{ fontFamily: fonts.heroSemi, fontSize: 16, color: colors.text, letterSpacing: -0.2 }}>
@@ -57,6 +61,7 @@ export function DraftScreen({ view, pack, meId }: { view: RoomView; pack: PackMe
       <Text style={{ fontFamily: fonts.bodyMedium, fontSize: 12, color: colors.textMute }}>
         {viewed.team.starters.filter(Boolean).length}/{viewed.team.starters.length} · {pack.formations.find((f) => f.id === viewed.team.formationId)?.label}
       </Text>
+      {steal}
     </View>
   );
 
@@ -71,7 +76,7 @@ export function DraftScreen({ view, pack, meId }: { view: RoomView; pack: PackMe
       <View style={{ flex: 1, flexDirection: 'row', padding: short ? 8 : 14, gap: short ? 8 : 14 }}>
           <View style={{ flex: short ? 1 : 1.25, gap: short ? 4 : 8 }}>
             <ParticipantsStrip view={view} meId={meId} selectedId={viewed.id} onSelect={setViewedId} dense={short} />
-            {!short && header}
+            {short ? steal : header}
             <TeamView view={view} pack={pack} participant={viewed} editable={viewed.id === meId} showTarget />
           </View>
           <Panel style={{ flex: 1, maxWidth: 560, padding: short ? 10 : 16 }}>

@@ -56,8 +56,11 @@ apps/game            Application Expo universelle (web · iOS · Android)
 services/realtime    Serveur de jeu autoritaire (Socket.IO + PostgreSQL)
 packages/shared      Types du domaine génériques, contrats Zod, modération
 packages/game-engine Moteur d'enchères pur et déterministe
-packages/football    Pack « Football » : postes, formations, modes, dataset fictif, import sous licence
+packages/football    Pack « Football » : postes, formations, modes, thèmes, joueurs réels (notes estimées), import sous licence
 packages/basketball  Pack « Basket » : postes, compositions, modes, joueurs réels (notes estimées)
+packages/rugby       Pack « Rugby » : à 7 et à XV, joueurs réels (notes estimées)
+packages/motorsport  Pack « F1 » : pilotes, écuries, directeurs réels (notes estimées)
+packages/arena       Pack « Arènes de Solcendre » : univers original, héros inventés
 packages/ui          Cartes, terrain 2,5D, avatars, drapeaux, jetons de design
 database/migrations  Schéma PostgreSQL
 e2e                  Scénarios Playwright multi-navigateurs

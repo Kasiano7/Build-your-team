@@ -3,7 +3,8 @@
 # Image du serveur temps réel Build Your Team (@byt/realtime).
 #
 # Contexte de build = RACINE du monorepo (le serveur importe les sources TypeScript
-# de packages/shared, packages/game-engine, packages/football et packages/basketball, et lit
+# de packages/shared, packages/game-engine et des packs de contenu packages/football,
+# packages/basketball, packages/rugby, packages/motorsport et packages/arena, et lit
 # database/migrations au démarrage) :
 #
 #   docker build -f services/realtime/Dockerfile -t byt-realtime .
@@ -39,6 +40,9 @@ COPY packages/shared/package.json packages/shared/package.json
 COPY packages/game-engine/package.json packages/game-engine/package.json
 COPY packages/football/package.json packages/football/package.json
 COPY packages/basketball/package.json packages/basketball/package.json
+COPY packages/rugby/package.json packages/rugby/package.json
+COPY packages/motorsport/package.json packages/motorsport/package.json
+COPY packages/arena/package.json packages/arena/package.json
 COPY services/realtime/package.json services/realtime/package.json
 
 RUN npm ci --omit=dev --workspace @byt/realtime --ignore-scripts \
@@ -50,6 +54,9 @@ COPY packages/shared packages/shared
 COPY packages/game-engine packages/game-engine
 COPY packages/football packages/football
 COPY packages/basketball packages/basketball
+COPY packages/rugby packages/rugby
+COPY packages/motorsport packages/motorsport
+COPY packages/arena packages/arena
 COPY services/realtime services/realtime
 COPY database database
 

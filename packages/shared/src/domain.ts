@@ -54,6 +54,22 @@ export interface Character {
   portraitSeed: number;
   /** Optional free text, e.g. club or faction. */
   affiliation?: string;
+  /** Set by the server in Mystery mode: overall and attributes are hidden until the auction closes. */
+  masked?: boolean;
+}
+
+/** A thematic draft: restricts which characters can be auctioned. */
+export interface ThemeDef {
+  id: string;
+  label: string;
+  description: string;
+  filter: {
+    minOverall?: number;
+    maxOverall?: number;
+    nationalities?: string[];
+    excludeNationalities?: string[];
+    affiliations?: string[];
+  };
 }
 
 export interface FormationSlot {
@@ -113,6 +129,8 @@ export interface ContentPack extends ContentPackInfo {
   tiers: TierDef[];
   formations: FormationDef[];
   modes: GameModeDef[];
+  /** Optional thematic drafts offered at room creation. */
+  themes?: ThemeDef[];
   characters: Character[];
 }
 
@@ -120,7 +138,10 @@ export interface ContentPack extends ContentPackInfo {
 /* Room / game state (server authoritative)                            */
 /* ------------------------------------------------------------------ */
 
-export type RoomStatus = 'lobby' | 'drafting' | 'voting' | 'finished';
+export type RoomStatus = 'lobby' | 'drafting' | 'mercato' | 'voting' | 'finished';
+
+export type AuctionStyle = 'english' | 'dutch' | 'sealed';
+export type EndMode = 'vote' | 'vote_sim' | 'sim';
 
 export interface RoomSettings {
   packId: string;
@@ -138,6 +159,26 @@ export interface RoomSettings {
   spectatorVoteTimerSec: number;
   /** Safety cap on the number of auctions before free-agent completion. */
   maxAuctions: number;
+  /* Game options (all optional so rooms saved before they existed stay valid). */
+  /** 'duo': each team is shared by up to two players. */
+  format?: 'solo' | 'duo';
+  /** english: open ascending bids · dutch: descending price, first claim wins · sealed: one secret offer each. */
+  auctionStyle?: AuctionStyle;
+  /** 'eclair': shorter timers and transitions. */
+  pace?: 'normal' | 'eclair';
+  /** Thematic draft restricting the pool (pack theme id). */
+  themeId?: string | null;
+  /** Mystery: overall and stats hidden until a player is sold. */
+  mystery?: boolean;
+  /** Each team gets three single-use jokers (veto, half price, steal). */
+  jokers?: boolean;
+  /** Trading window between the draft and the vote. */
+  mercato?: boolean;
+  mercatoTimerSec?: number;
+  /** How the game is decided: vote, simulated tournament, or both. */
+  endMode?: EndMode;
+  /** Twitch channel whose chat may vote (spectator mode) or cheer (participant mode). */
+  twitchChannel?: string | null;
 }
 
 /** Where a character sits in a team. */
@@ -147,7 +188,7 @@ export interface Purchase {
   characterId: string;
   price: Money;
   auctionNo: number | null;
-  kind: 'auction' | 'free_agent';
+  kind: 'auction' | 'free_agent' | 'steal' | 'trade';
 }
 
 export interface Team {
@@ -158,6 +199,22 @@ export interface Team {
   purchases: Purchase[];
 }
 
+/** A person controlling a team (a team has one member, or two in duo format). */
+export interface Member {
+  id: string;
+  nickname: string;
+  connected: boolean;
+}
+
+export interface Jokers {
+  veto: boolean;
+  halfPrice: boolean;
+  steal: boolean;
+}
+
+export type BotLevel = 'easy' | 'normal' | 'hard';
+
+/** A team. Its `id` is the id of the member who created it. */
 export interface Participant {
   id: string;
   nickname: string;
@@ -168,6 +225,10 @@ export interface Participant {
   joinedAt: number;
   budget: Money;
   team: Team;
+  /** Present on rooms created since duo support; absent means one member with the team id. */
+  members?: Member[];
+  bot?: { level: BotLevel };
+  jokers?: Jokers;
 }
 
 export interface Bid {
@@ -180,8 +241,9 @@ export interface Bid {
 export type AuctionStage = 'reveal' | 'open' | 'closed';
 
 export type AuctionResult =
-  | { type: 'sold'; participantId: string; amount: Money; slot: SlotRef }
-  | { type: 'unsold' };
+  | { type: 'sold'; participantId: string; amount: Money; slot: SlotRef; halfPrice?: boolean }
+  | { type: 'unsold' }
+  | { type: 'vetoed'; participantId: string };
 
 export interface Auction {
   id: string;
@@ -200,6 +262,12 @@ export interface Auction {
   passed: string[];
   eligible: string[];
   result: AuctionResult | null;
+  /** Auction style used (absent = english). */
+  style?: AuctionStyle;
+  /** Dutch auction: price starts at `startPrice` and drops by `step` every `stepMs` down to `floor`. */
+  dutch?: { startPrice: Money; floor: Money; step: Money; stepMs: number; openedAt: number };
+  /** Teams that armed their half-price joker on this auction. */
+  halfPriceArmed?: string[];
 }
 
 export interface AuctionSummary {
@@ -221,6 +289,58 @@ export interface VotingState {
   startedAt: number;
   endsAt: number;
   votes: Vote[];
+  /** Twitch chat cheers in participant mode (informative, not counted). */
+  chat?: { counts: Record<string, number>; voters: string[] };
+}
+
+export interface TradeOffer {
+  id: string;
+  fromId: string;
+  toId: string;
+  /** Character given by `fromId`. */
+  give: string;
+  /** Character requested from `toId`. */
+  take: string;
+  /** Extra money paid by `fromId` to `toId`. */
+  cash: Money;
+  status: 'pending' | 'accepted' | 'declined' | 'cancelled';
+  at: number;
+}
+
+export interface MercatoState {
+  startedAt: number;
+  endsAt: number;
+  offers: TradeOffer[];
+  ready: string[];
+  /** Characters sold back to the bank: [teamId, characterId, price]. */
+  sales: { participantId: string; characterId: string; price: Money }[];
+}
+
+export interface SimMatch {
+  round: string;
+  aId: string;
+  bId: string;
+  scoreA: number;
+  scoreB: number;
+  winnerId: string | null;
+  note?: string;
+}
+
+export interface SimulationResult {
+  kind: 'matches' | 'race';
+  scoreLabel: string;
+  matches: SimMatch[];
+  /** Team ids, best first. */
+  ranking: string[];
+  championId: string;
+  /** Race only: points per team. */
+  points?: Record<string, number>;
+}
+
+export interface SeriesState {
+  round: number;
+  /** Cumulative points per team across rematches. */
+  standings: Record<string, number>;
 }
 
 export interface TeamStanding {
@@ -241,6 +361,9 @@ export interface GameResult {
   totalBids: number;
   auctionsPlayed: number;
   finishedAt: number;
+  /** Who won the vote (absent when the game is decided by simulation only). */
+  voteWinnerId?: string | null;
+  simulation?: SimulationResult;
 }
 
 export interface RoomState {
@@ -262,4 +385,6 @@ export interface RoomState {
   result: GameResult | null;
   /** Recently processed action ids, for idempotency. */
   processedActions: string[];
+  mercato?: MercatoState | null;
+  series?: SeriesState;
 }

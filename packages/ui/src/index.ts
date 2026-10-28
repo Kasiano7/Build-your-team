@@ -6,3 +6,6 @@ export * from './Pitch';
 export * from './describe';
 export * from './Backdrop';
 export * from './Court';
+export * from './RugbyPitch';
+export * from './PitLane';
+export * from './ArenaRing';

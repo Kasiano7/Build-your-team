@@ -9,7 +9,7 @@ import { getItem, keys, setItem } from '@/lib/storage';
 import { gameClient } from '@/state/game-client';
 
 export default function JoinRoom() {
-  const params = useLocalSearchParams<{ code?: string }>();
+  const params = useLocalSearchParams<{ code?: string; team?: string }>();
   const toast = useToast();
   const [code, setCode] = useState((params.code ?? '').toUpperCase());
   const [nickname, setNickname] = useState('');
@@ -38,7 +38,7 @@ export default function JoinRoom() {
       setBusy(false);
       return router.replace(`/room/${c.data}`);
     }
-    const res = await gameClient.join(c.data, n.data);
+    const res = await gameClient.join(c.data, n.data, params.team);
     setBusy(false);
     if (!res.ok) {
       if (res.code === 'GAME_ALREADY_STARTED') {
@@ -58,7 +58,11 @@ export default function JoinRoom() {
             <PageHeader />
             <View style={{ gap: 6 }}>
               <Title size={40}>Rejoindre</Title>
-              <Body dim>Entrez le code affiché chez l’hôte, ou ouvrez son lien d’invitation.</Body>
+              <Body dim>
+                {params.team
+                  ? 'Invitation en duo : vous rejoignez l’équipe de votre partenaire et vous jouerez à deux sur la même équipe.'
+                  : 'Entrez le code affiché chez l’hôte, ou ouvrez son lien d’invitation.'}
+              </Body>
             </View>
             <Panel style={{ gap: 18 }}>
               <Field

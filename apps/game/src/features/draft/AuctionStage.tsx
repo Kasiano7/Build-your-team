@@ -127,11 +127,11 @@ export function AuctionStage({
             }}
           >
             <Text style={{ fontFamily: fonts.hero, fontSize: width * (sold ? 0.15 : 0.12), color: sold ? winner?.color ?? colors.accent : colors.textDim, letterSpacing: 1.5 }}>
-              {sold ? 'VENDU' : 'INVENDU'}
+              {sold ? 'VENDU' : auction.result?.type === 'vetoed' ? 'VETO' : 'INVENDU'}
             </Text>
             {sold && auction.result?.type === 'sold' && (
               <Text style={{ fontFamily: fonts.display, fontSize: width * 0.075, color: colors.text, letterSpacing: 0.4 }} numberOfLines={1}>
-                {winner?.nickname} · {auction.result.amount}M
+                {winner?.nickname} · {auction.result.amount}M{auction.result.halfPrice ? ' (½)' : ''}
               </Text>
             )}
           </View>

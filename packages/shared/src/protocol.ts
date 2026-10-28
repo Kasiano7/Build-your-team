@@ -13,9 +13,11 @@ import type {
   Character,
   ContentPack,
   GameResult,
+  MercatoState,
   Participant,
   RoomSettings,
   RoomStatus,
+  SeriesState,
   VotingState,
 } from './domain';
 
@@ -49,10 +51,26 @@ export const createRoomSchema = z.object({
   openingTimerSec: z.number().int().min(8).max(60).optional(),
   bidResetSec: z.number().int().min(5).max(30).optional(),
   formationId: z.string().max(32).optional(),
+  format: z.enum(['solo', 'duo']).optional(),
+  auctionStyle: z.enum(['english', 'dutch', 'sealed']).optional(),
+  pace: z.enum(['normal', 'eclair']).optional(),
+  themeId: z.string().max(48).nullable().optional(),
+  mystery: z.boolean().optional(),
+  jokers: z.boolean().optional(),
+  mercato: z.boolean().optional(),
+  endMode: z.enum(['vote', 'vote_sim', 'sim']).optional(),
+  twitchChannel: z
+    .string()
+    .trim()
+    .toLowerCase()
+    .regex(/^[a-z0-9_]{3,25}$/)
+    .nullable()
+    .optional(),
 });
 export type CreateRoomInput = z.infer<typeof createRoomSchema>;
 
-export const joinRoomSchema = z.object({ roomCode: roomCodeSchema, nickname: nicknameSchema });
+/** `teamId` (duo format): join that team as its second member. */
+export const joinRoomSchema = z.object({ roomCode: roomCodeSchema, nickname: nicknameSchema, teamId: z.string().min(1).max(64).optional() });
 export const resumeSchema = z.object({ roomCode: roomCodeSchema, sessionToken: z.string().min(20).max(128) });
 export const startSchema = z.object({ actionId: actionIdSchema });
 export const bidSchema = z.object({
@@ -73,6 +91,27 @@ export const closeVoteSchema = z.object({ actionId: actionIdSchema });
 export const leaveSchema = z.object({ actionId: actionIdSchema });
 export const kickSchema = z.object({ actionId: actionIdSchema, participantId: z.string().min(1).max(64) });
 
+const auctionAction = { actionId: actionIdSchema, auctionId: z.string().min(1).max(64) };
+/** Dutch auction: take the player at the current (server-computed) price. */
+export const claimSchema = z.object(auctionAction);
+/** Sealed auction: one secret offer. */
+export const sealSchema = z.object({ ...auctionAction, amount: z.number().int().positive().max(100000) });
+export const vetoSchema = z.object(auctionAction);
+export const halfPriceSchema = z.object(auctionAction);
+export const stealSchema = z.object({ actionId: actionIdSchema, targetId: z.string().min(1).max(64), characterId: z.string().min(1).max(96) });
+export const offerSchema = z.object({
+  actionId: actionIdSchema,
+  toId: z.string().min(1).max(64),
+  give: z.string().min(1).max(96),
+  take: z.string().min(1).max(96),
+  cash: z.number().int().min(0).max(5000).default(0),
+});
+export const respondSchema = z.object({ actionId: actionIdSchema, offerId: z.string().min(1).max(64), accept: z.boolean() });
+export const sellSchema = z.object({ actionId: actionIdSchema, characterId: z.string().min(1).max(96) });
+export const readySchema = z.object({ actionId: actionIdSchema });
+export const addBotSchema = z.object({ actionId: actionIdSchema, level: z.enum(['easy', 'normal', 'hard']) });
+export const rematchSchema = z.object({ actionId: actionIdSchema });
+
 export const spectateSchema = z.object({
   roomCode: roomCodeSchema,
   spectatorId: z.string().min(16).max(64).optional(),
@@ -91,6 +130,17 @@ export const C2S = {
   resume: 'room:resume',
   leave: 'room:leave',
   kick: 'room:kick',
+  addBot: 'room:addBot',
+  rematch: 'room:rematch',
+  claim: 'auction:claim',
+  seal: 'auction:seal',
+  veto: 'joker:veto',
+  halfPrice: 'joker:half',
+  steal: 'joker:steal',
+  offer: 'mercato:offer',
+  respond: 'mercato:respond',
+  sell: 'mercato:sell',
+  ready: 'mercato:ready',
   start: 'room:start',
   bid: 'auction:bid',
   pass: 'auction:pass',
@@ -135,6 +185,14 @@ export type ErrorCode =
   | 'UNKNOWN_TARGET'
   | 'VOTE_CLOSED'
   | 'UNKNOWN_PACK'
+  | 'THEME_TOO_SMALL'
+  | 'WRONG_AUCTION_STYLE'
+  | 'ALREADY_OFFERED'
+  | 'JOKERS_DISABLED'
+  | 'JOKER_USED'
+  | 'NOT_OWNER'
+  | 'OFFER_NOT_PENDING'
+  | 'NOT_ENOUGH_BUDGET'
   | 'INTERNAL';
 
 export type Ack<T = unknown> =
@@ -154,6 +212,8 @@ export interface RoomView {
   history: AuctionSummary[];
   voting: VotingState | null;
   result: GameResult | null;
+  mercato: MercatoState | null;
+  series: SeriesState | null;
   /** Characters referenced by the view (current auction, teams, history). */
   characters: Record<string, Character>;
   serverNow: number;
@@ -209,4 +269,15 @@ export type GameEvent =
   | { type: 'draft_finished' }
   | { type: 'voting_started'; mode: 'participants' | 'spectators'; endsAt: number }
   | { type: 'vote_cast'; voterKind: 'participant' | 'spectator'; voterId: string }
+  | { type: 'sealed_offer'; auctionId: string; participantId: string }
+  | { type: 'auction_vetoed'; auctionId: string; characterId: string; participantId: string }
+  | { type: 'half_price_armed'; auctionId: string; participantId: string }
+  | { type: 'joker_steal'; participantId: string; targetId: string; characterId: string; price: number }
+  | { type: 'mercato_started'; endsAt: number }
+  | { type: 'trade_offered'; offerId: string; fromId: string; toId: string }
+  | { type: 'trade_resolved'; offerId: string; accepted: boolean }
+  | { type: 'player_sold_to_bank'; participantId: string; characterId: string; price: number }
+  | { type: 'bot_added'; participantId: string }
+  | { type: 'simulation_done'; championId: string }
+  | { type: 'rematch_started'; round: number }
   | { type: 'game_finished'; winnerId: string };

@@ -1,4 +1,10 @@
 export * from './engine';
+export { opts, timingsFor, teamOfMember, membersOf, themeOf, matchesTheme, themeShortfall } from './context';
+export * from './finish';
+export * from './jokers';
+export * from './mercato';
+export * from './sim';
+export * from './bots';
 export * from './team';
 export * from './votes';
 export * from './view';

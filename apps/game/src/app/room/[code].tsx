@@ -8,8 +8,9 @@ import { GameTopBar } from '@/components/TopBar';
 import { Body, Button, Screen, Title } from '@/components/ui';
 import { DraftScreen } from '@/features/draft/DraftScreen';
 import { Lobby } from '@/features/room/Lobby';
+import { MercatoScreen } from '@/features/mercato/MercatoScreen';
 import { EndScreen } from '@/features/end/EndScreen';
-import { gameClient } from '@/state/game-client';
+import { gameClient, teamOf } from '@/state/game-client';
 import { useGame } from '@/state/hooks';
 
 export default function RoomScreen() {
@@ -86,7 +87,8 @@ export default function RoomScreen() {
 
   const view = g.view!;
   const pack = g.pack!;
-  const meId = g.participantId!;
+  // Screens reason in teams: in duo format both members act for the same team id.
+  const meId = teamOf(view, g.participantId!)?.id ?? g.participantId!;
   const leave = async () => {
     await gameClient.leave();
     router.replace('/');
@@ -97,6 +99,7 @@ export default function RoomScreen() {
       {topBar}
       {view.status === 'lobby' && <Lobby view={view} pack={pack} meId={meId} onLeave={leave} />}
       {view.status === 'drafting' && <DraftScreen view={view} pack={pack} meId={meId} />}
+      {view.status === 'mercato' && <MercatoScreen view={view} pack={pack} meId={meId} />}
       {(view.status === 'voting' || view.status === 'finished') && <EndScreen view={view} pack={pack} meId={meId} role="player" />}
     </Screen>
   );

@@ -4,21 +4,23 @@
  *  - 2 players: spectators vote through a shared link; the host may close the vote.
  */
 import { useEffect, useState } from 'react';
-import { Platform, ScrollView, Share, Text, View, useWindowDimensions } from 'react-native';
+import { Linking, Platform, ScrollView, Share, Text, View, useWindowDimensions } from 'react-native';
 import { router } from 'expo-router';
 import * as Clipboard from 'expo-clipboard';
-import Animated, { FadeInUp } from 'react-native-reanimated';
 import type { PackMeta, RoomView } from '@byt/shared';
 import { PlayerCard, colors, fonts, radii } from '@byt/ui';
 import { Body, Button, Eyebrow, Panel, PlayerBadge, Title, useToast } from '@/components/ui';
-import { resultLink, spectatorLink } from '@/lib/config';
+import { resultLink, spectatorLink, tvLink } from '@/lib/config';
 import { errorMessage } from '@/lib/errors';
 import { playSound } from '@/lib/sound';
 import { gameClient } from '@/state/game-client';
 import { useServerNow } from '@/state/hooks';
-import { useReduceMotion } from '@/state/settings';
+import { SeriesPanel } from './SeriesPanel';
+import { SimulationBoard } from './Simulation';
 import { TeamBoard, teamStats } from './TeamBoard';
 import { Trophy } from './Trophy';
+import { TwitchPanel } from './TwitchPanel';
+import { WinnerHeader, endModeOf } from './WinnerHeader';
 
 export function EndScreen({
   view,
@@ -41,7 +43,7 @@ export function EndScreen({
       }),
     [],
   );
-  return view.status === 'finished' ? <Results view={view} pack={pack} meId={meId} /> : <Voting view={view} pack={pack} meId={meId} role={role} spectatorVote={spectatorVote ?? null} />;
+  return view.status === 'finished' && view.result ? <Results view={view} pack={pack} meId={meId} /> : <Voting view={view} pack={pack} meId={meId} role={role} spectatorVote={spectatorVote ?? null} />;
 }
 
 function useColumns(n: number) {
@@ -118,6 +120,12 @@ function Voting({ view, pack, meId, role, spectatorVote }: { view: RoomView; pac
             </Text>
           </View>
         </View>
+
+        {view.settings.endMode === 'vote_sim' && (
+          <Body dim style={{ fontSize: 13 }}>Après le vote, un tournoi simulé désignera aussi son champion, en bonus : seul le vote décide du vainqueur.</Body>
+        )}
+
+        <TwitchPanel view={view} />
 
         {spectatorsMode && role === 'player' && (
           <Panel style={{ flexDirection: 'row', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
@@ -209,28 +217,40 @@ function CompareTable({ view, pack }: { view: RoomView; pack: PackMeta }) {
   );
 }
 
+/** Mode TV: a new browser tab on the web (keeps this player session), the TV route on native. */
+function openTv(code: string) {
+  if (Platform.OS === 'web') void Linking.openURL(tvLink(code));
+  else router.push(`/tv/${code}`);
+}
+
 function Results({ view, pack, meId }: { view: RoomView; pack: PackMeta; meId: string | null }) {
   const toast = useToast();
-  const reduce = useReduceMotion();
   const r = view.result!;
-  const { cols, boardH } = useColumns(view.participants.length);
+  const mode = endModeOf(view);
+  const sim = r.simulation;
+  const { cols, boardH, width } = useColumns(view.participants.length);
   const byId = (id: string) => view.participants.find((p) => p.id === id)!;
-  const winner = byId(r.winnerId);
   const big = r.biggestPurchase;
   const bigChar = big ? view.characters[big.characterId] : undefined;
-  const tieText =
-    r.tieBreak === 'team_rating'
-      ? 'Égalité de votes départagée par la note d’équipe.'
-      : r.tieBreak === 'remaining_budget'
-        ? 'Égalité départagée par le budget restant.'
-        : r.tieBreak === 'seat'
-          ? 'Égalité parfaite départagée par l’ordre d’arrivée.'
-          : null;
+  const simRank = new Map(sim?.ranking.map((id, i) => [id, i + 1]) ?? []);
 
   const share = async () => {
     const link = resultLink(view.code);
-    const lines = r.standings.map((s) => `${s.rank}. ${byId(s.participantId).nickname} — ${s.votes} vote${s.votes > 1 ? 's' : ''} · note ${s.teamRating.toFixed(1)}`);
-    const text = `🏆 ${winner.nickname} remporte la partie Build Your Team !\n${lines.join('\n')}\n${link}`;
+    const winner = byId(r.winnerId);
+    const lines = r.standings.map((s) => {
+      const pts = sim?.points?.[s.participantId];
+      const detail =
+        mode === 'sim'
+          ? `${pts !== undefined ? `${pts} pts · ` : ''}note ${s.teamRating.toFixed(1)}`
+          : `${s.votes} vote${s.votes > 1 ? 's' : ''} · note ${s.teamRating.toFixed(1)}`;
+      return `${s.rank}. ${byId(s.participantId).nickname} — ${detail}`;
+    });
+    const head =
+      mode === 'sim'
+        ? `🏆 ${winner.nickname} remporte le ${sim?.kind === 'race' ? 'Grand Prix' : 'tournoi'} simulé Build Your Team !`
+        : `🏆 ${winner.nickname} remporte la partie Build Your Team !`;
+    const extra = mode === 'vote_sim' && sim ? `\nChampion du tournoi simulé : ${byId(sim.championId).nickname}` : '';
+    const text = `${head}\n${lines.join('\n')}${extra}\n${link}`;
     try {
       if (Platform.OS === 'web') {
         await Clipboard.setStringAsync(text);
@@ -246,23 +266,24 @@ function Results({ view, pack, meId }: { view: RoomView; pack: PackMeta; meId: s
     <ScrollView contentContainerStyle={{ padding: 16, gap: 18, alignItems: 'center' }}>
       <View style={{ width: '100%', maxWidth: 1400, gap: 18, alignItems: 'center' }}>
         <Trophy size={120} />
-        <Animated.View entering={reduce ? undefined : FadeInUp.delay(300).duration(500)} style={{ alignItems: 'center', gap: 4 }}>
-          <Eyebrow color={colors.gold}>Vainqueur</Eyebrow>
-          <Text testID="winner-name" style={{ fontFamily: fonts.displayBlack, fontSize: 56, color: winner.color, letterSpacing: 1, textAlign: 'center' }}>
-            {winner.nickname.toUpperCase()}
-          </Text>
-          <Body dim style={{ textAlign: 'center' }}>
-            {r.standings[0]!.votes} vote{r.standings[0]!.votes > 1 ? 's' : ''} sur {r.totalVotes}
-            {winner.id === meId ? ' · c’est vous !' : ''}
-          </Body>
-          {tieText && <Body dim style={{ fontSize: 13, textAlign: 'center' }}>{tieText}</Body>}
-        </Animated.View>
+        <WinnerHeader view={view} meId={meId} />
+
+        {sim && (
+          <View style={{ width: '100%', maxWidth: 980 }}>
+            <SimulationBoard view={view} sim={sim} compact={width < 700} />
+          </View>
+        )}
 
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12, width: '100%', justifyContent: 'center' }}>
           <Panel style={{ minWidth: 260, flex: 1, gap: 8 }}>
-            <Eyebrow>Classement</Eyebrow>
+            <Eyebrow>{mode === 'sim' ? (sim?.kind === 'race' ? 'Classement du Grand Prix' : 'Classement du tournoi') : 'Classement du vote'}</Eyebrow>
             {r.standings.map((s) => {
               const p = byId(s.participantId);
+              const pts = sim?.points?.[s.participantId];
+              const detail =
+                mode === 'sim'
+                  ? `${pts !== undefined ? `${pts} pts · ` : ''}note ${s.teamRating.toFixed(1)} · reste ${s.remaining}M`
+                  : `${s.votes} vote${s.votes > 1 ? 's' : ''} · ${s.teamRating.toFixed(1)} · reste ${s.remaining}M${mode === 'vote_sim' && simRank.has(s.participantId) ? ` · tournoi ${simRank.get(s.participantId) === 1 ? '1er' : `${simRank.get(s.participantId)}e`}` : ''}`;
               return (
                 <View key={s.participantId} style={{ flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 6 }}>
                   <Text style={{ width: 26, fontFamily: fonts.displayBlack, fontSize: 24, color: s.rank === 1 ? colors.gold : colors.textMute }}>{s.rank}</Text>
@@ -270,9 +291,7 @@ function Results({ view, pack, meId }: { view: RoomView; pack: PackMeta; meId: s
                   <Text style={{ flex: 1, fontFamily: fonts.display, fontSize: 19, color: colors.text }} numberOfLines={1}>
                     {p.nickname}
                   </Text>
-                  <Text style={{ fontFamily: fonts.bodySemi, fontSize: 13, color: colors.textDim }}>
-                    {s.votes} vote{s.votes > 1 ? 's' : ''} · {s.teamRating.toFixed(1)} · reste {s.remaining}M
-                  </Text>
+                  <Text style={{ fontFamily: fonts.bodySemi, fontSize: 13, color: colors.textDim, flexShrink: 1, textAlign: 'right' }}>{detail}</Text>
                 </View>
               );
             })}
@@ -298,8 +317,15 @@ function Results({ view, pack, meId }: { view: RoomView; pack: PackMeta; meId: s
           </Panel>
         </View>
 
-        <View style={{ flexDirection: 'row', gap: 10 }}>
+        {view.series && (
+          <View style={{ width: '100%', maxWidth: 720 }}>
+            <SeriesPanel view={view} meId={meId} />
+          </View>
+        )}
+
+        <View style={{ flexDirection: 'row', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
           <Button label="Partager le résultat" variant="gold" onPress={share} />
+          <Button label="Mode TV" variant="secondary" onPress={() => openTv(view.code)} accessibilityHint="Affiche la partie en grand écran pour une télévision" testID="open-tv" />
           <Button label="Nouvelle partie" variant="secondary" onPress={() => { gameClient.reset(); router.replace('/'); }} />
         </View>
 

@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
 import { router } from 'expo-router';
+import { builtInArenaPacks } from '@byt/arena';
 import { builtInBasketballPacks } from '@byt/basketball';
 import { builtInFootballPacks } from '@byt/football';
+import { builtInMotorsportPacks } from '@byt/motorsport';
+import { builtInRugbyPacks } from '@byt/rugby';
 import type { ContentPack } from '@byt/shared';
 import { nicknameSchema } from '@byt/shared';
 import { colors } from '@byt/ui';
 import { PageHeader } from '@/components/Header';
+import { DEFAULT_OPTIONS, GameOptions, twitchChannelOf, type GameOptionsValue } from '@/features/create/GameOptions';
 import { Body, Button, Field, Panel, Screen, Segmented, Title, useToast } from '@/components/ui';
 import { errorMessage } from '@/lib/errors';
 import { getItem, keys, setItem } from '@/lib/storage';
@@ -16,6 +20,9 @@ import { gameClient } from '@/state/game-client';
 const UNIVERSES: { id: string; label: string; sub: string; packs: ContentPack[] }[] = [
   { id: 'football', label: 'Football', sub: '5 ou 11 joueurs', packs: builtInFootballPacks },
   { id: 'basketball', label: 'Basket', sub: '5 joueurs + banc', packs: builtInBasketballPacks },
+  { id: 'rugby', label: 'Rugby', sub: '7 ou 15 joueurs', packs: builtInRugbyPacks },
+  { id: 'motorsport', label: 'F1', sub: 'pilotes + écurie', packs: builtInMotorsportPacks },
+  { id: 'arena', label: 'Arènes', sub: 'héros inventés', packs: builtInArenaPacks },
 ];
 
 export default function CreateRoom() {
@@ -32,6 +39,7 @@ export default function CreateRoom() {
   const [budget, setBudget] = useState(modeDef.defaultBudget);
   const [formationId, setFormationId] = useState(modeDef.defaultFormationId);
   const [timer, setTimer] = useState(15);
+  const [options, setOptions] = useState<GameOptionsValue>(DEFAULT_OPTIONS);
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
@@ -52,6 +60,8 @@ export default function CreateRoom() {
     setUniverseId(id);
     setPackId(u.packs[0]!.id);
     changeMode(mode, u.packs[0]!);
+    // Themes belong to a pack.
+    setOptions((o) => ({ ...o, themeId: null }));
   };
 
   const submit = async () => {
@@ -61,6 +71,8 @@ export default function CreateRoom() {
       return;
     }
     setNickError(null);
+    const twitchChannel = twitchChannelOf(options.twitchChannel);
+    if (options.twitchChannel.trim() && !twitchChannel) return toast('Nom de chaîne Twitch invalide.', 'error');
     setBusy(true);
     await setItem(keys.nickname, parsed.data);
     const res = await gameClient.create({
@@ -70,7 +82,17 @@ export default function CreateRoom() {
       maxParticipants: players,
       budget,
       formationId,
-      openingTimerSec: timer,
+      // Éclair sets its own short timers on the server.
+      ...(options.pace === 'eclair' ? {} : { openingTimerSec: timer }),
+      format: options.format,
+      auctionStyle: options.auctionStyle,
+      pace: options.pace,
+      themeId: options.themeId,
+      mystery: options.mystery,
+      jokers: options.jokers,
+      mercato: options.mercato,
+      endMode: options.endMode,
+      twitchChannel,
     });
     setBusy(false);
     if (!res.ok) return toast(errorMessage(res.code, res.details), 'error');
@@ -119,7 +141,7 @@ export default function CreateRoom() {
                 options={universe.packs.map((p) => ({
                   value: p.id,
                   label: p.dataset.fictional ? 'Fictifs' : 'Réels',
-                  sub: p.dataset.fictional ? 'démo, 100 % inventés' : 'notes estimées, non officielles',
+                  sub: p.dataset.fictional ? '100 % inventés' : 'notes estimées, non officielles',
                 }))}
               />
               )}
@@ -141,6 +163,7 @@ export default function CreateRoom() {
                   options={modeDef.formationIds.map((f) => ({ value: f, label: pack.formations.find((x) => x.id === f)!.label }))}
                 />
               )}
+              {options.pace !== 'eclair' && (
               <Segmented
                 label="Chrono d’ouverture"
                 value={timer}
@@ -152,9 +175,16 @@ export default function CreateRoom() {
                   { value: 30, label: '30 s', sub: 'posé' },
                 ]}
               />
+              )}
               <Body dim style={{ fontSize: 13, color: colors.textMute }}>
-                Surenchère minimale 10M · chrono relancé à 12 s après chaque offre · 10M réservés par poste restant.
+                {options.pace === 'eclair'
+                  ? 'Éclair : chrono de 8 s, relancé à 6 s après chaque offre · 10M réservés par poste restant.'
+                  : 'Surenchère minimale 10M · chrono relancé à 12 s après chaque offre · 10M réservés par poste restant.'}
               </Body>
+            </Panel>
+            <Panel style={{ gap: 18 }}>
+              <Title size={22}>Modes de jeu</Title>
+              <GameOptions pack={pack} mode={mode} teams={players} value={options} onChange={setOptions} />
             </Panel>
             <Button label="Créer le salon" size="lg" loading={busy} onPress={submit} testID="create-submit" />
           </View>

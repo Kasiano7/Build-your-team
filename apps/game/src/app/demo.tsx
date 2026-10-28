@@ -1,12 +1,16 @@
 /**
  * Offline interface tour. Clearly labelled: no server, no other players,
  * nothing here pretends to be a connected game. Switches between universes
- * to show that the same engine drives football and basketball.
+ * to show that the same engine drives football, basketball, rugby, Formula 1
+ * and the original fantasy universe of the Arènes de Solcendre.
  */
 import { useMemo, useState } from 'react';
 import { ScrollView, Text, View, useWindowDimensions } from 'react-native';
+import { arenaPack } from '@byt/arena';
 import { basketballRealPack } from '@byt/basketball';
 import { footballRealPack } from '@byt/football';
+import { motorsportRealPack } from '@byt/motorsport';
+import { rugbyRealPack } from '@byt/rugby';
 import { bestSlotFor, emptyTeam, getFormation, placeCharacter, reformTeam, toPackMeta } from '@byt/game-engine';
 import type { Character, ContentPack, Team } from '@byt/shared';
 import { PlayerCard, colors, fonts, radii } from '@byt/ui';
@@ -15,7 +19,30 @@ import { Body, Button, Eyebrow, Panel, Screen, Segmented, Title } from '@/compon
 import { TeamPitch } from '@/features/team/TeamPitch';
 import { playSound } from '@/lib/sound';
 
-const PACKS: Record<string, ContentPack> = { football: footballRealPack, basketball: basketballRealPack };
+type UniverseId = 'football' | 'basketball' | 'rugby' | 'motorsport' | 'arena';
+
+const PACKS: Record<UniverseId, ContentPack> = {
+  football: footballRealPack,
+  basketball: basketballRealPack,
+  rugby: rugbyRealPack,
+  motorsport: motorsportRealPack,
+  arena: arenaPack,
+};
+
+const UNIVERSE_OPTIONS: { value: UniverseId; label: string }[] = [
+  { value: 'football', label: 'Football' },
+  { value: 'basketball', label: 'Basket' },
+  { value: 'rugby', label: 'Rugby' },
+  { value: 'motorsport', label: 'F1' },
+  { value: 'arena', label: 'Arènes' },
+];
+
+/** What the cards are: real people with estimated ratings, or an invented universe. */
+function honesty(pack: ContentPack): string {
+  if (pack.dataset.fictional) return 'Héros 100 % inventés : univers original, aucun personnage réel.';
+  if (pack.universeId === 'motorsport') return 'Pilotes, écuries et directeurs réels, notes estimées (non officielles).';
+  return 'Joueurs réels, notes estimées (non officielles).';
+}
 
 function tierOf(pack: ContentPack, c: Character) {
   return [...pack.tiers].sort((a, b) => b.minOverall - a.minOverall).find((t) => c.overall >= t.minOverall)!;
@@ -40,8 +67,8 @@ function lineups(pack: ContentPack) {
 export default function Demo() {
   const { width } = useWindowDimensions();
   const wide = width >= 900;
-  const [universe, setUniverse] = useState<'football' | 'basketball'>('football');
-  const pack = PACKS[universe]!;
+  const [universe, setUniverse] = useState<UniverseId>('football');
+  const pack = PACKS[universe];
   const meta = useMemo(() => toPackMeta(pack), [pack]);
   const characters = useMemo(() => Object.fromEntries(pack.characters.map((c) => [c.id, c])), [pack]);
   const options = useMemo(() => lineups(pack), [pack]);
@@ -53,8 +80,8 @@ export default function Demo() {
   const order = useMemo(() => [...pack.characters].sort((a, b) => (a.id < b.id ? -1 : 1)).filter((_, i) => i % 5 === 0), [pack]);
   const tiers = useMemo(() => byTier(pack), [pack]);
 
-  const changeUniverse = (u: 'football' | 'basketball') => {
-    const p = PACKS[u]!;
+  const changeUniverse = (u: UniverseId) => {
+    const p = PACKS[u];
     const first = lineups(p)[0]!;
     setUniverse(u);
     setFormationId(first.id);
@@ -92,7 +119,8 @@ export default function Demo() {
           <PageHeader />
           <View style={{ padding: 12, borderRadius: radii.md, borderWidth: 1, borderColor: 'rgba(255,181,71,0.5)', backgroundColor: 'rgba(255,181,71,0.08)' }}>
             <Text style={{ fontFamily: fonts.bodySemi, color: colors.warn, fontSize: 14 }}>
-              Démo hors ligne — aucune connexion, aucun autre joueur. Joueurs réels, notes estimées (non officielles).
+              Démo hors ligne — aucune connexion, aucun autre joueur.{' '}
+              {honesty(pack)}
             </Text>
           </View>
           <Title size={34}>Découvrir l’interface</Title>
@@ -102,10 +130,7 @@ export default function Demo() {
                 label="Univers"
                 value={universe}
                 onChange={changeUniverse}
-                options={[
-                  { value: 'football', label: 'Football' },
-                  { value: 'basketball', label: 'Basket' },
-                ]}
+                options={UNIVERSE_OPTIONS}
               />
               <Segmented label="Composition" value={formationId} onChange={changeFormation} options={options.map((o) => ({ value: o.id, label: o.label }))} />
               <View style={{ height: wide ? 520 : 420 }}>

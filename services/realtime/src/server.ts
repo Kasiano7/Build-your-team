@@ -16,15 +16,26 @@ import {
   ROOM_CODE_ALPHABET,
   ROOM_CODE_LENGTH,
   S2C,
+  addBotSchema,
   bidSchema,
+  claimSchema,
   closeVoteSchema,
   createRoomSchema,
   formationSchema,
   joinRoomSchema,
   kickSchema,
   leaveSchema,
+  halfPriceSchema,
+  offerSchema,
   passSchema,
+  readySchema,
+  rematchSchema,
+  respondSchema,
   resumeSchema,
+  sealSchema,
+  sellSchema,
+  stealSchema,
+  vetoSchema,
   spectateSchema,
   spectatorVoteSchema,
   startSchema,
@@ -32,6 +43,7 @@ import {
   timeSyncSchema,
   voteSchema,
   type Ack,
+  type BotLevel,
   type ContentPack,
   type ErrorCode,
   type GameEvent,
@@ -42,23 +54,40 @@ import {
 } from '@byt/shared';
 import {
   TIMINGS,
+  addBot,
   addParticipant,
   advance,
+  applyChatVotes,
   buildSettings,
   castVote,
   changeFormation,
+  claimAuction,
   closeVoting,
   createRoomState,
+  decideBot,
   kickParticipant,
+  memberIdsOf,
   nextDeadline,
+  offerTrade,
   passAuction,
   placeBid,
+  rematch,
   removeParticipant,
+  respondTrade,
+  sealBid,
+  sellToBank,
   setConnected,
+  setMercatoReady,
   startGame,
   swapSlots,
+  teamOfMember,
+  themeShortfall,
   toPackMeta,
   toRoomView,
+  useHalfPrice,
+  useSteal,
+  useVeto,
+  type BotAction,
   type EngineCtx,
   type Outcome,
   type Timings,
@@ -66,6 +95,7 @@ import {
 import type { Db } from './db';
 import { RoomRepository, type PersistMeta } from './repo';
 import { log } from './log';
+import { TwitchChat, type ChatVote } from './twitch';
 
 export interface ServerOptions {
   db: Db;
@@ -88,7 +118,13 @@ interface RoomRuntime {
   queue: Promise<unknown>;
   timer: NodeJS.Timeout | null;
   lastActivity: number;
+  botTimer: NodeJS.Timeout | null;
+  twitch: TwitchChat | null;
+  chatBuffer: ChatVote[];
+  chatTimer: NodeJS.Timeout | null;
 }
+
+const BOT_NAMES = ['Robo Rival', 'Turbo Bot', 'Algo FC', 'Byte United', 'Neuro Club', 'Pixel Pro', 'Circuit', 'Silicium'];
 
 interface SocketData {
   roomCode?: string;
@@ -151,7 +187,7 @@ export class GameServer {
 
   async stop(): Promise<void> {
     if (this.sweeper) clearInterval(this.sweeper);
-    for (const rt of this.rooms.values()) if (rt.timer) clearTimeout(rt.timer);
+    for (const rt of this.rooms.values()) this.dispose(rt);
     await Promise.allSettled([...this.rooms.values()].map((rt) => rt.queue));
     await new Promise<void>((resolve) => this.io.close(() => resolve()));
   }
@@ -165,7 +201,28 @@ export class GameServer {
   }
 
   private makeRuntime(state: RoomState, sessions = new Map<string, string>()): RoomRuntime {
-    return { state, sessions, sockets: new Map(), spectatorIps: new Map(), queue: Promise.resolve(), timer: null, lastActivity: Date.now() };
+    return {
+      state,
+      sessions,
+      sockets: new Map(),
+      spectatorIps: new Map(),
+      queue: Promise.resolve(),
+      timer: null,
+      lastActivity: Date.now(),
+      botTimer: null,
+      twitch: null,
+      chatBuffer: [],
+      chatTimer: null,
+    };
+  }
+
+  /** Stop every timer and connection owned by a room runtime. */
+  private dispose(rt: RoomRuntime): void {
+    if (rt.timer) clearTimeout(rt.timer);
+    if (rt.botTimer) clearTimeout(rt.botTimer);
+    if (rt.chatTimer) clearTimeout(rt.chatTimer);
+    rt.twitch?.close();
+    rt.twitch = null;
   }
 
   private async getRuntime(code: string): Promise<RoomRuntime | null> {
@@ -225,6 +282,8 @@ export class GameServer {
   private schedule(rt: RoomRuntime): void {
     if (rt.timer) clearTimeout(rt.timer);
     rt.timer = null;
+    this.scheduleBots(rt);
+    this.syncTwitch(rt);
     const deadline = nextDeadline(rt.state);
     if (deadline === null) return;
     const delay = Math.max(0, deadline - Date.now()) + 5;
@@ -259,7 +318,7 @@ export class GameServer {
       const finishedIdle = rt.state.status === 'finished' && idle > 30 * 60_000;
       const abandoned = !connected && idle > 6 * 3600_000;
       if (finishedIdle || abandoned) {
-        if (rt.timer) clearTimeout(rt.timer);
+        this.dispose(rt);
         this.rooms.delete(code);
       }
     }
@@ -304,6 +363,7 @@ export class GameServer {
     handle(C2S.create, createRoomSchema, async (input) => {
       const pack = this.packs.get(input.packId);
       if (!pack) return fail('UNKNOWN_PACK');
+      if (input.themeId && themeShortfall(pack, input.mode, input.themeId, 2).length) return fail('THEME_TOO_SMALL');
       this.detach(socket);
       const code = await this.newRoomCode();
       const participantId = randomId('p');
@@ -336,14 +396,14 @@ export class GameServer {
       });
     });
 
-    handle(C2S.join, joinRoomSchema, async ({ roomCode, nickname }) => {
+    handle(C2S.join, joinRoomSchema, async ({ roomCode, nickname, teamId }) => {
       const rt = await this.getRuntime(roomCode);
       if (!rt) return fail('ROOM_NOT_FOUND');
       this.detach(socket);
       return this.run(rt, async () => {
         const participantId = randomId('p');
         const token = randomBytes(32).toString('base64url');
-        const result = await this.commit(rt, addParticipant(rt.state, participantId, nickname, this.ctx(rt.state)), {
+        const result = await this.commit(rt, addParticipant(rt.state, participantId, nickname, this.ctx(rt.state), teamId), {
           actorId: participantId,
           newParticipant: { id: participantId, tokenHash: sha256(token) },
         });
@@ -359,7 +419,7 @@ export class GameServer {
       if (!rt) return fail('ROOM_NOT_FOUND');
       return this.run(rt, async () => {
         const participantId = rt.sessions.get(sha256(sessionToken));
-        if (!participantId || !rt.state.participants.some((p) => p.id === participantId)) return fail('INVALID_SESSION');
+        if (!participantId || !teamOfMember(rt.state, participantId)) return fail('INVALID_SESSION');
         this.detach(socket);
         this.attach(socket, rt, participantId);
         await this.commit(rt, setConnected(rt.state, participantId, true, this.ctx(rt.state)));
@@ -399,6 +459,35 @@ export class GameServer {
       member(actionId, (rt, pid, ctx) => castVote(rt.state, { id: pid, kind: 'participant' }, targetId, ctx)),
     );
     handle(C2S.closeVote, closeVoteSchema, ({ actionId }) => member(actionId, (rt, pid, ctx) => closeVoting(rt.state, pid, ctx)));
+    handle(C2S.claim, claimSchema, ({ actionId, auctionId }) =>
+      member(actionId, (rt, pid, ctx) => claimAuction(rt.state, pid, { auctionId, bidId: actionId }, ctx), { bidId: actionId }),
+    );
+    handle(C2S.seal, sealSchema, ({ actionId, auctionId, amount }) =>
+      member(actionId, (rt, pid, ctx) => sealBid(rt.state, pid, { auctionId, amount, bidId: actionId }, ctx)),
+    );
+    handle(C2S.veto, vetoSchema, ({ actionId, auctionId }) => member(actionId, (rt, pid, ctx) => useVeto(rt.state, pid, { auctionId }, ctx)));
+    handle(C2S.halfPrice, halfPriceSchema, ({ actionId, auctionId }) =>
+      member(actionId, (rt, pid, ctx) => useHalfPrice(rt.state, pid, { auctionId }, ctx)),
+    );
+    handle(C2S.steal, stealSchema, ({ actionId, targetId, characterId }) =>
+      member(actionId, (rt, pid, ctx) => useSteal(rt.state, pid, { targetId, characterId }, ctx)),
+    );
+    handle(C2S.offer, offerSchema, ({ actionId, toId, give, take, cash }) =>
+      member(actionId, (rt, pid, ctx) => offerTrade(rt.state, pid, { toId, give, take, cash }, ctx)),
+    );
+    handle(C2S.respond, respondSchema, ({ actionId, offerId, accept }) =>
+      member(actionId, (rt, pid, ctx) => respondTrade(rt.state, pid, { offerId, accept }, ctx)),
+    );
+    handle(C2S.sell, sellSchema, ({ actionId, characterId }) => member(actionId, (rt, pid, ctx) => sellToBank(rt.state, pid, { characterId }, ctx)));
+    handle(C2S.ready, readySchema, ({ actionId }) => member(actionId, (rt, pid, ctx) => setMercatoReady(rt.state, pid, ctx)));
+    handle(C2S.rematch, rematchSchema, ({ actionId }) => member(actionId, (rt, pid, ctx) => rematch(rt.state, pid, ctx)));
+    handle(C2S.addBot, addBotSchema, ({ actionId, level }) =>
+      member(actionId, (rt, pid, ctx) => {
+        const used = new Set(rt.state.participants.map((p) => p.nickname));
+        const nickname = BOT_NAMES.find((n) => !used.has(n)) ?? 'Bot';
+        return addBot(rt.state, pid, { id: randomId('bot'), nickname, level }, ctx);
+      }),
+    );
     handle(C2S.leave, leaveSchema, async ({ actionId }) => {
       const code = data.roomCode;
       const pid = data.participantId;
@@ -413,19 +502,26 @@ export class GameServer {
 
     handle(C2S.kick, kickSchema, async ({ actionId, participantId: target }) => {
       const code = data.roomCode;
-      const res = await member(actionId, (rt, pid, ctx) => kickParticipant(rt.state, pid, target, ctx));
+      // Every member of the kicked team loses their session (duo: both people).
+      let kicked: string[] = [];
+      const res = await member(actionId, (rt, pid, ctx) => {
+        kicked = memberIdsOf(rt.state, target);
+        return kickParticipant(rt.state, pid, target, ctx);
+      });
       const rt = code ? this.rooms.get(code) : undefined;
       if (res.ok && rt) {
-        for (const [hash, id] of rt.sessions) if (id === target) rt.sessions.delete(hash);
-        for (const sid of rt.sockets.get(target) ?? []) {
-          const s = this.io.sockets.sockets.get(sid);
-          if (s) {
-            // The kicked client still receives this last update, then is detached.
-            s.emit(S2C.update, { view: toRoomView(rt.state, this.ctx(rt.state).pack, Date.now()), events: [] });
-            this.detach(s, true);
+        for (const [hash, id] of rt.sessions) if (kicked.includes(id)) rt.sessions.delete(hash);
+        for (const memberId of kicked) {
+          for (const sid of rt.sockets.get(memberId) ?? []) {
+            const s = this.io.sockets.sockets.get(sid);
+            if (s) {
+              // The kicked client still receives this last update, then is detached.
+              s.emit(S2C.update, { view: toRoomView(rt.state, this.ctx(rt.state).pack, Date.now()), events: [] });
+              this.detach(s, true);
+            }
           }
+          rt.sockets.delete(memberId);
         }
-        rt.sockets.delete(target);
       }
       return res;
     });
@@ -490,7 +586,106 @@ export class GameServer {
       bidResetSec: settings.bidResetSec * s,
       voteTimerSec: settings.voteTimerSec * s,
       spectatorVoteTimerSec: settings.spectatorVoteTimerSec * s,
+      mercatoTimerSec: (settings.mercatoTimerSec ?? 90) * s,
     };
+  }
+
+  /* -------------------------------------------------------------- */
+  /* Bots                                                            */
+  /* -------------------------------------------------------------- */
+
+  /**
+   * Bots act like people: after a short, random "thinking" delay one bot plays
+   * one action through the normal engine command, then the room is
+   * re-evaluated. In a dutch auction a waiting bot re-checks at each price step.
+   */
+  private scheduleBots(rt: RoomRuntime): void {
+    if (rt.botTimer) clearTimeout(rt.botTimer);
+    rt.botTimer = null;
+    const bots = rt.state.participants.filter((p) => p.bot);
+    if (!bots.length || rt.state.status === 'lobby' || rt.state.status === 'finished') return;
+    const ctx = this.ctx(rt.state);
+    const pending = bots.some((b) => decideBot(rt.state, ctx.pack, b.id, ctx.now, Math.random) !== null);
+    const a = rt.state.auction;
+    const waitingDutch =
+      a?.stage === 'open' && a.style === 'dutch' && !!a.dutch && bots.some((b) => a.eligible.includes(b.id) && !a.passed.includes(b.id));
+    let delay: number;
+    if (pending) delay = (700 + Math.random() * 1800) * this.timeScale;
+    else if (waitingDutch) delay = a!.dutch!.stepMs;
+    else return;
+    rt.botTimer = setTimeout(() => {
+      rt.botTimer = null;
+      void this.run(rt, async () => {
+        const c = this.ctx(rt.state);
+        for (const b of [...bots].sort(() => Math.random() - 0.5)) {
+          const action = decideBot(rt.state, c.pack, b.id, c.now, Math.random);
+          if (!action) continue;
+          let outcome = this.botOutcome(rt.state, b.id, action, c);
+          // A trade the bot wanted to accept may have become impossible: decline it instead.
+          if (!outcome.ok && action.type === 'respond' && action.accept) {
+            outcome = this.botOutcome(rt.state, b.id, { ...action, accept: false }, c);
+          }
+          if (outcome.ok && outcome.state !== rt.state) {
+            await this.commit(rt, outcome, { actorId: b.id, bidId: outcome.state.auction?.highBid?.id });
+            return;
+          }
+        }
+        this.scheduleBots(rt);
+      });
+    }, delay);
+  }
+
+  private botOutcome(state: RoomState, botId: string, a: BotAction, ctx: EngineCtx): Outcome {
+    const auctionId = state.auction?.id ?? '';
+    const bidId = randomId('bb');
+    switch (a.type) {
+      case 'bid':
+        return placeBid(state, botId, { auctionId, amount: a.amount, bidId }, ctx);
+      case 'claim':
+        return claimAuction(state, botId, { auctionId, bidId }, ctx);
+      case 'seal':
+        return sealBid(state, botId, { auctionId, amount: a.amount, bidId }, ctx);
+      case 'pass':
+        return passAuction(state, botId, { auctionId }, ctx);
+      case 'halfPrice':
+        return useHalfPrice(state, botId, { auctionId }, ctx);
+      case 'vote':
+        return castVote(state, { id: botId, kind: 'participant' }, a.targetId, ctx);
+      case 'respond':
+        return respondTrade(state, botId, { offerId: a.offerId, accept: a.accept }, ctx);
+      case 'ready':
+        return setMercatoReady(state, botId, ctx);
+    }
+  }
+
+  /* -------------------------------------------------------------- */
+  /* Twitch chat                                                     */
+  /* -------------------------------------------------------------- */
+
+  /** Listen to the room's Twitch chat while the game is running; chat votes are applied in 2 s batches. */
+  private syncTwitch(rt: RoomRuntime): void {
+    const channel = rt.state.settings.twitchChannel;
+    if (!channel || rt.state.status === 'finished' || process.env.TWITCH_DISABLED) {
+      rt.twitch?.close();
+      rt.twitch = null;
+      return;
+    }
+    if (rt.twitch?.channel === channel) return;
+    rt.twitch?.close();
+    rt.twitch = new TwitchChat(channel, (v) => this.queueChatVote(rt.state.code, v));
+  }
+
+  /** Buffers a chat vote (also used by tests to inject chat messages without a network connection). */
+  queueChatVote(code: string, v: ChatVote): void {
+    const rt = this.rooms.get(code);
+    if (!rt || rt.state.status !== 'voting') return;
+    rt.chatBuffer.push(v);
+    if (rt.chatTimer) return;
+    rt.chatTimer = setTimeout(() => {
+      rt.chatTimer = null;
+      const batch = rt.chatBuffer.splice(0);
+      void this.run(rt, () => this.commit(rt, applyChatVotes(rt.state, batch, this.ctx(rt.state)), { actorId: 'twitch' }));
+    }, 2000 * this.timeScale);
   }
 
   private sessionAck(rt: RoomRuntime, participantId: string, sessionToken: string): SessionAck {

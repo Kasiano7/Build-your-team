@@ -1,6 +1,6 @@
 import type { ContentPack, DatasetInfo, Character } from '@byt/shared';
 import real from '../data/real-players.v1.json';
-import { BASKETBALL_ATTRIBUTES, BASKETBALL_FORMATIONS, BASKETBALL_GROUPS, BASKETBALL_MODES, BASKETBALL_ROLES, BASKETBALL_TIERS } from './definitions';
+import { BASKETBALL_ATTRIBUTES, BASKETBALL_FORMATIONS, BASKETBALL_GROUPS, BASKETBALL_MODES, BASKETBALL_THEMES, BASKETBALL_ROLES, BASKETBALL_TIERS } from './definitions';
 
 export * from './definitions';
 
@@ -22,6 +22,7 @@ export function createBasketballPack(file: BasketballDatasetFile): ContentPack {
     tiers: BASKETBALL_TIERS,
     formations: BASKETBALL_FORMATIONS,
     modes: BASKETBALL_MODES,
+    themes: BASKETBALL_THEMES,
     characters: file.characters,
   };
 }

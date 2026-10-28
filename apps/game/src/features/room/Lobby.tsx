@@ -1,10 +1,11 @@
 import { Platform, Pressable, ScrollView, Share, Text, View, useWindowDimensions } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
+import { router } from 'expo-router';
 import Animated, { FadeInDown } from 'react-native-reanimated';
-import type { PackMeta, RoomView } from '@byt/shared';
+import type { BotLevel, PackMeta, RoomView } from '@byt/shared';
 import { colors, fonts, radii } from '@byt/ui';
 import { Body, Button, Eyebrow, Panel, PlayerBadge, Title, useToast } from '@/components/ui';
-import { inviteLink } from '@/lib/config';
+import { inviteLink, tvLink } from '@/lib/config';
 import { errorMessage } from '@/lib/errors';
 import { gameClient } from '@/state/game-client';
 import { useReduceMotion } from '@/state/settings';
@@ -32,6 +33,35 @@ export function Lobby({ view, pack, meId, onLeave }: { view: RoomView; pack: Pac
     } catch {
       void copy();
     }
+  };
+  const o = view.settings;
+  const duo = o.format === 'duo';
+  const theme = o.themeId ? pack.themes?.find((t) => t.id === o.themeId) : null;
+  const STYLE_LABEL = { english: 'Classique (montantes)', dutch: 'Hollandaises (prix descendant)', sealed: 'Sous pli (une offre secrète)' } as const;
+  const END_LABEL = {
+    vote: view.settings.maxParticipants === 2 ? 'Des amis spectateurs votent via un lien' : 'Chacun vote pour une autre équipe',
+    vote_sim: 'Vote, puis tournoi simulé en bonus',
+    sim: 'Tournoi simulé : le meilleur effectif a l’avantage',
+  } as const;
+  const options = [
+    o.pace === 'eclair' ? 'Éclair' : null,
+    o.mystery ? 'Mystère' : null,
+    o.jokers ? 'Jokers' : null,
+    o.mercato ? 'Mercato' : null,
+    duo ? 'Duo' : null,
+  ].filter(Boolean);
+  const freeSeats = view.settings.maxParticipants - view.participants.length;
+  const addBot = async (level: BotLevel) => {
+    const res = await gameClient.addBot(level);
+    if (!res.ok) toast(errorMessage(res.code), 'error');
+  };
+  const copyPartnerLink = async (teamId: string) => {
+    await Clipboard.setStringAsync(inviteLink(view.code, teamId));
+    toast('Lien partenaire copié : il rejoindra cette équipe', 'success');
+  };
+  const openTv = () => {
+    if (Platform.OS === 'web' && typeof window !== 'undefined') window.open(tvLink(view.code), '_blank');
+    else router.push(`/tv/${view.code}`);
   };
   const kick = async (id: string, name: string) => {
     const res = await gameClient.kick(id);
@@ -73,9 +103,17 @@ export function Lobby({ view, pack, meId, onLeave }: { view: RoomView; pack: Pac
             {[
               ['Mode', `${mode.label} · ${formation.label}`],
               ['Budget', `${view.settings.budget}M chacun`],
-              ['Enchères', `+${view.settings.minIncrement}M minimum · chrono ${Math.round(view.settings.openingTimerSec)} s, relancé à ${Math.round(view.settings.bidResetSec)} s`],
+              [
+                'Enchères',
+                (o.auctionStyle ?? 'english') === 'english'
+                  ? `+${view.settings.minIncrement}M minimum · chrono ${Math.round(view.settings.openingTimerSec)} s, relancé à ${Math.round(view.settings.bidResetSec)} s`
+                  : `${STYLE_LABEL[o.auctionStyle ?? 'english']} · chrono ${Math.round(view.settings.openingTimerSec)} s`,
+              ],
               ['Réserve', `${view.settings.reservePrice}M bloqués par poste restant à pourvoir`],
-              ['Vote final', view.settings.maxParticipants === 2 ? 'Des amis spectateurs votent via un lien' : 'Chacun vote pour une autre équipe'],
+              ...(theme ? [['Thème', `${theme.label} — ${theme.description}`]] : []),
+              ...(options.length ? [['Options', options.join(' · ')]] : []),
+              ['Fin', END_LABEL[o.endMode ?? 'vote']],
+              ...(o.twitchChannel ? [['Twitch', `Le chat de twitch.tv/${o.twitchChannel} peut voter (!1, !2…)`]] : []),
               ['Données', pack.dataset.label],
             ].map(([k, v]) => (
               <View key={k} style={{ flexDirection: 'row', gap: 12 }}>
@@ -88,7 +126,7 @@ export function Lobby({ view, pack, meId, onLeave }: { view: RoomView; pack: Pac
 
         <Panel style={{ gap: 12 }}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Eyebrow>Joueurs</Eyebrow>
+            <Eyebrow>{duo ? 'Équipes (2 joueurs max chacune)' : 'Joueurs'}</Eyebrow>
             <Text style={{ fontFamily: fonts.display, color: colors.textDim, fontSize: 16 }}>
               {view.participants.length}/{view.settings.maxParticipants}
             </Text>
@@ -123,10 +161,15 @@ export function Lobby({ view, pack, meId, onLeave }: { view: RoomView; pack: Pac
                   </Text>
                   {p && (
                     <Text style={{ fontFamily: fonts.body, fontSize: 12, color: colors.textDim }}>
-                      {p.isHost ? 'Hôte' : 'Invité'}
+                      {p.bot ? `Bot · ${({ easy: 'facile', normal: 'normal', hard: 'difficile' } as const)[p.bot.level]}` : p.isHost ? 'Hôte' : 'Invité'}
                       {p.id === meId ? ' · vous' : ''}
-                      {!p.connected ? ' · déconnecté' : ''}
+                      {!p.connected && !p.bot ? ' · déconnecté' : ''}
                     </Text>
+                  )}
+                  {p && duo && !p.bot && (p.members?.length ?? 1) < 2 && (
+                    <Pressable onPress={() => copyPartnerLink(p.id)} accessibilityRole="button" hitSlop={6}>
+                      <Text style={{ fontFamily: fonts.bodySemi, fontSize: 12, color: colors.accent, marginTop: 2 }}>+ Inviter un partenaire</Text>
+                    </Pressable>
                   )}
                 </View>
                 {isHost && p && p.id !== meId && (
@@ -145,6 +188,33 @@ export function Lobby({ view, pack, meId, onLeave }: { view: RoomView; pack: Pac
           </View>
         </Panel>
 
+        {isHost && freeSeats > 0 && (
+          <Panel style={{ gap: 10 }}>
+            <Eyebrow>Compléter avec des bots</Eyebrow>
+            <Body dim style={{ fontSize: 13 }}>Les bots enchérissent avec les mêmes règles que vous, à un rythme humain.</Body>
+            <View style={{ flexDirection: 'row', gap: 8 }}>
+              {([['easy', 'Facile'], ['normal', 'Normal'], ['hard', 'Difficile']] as const).map(([level, label]) => (
+                <Button key={level} label={`+ Bot ${label.toLowerCase()}`} variant="secondary" size="sm" onPress={() => addBot(level)} style={{ flex: 1 }} testID={`add-bot-${level}`} />
+              ))}
+            </View>
+          </Panel>
+        )}
+
+        {view.series && (
+          <Panel style={{ gap: 8 }}>
+            <Eyebrow color={colors.gold}>Série — manche {view.series.round}</Eyebrow>
+            {[...view.participants]
+              .sort((x, y) => (view.series!.standings[y.id] ?? 0) - (view.series!.standings[x.id] ?? 0))
+              .map((p) => (
+                <View key={p.id} style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                  <View style={{ width: 8, height: 8, borderRadius: 4, backgroundColor: p.color }} />
+                  <Text style={{ flex: 1, fontFamily: fonts.bodySemi, color: colors.text }}>{p.nickname}</Text>
+                  <Text style={{ fontFamily: fonts.display, color: colors.gold, fontSize: 16 }}>{view.series!.standings[p.id] ?? 0} pts</Text>
+                </View>
+              ))}
+          </Panel>
+        )}
+
         {isHost ? (
           <View style={{ gap: 8 }}>
             <Button label="Lancer la partie" size="lg" disabled={view.participants.length < 2} onPress={start} testID="lobby-start" />
@@ -158,7 +228,10 @@ export function Lobby({ view, pack, meId, onLeave }: { view: RoomView; pack: Pac
             <Body dim>La partie démarre dès que l’hôte la lance.</Body>
           </Panel>
         )}
-        <Button label="Quitter le salon" variant="ghost" size="sm" onPress={onLeave} style={{ alignSelf: 'center' }} />
+        <View style={{ flexDirection: 'row', gap: 10, justifyContent: 'center' }}>
+          <Button label="Mode TV" variant="ghost" size="sm" onPress={openTv} accessibilityHint="Ouvre l’affichage grand écran de la partie" />
+          <Button label="Quitter le salon" variant="ghost" size="sm" onPress={onLeave} />
+        </View>
       </View>
     </ScrollView>
   );

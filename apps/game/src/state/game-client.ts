@@ -16,6 +16,7 @@ import {
   type RoomUpdate,
   type RoomView,
   type SessionAck,
+  type BotLevel,
   type SlotRef,
   type SpectatorAck,
 } from '@byt/shared';
@@ -141,7 +142,7 @@ export class GameClient {
       spectatorVote = u.view.voting.votes.find((v) => v.voterId === this.snapshot.spectatorId)?.targetId ?? spectatorVote;
     }
     const { role, participantId, roomCode } = this.snapshot;
-    if (role === 'player' && participantId && !u.view.participants.some((p) => p.id === participantId)) {
+    if (role === 'player' && participantId && !teamOf(u.view, participantId)) {
       // Removed by the host: forget the local session.
       if (roomCode) void removeItem(keys.session(roomCode));
       this.token = null;
@@ -214,8 +215,9 @@ export class GameClient {
       removed: false,
     });
     if (persist) {
-      const me = ack.view.participants.find((p) => p.id === ack.participantId);
-      const stored: StoredSession = { token: ack.sessionToken, participantId: ack.participantId, nickname: me?.nickname ?? '', savedAt: Date.now() };
+      const team = teamOf(ack.view, ack.participantId);
+      const nickname = team?.members?.find((m) => m.id === ack.participantId)?.nickname ?? team?.nickname ?? '';
+      const stored: StoredSession = { token: ack.sessionToken, participantId: ack.participantId, nickname, savedAt: Date.now() };
       void setJSON(keys.session(ack.roomCode), stored);
       void setJSON(keys.lastRoom, { code: ack.roomCode, savedAt: Date.now() });
     }
@@ -231,8 +233,9 @@ export class GameClient {
     return res;
   }
 
-  async join(roomCode: string, nickname: string): Promise<Ack<SessionAck>> {
-    const res = await this.request<SessionAck>(C2S.join, { roomCode, nickname }).catch(() => offline<SessionAck>());
+  /** `teamId` (duo format): join that team as its second member. */
+  async join(roomCode: string, nickname: string, teamId?: string): Promise<Ack<SessionAck>> {
+    const res = await this.request<SessionAck>(C2S.join, { roomCode, nickname, ...(teamId ? { teamId } : {}) }).catch(() => offline<SessionAck>());
     if (res.ok) this.acceptSession(res);
     return res;
   }
@@ -290,6 +293,20 @@ export class GameClient {
   vote = (targetId: string) => this.act(C2S.vote, { targetId });
   closeVote = () => this.act(C2S.closeVote, {});
   kick = (participantId: string) => this.act(C2S.kick, { participantId });
+  addBot = (level: BotLevel) => this.act(C2S.addBot, { level });
+  rematch = () => this.act(C2S.rematch, {});
+  private auctionId = () => this.snapshot.view?.auction?.id ?? '';
+  /** Dutch auction: take the player at the current price. */
+  claim = () => this.act(C2S.claim, { auctionId: this.auctionId() });
+  /** Sealed auction: one secret offer. */
+  seal = (amount: number) => this.act(C2S.seal, { auctionId: this.auctionId(), amount });
+  veto = () => this.act(C2S.veto, { auctionId: this.auctionId() });
+  halfPrice = () => this.act(C2S.halfPrice, { auctionId: this.auctionId() });
+  steal = (targetId: string, characterId: string) => this.act(C2S.steal, { targetId, characterId });
+  offer = (toId: string, give: string, take: string, cash: number) => this.act(C2S.offer, { toId, give, take, cash });
+  respond = (offerId: string, accept: boolean) => this.act(C2S.respond, { offerId, accept });
+  sell = (characterId: string) => this.act(C2S.sell, { characterId });
+  ready = () => this.act(C2S.ready, {});
 
   async leave(): Promise<void> {
     const { roomCode, view } = this.snapshot;
@@ -304,6 +321,11 @@ export class GameClient {
     this.token = null;
     this.set({ role: null, roomCode: null, participantId: null, spectatorId: null, spectatorVote: null, view: null, sessionLost: false, removed: false });
   }
+}
+
+/** Team controlled by a person (solo: same id; duo: one of its two members). */
+export function teamOf(view: RoomView, memberId: string) {
+  return view.participants.find((p) => p.id === memberId || p.members?.some((m) => m.id === memberId)) ?? null;
 }
 
 function offline<T>(): Ack<T> {

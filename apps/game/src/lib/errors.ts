@@ -28,6 +28,14 @@ const MESSAGES: Record<ErrorCode, string> = {
   UNKNOWN_TARGET: 'Équipe inconnue.',
   VOTE_CLOSED: 'Le vote est clos.',
   UNKNOWN_PACK: 'Univers indisponible.',
+  THEME_TOO_SMALL: 'Pas assez de joueurs dans ce thème pour autant d’équipes.',
+  WRONG_AUCTION_STYLE: 'Action impossible avec ce type d’enchère.',
+  ALREADY_OFFERED: 'Offre déjà faite.',
+  JOKERS_DISABLED: 'Les jokers ne sont pas activés dans cette partie.',
+  JOKER_USED: 'Joker déjà utilisé.',
+  NOT_OWNER: 'Ce joueur n’est pas (ou plus) dans cette équipe.',
+  OFFER_NOT_PENDING: 'Cette offre n’est plus valable.',
+  NOT_ENOUGH_BUDGET: 'Budget insuffisant.',
   INTERNAL: 'Connexion au serveur impossible. Vérifiez votre réseau.',
 };
 

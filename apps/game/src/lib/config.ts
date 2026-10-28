@@ -77,6 +77,7 @@ export function webOrigin(): string {
   return 'https://build-your-team.io';
 }
 
-export const inviteLink = (code: string) => `${webOrigin()}/r/${code}`;
+export const inviteLink = (code: string, teamId?: string) => `${webOrigin()}/r/${code}${teamId ? `?team=${encodeURIComponent(teamId)}` : ''}`;
+export const tvLink = (code: string) => `${webOrigin()}/tv/${code}`;
 export const spectatorLink = (code: string) => `${webOrigin()}/vote/${code}`;
 export const resultLink = (code: string) => `${webOrigin()}/vote/${code}`;

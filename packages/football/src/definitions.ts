@@ -2,7 +2,7 @@
  * Football universe definitions: roles, groups, attribute sets, tiers,
  * formations and game modes. Pure data — the engine stays generic.
  */
-import type { AttributeDef, FormationDef, FormationSlot, GameModeDef, RoleDef, RoleGroupDef, TierDef } from '@byt/shared';
+import type { AttributeDef, FormationDef, FormationSlot, GameModeDef, RoleDef, RoleGroupDef, TierDef, ThemeDef } from '@byt/shared';
 
 export const FOOTBALL_ROLES: RoleDef[] = [
   { id: 'GK', label: 'Gardien', group: 'GK' },
@@ -148,4 +148,20 @@ export const FOOTBALL_MODES: GameModeDef[] = [
     benchSize: 3,
     formationChangeAllowed: true,
   },
+];
+
+/**
+ * Thematic drafts. Feasibility depends on the number of teams; the engine
+ * refuses a theme that leaves too few players (themeShortfall).
+ */
+const PREMIER_LEAGUE = ['Liverpool', 'Arsenal', 'Manchester City', 'Chelsea', 'Tottenham', 'Manchester United', 'Newcastle', 'Aston Villa', 'Brighton', 'Crystal Palace', 'Nottingham Forest', 'West Ham', 'Bournemouth', 'Fulham', 'Brentford', 'Everton', 'Wolverhampton'];
+const LIGA_SERIE_A = ['Real Madrid', 'FC Barcelone', 'Atlético Madrid', 'Athletic Club', 'Villarreal', 'Real Sociedad', 'Real Betis', 'Séville FC', 'Girona', 'Valence', 'Inter', 'Napoli', 'Juventus', 'AC Milan', 'AS Roma', 'Atalanta', 'Lazio', 'Fiorentina', 'Bologne'];
+
+export const FOOTBALL_THEMES: ThemeDef[] = [
+  { id: 'elite', label: 'Élite', description: 'Uniquement les joueurs notés 85 et plus.', filter: { minOverall: 85 } },
+  { id: 'outsiders', label: 'Outsiders', description: 'Aucun joueur au-dessus de 84 : place aux bonnes affaires.', filter: { maxOverall: 84 } },
+  { id: 'premier-league', label: 'Premier League', description: 'Joueurs des clubs anglais.', filter: { affiliations: PREMIER_LEAGUE } },
+  { id: 'liga-serie-a', label: 'Liga & Serie A', description: 'Joueurs des clubs espagnols et italiens.', filter: { affiliations: LIGA_SERIE_A } },
+  { id: 'ameriques', label: 'Amériques', description: 'Joueurs sud et nord-américains (2 ou 3 équipes, mode rapide).', filter: { nationalities: ['BRA', 'ARG', 'URU', 'ECU', 'COL', 'CHI', 'PAR', 'PER', 'VEN', 'MEX', 'USA', 'CAN'] } },
+  { id: 'sans-les-bleus', label: 'Sans les Bleus', description: 'Tous les joueurs sauf les Français.', filter: { excludeNationalities: ['FRA'] } },
 ];

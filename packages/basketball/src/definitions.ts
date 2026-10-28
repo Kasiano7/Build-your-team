@@ -3,7 +3,7 @@
  * line-ups (half-court positions) and game modes. Pure data — the engine,
  * server and UI are the same as for football.
  */
-import type { AttributeDef, FormationDef, FormationSlot, GameModeDef, RoleDef, RoleGroupDef, TierDef } from '@byt/shared';
+import type { AttributeDef, FormationDef, FormationSlot, GameModeDef, RoleDef, RoleGroupDef, TierDef, ThemeDef } from '@byt/shared';
 
 export const BASKETBALL_ROLES: RoleDef[] = [
   { id: 'PG', label: 'Meneur', group: 'G' },
@@ -105,4 +105,12 @@ export const BASKETBALL_MODES: GameModeDef[] = [
     benchSize: 3,
     formationChangeAllowed: true,
   },
+];
+
+/** Thematic drafts (see FOOTBALL_THEMES for the feasibility rule). */
+export const BASKETBALL_THEMES: ThemeDef[] = [
+  { id: 'elite', label: 'Élite', description: 'Uniquement les joueurs notés 85 et plus.', filter: { minOverall: 85 } },
+  { id: 'outsiders', label: 'Outsiders', description: 'Aucun joueur au-dessus de 84 (2 ou 3 équipes).', filter: { maxOverall: 84 } },
+  { id: 'usa', label: 'Made in USA', description: 'Uniquement les joueurs américains.', filter: { nationalities: ['USA'] } },
+  { id: 'international', label: 'International', description: 'Tous sauf les Américains (2 équipes).', filter: { excludeNationalities: ['USA'] } },
 ];

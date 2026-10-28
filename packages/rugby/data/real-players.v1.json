@@ -1,0 +1,4826 @@
+{
+ "dataset": {
+  "id": "rugby-real",
+  "version": "1.0.0",
+  "label": "Rugby · joueurs réels · notes estimées par Build Your Team (non officielles)",
+  "fictional": false,
+  "source": "Liste Build Your Team — internationaux, clubs indicatifs saison 2025-2026 ; notes et statistiques estimées par un modèle interne",
+  "license": "Noms de personnes réelles : usage privé et tests uniquement tant que les droits nom/image (joueurs, fédérations, ligues) ne sont pas acquis. Aucune donnée de jeu vidéo ni note officielle.",
+  "contentHash": "81020f01b6e19fbc409cccea58452b50bdc7935a38396421b3a4ea030ffbab44"
+ },
+ "characters": [
+  {
+   "id": "rg-cyril-baille",
+   "name": "Cyril Baille",
+   "shortName": "Baille",
+   "nationality": "FRA",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 87,
+   "attributes": {
+    "VIT": 52,
+    "PUI": 91,
+    "PLA": 79,
+    "JEU": 39,
+    "MAI": 64,
+    "END": 75
+   },
+   "portraitSeed": 734564975,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-jean-baptiste-gros",
+   "name": "Jean-Baptiste Gros",
+   "shortName": "Gros",
+   "nationality": "FRA",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 55,
+    "PUI": 87,
+    "PLA": 78,
+    "JEU": 41,
+    "MAI": 56,
+    "END": 78
+   },
+   "portraitSeed": 3005259875,
+   "affiliation": "RC Toulon"
+  },
+  {
+   "id": "rg-dorian-aldegheri",
+   "name": "Dorian Aldegheri",
+   "shortName": "Aldegheri",
+   "nationality": "FRA",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 53,
+    "PUI": 92,
+    "PLA": 75,
+    "JEU": 37,
+    "MAI": 53,
+    "END": 75
+   },
+   "portraitSeed": 2709040399,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-regis-montagne",
+   "name": "Régis Montagne",
+   "shortName": "Montagne",
+   "nationality": "FRA",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 52,
+    "PUI": 86,
+    "PLA": 76,
+    "JEU": 38,
+    "MAI": 52,
+    "END": 69
+   },
+   "portraitSeed": 3709898608,
+   "affiliation": "ASM Clermont Auvergne"
+  },
+  {
+   "id": "rg-andrew-porter",
+   "name": "Andrew Porter",
+   "shortName": "Porter",
+   "nationality": "IRL",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 87,
+   "attributes": {
+    "VIT": 53,
+    "PUI": 89,
+    "PLA": 88,
+    "JEU": 39,
+    "MAI": 54,
+    "END": 79
+   },
+   "portraitSeed": 2925786044,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-tadhg-furlong",
+   "name": "Tadhg Furlong",
+   "shortName": "Furlong",
+   "nationality": "IRL",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 56,
+    "PUI": 90,
+    "PLA": 76,
+    "JEU": 38,
+    "MAI": 65,
+    "END": 75
+   },
+   "portraitSeed": 2988785276,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-finlay-bealham",
+   "name": "Finlay Bealham",
+   "shortName": "Bealham",
+   "nationality": "IRL",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 52,
+    "PUI": 86,
+    "PLA": 77,
+    "JEU": 36,
+    "MAI": 50,
+    "END": 69
+   },
+   "portraitSeed": 2815334958,
+   "affiliation": "Connacht"
+  },
+  {
+   "id": "rg-ellis-genge",
+   "name": "Ellis Genge",
+   "shortName": "Genge",
+   "nationality": "ENG",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 56,
+    "PUI": 98,
+    "PLA": 76,
+    "JEU": 42,
+    "MAI": 58,
+    "END": 74
+   },
+   "portraitSeed": 579383590,
+   "affiliation": "Bristol Bears"
+  },
+  {
+   "id": "rg-will-stuart",
+   "name": "Will Stuart",
+   "shortName": "Stuart",
+   "nationality": "ENG",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 49,
+    "PUI": 94,
+    "PLA": 75,
+    "JEU": 38,
+    "MAI": 53,
+    "END": 75
+   },
+   "portraitSeed": 2733235964,
+   "affiliation": "Bath Rugby"
+  },
+  {
+   "id": "rg-fin-baxter",
+   "name": "Fin Baxter",
+   "shortName": "Baxter",
+   "nationality": "ENG",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 50,
+    "PUI": 83,
+    "PLA": 75,
+    "JEU": 35,
+    "MAI": 53,
+    "END": 74
+   },
+   "portraitSeed": 843115840,
+   "affiliation": "Harlequins"
+  },
+  {
+   "id": "rg-pierre-schoeman",
+   "name": "Pierre Schoeman",
+   "shortName": "Schoeman",
+   "nationality": "SCO",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 49,
+    "PUI": 90,
+    "PLA": 76,
+    "JEU": 38,
+    "MAI": 54,
+    "END": 82
+   },
+   "portraitSeed": 4152213882,
+   "affiliation": "Edinburgh"
+  },
+  {
+   "id": "rg-zander-fagerson",
+   "name": "Zander Fagerson",
+   "shortName": "Z. Fagerson",
+   "nationality": "SCO",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 49,
+    "PUI": 95,
+    "PLA": 75,
+    "JEU": 37,
+    "MAI": 53,
+    "END": 78
+   },
+   "portraitSeed": 3448561632,
+   "affiliation": "Glasgow Warriors"
+  },
+  {
+   "id": "rg-gareth-thomas",
+   "name": "Gareth Thomas",
+   "shortName": "G. Thomas",
+   "nationality": "WAL",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 78,
+   "attributes": {
+    "VIT": 46,
+    "PUI": 80,
+    "PLA": 71,
+    "JEU": 37,
+    "MAI": 49,
+    "END": 70
+   },
+   "portraitSeed": 3086590296,
+   "affiliation": "Ospreys"
+  },
+  {
+   "id": "rg-tyrel-lomax",
+   "name": "Tyrel Lomax",
+   "shortName": "Lomax",
+   "nationality": "NZL",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 50,
+    "PUI": 96,
+    "PLA": 77,
+    "JEU": 35,
+    "MAI": 55,
+    "END": 76
+   },
+   "portraitSeed": 1842691596,
+   "affiliation": "Hurricanes"
+  },
+  {
+   "id": "rg-ethan-de-groot",
+   "name": "Ethan de Groot",
+   "shortName": "de Groot",
+   "nationality": "NZL",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 51,
+    "PUI": 94,
+    "PLA": 74,
+    "JEU": 39,
+    "MAI": 57,
+    "END": 74
+   },
+   "portraitSeed": 1461840011,
+   "affiliation": "Highlanders"
+  },
+  {
+   "id": "rg-tamaiti-williams",
+   "name": "Tamaiti Williams",
+   "shortName": "T. Williams",
+   "nationality": "NZL",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 52,
+    "PUI": 91,
+    "PLA": 78,
+    "JEU": 40,
+    "MAI": 54,
+    "END": 76
+   },
+   "portraitSeed": 2083909558,
+   "affiliation": "Crusaders"
+  },
+  {
+   "id": "rg-fletcher-newell",
+   "name": "Fletcher Newell",
+   "shortName": "Newell",
+   "nationality": "NZL",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 48,
+    "PUI": 86,
+    "PLA": 75,
+    "JEU": 34,
+    "MAI": 56,
+    "END": 74
+   },
+   "portraitSeed": 184136419,
+   "affiliation": "Crusaders"
+  },
+  {
+   "id": "rg-ox-nche",
+   "name": "Ox Nché",
+   "shortName": "Nché",
+   "nationality": "RSA",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 87,
+   "attributes": {
+    "VIT": 51,
+    "PUI": 98,
+    "PLA": 78,
+    "JEU": 36,
+    "MAI": 57,
+    "END": 79
+   },
+   "portraitSeed": 2161095414,
+   "affiliation": "Sharks"
+  },
+  {
+   "id": "rg-frans-malherbe",
+   "name": "Frans Malherbe",
+   "shortName": "Malherbe",
+   "nationality": "RSA",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 54,
+    "PUI": 91,
+    "PLA": 74,
+    "JEU": 35,
+    "MAI": 57,
+    "END": 76
+   },
+   "portraitSeed": 1530049241,
+   "affiliation": "Stormers"
+  },
+  {
+   "id": "rg-wilco-louw",
+   "name": "Wilco Louw",
+   "shortName": "Louw",
+   "nationality": "RSA",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 53,
+    "PUI": 94,
+    "PLA": 79,
+    "JEU": 37,
+    "MAI": 58,
+    "END": 79
+   },
+   "portraitSeed": 1027073838,
+   "affiliation": "Bulls"
+  },
+  {
+   "id": "rg-thomas-du-toit",
+   "name": "Thomas du Toit",
+   "shortName": "T. du Toit",
+   "nationality": "RSA",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 49,
+    "PUI": 97,
+    "PLA": 80,
+    "JEU": 41,
+    "MAI": 56,
+    "END": 75
+   },
+   "portraitSeed": 3785322704,
+   "affiliation": "Bath Rugby"
+  },
+  {
+   "id": "rg-angus-bell",
+   "name": "Angus Bell",
+   "shortName": "Bell",
+   "nationality": "AUS",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 58,
+    "PUI": 87,
+    "PLA": 75,
+    "JEU": 39,
+    "MAI": 58,
+    "END": 74
+   },
+   "portraitSeed": 1698264692,
+   "affiliation": "Waratahs"
+  },
+  {
+   "id": "rg-allan-alaalatoa",
+   "name": "Allan Alaalatoa",
+   "shortName": "Alaalatoa",
+   "nationality": "AUS",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 50,
+    "PUI": 84,
+    "PLA": 77,
+    "JEU": 33,
+    "MAI": 51,
+    "END": 76
+   },
+   "portraitSeed": 2186206211,
+   "affiliation": "Brumbies"
+  },
+  {
+   "id": "rg-thomas-gallo",
+   "name": "Thomas Gallo",
+   "shortName": "Gallo",
+   "nationality": "ARG",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 52,
+    "PUI": 90,
+    "PLA": 84,
+    "JEU": 39,
+    "MAI": 57,
+    "END": 77
+   },
+   "portraitSeed": 4019090900,
+   "affiliation": "Benetton"
+  },
+  {
+   "id": "rg-joel-sclavi",
+   "name": "Joel Sclavi",
+   "shortName": "Sclavi",
+   "nationality": "ARG",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 53,
+    "PUI": 87,
+    "PLA": 78,
+    "JEU": 39,
+    "MAI": 54,
+    "END": 76
+   },
+   "portraitSeed": 1869035317,
+   "affiliation": "Stade Rochelais"
+  },
+  {
+   "id": "rg-dan-sheehan",
+   "name": "Dan Sheehan",
+   "shortName": "Sheehan",
+   "nationality": "IRL",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 89,
+   "attributes": {
+    "VIT": 68,
+    "PUI": 92,
+    "PLA": 84,
+    "JEU": 43,
+    "MAI": 71,
+    "END": 85
+   },
+   "portraitSeed": 3772014236,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-ronan-kelleher",
+   "name": "Rónan Kelleher",
+   "shortName": "Kelleher",
+   "nationality": "IRL",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 56,
+    "PUI": 86,
+    "PLA": 80,
+    "JEU": 38,
+    "MAI": 67,
+    "END": 74
+   },
+   "portraitSeed": 3229424835,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-peato-mauvaka",
+   "name": "Peato Mauvaka",
+   "shortName": "Mauvaka",
+   "nationality": "FRA",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 60,
+    "PUI": 90,
+    "PLA": 79,
+    "JEU": 43,
+    "MAI": 66,
+    "END": 78
+   },
+   "portraitSeed": 3244546652,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-julien-marchand",
+   "name": "Julien Marchand",
+   "shortName": "Marchand",
+   "nationality": "FRA",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 56,
+    "PUI": 86,
+    "PLA": 84,
+    "JEU": 42,
+    "MAI": 68,
+    "END": 76
+   },
+   "portraitSeed": 935588084,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-jamie-george",
+   "name": "Jamie George",
+   "shortName": "George",
+   "nationality": "ENG",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 60,
+    "PUI": 85,
+    "PLA": 81,
+    "JEU": 41,
+    "MAI": 70,
+    "END": 73
+   },
+   "portraitSeed": 1159054462,
+   "affiliation": "Saracens"
+  },
+  {
+   "id": "rg-luke-cowan-dickie",
+   "name": "Luke Cowan-Dickie",
+   "shortName": "Cowan-Dickie",
+   "nationality": "ENG",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 57,
+    "PUI": 91,
+    "PLA": 80,
+    "JEU": 38,
+    "MAI": 68,
+    "END": 78
+   },
+   "portraitSeed": 2758209186,
+   "affiliation": "Sale Sharks"
+  },
+  {
+   "id": "rg-ewan-ashman",
+   "name": "Ewan Ashman",
+   "shortName": "Ashman",
+   "nationality": "SCO",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 59,
+    "PUI": 80,
+    "PLA": 76,
+    "JEU": 37,
+    "MAI": 61,
+    "END": 74
+   },
+   "portraitSeed": 1924830094,
+   "affiliation": "Edinburgh"
+  },
+  {
+   "id": "rg-george-turner",
+   "name": "George Turner",
+   "shortName": "Turner",
+   "nationality": "SCO",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 56,
+    "PUI": 81,
+    "PLA": 78,
+    "JEU": 39,
+    "MAI": 64,
+    "END": 75
+   },
+   "portraitSeed": 2654592852,
+   "affiliation": "Harlequins"
+  },
+  {
+   "id": "rg-dewi-lake",
+   "name": "Dewi Lake",
+   "shortName": "Lake",
+   "nationality": "WAL",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 60,
+    "PUI": 88,
+    "PLA": 79,
+    "JEU": 42,
+    "MAI": 65,
+    "END": 75
+   },
+   "portraitSeed": 332823333,
+   "affiliation": "Ospreys"
+  },
+  {
+   "id": "rg-codie-taylor",
+   "name": "Codie Taylor",
+   "shortName": "Taylor",
+   "nationality": "NZL",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 56,
+    "PUI": 87,
+    "PLA": 79,
+    "JEU": 39,
+    "MAI": 74,
+    "END": 78
+   },
+   "portraitSeed": 3941783066,
+   "affiliation": "Crusaders"
+  },
+  {
+   "id": "rg-samisoni-taukei-aho",
+   "name": "Samisoni Taukei'aho",
+   "shortName": "Taukei'aho",
+   "nationality": "NZL",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 58,
+    "PUI": 84,
+    "PLA": 80,
+    "JEU": 36,
+    "MAI": 65,
+    "END": 78
+   },
+   "portraitSeed": 441942524,
+   "affiliation": "Chiefs"
+  },
+  {
+   "id": "rg-malcolm-marx",
+   "name": "Malcolm Marx",
+   "shortName": "Marx",
+   "nationality": "RSA",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 89,
+   "attributes": {
+    "VIT": 64,
+    "PUI": 92,
+    "PLA": 93,
+    "JEU": 41,
+    "MAI": 71,
+    "END": 83
+   },
+   "portraitSeed": 2296040956,
+   "affiliation": "Kubota Spears"
+  },
+  {
+   "id": "rg-bongi-mbonambi",
+   "name": "Bongi Mbonambi",
+   "shortName": "Mbonambi",
+   "nationality": "RSA",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 57,
+    "PUI": 82,
+    "PLA": 76,
+    "JEU": 38,
+    "MAI": 61,
+    "END": 77
+   },
+   "portraitSeed": 1236316749,
+   "affiliation": "Sharks"
+  },
+  {
+   "id": "rg-julian-montoya",
+   "name": "Julián Montoya",
+   "shortName": "Montoya",
+   "nationality": "ARG",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 58,
+    "PUI": 87,
+    "PLA": 84,
+    "JEU": 44,
+    "MAI": 68,
+    "END": 81
+   },
+   "portraitSeed": 2120735269,
+   "affiliation": "Section Paloise"
+  },
+  {
+   "id": "rg-matt-faessler",
+   "name": "Matt Faessler",
+   "shortName": "Faessler",
+   "nationality": "AUS",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 57,
+    "PUI": 77,
+    "PLA": 78,
+    "JEU": 35,
+    "MAI": 63,
+    "END": 74
+   },
+   "portraitSeed": 1035403644,
+   "affiliation": "Reds"
+  },
+  {
+   "id": "rg-giacomo-nicotera",
+   "name": "Giacomo Nicotera",
+   "shortName": "Nicotera",
+   "nationality": "ITA",
+   "roles": [
+    "TAL"
+   ],
+   "overall": 79,
+   "attributes": {
+    "VIT": 56,
+    "PUI": 76,
+    "PLA": 74,
+    "JEU": 35,
+    "MAI": 60,
+    "END": 75
+   },
+   "portraitSeed": 1485593291,
+   "affiliation": "Stade Français"
+  },
+  {
+   "id": "rg-eben-etzebeth",
+   "name": "Eben Etzebeth",
+   "shortName": "Etzebeth",
+   "nationality": "RSA",
+   "roles": [
+    "2L"
+   ],
+   "overall": 90,
+   "attributes": {
+    "VIT": 64,
+    "PUI": 95,
+    "PLA": 93,
+    "JEU": 43,
+    "MAI": 66,
+    "END": 87
+   },
+   "portraitSeed": 1265473334,
+   "affiliation": "Sharks"
+  },
+  {
+   "id": "rg-rg-snyman",
+   "name": "RG Snyman",
+   "shortName": "Snyman",
+   "nationality": "RSA",
+   "roles": [
+    "2L"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 58,
+    "PUI": 90,
+    "PLA": 81,
+    "JEU": 38,
+    "MAI": 68,
+    "END": 82
+   },
+   "portraitSeed": 3621172358,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-franco-mostert",
+   "name": "Franco Mostert",
+   "shortName": "Mostert",
+   "nationality": "RSA",
+   "roles": [
+    "2L"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 55,
+    "PUI": 85,
+    "PLA": 84,
+    "JEU": 41,
+    "MAI": 65,
+    "END": 88
+   },
+   "portraitSeed": 984428372,
+   "affiliation": "Mie Honda Heat"
+  },
+  {
+   "id": "rg-ruan-nortje",
+   "name": "Ruan Nortje",
+   "shortName": "Nortje",
+   "nationality": "RSA",
+   "roles": [
+    "2L"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 57,
+    "PUI": 86,
+    "PLA": 84,
+    "JEU": 38,
+    "MAI": 64,
+    "END": 79
+   },
+   "portraitSeed": 2413531069,
+   "affiliation": "Bulls"
+  },
+  {
+   "id": "rg-maro-itoje",
+   "name": "Maro Itoje",
+   "shortName": "Itoje",
+   "nationality": "ENG",
+   "roles": [
+    "2L"
+   ],
+   "overall": 89,
+   "attributes": {
+    "VIT": 63,
+    "PUI": 92,
+    "PLA": 88,
+    "JEU": 43,
+    "MAI": 64,
+    "END": 86
+   },
+   "portraitSeed": 2089023431,
+   "affiliation": "Saracens"
+  },
+  {
+   "id": "rg-ollie-chessum",
+   "name": "Ollie Chessum",
+   "shortName": "Chessum",
+   "nationality": "ENG",
+   "roles": [
+    "2L",
+    "3L"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 61,
+    "PUI": 88,
+    "PLA": 84,
+    "JEU": 41,
+    "MAI": 66,
+    "END": 81
+   },
+   "portraitSeed": 186636358,
+   "affiliation": "Leicester Tigers"
+  },
+  {
+   "id": "rg-george-martin",
+   "name": "George Martin",
+   "shortName": "Martin",
+   "nationality": "ENG",
+   "roles": [
+    "2L"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 59,
+    "PUI": 88,
+    "PLA": 87,
+    "JEU": 39,
+    "MAI": 59,
+    "END": 81
+   },
+   "portraitSeed": 2220924275,
+   "affiliation": "Leicester Tigers"
+  },
+  {
+   "id": "rg-thibaud-flament",
+   "name": "Thibaud Flament",
+   "shortName": "Flament",
+   "nationality": "FRA",
+   "roles": [
+    "2L"
+   ],
+   "overall": 87,
+   "attributes": {
+    "VIT": 58,
+    "PUI": 90,
+    "PLA": 83,
+    "JEU": 41,
+    "MAI": 66,
+    "END": 84
+   },
+   "portraitSeed": 1698291677,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-emmanuel-meafou",
+   "name": "Emmanuel Meafou",
+   "shortName": "Meafou",
+   "nationality": "FRA",
+   "roles": [
+    "2L"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 61,
+    "PUI": 98,
+    "PLA": 82,
+    "JEU": 43,
+    "MAI": 67,
+    "END": 82
+   },
+   "portraitSeed": 1171432982,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-mickael-guillard",
+   "name": "Mickaël Guillard",
+   "shortName": "Guillard",
+   "nationality": "FRA",
+   "roles": [
+    "2L"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 59,
+    "PUI": 89,
+    "PLA": 77,
+    "JEU": 40,
+    "MAI": 58,
+    "END": 77
+   },
+   "portraitSeed": 1151620173,
+   "affiliation": "LOU Rugby"
+  },
+  {
+   "id": "rg-hugo-auradou",
+   "name": "Hugo Auradou",
+   "shortName": "Auradou",
+   "nationality": "FRA",
+   "roles": [
+    "2L"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 55,
+    "PUI": 82,
+    "PLA": 77,
+    "JEU": 37,
+    "MAI": 59,
+    "END": 75
+   },
+   "portraitSeed": 1822017189,
+   "affiliation": "Section Paloise"
+  },
+  {
+   "id": "rg-tadhg-beirne",
+   "name": "Tadhg Beirne",
+   "shortName": "Beirne",
+   "nationality": "IRL",
+   "roles": [
+    "2L",
+    "3L"
+   ],
+   "overall": 88,
+   "attributes": {
+    "VIT": 59,
+    "PUI": 93,
+    "PLA": 87,
+    "JEU": 41,
+    "MAI": 67,
+    "END": 87
+   },
+   "portraitSeed": 1528642894,
+   "affiliation": "Munster"
+  },
+  {
+   "id": "rg-joe-mccarthy",
+   "name": "Joe McCarthy",
+   "shortName": "McCarthy",
+   "nationality": "IRL",
+   "roles": [
+    "2L"
+   ],
+   "overall": 87,
+   "attributes": {
+    "VIT": 60,
+    "PUI": 97,
+    "PLA": 82,
+    "JEU": 37,
+    "MAI": 67,
+    "END": 82
+   },
+   "portraitSeed": 1570581930,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-james-ryan",
+   "name": "James Ryan",
+   "shortName": "Ryan",
+   "nationality": "IRL",
+   "roles": [
+    "2L"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 58,
+    "PUI": 83,
+    "PLA": 78,
+    "JEU": 37,
+    "MAI": 59,
+    "END": 86
+   },
+   "portraitSeed": 680453063,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-grant-gilchrist",
+   "name": "Grant Gilchrist",
+   "shortName": "Gilchrist",
+   "nationality": "SCO",
+   "roles": [
+    "2L"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 53,
+    "PUI": 84,
+    "PLA": 75,
+    "JEU": 34,
+    "MAI": 61,
+    "END": 77
+   },
+   "portraitSeed": 263608200,
+   "affiliation": "Edinburgh"
+  },
+  {
+   "id": "rg-scott-cummings",
+   "name": "Scott Cummings",
+   "shortName": "Cummings",
+   "nationality": "SCO",
+   "roles": [
+    "2L"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 55,
+    "PUI": 80,
+    "PLA": 81,
+    "JEU": 38,
+    "MAI": 57,
+    "END": 80
+   },
+   "portraitSeed": 2539748163,
+   "affiliation": "Glasgow Warriors"
+  },
+  {
+   "id": "rg-dafydd-jenkins",
+   "name": "Dafydd Jenkins",
+   "shortName": "Jenkins",
+   "nationality": "WAL",
+   "roles": [
+    "2L"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 56,
+    "PUI": 81,
+    "PLA": 81,
+    "JEU": 37,
+    "MAI": 62,
+    "END": 78
+   },
+   "portraitSeed": 250956749,
+   "affiliation": "Exeter Chiefs"
+  },
+  {
+   "id": "rg-scott-barrett",
+   "name": "Scott Barrett",
+   "shortName": "S. Barrett",
+   "nationality": "NZL",
+   "roles": [
+    "2L",
+    "3L"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 60,
+    "PUI": 87,
+    "PLA": 90,
+    "JEU": 39,
+    "MAI": 60,
+    "END": 83
+   },
+   "portraitSeed": 3370444476,
+   "affiliation": "Crusaders"
+  },
+  {
+   "id": "rg-tupou-vaa-i",
+   "name": "Tupou Vaa'i",
+   "shortName": "Vaa'i",
+   "nationality": "NZL",
+   "roles": [
+    "2L"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 58,
+    "PUI": 89,
+    "PLA": 80,
+    "JEU": 41,
+    "MAI": 71,
+    "END": 81
+   },
+   "portraitSeed": 1876599046,
+   "affiliation": "Chiefs"
+  },
+  {
+   "id": "rg-fabian-holland",
+   "name": "Fabian Holland",
+   "shortName": "Holland",
+   "nationality": "NZL",
+   "roles": [
+    "2L"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 59,
+    "PUI": 84,
+    "PLA": 79,
+    "JEU": 41,
+    "MAI": 58,
+    "END": 79
+   },
+   "portraitSeed": 3727335924,
+   "affiliation": "Highlanders"
+  },
+  {
+   "id": "rg-patrick-tuipulotu",
+   "name": "Patrick Tuipulotu",
+   "shortName": "P. Tuipulotu",
+   "nationality": "NZL",
+   "roles": [
+    "2L"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 55,
+    "PUI": 87,
+    "PLA": 80,
+    "JEU": 35,
+    "MAI": 63,
+    "END": 79
+   },
+   "portraitSeed": 3700810762,
+   "affiliation": "Blues"
+  },
+  {
+   "id": "rg-will-skelton",
+   "name": "Will Skelton",
+   "shortName": "Skelton",
+   "nationality": "AUS",
+   "roles": [
+    "2L"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 60,
+    "PUI": 94,
+    "PLA": 79,
+    "JEU": 36,
+    "MAI": 62,
+    "END": 82
+   },
+   "portraitSeed": 1972394841,
+   "affiliation": "Stade Rochelais"
+  },
+  {
+   "id": "rg-nick-frost",
+   "name": "Nick Frost",
+   "shortName": "Frost",
+   "nationality": "AUS",
+   "roles": [
+    "2L"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 61,
+    "PUI": 84,
+    "PLA": 82,
+    "JEU": 37,
+    "MAI": 59,
+    "END": 77
+   },
+   "portraitSeed": 2646486728,
+   "affiliation": "Brumbies"
+  },
+  {
+   "id": "rg-jeremy-williams",
+   "name": "Jeremy Williams",
+   "shortName": "J. Williams",
+   "nationality": "AUS",
+   "roles": [
+    "2L"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 52,
+    "PUI": 79,
+    "PLA": 77,
+    "JEU": 34,
+    "MAI": 57,
+    "END": 77
+   },
+   "portraitSeed": 2867551543,
+   "affiliation": "Western Force"
+  },
+  {
+   "id": "rg-guido-petti",
+   "name": "Guido Petti",
+   "shortName": "Petti",
+   "nationality": "ARG",
+   "roles": [
+    "2L"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 54,
+    "PUI": 85,
+    "PLA": 76,
+    "JEU": 35,
+    "MAI": 59,
+    "END": 79
+   },
+   "portraitSeed": 3516482231,
+   "affiliation": "Union Bordeaux-Bègles"
+  },
+  {
+   "id": "rg-pedro-rubiolo",
+   "name": "Pedro Rubiolo",
+   "shortName": "Rubiolo",
+   "nationality": "ARG",
+   "roles": [
+    "2L"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 58,
+    "PUI": 84,
+    "PLA": 82,
+    "JEU": 34,
+    "MAI": 58,
+    "END": 76
+   },
+   "portraitSeed": 95413293,
+   "affiliation": "Bristol Bears"
+  },
+  {
+   "id": "rg-federico-ruzza",
+   "name": "Federico Ruzza",
+   "shortName": "Ruzza",
+   "nationality": "ITA",
+   "roles": [
+    "2L"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 57,
+    "PUI": 79,
+    "PLA": 79,
+    "JEU": 34,
+    "MAI": 58,
+    "END": 75
+   },
+   "portraitSeed": 580800236,
+   "affiliation": "Benetton"
+  },
+  {
+   "id": "rg-niccolo-cannone",
+   "name": "Niccolò Cannone",
+   "shortName": "N. Cannone",
+   "nationality": "ITA",
+   "roles": [
+    "2L"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 55,
+    "PUI": 79,
+    "PLA": 77,
+    "JEU": 38,
+    "MAI": 59,
+    "END": 79
+   },
+   "portraitSeed": 1065778821,
+   "affiliation": "Benetton"
+  },
+  {
+   "id": "rg-pieter-steph-du-toit",
+   "name": "Pieter-Steph du Toit",
+   "shortName": "du Toit",
+   "nationality": "RSA",
+   "roles": [
+    "3L"
+   ],
+   "overall": 90,
+   "attributes": {
+    "VIT": 75,
+    "PUI": 85,
+    "PLA": 96,
+    "JEU": 46,
+    "MAI": 73,
+    "END": 98
+   },
+   "portraitSeed": 1915673366,
+   "affiliation": "Toyota Verblitz"
+  },
+  {
+   "id": "rg-siya-kolisi",
+   "name": "Siya Kolisi",
+   "shortName": "Kolisi",
+   "nationality": "RSA",
+   "roles": [
+    "3L"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 74,
+    "PUI": 79,
+    "PLA": 95,
+    "JEU": 41,
+    "MAI": 71,
+    "END": 87
+   },
+   "portraitSeed": 2293989692,
+   "affiliation": "Sharks"
+  },
+  {
+   "id": "rg-kwagga-smith",
+   "name": "Kwagga Smith",
+   "shortName": "K. Smith",
+   "nationality": "RSA",
+   "roles": [
+    "3L"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 74,
+    "PUI": 79,
+    "PLA": 88,
+    "JEU": 43,
+    "MAI": 70,
+    "END": 86
+   },
+   "portraitSeed": 779552772,
+   "affiliation": "Shizuoka Blue Revs"
+  },
+  {
+   "id": "rg-marco-van-staden",
+   "name": "Marco van Staden",
+   "shortName": "van Staden",
+   "nationality": "RSA",
+   "roles": [
+    "3L"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 71,
+    "PUI": 80,
+    "PLA": 89,
+    "JEU": 44,
+    "MAI": 68,
+    "END": 83
+   },
+   "portraitSeed": 1847513457,
+   "affiliation": "Bulls"
+  },
+  {
+   "id": "rg-charles-ollivon",
+   "name": "Charles Ollivon",
+   "shortName": "Ollivon",
+   "nationality": "FRA",
+   "roles": [
+    "3L"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 76,
+    "PUI": 82,
+    "PLA": 90,
+    "JEU": 45,
+    "MAI": 73,
+    "END": 85
+   },
+   "portraitSeed": 2039819728,
+   "affiliation": "RC Toulon"
+  },
+  {
+   "id": "rg-francois-cros",
+   "name": "François Cros",
+   "shortName": "Cros",
+   "nationality": "FRA",
+   "roles": [
+    "3L"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 75,
+    "PUI": 81,
+    "PLA": 91,
+    "JEU": 44,
+    "MAI": 67,
+    "END": 89
+   },
+   "portraitSeed": 39306331,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-oscar-jegou",
+   "name": "Oscar Jegou",
+   "shortName": "Jegou",
+   "nationality": "FRA",
+   "roles": [
+    "3L"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 79,
+    "PUI": 77,
+    "PLA": 88,
+    "JEU": 39,
+    "MAI": 70,
+    "END": 85
+   },
+   "portraitSeed": 3034768673,
+   "affiliation": "Stade Rochelais"
+  },
+  {
+   "id": "rg-paul-boudehent",
+   "name": "Paul Boudehent",
+   "shortName": "Boudehent",
+   "nationality": "FRA",
+   "roles": [
+    "3L"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 69,
+    "PUI": 81,
+    "PLA": 93,
+    "JEU": 40,
+    "MAI": 69,
+    "END": 82
+   },
+   "portraitSeed": 2067238659,
+   "affiliation": "Stade Rochelais"
+  },
+  {
+   "id": "rg-anthony-jelonch",
+   "name": "Anthony Jelonch",
+   "shortName": "Jelonch",
+   "nationality": "FRA",
+   "roles": [
+    "3L"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 73,
+    "PUI": 80,
+    "PLA": 84,
+    "JEU": 39,
+    "MAI": 66,
+    "END": 84
+   },
+   "portraitSeed": 3442067735,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-lenni-nouchi",
+   "name": "Lenni Nouchi",
+   "shortName": "Nouchi",
+   "nationality": "FRA",
+   "roles": [
+    "3L"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 72,
+    "PUI": 75,
+    "PLA": 85,
+    "JEU": 42,
+    "MAI": 65,
+    "END": 83
+   },
+   "portraitSeed": 1707195883,
+   "affiliation": "Montpellier HR"
+  },
+  {
+   "id": "rg-josh-van-der-flier",
+   "name": "Josh van der Flier",
+   "shortName": "van der Flier",
+   "nationality": "IRL",
+   "roles": [
+    "3L"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 77,
+    "PUI": 80,
+    "PLA": 87,
+    "JEU": 45,
+    "MAI": 71,
+    "END": 91
+   },
+   "portraitSeed": 3008343249,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-tom-curry",
+   "name": "Tom Curry",
+   "shortName": "T. Curry",
+   "nationality": "ENG",
+   "roles": [
+    "3L"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 75,
+    "PUI": 79,
+    "PLA": 96,
+    "JEU": 46,
+    "MAI": 68,
+    "END": 87
+   },
+   "portraitSeed": 4105785440,
+   "affiliation": "Sale Sharks"
+  },
+  {
+   "id": "rg-ben-curry",
+   "name": "Ben Curry",
+   "shortName": "B. Curry",
+   "nationality": "ENG",
+   "roles": [
+    "3L"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 74,
+    "PUI": 79,
+    "PLA": 84,
+    "JEU": 43,
+    "MAI": 65,
+    "END": 82
+   },
+   "portraitSeed": 41422457,
+   "affiliation": "Sale Sharks"
+  },
+  {
+   "id": "rg-sam-underhill",
+   "name": "Sam Underhill",
+   "shortName": "Underhill",
+   "nationality": "ENG",
+   "roles": [
+    "3L"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 74,
+    "PUI": 77,
+    "PLA": 98,
+    "JEU": 44,
+    "MAI": 68,
+    "END": 85
+   },
+   "portraitSeed": 3716289317,
+   "affiliation": "Bath Rugby"
+  },
+  {
+   "id": "rg-henry-pollock",
+   "name": "Henry Pollock",
+   "shortName": "Pollock",
+   "nationality": "ENG",
+   "roles": [
+    "3L"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 77,
+    "PUI": 76,
+    "PLA": 85,
+    "JEU": 41,
+    "MAI": 65,
+    "END": 84
+   },
+   "portraitSeed": 3827441465,
+   "affiliation": "Northampton Saints"
+  },
+  {
+   "id": "rg-chandler-cunningham-south",
+   "name": "Chandler Cunningham-South",
+   "shortName": "Cunningham-South",
+   "nationality": "ENG",
+   "roles": [
+    "3L"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 74,
+    "PUI": 79,
+    "PLA": 83,
+    "JEU": 38,
+    "MAI": 64,
+    "END": 86
+   },
+   "portraitSeed": 1558183572,
+   "affiliation": "Harlequins"
+  },
+  {
+   "id": "rg-rory-darge",
+   "name": "Rory Darge",
+   "shortName": "Darge",
+   "nationality": "SCO",
+   "roles": [
+    "3L"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 73,
+    "PUI": 77,
+    "PLA": 88,
+    "JEU": 44,
+    "MAI": 63,
+    "END": 82
+   },
+   "portraitSeed": 2878453004,
+   "affiliation": "Glasgow Warriors"
+  },
+  {
+   "id": "rg-jamie-ritchie",
+   "name": "Jamie Ritchie",
+   "shortName": "Ritchie",
+   "nationality": "SCO",
+   "roles": [
+    "3L"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 68,
+    "PUI": 76,
+    "PLA": 84,
+    "JEU": 39,
+    "MAI": 68,
+    "END": 84
+   },
+   "portraitSeed": 3254856163,
+   "affiliation": "USA Perpignan"
+  },
+  {
+   "id": "rg-jac-morgan",
+   "name": "Jac Morgan",
+   "shortName": "Morgan",
+   "nationality": "WAL",
+   "roles": [
+    "3L"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 73,
+    "PUI": 81,
+    "PLA": 93,
+    "JEU": 40,
+    "MAI": 71,
+    "END": 84
+   },
+   "portraitSeed": 3578385459,
+   "affiliation": "Ospreys"
+  },
+  {
+   "id": "rg-tommy-reffell",
+   "name": "Tommy Reffell",
+   "shortName": "Reffell",
+   "nationality": "WAL",
+   "roles": [
+    "3L"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 71,
+    "PUI": 77,
+    "PLA": 82,
+    "JEU": 42,
+    "MAI": 69,
+    "END": 83
+   },
+   "portraitSeed": 981523601,
+   "affiliation": "Leicester Tigers"
+  },
+  {
+   "id": "rg-michele-lamaro",
+   "name": "Michele Lamaro",
+   "shortName": "Lamaro",
+   "nationality": "ITA",
+   "roles": [
+    "3L"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 68,
+    "PUI": 75,
+    "PLA": 94,
+    "JEU": 40,
+    "MAI": 66,
+    "END": 84
+   },
+   "portraitSeed": 893096938,
+   "affiliation": "Benetton"
+  },
+  {
+   "id": "rg-sebastian-negri",
+   "name": "Sebastian Negri",
+   "shortName": "Negri",
+   "nationality": "ITA",
+   "roles": [
+    "3L"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 68,
+    "PUI": 80,
+    "PLA": 85,
+    "JEU": 41,
+    "MAI": 63,
+    "END": 85
+   },
+   "portraitSeed": 4026169806,
+   "affiliation": "Benetton"
+  },
+  {
+   "id": "rg-ross-vintcent",
+   "name": "Ross Vintcent",
+   "shortName": "Vintcent",
+   "nationality": "ITA",
+   "roles": [
+    "3L"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 69,
+    "PUI": 78,
+    "PLA": 82,
+    "JEU": 43,
+    "MAI": 66,
+    "END": 81
+   },
+   "portraitSeed": 3165565041,
+   "affiliation": "Exeter Chiefs"
+  },
+  {
+   "id": "rg-peter-lakai",
+   "name": "Peter Lakai",
+   "shortName": "Lakai",
+   "nationality": "NZL",
+   "roles": [
+    "3L"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 79,
+    "PUI": 75,
+    "PLA": 88,
+    "JEU": 39,
+    "MAI": 66,
+    "END": 85
+   },
+   "portraitSeed": 1183602943,
+   "affiliation": "Hurricanes"
+  },
+  {
+   "id": "rg-dalton-papali-i",
+   "name": "Dalton Papali'i",
+   "shortName": "Papali'i",
+   "nationality": "NZL",
+   "roles": [
+    "3L"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 72,
+    "PUI": 77,
+    "PLA": 87,
+    "JEU": 42,
+    "MAI": 67,
+    "END": 81
+   },
+   "portraitSeed": 202578454,
+   "affiliation": "Blues"
+  },
+  {
+   "id": "rg-du-plessis-kirifi",
+   "name": "Du'Plessis Kirifi",
+   "shortName": "Kirifi",
+   "nationality": "NZL",
+   "roles": [
+    "3L"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 68,
+    "PUI": 73,
+    "PLA": 81,
+    "JEU": 44,
+    "MAI": 62,
+    "END": 83
+   },
+   "portraitSeed": 3546359576,
+   "affiliation": "Hurricanes"
+  },
+  {
+   "id": "rg-fraser-mcreight",
+   "name": "Fraser McReight",
+   "shortName": "McReight",
+   "nationality": "AUS",
+   "roles": [
+    "3L"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 77,
+    "PUI": 79,
+    "PLA": 92,
+    "JEU": 40,
+    "MAI": 68,
+    "END": 91
+   },
+   "portraitSeed": 4101034335,
+   "affiliation": "Reds"
+  },
+  {
+   "id": "rg-tom-hooper",
+   "name": "Tom Hooper",
+   "shortName": "Hooper",
+   "nationality": "AUS",
+   "roles": [
+    "3L"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 67,
+    "PUI": 78,
+    "PLA": 82,
+    "JEU": 43,
+    "MAI": 66,
+    "END": 81
+   },
+   "portraitSeed": 4176529336,
+   "affiliation": "Exeter Chiefs"
+  },
+  {
+   "id": "rg-marcos-kremer",
+   "name": "Marcos Kremer",
+   "shortName": "Kremer",
+   "nationality": "ARG",
+   "roles": [
+    "3L"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 71,
+    "PUI": 79,
+    "PLA": 89,
+    "JEU": 42,
+    "MAI": 67,
+    "END": 89
+   },
+   "portraitSeed": 3941522914,
+   "affiliation": "ASM Clermont Auvergne"
+  },
+  {
+   "id": "rg-juan-martin-gonzalez",
+   "name": "Juan Martín González",
+   "shortName": "González",
+   "nationality": "ARG",
+   "roles": [
+    "3L",
+    "N8"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 72,
+    "PUI": 79,
+    "PLA": 84,
+    "JEU": 44,
+    "MAI": 67,
+    "END": 82
+   },
+   "portraitSeed": 887760386,
+   "affiliation": "Saracens"
+  },
+  {
+   "id": "rg-levani-botia",
+   "name": "Levani Botia",
+   "shortName": "Botia",
+   "nationality": "FIJ",
+   "roles": [
+    "3L",
+    "CEN"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 71,
+    "PUI": 85,
+    "PLA": 86,
+    "JEU": 43,
+    "MAI": 64,
+    "END": 86
+   },
+   "portraitSeed": 1547113437,
+   "affiliation": "Stade Rochelais"
+  },
+  {
+   "id": "rg-michael-leitch",
+   "name": "Michael Leitch",
+   "shortName": "Leitch",
+   "nationality": "JPN",
+   "roles": [
+    "3L"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 66,
+    "PUI": 78,
+    "PLA": 82,
+    "JEU": 38,
+    "MAI": 65,
+    "END": 85
+   },
+   "portraitSeed": 1550073943,
+   "affiliation": "Toshiba Brave Lupus Tokyo"
+  },
+  {
+   "id": "rg-caelan-doris",
+   "name": "Caelan Doris",
+   "shortName": "Doris",
+   "nationality": "IRL",
+   "roles": [
+    "N8"
+   ],
+   "overall": 89,
+   "attributes": {
+    "VIT": 72,
+    "PUI": 91,
+    "PLA": 86,
+    "JEU": 46,
+    "MAI": 85,
+    "END": 88
+   },
+   "portraitSeed": 753538398,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-jack-conan",
+   "name": "Jack Conan",
+   "shortName": "Conan",
+   "nationality": "IRL",
+   "roles": [
+    "N8"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 73,
+    "PUI": 89,
+    "PLA": 79,
+    "JEU": 47,
+    "MAI": 74,
+    "END": 81
+   },
+   "portraitSeed": 465409221,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-gregory-alldritt",
+   "name": "Grégory Alldritt",
+   "shortName": "Alldritt",
+   "nationality": "FRA",
+   "roles": [
+    "N8"
+   ],
+   "overall": 87,
+   "attributes": {
+    "VIT": 69,
+    "PUI": 89,
+    "PLA": 87,
+    "JEU": 42,
+    "MAI": 77,
+    "END": 90
+   },
+   "portraitSeed": 1283728288,
+   "affiliation": "Stade Rochelais"
+  },
+  {
+   "id": "rg-ardie-savea",
+   "name": "Ardie Savea",
+   "shortName": "Savea",
+   "nationality": "NZL",
+   "roles": [
+    "N8",
+    "3L"
+   ],
+   "overall": 89,
+   "attributes": {
+    "VIT": 77,
+    "PUI": 98,
+    "PLA": 84,
+    "JEU": 49,
+    "MAI": 79,
+    "END": 86
+   },
+   "portraitSeed": 1655878200,
+   "affiliation": "Moana Pasifika"
+  },
+  {
+   "id": "rg-wallace-sititi",
+   "name": "Wallace Sititi",
+   "shortName": "Sititi",
+   "nationality": "NZL",
+   "roles": [
+    "N8",
+    "3L"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 72,
+    "PUI": 91,
+    "PLA": 81,
+    "JEU": 47,
+    "MAI": 79,
+    "END": 84
+   },
+   "portraitSeed": 2760183344,
+   "affiliation": "Chiefs"
+  },
+  {
+   "id": "rg-ben-earl",
+   "name": "Ben Earl",
+   "shortName": "Earl",
+   "nationality": "ENG",
+   "roles": [
+    "N8",
+    "3L"
+   ],
+   "overall": 87,
+   "attributes": {
+    "VIT": 75,
+    "PUI": 90,
+    "PLA": 84,
+    "JEU": 44,
+    "MAI": 74,
+    "END": 90
+   },
+   "portraitSeed": 4051994894,
+   "affiliation": "Saracens"
+  },
+  {
+   "id": "rg-tom-willis",
+   "name": "Tom Willis",
+   "shortName": "Willis",
+   "nationality": "ENG",
+   "roles": [
+    "N8"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 65,
+    "PUI": 89,
+    "PLA": 78,
+    "JEU": 39,
+    "MAI": 71,
+    "END": 79
+   },
+   "portraitSeed": 2915853521,
+   "affiliation": "Saracens"
+  },
+  {
+   "id": "rg-matt-fagerson",
+   "name": "Matt Fagerson",
+   "shortName": "M. Fagerson",
+   "nationality": "SCO",
+   "roles": [
+    "N8",
+    "3L"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 67,
+    "PUI": 81,
+    "PLA": 77,
+    "JEU": 40,
+    "MAI": 73,
+    "END": 78
+   },
+   "portraitSeed": 132555686,
+   "affiliation": "Glasgow Warriors"
+  },
+  {
+   "id": "rg-jack-dempsey",
+   "name": "Jack Dempsey",
+   "shortName": "Dempsey",
+   "nationality": "SCO",
+   "roles": [
+    "N8"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 65,
+    "PUI": 86,
+    "PLA": 80,
+    "JEU": 44,
+    "MAI": 73,
+    "END": 80
+   },
+   "portraitSeed": 4255587971,
+   "affiliation": "Glasgow Warriors"
+  },
+  {
+   "id": "rg-aaron-wainwright",
+   "name": "Aaron Wainwright",
+   "shortName": "Wainwright",
+   "nationality": "WAL",
+   "roles": [
+    "N8",
+    "3L"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 71,
+    "PUI": 82,
+    "PLA": 81,
+    "JEU": 41,
+    "MAI": 71,
+    "END": 78
+   },
+   "portraitSeed": 2048104272,
+   "affiliation": "Dragons"
+  },
+  {
+   "id": "rg-taulupe-faletau",
+   "name": "Taulupe Faletau",
+   "shortName": "Faletau",
+   "nationality": "WAL",
+   "roles": [
+    "N8"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 66,
+    "PUI": 81,
+    "PLA": 81,
+    "JEU": 43,
+    "MAI": 75,
+    "END": 80
+   },
+   "portraitSeed": 691819517,
+   "affiliation": "Cardiff Rugby"
+  },
+  {
+   "id": "rg-lorenzo-cannone",
+   "name": "Lorenzo Cannone",
+   "shortName": "L. Cannone",
+   "nationality": "ITA",
+   "roles": [
+    "N8"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 69,
+    "PUI": 85,
+    "PLA": 80,
+    "JEU": 46,
+    "MAI": 70,
+    "END": 83
+   },
+   "portraitSeed": 3015213598,
+   "affiliation": "Benetton"
+  },
+  {
+   "id": "rg-jasper-wiese",
+   "name": "Jasper Wiese",
+   "shortName": "Wiese",
+   "nationality": "RSA",
+   "roles": [
+    "N8"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 70,
+    "PUI": 91,
+    "PLA": 84,
+    "JEU": 47,
+    "MAI": 73,
+    "END": 84
+   },
+   "portraitSeed": 4087434203,
+   "affiliation": "Urayasu D-Rocks"
+  },
+  {
+   "id": "rg-rob-valetini",
+   "name": "Rob Valetini",
+   "shortName": "Valetini",
+   "nationality": "AUS",
+   "roles": [
+    "N8"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 71,
+    "PUI": 92,
+    "PLA": 89,
+    "JEU": 43,
+    "MAI": 76,
+    "END": 83
+   },
+   "portraitSeed": 522241852,
+   "affiliation": "Brumbies"
+  },
+  {
+   "id": "rg-harry-wilson",
+   "name": "Harry Wilson",
+   "shortName": "Wilson",
+   "nationality": "AUS",
+   "roles": [
+    "N8"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 70,
+    "PUI": 87,
+    "PLA": 77,
+    "JEU": 43,
+    "MAI": 69,
+    "END": 79
+   },
+   "portraitSeed": 827925531,
+   "affiliation": "Reds"
+  },
+  {
+   "id": "rg-viliame-mata",
+   "name": "Viliame Mata",
+   "shortName": "Mata",
+   "nationality": "FIJ",
+   "roles": [
+    "N8"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 66,
+    "PUI": 81,
+    "PLA": 79,
+    "JEU": 46,
+    "MAI": 78,
+    "END": 78
+   },
+   "portraitSeed": 1333723681,
+   "affiliation": "Edinburgh"
+  },
+  {
+   "id": "rg-antoine-dupont",
+   "name": "Antoine Dupont",
+   "shortName": "Dupont",
+   "nationality": "FRA",
+   "roles": [
+    "DM"
+   ],
+   "overall": 96,
+   "attributes": {
+    "VIT": 90,
+    "PUI": 64,
+    "PLA": 82,
+    "JEU": 91,
+    "MAI": 98,
+    "END": 89
+   },
+   "portraitSeed": 1215765185,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-nolann-le-garrec",
+   "name": "Nolann Le Garrec",
+   "shortName": "Le Garrec",
+   "nationality": "FRA",
+   "roles": [
+    "DM"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 78,
+    "PUI": 56,
+    "PLA": 63,
+    "JEU": 83,
+    "MAI": 85,
+    "END": 81
+   },
+   "portraitSeed": 630747156,
+   "affiliation": "Racing 92"
+  },
+  {
+   "id": "rg-maxime-lucu",
+   "name": "Maxime Lucu",
+   "shortName": "Lucu",
+   "nationality": "FRA",
+   "roles": [
+    "DM"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 72,
+    "PUI": 51,
+    "PLA": 63,
+    "JEU": 78,
+    "MAI": 89,
+    "END": 80
+   },
+   "portraitSeed": 133228253,
+   "affiliation": "Union Bordeaux-Bègles"
+  },
+  {
+   "id": "rg-jamison-gibson-park",
+   "name": "Jamison Gibson-Park",
+   "shortName": "Gibson-Park",
+   "nationality": "IRL",
+   "roles": [
+    "DM"
+   ],
+   "overall": 88,
+   "attributes": {
+    "VIT": 80,
+    "PUI": 59,
+    "PLA": 68,
+    "JEU": 77,
+    "MAI": 95,
+    "END": 81
+   },
+   "portraitSeed": 102197355,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-craig-casey",
+   "name": "Craig Casey",
+   "shortName": "Casey",
+   "nationality": "IRL",
+   "roles": [
+    "DM"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 78,
+    "PUI": 51,
+    "PLA": 65,
+    "JEU": 73,
+    "MAI": 88,
+    "END": 77
+   },
+   "portraitSeed": 1549648388,
+   "affiliation": "Munster"
+  },
+  {
+   "id": "rg-alex-mitchell",
+   "name": "Alex Mitchell",
+   "shortName": "Mitchell",
+   "nationality": "ENG",
+   "roles": [
+    "DM"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 80,
+    "PUI": 57,
+    "PLA": 69,
+    "JEU": 74,
+    "MAI": 90,
+    "END": 85
+   },
+   "portraitSeed": 2354587295,
+   "affiliation": "Northampton Saints"
+  },
+  {
+   "id": "rg-jack-van-poortvliet",
+   "name": "Jack van Poortvliet",
+   "shortName": "van Poortvliet",
+   "nationality": "ENG",
+   "roles": [
+    "DM"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 76,
+    "PUI": 52,
+    "PLA": 68,
+    "JEU": 77,
+    "MAI": 84,
+    "END": 79
+   },
+   "portraitSeed": 1167638433,
+   "affiliation": "Leicester Tigers"
+  },
+  {
+   "id": "rg-ben-white",
+   "name": "Ben White",
+   "shortName": "White",
+   "nationality": "SCO",
+   "roles": [
+    "DM"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 74,
+    "PUI": 51,
+    "PLA": 66,
+    "JEU": 75,
+    "MAI": 86,
+    "END": 75
+   },
+   "portraitSeed": 1948711627,
+   "affiliation": "RC Toulon"
+  },
+  {
+   "id": "rg-george-horne",
+   "name": "George Horne",
+   "shortName": "Horne",
+   "nationality": "SCO",
+   "roles": [
+    "DM"
+   ],
+   "overall": 79,
+   "attributes": {
+    "VIT": 75,
+    "PUI": 52,
+    "PLA": 62,
+    "JEU": 68,
+    "MAI": 86,
+    "END": 75
+   },
+   "portraitSeed": 10829580,
+   "affiliation": "Glasgow Warriors"
+  },
+  {
+   "id": "rg-tomos-williams",
+   "name": "Tomos Williams",
+   "shortName": "To. Williams",
+   "nationality": "WAL",
+   "roles": [
+    "DM"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 72,
+    "PUI": 49,
+    "PLA": 69,
+    "JEU": 77,
+    "MAI": 87,
+    "END": 82
+   },
+   "portraitSeed": 344870225,
+   "affiliation": "Gloucester Rugby"
+  },
+  {
+   "id": "rg-stephen-varney",
+   "name": "Stephen Varney",
+   "shortName": "Varney",
+   "nationality": "ITA",
+   "roles": [
+    "DM"
+   ],
+   "overall": 78,
+   "attributes": {
+    "VIT": 69,
+    "PUI": 50,
+    "PLA": 65,
+    "JEU": 71,
+    "MAI": 85,
+    "END": 78
+   },
+   "portraitSeed": 375818389,
+   "affiliation": "RC Vannes"
+  },
+  {
+   "id": "rg-cam-roigard",
+   "name": "Cam Roigard",
+   "shortName": "Roigard",
+   "nationality": "NZL",
+   "roles": [
+    "DM"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 82,
+    "PUI": 54,
+    "PLA": 66,
+    "JEU": 79,
+    "MAI": 92,
+    "END": 83
+   },
+   "portraitSeed": 2429401196,
+   "affiliation": "Hurricanes"
+  },
+  {
+   "id": "rg-cortez-ratima",
+   "name": "Cortez Ratima",
+   "shortName": "Ratima",
+   "nationality": "NZL",
+   "roles": [
+    "DM"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 78,
+    "PUI": 55,
+    "PLA": 69,
+    "JEU": 78,
+    "MAI": 90,
+    "END": 77
+   },
+   "portraitSeed": 1964483138,
+   "affiliation": "Chiefs"
+  },
+  {
+   "id": "rg-grant-williams",
+   "name": "Grant Williams",
+   "shortName": "Gr. Williams",
+   "nationality": "RSA",
+   "roles": [
+    "DM"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 82,
+    "PUI": 54,
+    "PLA": 65,
+    "JEU": 73,
+    "MAI": 85,
+    "END": 80
+   },
+   "portraitSeed": 2794561937,
+   "affiliation": "Sharks"
+  },
+  {
+   "id": "rg-jaden-hendrikse",
+   "name": "Jaden Hendrikse",
+   "shortName": "Hendrikse",
+   "nationality": "RSA",
+   "roles": [
+    "DM"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 78,
+    "PUI": 49,
+    "PLA": 68,
+    "JEU": 71,
+    "MAI": 84,
+    "END": 79
+   },
+   "portraitSeed": 1451511522,
+   "affiliation": "Sharks"
+  },
+  {
+   "id": "rg-faf-de-klerk",
+   "name": "Faf de Klerk",
+   "shortName": "de Klerk",
+   "nationality": "RSA",
+   "roles": [
+    "DM"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 75,
+    "PUI": 49,
+    "PLA": 67,
+    "JEU": 81,
+    "MAI": 85,
+    "END": 77
+   },
+   "portraitSeed": 1834224224,
+   "affiliation": "Yokohama Canon Eagles"
+  },
+  {
+   "id": "rg-tate-mcdermott",
+   "name": "Tate McDermott",
+   "shortName": "McDermott",
+   "nationality": "AUS",
+   "roles": [
+    "DM"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 79,
+    "PUI": 51,
+    "PLA": 62,
+    "JEU": 72,
+    "MAI": 84,
+    "END": 79
+   },
+   "portraitSeed": 1995681226,
+   "affiliation": "Reds"
+  },
+  {
+   "id": "rg-jake-gordon",
+   "name": "Jake Gordon",
+   "shortName": "Gordon",
+   "nationality": "AUS",
+   "roles": [
+    "DM"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 77,
+    "PUI": 49,
+    "PLA": 66,
+    "JEU": 74,
+    "MAI": 85,
+    "END": 76
+   },
+   "portraitSeed": 2358990785,
+   "affiliation": "Waratahs"
+  },
+  {
+   "id": "rg-gonzalo-garcia",
+   "name": "Gonzalo García",
+   "shortName": "García",
+   "nationality": "ARG",
+   "roles": [
+    "DM"
+   ],
+   "overall": 79,
+   "attributes": {
+    "VIT": 70,
+    "PUI": 48,
+    "PLA": 61,
+    "JEU": 71,
+    "MAI": 87,
+    "END": 78
+   },
+   "portraitSeed": 2661959844,
+   "affiliation": "Zebre Parma"
+  },
+  {
+   "id": "rg-naoto-saito",
+   "name": "Naoto Saito",
+   "shortName": "Saito",
+   "nationality": "JPN",
+   "roles": [
+    "DM"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 78,
+    "PUI": 52,
+    "PLA": 61,
+    "JEU": 69,
+    "MAI": 87,
+    "END": 79
+   },
+   "portraitSeed": 2912386330,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-romain-ntamack",
+   "name": "Romain Ntamack",
+   "shortName": "Ntamack",
+   "nationality": "FRA",
+   "roles": [
+    "DO",
+    "CEN"
+   ],
+   "overall": 89,
+   "attributes": {
+    "VIT": 78,
+    "PUI": 57,
+    "PLA": 76,
+    "JEU": 91,
+    "MAI": 92,
+    "END": 79
+   },
+   "portraitSeed": 2156169938,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-matthieu-jalibert",
+   "name": "Matthieu Jalibert",
+   "shortName": "Jalibert",
+   "nationality": "FRA",
+   "roles": [
+    "DO"
+   ],
+   "overall": 87,
+   "attributes": {
+    "VIT": 85,
+    "PUI": 51,
+    "PLA": 67,
+    "JEU": 90,
+    "MAI": 88,
+    "END": 80
+   },
+   "portraitSeed": 3207461515,
+   "affiliation": "Union Bordeaux-Bègles"
+  },
+  {
+   "id": "rg-finn-russell",
+   "name": "Finn Russell",
+   "shortName": "Russell",
+   "nationality": "SCO",
+   "roles": [
+    "DO"
+   ],
+   "overall": 89,
+   "attributes": {
+    "VIT": 76,
+    "PUI": 58,
+    "PLA": 71,
+    "JEU": 98,
+    "MAI": 98,
+    "END": 82
+   },
+   "portraitSeed": 3223739618,
+   "affiliation": "Bath Rugby"
+  },
+  {
+   "id": "rg-sam-prendergast",
+   "name": "Sam Prendergast",
+   "shortName": "Prendergast",
+   "nationality": "IRL",
+   "roles": [
+    "DO"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 72,
+    "PUI": 52,
+    "PLA": 61,
+    "JEU": 96,
+    "MAI": 84,
+    "END": 76
+   },
+   "portraitSeed": 1079550503,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-jack-crowley",
+   "name": "Jack Crowley",
+   "shortName": "Crowley",
+   "nationality": "IRL",
+   "roles": [
+    "DO"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 74,
+    "PUI": 55,
+    "PLA": 67,
+    "JEU": 93,
+    "MAI": 88,
+    "END": 78
+   },
+   "portraitSeed": 642022121,
+   "affiliation": "Munster"
+  },
+  {
+   "id": "rg-marcus-smith",
+   "name": "Marcus Smith",
+   "shortName": "M. Smith",
+   "nationality": "ENG",
+   "roles": [
+    "DO",
+    "ARR"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 83,
+    "PUI": 55,
+    "PLA": 63,
+    "JEU": 92,
+    "MAI": 91,
+    "END": 78
+   },
+   "portraitSeed": 2083768375,
+   "affiliation": "Harlequins"
+  },
+  {
+   "id": "rg-fin-smith",
+   "name": "Fin Smith",
+   "shortName": "F. Smith",
+   "nationality": "ENG",
+   "roles": [
+    "DO"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 76,
+    "PUI": 53,
+    "PLA": 65,
+    "JEU": 95,
+    "MAI": 90,
+    "END": 74
+   },
+   "portraitSeed": 2692445377,
+   "affiliation": "Northampton Saints"
+  },
+  {
+   "id": "rg-george-ford",
+   "name": "George Ford",
+   "shortName": "Ford",
+   "nationality": "ENG",
+   "roles": [
+    "DO"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 77,
+    "PUI": 54,
+    "PLA": 65,
+    "JEU": 96,
+    "MAI": 90,
+    "END": 79
+   },
+   "portraitSeed": 455333889,
+   "affiliation": "Sale Sharks"
+  },
+  {
+   "id": "rg-gareth-anscombe",
+   "name": "Gareth Anscombe",
+   "shortName": "Anscombe",
+   "nationality": "WAL",
+   "roles": [
+    "DO"
+   ],
+   "overall": 78,
+   "attributes": {
+    "VIT": 69,
+    "PUI": 51,
+    "PLA": 58,
+    "JEU": 87,
+    "MAI": 81,
+    "END": 71
+   },
+   "portraitSeed": 3474818632,
+   "affiliation": "Gloucester Rugby"
+  },
+  {
+   "id": "rg-paolo-garbisi",
+   "name": "Paolo Garbisi",
+   "shortName": "Garbisi",
+   "nationality": "ITA",
+   "roles": [
+    "DO"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 72,
+    "PUI": 54,
+    "PLA": 61,
+    "JEU": 92,
+    "MAI": 83,
+    "END": 75
+   },
+   "portraitSeed": 2257567493,
+   "affiliation": "RC Toulon"
+  },
+  {
+   "id": "rg-beauden-barrett",
+   "name": "Beauden Barrett",
+   "shortName": "B. Barrett",
+   "nationality": "NZL",
+   "roles": [
+    "DO",
+    "ARR"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 79,
+    "PUI": 51,
+    "PLA": 63,
+    "JEU": 93,
+    "MAI": 89,
+    "END": 74
+   },
+   "portraitSeed": 1046592925,
+   "affiliation": "Blues"
+  },
+  {
+   "id": "rg-damian-mckenzie",
+   "name": "Damian McKenzie",
+   "shortName": "McKenzie",
+   "nationality": "NZL",
+   "roles": [
+    "DO",
+    "ARR"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 78,
+    "PUI": 55,
+    "PLA": 62,
+    "JEU": 87,
+    "MAI": 90,
+    "END": 75
+   },
+   "portraitSeed": 3620217755,
+   "affiliation": "Chiefs"
+  },
+  {
+   "id": "rg-sacha-feinberg-mngomezulu",
+   "name": "Sacha Feinberg-Mngomezulu",
+   "shortName": "Feinberg-Mngomezulu",
+   "nationality": "RSA",
+   "roles": [
+    "DO",
+    "ARR",
+    "CEN"
+   ],
+   "overall": 87,
+   "attributes": {
+    "VIT": 75,
+    "PUI": 52,
+    "PLA": 66,
+    "JEU": 98,
+    "MAI": 89,
+    "END": 81
+   },
+   "portraitSeed": 3955248331,
+   "affiliation": "Stormers"
+  },
+  {
+   "id": "rg-handre-pollard",
+   "name": "Handré Pollard",
+   "shortName": "Pollard",
+   "nationality": "RSA",
+   "roles": [
+    "DO"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 79,
+    "PUI": 55,
+    "PLA": 64,
+    "JEU": 98,
+    "MAI": 86,
+    "END": 75
+   },
+   "portraitSeed": 2862099291,
+   "affiliation": "Bulls"
+  },
+  {
+   "id": "rg-tom-lynagh",
+   "name": "Tom Lynagh",
+   "shortName": "T. Lynagh",
+   "nationality": "AUS",
+   "roles": [
+    "DO"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 71,
+    "PUI": 50,
+    "PLA": 61,
+    "JEU": 89,
+    "MAI": 82,
+    "END": 75
+   },
+   "portraitSeed": 1221670040,
+   "affiliation": "Reds"
+  },
+  {
+   "id": "rg-tane-edmed",
+   "name": "Tane Edmed",
+   "shortName": "Edmed",
+   "nationality": "AUS",
+   "roles": [
+    "DO"
+   ],
+   "overall": 79,
+   "attributes": {
+    "VIT": 70,
+    "PUI": 48,
+    "PLA": 60,
+    "JEU": 85,
+    "MAI": 78,
+    "END": 74
+   },
+   "portraitSeed": 1374712402,
+   "affiliation": "Waratahs"
+  },
+  {
+   "id": "rg-tomas-albornoz",
+   "name": "Tomás Albornoz",
+   "shortName": "Albornoz",
+   "nationality": "ARG",
+   "roles": [
+    "DO"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 69,
+    "PUI": 51,
+    "PLA": 62,
+    "JEU": 91,
+    "MAI": 86,
+    "END": 73
+   },
+   "portraitSeed": 307174046,
+   "affiliation": "RC Toulon"
+  },
+  {
+   "id": "rg-caleb-muntz",
+   "name": "Caleb Muntz",
+   "shortName": "Muntz",
+   "nationality": "FIJ",
+   "roles": [
+    "DO"
+   ],
+   "overall": 78,
+   "attributes": {
+    "VIT": 68,
+    "PUI": 46,
+    "PLA": 59,
+    "JEU": 80,
+    "MAI": 81,
+    "END": 71
+   },
+   "portraitSeed": 2809579438,
+   "affiliation": "Fijian Drua"
+  },
+  {
+   "id": "rg-seungsin-lee",
+   "name": "Seungsin Lee",
+   "shortName": "Lee",
+   "nationality": "JPN",
+   "roles": [
+    "DO",
+    "ARR"
+   ],
+   "overall": 79,
+   "attributes": {
+    "VIT": 69,
+    "PUI": 48,
+    "PLA": 62,
+    "JEU": 88,
+    "MAI": 79,
+    "END": 73
+   },
+   "portraitSeed": 1989807473,
+   "affiliation": "Kobelco Kobe Steelers"
+  },
+  {
+   "id": "rg-jordie-barrett",
+   "name": "Jordie Barrett",
+   "shortName": "J. Barrett",
+   "nationality": "NZL",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 87,
+   "attributes": {
+    "VIT": 81,
+    "PUI": 85,
+    "PLA": 85,
+    "JEU": 69,
+    "MAI": 80,
+    "END": 78
+   },
+   "portraitSeed": 879849286,
+   "affiliation": "Hurricanes"
+  },
+  {
+   "id": "rg-rieko-ioane",
+   "name": "Rieko Ioane",
+   "shortName": "Ioane",
+   "nationality": "NZL",
+   "roles": [
+    "CEN",
+    "AIL"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 84,
+    "PUI": 74,
+    "PLA": 81,
+    "JEU": 63,
+    "MAI": 77,
+    "END": 79
+   },
+   "portraitSeed": 3810760195,
+   "affiliation": "Blues"
+  },
+  {
+   "id": "rg-quinn-tupaea",
+   "name": "Quinn Tupaea",
+   "shortName": "Tupaea",
+   "nationality": "NZL",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 80,
+    "PUI": 74,
+    "PLA": 78,
+    "JEU": 60,
+    "MAI": 76,
+    "END": 75
+   },
+   "portraitSeed": 3724133184,
+   "affiliation": "Chiefs"
+  },
+  {
+   "id": "rg-billy-proctor",
+   "name": "Billy Proctor",
+   "shortName": "Proctor",
+   "nationality": "NZL",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 81,
+    "PUI": 77,
+    "PLA": 76,
+    "JEU": 60,
+    "MAI": 72,
+    "END": 73
+   },
+   "portraitSeed": 126284462,
+   "affiliation": "Hurricanes"
+  },
+  {
+   "id": "rg-damian-de-allende",
+   "name": "Damian de Allende",
+   "shortName": "de Allende",
+   "nationality": "RSA",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 83,
+    "PUI": 81,
+    "PLA": 88,
+    "JEU": 60,
+    "MAI": 74,
+    "END": 77
+   },
+   "portraitSeed": 1319034277,
+   "affiliation": "Saitama Wild Knights"
+  },
+  {
+   "id": "rg-jesse-kriel",
+   "name": "Jesse Kriel",
+   "shortName": "Kriel",
+   "nationality": "RSA",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 79,
+    "PUI": 82,
+    "PLA": 89,
+    "JEU": 65,
+    "MAI": 77,
+    "END": 82
+   },
+   "portraitSeed": 4150521820,
+   "affiliation": "Yokohama Canon Eagles"
+  },
+  {
+   "id": "rg-andre-esterhuizen",
+   "name": "André Esterhuizen",
+   "shortName": "Esterhuizen",
+   "nationality": "RSA",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 78,
+    "PUI": 82,
+    "PLA": 83,
+    "JEU": 57,
+    "MAI": 75,
+    "END": 77
+   },
+   "portraitSeed": 3740709375,
+   "affiliation": "Sharks"
+  },
+  {
+   "id": "rg-bundee-aki",
+   "name": "Bundee Aki",
+   "shortName": "Aki",
+   "nationality": "IRL",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 83,
+    "PUI": 85,
+    "PLA": 86,
+    "JEU": 62,
+    "MAI": 76,
+    "END": 78
+   },
+   "portraitSeed": 3262896363,
+   "affiliation": "Connacht"
+  },
+  {
+   "id": "rg-garry-ringrose",
+   "name": "Garry Ringrose",
+   "shortName": "Ringrose",
+   "nationality": "IRL",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 79,
+    "PUI": 79,
+    "PLA": 84,
+    "JEU": 64,
+    "MAI": 76,
+    "END": 76
+   },
+   "portraitSeed": 2449790369,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-robbie-henshaw",
+   "name": "Robbie Henshaw",
+   "shortName": "Henshaw",
+   "nationality": "IRL",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 82,
+    "PUI": 78,
+    "PLA": 78,
+    "JEU": 58,
+    "MAI": 75,
+    "END": 76
+   },
+   "portraitSeed": 1322997936,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-huw-jones",
+   "name": "Huw Jones",
+   "shortName": "H. Jones",
+   "nationality": "SCO",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 87,
+    "PUI": 78,
+    "PLA": 83,
+    "JEU": 62,
+    "MAI": 74,
+    "END": 81
+   },
+   "portraitSeed": 2348600304,
+   "affiliation": "Glasgow Warriors"
+  },
+  {
+   "id": "rg-sione-tuipulotu",
+   "name": "Sione Tuipulotu",
+   "shortName": "S. Tuipulotu",
+   "nationality": "SCO",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 85,
+    "PUI": 83,
+    "PLA": 85,
+    "JEU": 64,
+    "MAI": 74,
+    "END": 76
+   },
+   "portraitSeed": 3291086280,
+   "affiliation": "Glasgow Warriors"
+  },
+  {
+   "id": "rg-gael-fickou",
+   "name": "Gaël Fickou",
+   "shortName": "Fickou",
+   "nationality": "FRA",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 79,
+    "PUI": 79,
+    "PLA": 85,
+    "JEU": 60,
+    "MAI": 77,
+    "END": 79
+   },
+   "portraitSeed": 2790954101,
+   "affiliation": "Racing 92"
+  },
+  {
+   "id": "rg-yoram-moefana",
+   "name": "Yoram Moefana",
+   "shortName": "Moefana",
+   "nationality": "FRA",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 81,
+    "PUI": 84,
+    "PLA": 84,
+    "JEU": 62,
+    "MAI": 79,
+    "END": 79
+   },
+   "portraitSeed": 1773931476,
+   "affiliation": "Union Bordeaux-Bègles"
+  },
+  {
+   "id": "rg-nicolas-depoortere",
+   "name": "Nicolas Depoortère",
+   "shortName": "Depoortère",
+   "nationality": "FRA",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 86,
+    "PUI": 76,
+    "PLA": 78,
+    "JEU": 60,
+    "MAI": 76,
+    "END": 77
+   },
+   "portraitSeed": 3785414836,
+   "affiliation": "Union Bordeaux-Bègles"
+  },
+  {
+   "id": "rg-pierre-louis-barassi",
+   "name": "Pierre-Louis Barassi",
+   "shortName": "Barassi",
+   "nationality": "FRA",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 76,
+    "PUI": 73,
+    "PLA": 80,
+    "JEU": 63,
+    "MAI": 72,
+    "END": 74
+   },
+   "portraitSeed": 2012154248,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-emilien-gailleton",
+   "name": "Emilien Gailleton",
+   "shortName": "Gailleton",
+   "nationality": "FRA",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 82,
+    "PUI": 76,
+    "PLA": 80,
+    "JEU": 60,
+    "MAI": 77,
+    "END": 79
+   },
+   "portraitSeed": 1955485785,
+   "affiliation": "Section Paloise"
+  },
+  {
+   "id": "rg-ollie-lawrence",
+   "name": "Ollie Lawrence",
+   "shortName": "Lawrence",
+   "nationality": "ENG",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 82,
+    "PUI": 82,
+    "PLA": 83,
+    "JEU": 63,
+    "MAI": 80,
+    "END": 81
+   },
+   "portraitSeed": 149208621,
+   "affiliation": "Bath Rugby"
+  },
+  {
+   "id": "rg-fraser-dingwall",
+   "name": "Fraser Dingwall",
+   "shortName": "Dingwall",
+   "nationality": "ENG",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 79,
+    "PUI": 76,
+    "PLA": 81,
+    "JEU": 58,
+    "MAI": 73,
+    "END": 74
+   },
+   "portraitSeed": 4119972498,
+   "affiliation": "Northampton Saints"
+  },
+  {
+   "id": "rg-henry-slade",
+   "name": "Henry Slade",
+   "shortName": "Slade",
+   "nationality": "ENG",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 75,
+    "PUI": 78,
+    "PLA": 77,
+    "JEU": 66,
+    "MAI": 75,
+    "END": 76
+   },
+   "portraitSeed": 2263709096,
+   "affiliation": "Exeter Chiefs"
+  },
+  {
+   "id": "rg-ben-thomas",
+   "name": "Ben Thomas",
+   "shortName": "B. Thomas",
+   "nationality": "WAL",
+   "roles": [
+    "CEN",
+    "DO"
+   ],
+   "overall": 79,
+   "attributes": {
+    "VIT": 75,
+    "PUI": 75,
+    "PLA": 73,
+    "JEU": 60,
+    "MAI": 73,
+    "END": 70
+   },
+   "portraitSeed": 2273388842,
+   "affiliation": "Cardiff Rugby"
+  },
+  {
+   "id": "rg-nick-tompkins",
+   "name": "Nick Tompkins",
+   "shortName": "Tompkins",
+   "nationality": "WAL",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 75,
+    "PUI": 73,
+    "PLA": 79,
+    "JEU": 57,
+    "MAI": 75,
+    "END": 75
+   },
+   "portraitSeed": 919330353,
+   "affiliation": "Saracens"
+  },
+  {
+   "id": "rg-max-llewellyn",
+   "name": "Max Llewellyn",
+   "shortName": "Llewellyn",
+   "nationality": "WAL",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 79,
+   "attributes": {
+    "VIT": 75,
+    "PUI": 70,
+    "PLA": 74,
+    "JEU": 58,
+    "MAI": 72,
+    "END": 74
+   },
+   "portraitSeed": 538518809,
+   "affiliation": "Gloucester Rugby"
+  },
+  {
+   "id": "rg-tommaso-menoncello",
+   "name": "Tommaso Menoncello",
+   "shortName": "Menoncello",
+   "nationality": "ITA",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 88,
+    "PUI": 75,
+    "PLA": 79,
+    "JEU": 58,
+    "MAI": 74,
+    "END": 81
+   },
+   "portraitSeed": 3106879039,
+   "affiliation": "Benetton"
+  },
+  {
+   "id": "rg-len-ikitau",
+   "name": "Len Ikitau",
+   "shortName": "Ikitau",
+   "nationality": "AUS",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 82,
+    "PUI": 78,
+    "PLA": 83,
+    "JEU": 63,
+    "MAI": 75,
+    "END": 80
+   },
+   "portraitSeed": 4229609559,
+   "affiliation": "Exeter Chiefs"
+  },
+  {
+   "id": "rg-joseph-aukuso-suaalii",
+   "name": "Joseph-Aukuso Suaalii",
+   "shortName": "Suaalii",
+   "nationality": "AUS",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 81,
+    "PUI": 79,
+    "PLA": 78,
+    "JEU": 60,
+    "MAI": 77,
+    "END": 73
+   },
+   "portraitSeed": 3746398093,
+   "affiliation": "Waratahs"
+  },
+  {
+   "id": "rg-hunter-paisami",
+   "name": "Hunter Paisami",
+   "shortName": "Paisami",
+   "nationality": "AUS",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 79,
+    "PUI": 75,
+    "PLA": 83,
+    "JEU": 58,
+    "MAI": 72,
+    "END": 76
+   },
+   "portraitSeed": 3196912655,
+   "affiliation": "Reds"
+  },
+  {
+   "id": "rg-lucio-cinti",
+   "name": "Lucio Cinti",
+   "shortName": "Cinti",
+   "nationality": "ARG",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 79,
+    "PUI": 76,
+    "PLA": 75,
+    "JEU": 58,
+    "MAI": 71,
+    "END": 78
+   },
+   "portraitSeed": 2637591690,
+   "affiliation": "Saracens"
+  },
+  {
+   "id": "rg-santiago-chocobares",
+   "name": "Santiago Chocobares",
+   "shortName": "Chocobares",
+   "nationality": "ARG",
+   "roles": [
+    "CEN"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 74,
+    "PUI": 82,
+    "PLA": 75,
+    "JEU": 57,
+    "MAI": 75,
+    "END": 75
+   },
+   "portraitSeed": 2708306654,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-semi-radradra",
+   "name": "Semi Radradra",
+   "shortName": "Radradra",
+   "nationality": "FIJ",
+   "roles": [
+    "CEN",
+    "AIL"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 80,
+    "PUI": 81,
+    "PLA": 81,
+    "JEU": 61,
+    "MAI": 79,
+    "END": 74
+   },
+   "portraitSeed": 348342130,
+   "affiliation": "LOU Rugby"
+  },
+  {
+   "id": "rg-josua-tuisova",
+   "name": "Josua Tuisova",
+   "shortName": "Tuisova",
+   "nationality": "FIJ",
+   "roles": [
+    "CEN",
+    "AIL"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 80,
+    "PUI": 80,
+    "PLA": 81,
+    "JEU": 63,
+    "MAI": 72,
+    "END": 76
+   },
+   "portraitSeed": 3690134068,
+   "affiliation": "Racing 92"
+  },
+  {
+   "id": "rg-louis-bielle-biarrey",
+   "name": "Louis Bielle-Biarrey",
+   "shortName": "Bielle-Biarrey",
+   "nationality": "FRA",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 90,
+   "attributes": {
+    "VIT": 98,
+    "PUI": 73,
+    "PLA": 67,
+    "JEU": 61,
+    "MAI": 74,
+    "END": 83
+   },
+   "portraitSeed": 3184291749,
+   "affiliation": "Union Bordeaux-Bègles"
+  },
+  {
+   "id": "rg-damian-penaud",
+   "name": "Damian Penaud",
+   "shortName": "Penaud",
+   "nationality": "FRA",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 87,
+   "attributes": {
+    "VIT": 95,
+    "PUI": 70,
+    "PLA": 71,
+    "JEU": 60,
+    "MAI": 74,
+    "END": 79
+   },
+   "portraitSeed": 1055930554,
+   "affiliation": "Union Bordeaux-Bègles"
+  },
+  {
+   "id": "rg-theo-attissogbe",
+   "name": "Théo Attissogbe",
+   "shortName": "Attissogbe",
+   "nationality": "FRA",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 95,
+    "PUI": 68,
+    "PLA": 63,
+    "JEU": 59,
+    "MAI": 71,
+    "END": 78
+   },
+   "portraitSeed": 794877896,
+   "affiliation": "Section Paloise"
+  },
+  {
+   "id": "rg-james-lowe",
+   "name": "James Lowe",
+   "shortName": "Lowe",
+   "nationality": "IRL",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 93,
+    "PUI": 71,
+    "PLA": 66,
+    "JEU": 63,
+    "MAI": 73,
+    "END": 78
+   },
+   "portraitSeed": 627220840,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-mack-hansen",
+   "name": "Mack Hansen",
+   "shortName": "Hansen",
+   "nationality": "IRL",
+   "roles": [
+    "AIL",
+    "ARR"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 92,
+    "PUI": 67,
+    "PLA": 66,
+    "JEU": 62,
+    "MAI": 69,
+    "END": 76
+   },
+   "portraitSeed": 3902422516,
+   "affiliation": "Connacht"
+  },
+  {
+   "id": "rg-tommy-o-brien",
+   "name": "Tommy O'Brien",
+   "shortName": "O'Brien",
+   "nationality": "IRL",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 86,
+    "PUI": 63,
+    "PLA": 60,
+    "JEU": 57,
+    "MAI": 68,
+    "END": 72
+   },
+   "portraitSeed": 2910224003,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-tommy-freeman",
+   "name": "Tommy Freeman",
+   "shortName": "Freeman",
+   "nationality": "ENG",
+   "roles": [
+    "AIL",
+    "CEN"
+   ],
+   "overall": 87,
+   "attributes": {
+    "VIT": 92,
+    "PUI": 76,
+    "PLA": 70,
+    "JEU": 60,
+    "MAI": 75,
+    "END": 75
+   },
+   "portraitSeed": 2771630139,
+   "affiliation": "Northampton Saints"
+  },
+  {
+   "id": "rg-immanuel-feyi-waboso",
+   "name": "Immanuel Feyi-Waboso",
+   "shortName": "Feyi-Waboso",
+   "nationality": "ENG",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 97,
+    "PUI": 75,
+    "PLA": 63,
+    "JEU": 60,
+    "MAI": 70,
+    "END": 77
+   },
+   "portraitSeed": 430373138,
+   "affiliation": "Exeter Chiefs"
+  },
+  {
+   "id": "rg-ollie-sleightholme",
+   "name": "Ollie Sleightholme",
+   "shortName": "Sleightholme",
+   "nationality": "ENG",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 91,
+    "PUI": 69,
+    "PLA": 63,
+    "JEU": 55,
+    "MAI": 71,
+    "END": 71
+   },
+   "portraitSeed": 883626647,
+   "affiliation": "Northampton Saints"
+  },
+  {
+   "id": "rg-tom-roebuck",
+   "name": "Tom Roebuck",
+   "shortName": "Roebuck",
+   "nationality": "ENG",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 90,
+    "PUI": 64,
+    "PLA": 63,
+    "JEU": 56,
+    "MAI": 68,
+    "END": 74
+   },
+   "portraitSeed": 524569798,
+   "affiliation": "Sale Sharks"
+  },
+  {
+   "id": "rg-cadan-murley",
+   "name": "Cadan Murley",
+   "shortName": "Murley",
+   "nationality": "ENG",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 94,
+    "PUI": 64,
+    "PLA": 62,
+    "JEU": 55,
+    "MAI": 71,
+    "END": 71
+   },
+   "portraitSeed": 4000170654,
+   "affiliation": "Harlequins"
+  },
+  {
+   "id": "rg-duhan-van-der-merwe",
+   "name": "Duhan van der Merwe",
+   "shortName": "van der Merwe",
+   "nationality": "SCO",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 94,
+    "PUI": 71,
+    "PLA": 66,
+    "JEU": 58,
+    "MAI": 75,
+    "END": 74
+   },
+   "portraitSeed": 3821850399,
+   "affiliation": "Edinburgh"
+  },
+  {
+   "id": "rg-darcy-graham",
+   "name": "Darcy Graham",
+   "shortName": "Graham",
+   "nationality": "SCO",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 94,
+    "PUI": 67,
+    "PLA": 67,
+    "JEU": 57,
+    "MAI": 73,
+    "END": 73
+   },
+   "portraitSeed": 2012076978,
+   "affiliation": "Edinburgh"
+  },
+  {
+   "id": "rg-kyle-steyn",
+   "name": "Kyle Steyn",
+   "shortName": "Steyn",
+   "nationality": "SCO",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 87,
+    "PUI": 62,
+    "PLA": 63,
+    "JEU": 57,
+    "MAI": 68,
+    "END": 76
+   },
+   "portraitSeed": 3786231095,
+   "affiliation": "Glasgow Warriors"
+  },
+  {
+   "id": "rg-louis-rees-zammit",
+   "name": "Louis Rees-Zammit",
+   "shortName": "Rees-Zammit",
+   "nationality": "WAL",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 98,
+    "PUI": 69,
+    "PLA": 64,
+    "JEU": 57,
+    "MAI": 69,
+    "END": 71
+   },
+   "portraitSeed": 1903316929,
+   "affiliation": "Bristol Bears"
+  },
+  {
+   "id": "rg-josh-adams",
+   "name": "Josh Adams",
+   "shortName": "Adams",
+   "nationality": "WAL",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 86,
+    "PUI": 68,
+    "PLA": 62,
+    "JEU": 54,
+    "MAI": 69,
+    "END": 70
+   },
+   "portraitSeed": 2406934821,
+   "affiliation": "Cardiff Rugby"
+  },
+  {
+   "id": "rg-tom-rogers",
+   "name": "Tom Rogers",
+   "shortName": "Rogers",
+   "nationality": "WAL",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 79,
+   "attributes": {
+    "VIT": 81,
+    "PUI": 63,
+    "PLA": 65,
+    "JEU": 56,
+    "MAI": 68,
+    "END": 72
+   },
+   "portraitSeed": 4006528165,
+   "affiliation": "Scarlets"
+  },
+  {
+   "id": "rg-monty-ioane",
+   "name": "Monty Ioane",
+   "shortName": "M. Ioane",
+   "nationality": "ITA",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 86,
+    "PUI": 72,
+    "PLA": 61,
+    "JEU": 58,
+    "MAI": 68,
+    "END": 75
+   },
+   "portraitSeed": 2778170156,
+   "affiliation": "LOU Rugby"
+  },
+  {
+   "id": "rg-louis-lynagh",
+   "name": "Louis Lynagh",
+   "shortName": "L. Lynagh",
+   "nationality": "ITA",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 79,
+   "attributes": {
+    "VIT": 91,
+    "PUI": 60,
+    "PLA": 62,
+    "JEU": 54,
+    "MAI": 68,
+    "END": 68
+   },
+   "portraitSeed": 3105787052,
+   "affiliation": "Benetton"
+  },
+  {
+   "id": "rg-will-jordan",
+   "name": "Will Jordan",
+   "shortName": "Jordan",
+   "nationality": "NZL",
+   "roles": [
+    "AIL",
+    "ARR"
+   ],
+   "overall": 89,
+   "attributes": {
+    "VIT": 98,
+    "PUI": 71,
+    "PLA": 66,
+    "JEU": 59,
+    "MAI": 79,
+    "END": 82
+   },
+   "portraitSeed": 1678056457,
+   "affiliation": "Crusaders"
+  },
+  {
+   "id": "rg-mark-tele-a",
+   "name": "Mark Tele'a",
+   "shortName": "Tele'a",
+   "nationality": "NZL",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 92,
+    "PUI": 68,
+    "PLA": 65,
+    "JEU": 60,
+    "MAI": 70,
+    "END": 76
+   },
+   "portraitSeed": 1231297916,
+   "affiliation": "Blues"
+  },
+  {
+   "id": "rg-caleb-clarke",
+   "name": "Caleb Clarke",
+   "shortName": "Clarke",
+   "nationality": "NZL",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 86,
+    "PUI": 71,
+    "PLA": 62,
+    "JEU": 59,
+    "MAI": 69,
+    "END": 77
+   },
+   "portraitSeed": 376805904,
+   "affiliation": "Blues"
+  },
+  {
+   "id": "rg-sevu-reece",
+   "name": "Sevu Reece",
+   "shortName": "Reece",
+   "nationality": "NZL",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 91,
+    "PUI": 66,
+    "PLA": 68,
+    "JEU": 55,
+    "MAI": 72,
+    "END": 75
+   },
+   "portraitSeed": 3959862300,
+   "affiliation": "Crusaders"
+  },
+  {
+   "id": "rg-emoni-narawa",
+   "name": "Emoni Narawa",
+   "shortName": "Narawa",
+   "nationality": "NZL",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 88,
+    "PUI": 63,
+    "PLA": 64,
+    "JEU": 57,
+    "MAI": 69,
+    "END": 77
+   },
+   "portraitSeed": 1620577463,
+   "affiliation": "Chiefs"
+  },
+  {
+   "id": "rg-cheslin-kolbe",
+   "name": "Cheslin Kolbe",
+   "shortName": "Kolbe",
+   "nationality": "RSA",
+   "roles": [
+    "AIL",
+    "ARR"
+   ],
+   "overall": 88,
+   "attributes": {
+    "VIT": 95,
+    "PUI": 67,
+    "PLA": 71,
+    "JEU": 64,
+    "MAI": 79,
+    "END": 78
+   },
+   "portraitSeed": 1815540810,
+   "affiliation": "Tokyo Sungoliath"
+  },
+  {
+   "id": "rg-kurt-lee-arendse",
+   "name": "Kurt-Lee Arendse",
+   "shortName": "Arendse",
+   "nationality": "RSA",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 98,
+    "PUI": 72,
+    "PLA": 64,
+    "JEU": 59,
+    "MAI": 77,
+    "END": 76
+   },
+   "portraitSeed": 1287788636,
+   "affiliation": "Bulls"
+  },
+  {
+   "id": "rg-canan-moodie",
+   "name": "Canan Moodie",
+   "shortName": "Moodie",
+   "nationality": "RSA",
+   "roles": [
+    "AIL",
+    "CEN"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 85,
+    "PUI": 65,
+    "PLA": 61,
+    "JEU": 54,
+    "MAI": 69,
+    "END": 76
+   },
+   "portraitSeed": 2107619003,
+   "affiliation": "Bulls"
+  },
+  {
+   "id": "rg-makazole-mapimpi",
+   "name": "Makazole Mapimpi",
+   "shortName": "Mapimpi",
+   "nationality": "RSA",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 90,
+    "PUI": 67,
+    "PLA": 66,
+    "JEU": 59,
+    "MAI": 71,
+    "END": 71
+   },
+   "portraitSeed": 3823325156,
+   "affiliation": "Sharks"
+  },
+  {
+   "id": "rg-max-jorgensen",
+   "name": "Max Jorgensen",
+   "shortName": "Jorgensen",
+   "nationality": "AUS",
+   "roles": [
+    "AIL",
+    "ARR"
+   ],
+   "overall": 83,
+   "attributes": {
+    "VIT": 90,
+    "PUI": 64,
+    "PLA": 65,
+    "JEU": 57,
+    "MAI": 73,
+    "END": 75
+   },
+   "portraitSeed": 1809182942,
+   "affiliation": "Waratahs"
+  },
+  {
+   "id": "rg-dylan-pietsch",
+   "name": "Dylan Pietsch",
+   "shortName": "Pietsch",
+   "nationality": "AUS",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 79,
+   "attributes": {
+    "VIT": 85,
+    "PUI": 60,
+    "PLA": 62,
+    "JEU": 56,
+    "MAI": 68,
+    "END": 69
+   },
+   "portraitSeed": 843324453,
+   "affiliation": "Waratahs"
+  },
+  {
+   "id": "rg-harry-potter",
+   "name": "Harry Potter",
+   "shortName": "Potter",
+   "nationality": "AUS",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 79,
+   "attributes": {
+    "VIT": 82,
+    "PUI": 64,
+    "PLA": 63,
+    "JEU": 55,
+    "MAI": 67,
+    "END": 71
+   },
+   "portraitSeed": 188640745,
+   "affiliation": "Western Force"
+  },
+  {
+   "id": "rg-mateo-carreras",
+   "name": "Mateo Carreras",
+   "shortName": "Carreras",
+   "nationality": "ARG",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 93,
+    "PUI": 67,
+    "PLA": 66,
+    "JEU": 58,
+    "MAI": 74,
+    "END": 76
+   },
+   "portraitSeed": 2699525060,
+   "affiliation": "Aviron Bayonnais"
+  },
+  {
+   "id": "rg-bautista-delguy",
+   "name": "Bautista Delguy",
+   "shortName": "Delguy",
+   "nationality": "ARG",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 84,
+    "PUI": 62,
+    "PLA": 60,
+    "JEU": 55,
+    "MAI": 68,
+    "END": 74
+   },
+   "portraitSeed": 380024726,
+   "affiliation": "USA Perpignan"
+  },
+  {
+   "id": "rg-jiuta-wainiqolo",
+   "name": "Jiuta Wainiqolo",
+   "shortName": "Wainiqolo",
+   "nationality": "FIJ",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 93,
+    "PUI": 65,
+    "PLA": 63,
+    "JEU": 57,
+    "MAI": 69,
+    "END": 71
+   },
+   "portraitSeed": 3299817839,
+   "affiliation": "RC Toulon"
+  },
+  {
+   "id": "rg-selestino-ravutaumada",
+   "name": "Selestino Ravutaumada",
+   "shortName": "Ravutaumada",
+   "nationality": "FIJ",
+   "roles": [
+    "AIL"
+   ],
+   "overall": 80,
+   "attributes": {
+    "VIT": 90,
+    "PUI": 66,
+    "PLA": 64,
+    "JEU": 56,
+    "MAI": 70,
+    "END": 71
+   },
+   "portraitSeed": 244926496,
+   "affiliation": "Fijian Drua"
+  },
+  {
+   "id": "rg-thomas-ramos",
+   "name": "Thomas Ramos",
+   "shortName": "Ramos",
+   "nationality": "FRA",
+   "roles": [
+    "ARR",
+    "DO"
+   ],
+   "overall": 88,
+   "attributes": {
+    "VIT": 86,
+    "PUI": 66,
+    "PLA": 76,
+    "JEU": 95,
+    "MAI": 82,
+    "END": 79
+   },
+   "portraitSeed": 374833559,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-melvyn-jaminet",
+   "name": "Melvyn Jaminet",
+   "shortName": "Jaminet",
+   "nationality": "FRA",
+   "roles": [
+    "ARR"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 79,
+    "PUI": 65,
+    "PLA": 67,
+    "JEU": 86,
+    "MAI": 73,
+    "END": 70
+   },
+   "portraitSeed": 1257462076,
+   "affiliation": "RC Toulon"
+  },
+  {
+   "id": "rg-leo-barre",
+   "name": "Léo Barré",
+   "shortName": "Barré",
+   "nationality": "FRA",
+   "roles": [
+    "ARR"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 89,
+    "PUI": 64,
+    "PLA": 66,
+    "JEU": 75,
+    "MAI": 73,
+    "END": 70
+   },
+   "portraitSeed": 3326698071,
+   "affiliation": "Stade Français"
+  },
+  {
+   "id": "rg-hugo-keenan",
+   "name": "Hugo Keenan",
+   "shortName": "Keenan",
+   "nationality": "IRL",
+   "roles": [
+    "ARR"
+   ],
+   "overall": 85,
+   "attributes": {
+    "VIT": 83,
+    "PUI": 63,
+    "PLA": 73,
+    "JEU": 79,
+    "MAI": 75,
+    "END": 76
+   },
+   "portraitSeed": 2257896968,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-jamie-osborne",
+   "name": "Jamie Osborne",
+   "shortName": "Osborne",
+   "nationality": "IRL",
+   "roles": [
+    "ARR",
+    "CEN"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 82,
+    "PUI": 61,
+    "PLA": 71,
+    "JEU": 77,
+    "MAI": 70,
+    "END": 75
+   },
+   "portraitSeed": 2325507321,
+   "affiliation": "Leinster"
+  },
+  {
+   "id": "rg-blair-kinghorn",
+   "name": "Blair Kinghorn",
+   "shortName": "Kinghorn",
+   "nationality": "SCO",
+   "roles": [
+    "ARR"
+   ],
+   "overall": 86,
+   "attributes": {
+    "VIT": 94,
+    "PUI": 64,
+    "PLA": 71,
+    "JEU": 85,
+    "MAI": 75,
+    "END": 78
+   },
+   "portraitSeed": 2262915005,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-tom-jordan",
+   "name": "Tom Jordan",
+   "shortName": "T. Jordan",
+   "nationality": "SCO",
+   "roles": [
+    "ARR",
+    "DO"
+   ],
+   "overall": 79,
+   "attributes": {
+    "VIT": 82,
+    "PUI": 58,
+    "PLA": 64,
+    "JEU": 79,
+    "MAI": 72,
+    "END": 70
+   },
+   "portraitSeed": 3263073507,
+   "affiliation": "Bristol Bears"
+  },
+  {
+   "id": "rg-freddie-steward",
+   "name": "Freddie Steward",
+   "shortName": "Steward",
+   "nationality": "ENG",
+   "roles": [
+    "ARR"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 85,
+    "PUI": 60,
+    "PLA": 72,
+    "JEU": 83,
+    "MAI": 74,
+    "END": 75
+   },
+   "portraitSeed": 2979248090,
+   "affiliation": "Leicester Tigers"
+  },
+  {
+   "id": "rg-george-furbank",
+   "name": "George Furbank",
+   "shortName": "Furbank",
+   "nationality": "ENG",
+   "roles": [
+    "ARR"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 83,
+    "PUI": 62,
+    "PLA": 72,
+    "JEU": 79,
+    "MAI": 80,
+    "END": 73
+   },
+   "portraitSeed": 2539878839,
+   "affiliation": "Northampton Saints"
+  },
+  {
+   "id": "rg-blair-murray",
+   "name": "Blair Murray",
+   "shortName": "Murray",
+   "nationality": "WAL",
+   "roles": [
+    "ARR",
+    "AIL"
+   ],
+   "overall": 78,
+   "attributes": {
+    "VIT": 75,
+    "PUI": 59,
+    "PLA": 68,
+    "JEU": 77,
+    "MAI": 71,
+    "END": 67
+   },
+   "portraitSeed": 2780702627,
+   "affiliation": "Scarlets"
+  },
+  {
+   "id": "rg-ange-capuozzo",
+   "name": "Ange Capuozzo",
+   "shortName": "Capuozzo",
+   "nationality": "ITA",
+   "roles": [
+    "ARR",
+    "AIL"
+   ],
+   "overall": 84,
+   "attributes": {
+    "VIT": 86,
+    "PUI": 61,
+    "PLA": 71,
+    "JEU": 80,
+    "MAI": 75,
+    "END": 79
+   },
+   "portraitSeed": 4253631763,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-ruben-love",
+   "name": "Ruben Love",
+   "shortName": "Love",
+   "nationality": "NZL",
+   "roles": [
+    "ARR"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 90,
+    "PUI": 63,
+    "PLA": 71,
+    "JEU": 78,
+    "MAI": 74,
+    "END": 71
+   },
+   "portraitSeed": 4272479547,
+   "affiliation": "Hurricanes"
+  },
+  {
+   "id": "rg-aphelele-fassi",
+   "name": "Aphelele Fassi",
+   "shortName": "Fassi",
+   "nationality": "RSA",
+   "roles": [
+    "ARR"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 85,
+    "PUI": 62,
+    "PLA": 69,
+    "JEU": 79,
+    "MAI": 72,
+    "END": 77
+   },
+   "portraitSeed": 1634395609,
+   "affiliation": "Sharks"
+  },
+  {
+   "id": "rg-willie-le-roux",
+   "name": "Willie le Roux",
+   "shortName": "le Roux",
+   "nationality": "RSA",
+   "roles": [
+    "ARR"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 80,
+    "PUI": 59,
+    "PLA": 66,
+    "JEU": 76,
+    "MAI": 76,
+    "END": 71
+   },
+   "portraitSeed": 2521085440,
+   "affiliation": "Bulls"
+  },
+  {
+   "id": "rg-tom-wright",
+   "name": "Tom Wright",
+   "shortName": "Wright",
+   "nationality": "AUS",
+   "roles": [
+    "ARR"
+   ],
+   "overall": 81,
+   "attributes": {
+    "VIT": 82,
+    "PUI": 65,
+    "PLA": 71,
+    "JEU": 81,
+    "MAI": 74,
+    "END": 71
+   },
+   "portraitSeed": 3623444016,
+   "affiliation": "Brumbies"
+  },
+  {
+   "id": "rg-juan-cruz-mallia",
+   "name": "Juan Cruz Mallía",
+   "shortName": "Mallía",
+   "nationality": "ARG",
+   "roles": [
+    "ARR",
+    "CEN"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 83,
+    "PUI": 64,
+    "PLA": 66,
+    "JEU": 82,
+    "MAI": 74,
+    "END": 71
+   },
+   "portraitSeed": 1090126377,
+   "affiliation": "Stade Toulousain"
+  },
+  {
+   "id": "rg-davit-niniashvili",
+   "name": "Davit Niniashvili",
+   "shortName": "Niniashvili",
+   "nationality": "GEO",
+   "roles": [
+    "ARR"
+   ],
+   "overall": 82,
+   "attributes": {
+    "VIT": 86,
+    "PUI": 63,
+    "PLA": 69,
+    "JEU": 81,
+    "MAI": 74,
+    "END": 75
+   },
+   "portraitSeed": 222015463,
+   "affiliation": "LOU Rugby"
+  }
+ ]
+}

@@ -147,9 +147,58 @@ Mêmes règles d'enchères, de réserve, de joueurs libres et de vote que pour l
 
 ## 10. Données des joueurs
 
-À la création de la partie, l'hôte choisit le jeu de joueurs :
+- **Football :** uniquement des **joueurs réels** (162 footballeurs, saison 2025-2026). Le jeu fictif a été retiré le 28/10/2026. Les notes et statistiques sont des **estimations de Build Your Team**, affichées comme telles (« NOTE ESTIMÉE », « non officielles »). Ce ne sont pas des notes EA SPORTS FC. Les cartes montrent une silhouette neutre, sans photo.
+- **Basket, rugby, F1 :** joueurs, pilotes, écuries et directeurs réels, notes estimées et non officielles, même présentation.
+- **Arènes de Solcendre :** univers original. Tous les héros sont **inventés** et la carte l'indique.
 
-- **Réels** (par défaut) : 162 footballeurs réels, saison 2025-2026. Leurs notes et statistiques sont des **estimations de Build Your Team**, affichées comme telles (« NOTE ESTIMÉE », « non officielles »). Ce ne sont pas des notes EA SPORTS FC. Les cartes montrent une silhouette neutre, sans photo.
-- **Fictifs** : 180 joueurs entièrement inventés.
+Voir `DATA_LICENSING.md` pour les conditions d'usage.
 
-Les règles sont identiques dans les deux cas. Voir `DATA_LICENSING.md` pour les conditions d'usage du mode Réels.
+## 11. Options de partie (ajoutées le 28/10/2026)
+
+L'hôte les choisit à la création. Toutes sont appliquées par le serveur et couvertes par des tests (`packages/game-engine/test/modes.test.ts`, `services/realtime/test/modes.test.ts`). Sans option, la partie se joue exactement comme avant.
+
+### Rythme Éclair
+Ouverture 8 s, relance 6 s, transitions plus courtes (présentation 0,7 s au lieu de 1 s), vote participants 45 s, mercato 60 s.
+
+### Drafts thématiques
+Seuls les joueurs du thème sont tirés. Exemples : Élite (85 et plus), Outsiders, Premier League, Liga & Serie A, Six Nations, Made in USA. Si le thème ne contient pas assez de joueurs par famille de postes pour toutes les équipes, le serveur refuse le lancement (`THEME_TOO_SMALL`). La création est refusée si même 2 équipes ne suffisent pas.
+
+### Mystère
+Pendant l'enchère, la note et les statistiques du joueur sont cachées : seuls le nom, le poste, la nationalité et le club sont visibles. Le masquage est fait **par le serveur** dans la vue envoyée (les vraies valeurs ne quittent pas le serveur). Elles s'affichent à la clôture.
+
+### Types d'enchère
+- **Classique** (montante) : règles des §3 à §5.
+- **Hollandaise** (descendante) : le prix part haut, puis baisse d'un palier à intervalle régulier jusqu'au prix plancher (la réserve), atteint à 85 % du chrono. Le prix de départ dépend de la note du joueur et du budget de l'équipe éligible la plus riche. Le **premier** qui clique « Je prends » remporte le joueur au prix affiché à l'heure du serveur. L'enchère est invendue si personne ne prend ou si tout le monde passe.
+- **Sous pli** : chaque équipe éligible fait **une seule** offre secrète (entre la réserve et son maximum autorisé). Les montants sont masqués dans la vue jusqu'à la clôture. La meilleure offre gagne, et en cas d'égalité la plus ancienne. L'enchère se clôt dès que toutes les équipes ont fait une offre ou passé.
+
+### Jokers
+Chaque équipe dispose de trois jokers à usage unique :
+- **Veto** : retire du draft le joueur présenté, avant toute offre. Le joueur ne reviendra pas, pas même comme joueur libre.
+- **Moitié prix** : à armer pendant la présentation ou l'enchère. Si l'équipe remporte ce joueur, elle paie la moitié de son offre, arrondie au million supérieur. L'activation est visible de tous.
+- **Vol** : pendant la draft, prendre un joueur dans une équipe adverse en payant **1,5 fois** son prix d'achat, arrondi au palier de 10M. La victime est remboursée de ce qu'elle avait payé et retrouve un poste à pourvoir. Le voleur doit avoir une place compatible et respecter la réserve. Le vol est interdit quand on mène l'enchère en cours.
+
+### Mercato
+Après la draft (et les joueurs libres), une fenêtre de 90 s s'ouvre :
+- **Échange** : un joueur contre un joueur, avec un complément d'argent facultatif payé par celui qui propose. Une seule offre en attente par équipe destinataire. À l'acceptation, le serveur vérifie de nouveau tout : propriétaires, budget, et compatibilité de chaque joueur avec l'emplacement qu'il occupera.
+- **Vente à la banque** : la moitié du prix d'achat est remboursée. Un titulaire vendu est remplacé par le joueur libre compatible le moins bien noté, au prix de réserve.
+- Le mercato se termine quand toutes les équipes humaines sont prêtes, ou à la fin du chrono.
+
+### Duo (2 contre 2)
+Chaque équipe peut être tenue par deux personnes : même budget, même équipe, chacun peut enchérir. On rejoint l'équipe de son partenaire avec le lien « Inviter un partenaire » du salon. Sans lien, on crée une nouvelle équipe s'il reste de la place, sinon on rejoint la première équipe incomplète. Une équipe vote une seule fois. Les droits d'hôte appartiennent à l'équipe de l'hôte.
+
+### Bots
+L'hôte peut compléter le salon avec des bots (facile, normal, difficile). Un bot passe par **les mêmes commandes** que les joueurs, et le serveur les valide de la même façon, après un délai de réflexion aléatoire (0,7 à 2,5 s). Sa valorisation d'un joueur combine sa part de budget par poste restant, la note du joueur et son niveau. En mode Mystère, il ne connaît pas la note et utilise la moyenne du jeu. Il vote pour l'équipe qui lui semble la meilleure, refuse les échanges défavorables et se déclare prêt au mercato.
+
+### Fin de partie : vote, tournoi simulé ou les deux
+- **Vote** : règles du §7.
+- **Tournoi simulé** : pas de vote, le classement vient du tournoi. 2 équipes jouent une finale, 3 équipes une poule, 4 équipes des demi-finales, une petite finale et une finale. Chaque univers a son modèle de score : buts (tirs au but en cas d'égalité), points de basket (prolongation), essais, transformations et pénalités au rugby (mort subite), manches pour les Arènes. En F1, un Grand Prix réunit tous les pilotes, avec le barème 25-18-15-12-10-8-6-4-2-1. La force d'une équipe est la moyenne des notes de ses titulaires. La simulation est déterministe : sa graine est l'état du PRNG de la partie.
+- **Les deux** : le vote désigne le vainqueur, et le tournoi simulé est joué en bonus, avec son propre champion.
+
+### Revanche et série
+Après la fin, l'hôte peut relancer une revanche. Mêmes équipes et réglages, effectifs vidés, budgets remis à neuf, retour au salon (on peut ajouter des bots ou attendre de nouveaux joueurs). Points de série par partie : dernier 0 point, puis +1 par place (pour 4 équipes : 3/2/1/0). Ils sont cumulés et affichés dans le salon et à la fin. En base, chaque partie de la série a son numéro (`round`).
+
+### Mode TV
+Page `/tv/CODE` pour un grand écran : elle suit la partie en spectateur (enchère en cours, équipes, votes, résultats) avec des QR codes pour rejoindre ou voter.
+
+### Votes du chat Twitch
+Si une chaîne est indiquée, le serveur lit son chat **en lecture seule et sans compte** (connexion anonyme à l'IRC de Twitch, rien n'est jamais publié). Les messages `!1` à `!4` (ou `!vote 2`) désignent l'équipe numéro 1 à 4, dans l'ordre des places. En vote spectateurs (2 équipes), chaque membre du chat compte pour un vote spectateur, une seule fois. En vote participants (3 ou 4 équipes), les votes du chat sont comptés à part, à titre indicatif, et ne changent pas le résultat. Les votes sont regroupés toutes les 2 s avant d'être enregistrés.

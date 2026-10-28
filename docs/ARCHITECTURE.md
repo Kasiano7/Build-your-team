@@ -28,8 +28,9 @@
 |---|---|
 | `packages/shared` | Types du domaine **indépendants de l'univers** (`Character`, `FormationSlot`, `RoomState`…), contrats Socket.IO avec schémas Zod, codes d'erreur, modération des pseudos. |
 | `packages/game-engine` | Moteur d'enchères **pur et déterministe** : chaque fonction prend `(état, commande, {pack, now})` et renvoie un nouvel état et des événements, ou une erreur. Il couvre les règles de compatibilité, de placement, de réserve, les joueurs libres, le vote, la vue publique et la validation des packs. Aucune entrée/sortie. |
-| `packages/football` | Premier **pack de contenu** : postes, familles, attributs (PAC…PHY, et DIV…POS pour les gardiens), paliers de cartes, formations, modes. Il contient aussi le dataset fictif et la **couche d'import** (CSV/JSON → schéma → normalisation → dédoublonnage → fichier versionné). |
+| `packages/football` | Premier **pack de contenu** : postes, familles, attributs (PAC…PHY, et DIV…POS pour les gardiens), paliers de cartes, formations, modes, drafts thématiques. Joueurs **réels uniquement** (le jeu fictif a été retiré). Contient la **couche d'import** (CSV/JSON → schéma → normalisation → dédoublonnage → fichier versionné). |
 | `packages/basketball` | Deuxième **pack de contenu** : postes (meneur, arrière, ailier, ailier fort, pivot), familles, statistiques basket, trois compositions, modes, jeu de 78 joueurs réels aux notes estimées. Il n'a demandé **aucune modification** du moteur, du serveur, de la base ni de l'écran d'enchères. |
+| `packages/rugby`, `packages/motorsport`, `packages/arena` | Packs Rugby (rugby à 7 et à XV, joueurs réels), F1 (pilotes, écuries et directeurs réels) et Arènes de Solcendre (univers original, héros inventés). Comme le basket, ils n'ont demandé aucune modification du moteur. |
 | `packages/ui` | Composants visuels réutilisables et sans lien avec un univers : jetons de design, `PlayerCard`, `Pitch` (projection 2,5D), `Avatar` procédural, `Flag`. |
 | `services/realtime` | Serveur de jeu autoritaire : Socket.IO, accès PostgreSQL, persistance, planification. |
 | `apps/game` | Application Expo universelle : écrans, état client, sons. |
@@ -67,6 +68,26 @@ Ajouter un univers « animation » revient à écrire un nouveau package. Le mot
 | Vote | table `votes` (`UNIQUE(room_code, voter_id)`, IP hachée) |
 | Result | table `results` |
 | Journal | table `game_events` (chaque événement, avec acteur et version) |
+
+## Modules du moteur (`packages/game-engine/src`)
+
+| Fichier | Rôle |
+|---|---|
+| `context.ts` | Contexte (`pack`, `now`), type `Outcome`, valeurs par défaut des options, durées (Éclair), recherche d'équipe par membre (duo), filtres de thème et vérification de faisabilité. |
+| `engine.ts` | Salon (équipes, membres en duo, bots), lancement, cycle des enchères (classique, hollandaise, sous pli), joueurs libres, vote, chat Twitch, revanche, horloge (`nextDeadline` / `advance`). |
+| `jokers.ts` | Veto, moitié prix, vol. |
+| `mercato.ts` | Fenêtre d'échanges : offres, réponses, vente à la banque, « prêt ». |
+| `finish.ts` | Fin de partie selon `endMode`, points de série. |
+| `sim.ts` | Tournoi simulé déterministe (un modèle de score par univers, Grand Prix pour la F1). |
+| `bots.ts` | `decideBot` : décision pure d'un bot à partir de l'état. Le serveur applique la décision par les commandes normales. |
+| `view.ts` | Vue publique : masque la note en mode Mystère et les offres sous pli tant que l'enchère n'est pas close. |
+
+**Côté serveur :**
+- les bots sont pilotés par un minuteur par salon (délai de réflexion aléatoire, nouvelle vérification à chaque palier de prix en enchère hollandaise) ;
+- `twitch.ts` lit le chat en anonyme et en lecture seule ;
+- les votes du chat sont appliqués par lots de 2 s.
+
+La migration `002_modes.sql` ajoute le statut `mercato`, les enchères `vetoed`, les affectations `steal` et `trade`, et un numéro de partie `round` pour les séries de revanches.
 
 ## Choix d'autorité et de cohérence
 

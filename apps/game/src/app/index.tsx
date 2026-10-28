@@ -6,6 +6,8 @@ import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withTim
 import Svg, { Circle, Path } from 'react-native-svg';
 import { basketballRealPack } from '@byt/basketball';
 import { footballRealPack } from '@byt/football';
+import { motorsportRealPack } from '@byt/motorsport';
+import { rugbyRealPack } from '@byt/rugby';
 import { emptyTeam, getFormation, toPackMeta } from '@byt/game-engine';
 import type { Character, Team } from '@byt/shared';
 import { PlayerCard, colors, fonts, radii } from '@byt/ui';
@@ -21,6 +23,9 @@ import { useReduceMotion } from '@/state/settings';
 const pack = footballRealPack;
 const meta = toPackMeta(pack);
 const formation = getFormation(pack, 'quick-5');
+/** Real athletes across the real-player universes (F1: drivers only; the Arènes heroes are invented). */
+const realAthletes =
+  pack.characters.length + basketballRealPack.characters.length + rugbyRealPack.characters.length + motorsportRealPack.characters.filter((c) => c.roles.includes('PIL')).length;
 
 /** Showcase line-up for the hero: the best-rated player per slot (estimated ratings). */
 function showcase(): { ids: string[]; characters: Record<string, Character>; featured: Character } {
@@ -236,7 +241,7 @@ export default function Home() {
                 </Pressable>
               )}
               <View style={{ flexDirection: 'row', gap: wide ? 40 : 28, paddingTop: 6 }}>
-                <Stat value={String(pack.characters.length + basketballRealPack.characters.length)} label="vrais joueurs" />
+                <Stat value={String(realAthletes)} label="vrais joueurs" />
                 <Stat value="2–4" label="joueurs par salon" />
                 <Stat value="10 min" label="la partie rapide" />
               </View>
@@ -267,9 +272,9 @@ export default function Home() {
                 </Svg>
               </View>
               <View style={{ flex: 1, gap: 2 }}>
-                <Text style={{ fontFamily: fonts.heroSemi, fontSize: 16, color: colors.text }}>Football · Basket</Text>
+                <Text style={{ fontFamily: fonts.heroSemi, fontSize: 16, color: colors.text }}>Football · Basket · Rugby · F1 · Arènes</Text>
                 <Text style={{ fontFamily: fonts.bodyMedium, fontSize: 13, color: colors.textDim }}>
-                  Foot : 5 ou 11 joueurs · Basket : 5 joueurs + banc. Le même moteur accueillera d’autres univers.
+                  Foot : 5 ou 11 · Basket : 5 + banc · Rugby : 7 ou 15 · F1 : pilotes, écurie, directeur · Arènes de Solcendre : héros 100 % inventés.
                 </Text>
               </View>
             </View>

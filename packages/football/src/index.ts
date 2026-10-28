@@ -4,6 +4,7 @@ import {
   FOOTBALL_FORMATIONS,
   FOOTBALL_GROUPS,
   FOOTBALL_MODES,
+  FOOTBALL_THEMES,
   FOOTBALL_ROLES,
   FOOTBALL_TIERS,
   GOALKEEPER_ATTRIBUTES,
@@ -27,6 +28,7 @@ export function createFootballPack(file: DatasetFile): ContentPack {
     tiers: FOOTBALL_TIERS,
     formations: FOOTBALL_FORMATIONS,
     modes: FOOTBALL_MODES,
+    themes: FOOTBALL_THEMES,
     characters: file.characters,
   };
 }

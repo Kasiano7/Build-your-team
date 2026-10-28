@@ -1,14 +1,14 @@
 import { useEffect, useState, useSyncExternalStore } from 'react';
-import { gameClient, type GameSnapshot } from './game-client';
+import { gameClient, teamOf, type GameSnapshot } from './game-client';
 
 export function useGame(): GameSnapshot {
   return useSyncExternalStore(gameClient.subscribe, gameClient.getSnapshot, gameClient.getSnapshot);
 }
 
-/** Current participant, if playing. */
+/** Current participant's team, if playing (duo: the team this person belongs to). */
 export function useMe() {
   const g = useGame();
-  return g.view?.participants.find((p) => p.id === g.participantId) ?? null;
+  return g.view && g.participantId ? teamOf(g.view, g.participantId) : null;
 }
 
 /** Server-synchronised clock, re-rendering every `intervalMs`. */

@@ -61,7 +61,7 @@ export const PlayerCard = memo(function PlayerCard({ character, pack, width, var
   const plateTop = full ? h * 0.52 : h * 0.7;
 
   return (
-    <View style={{ width: w, height: h, opacity: muted ? 0.45 : 1 }} accessible accessibilityLabel={`${character.name}, ${d.primaryRoleLabel}, note ${character.overall}`}>
+    <View style={{ width: w, height: h, opacity: muted ? 0.45 : 1 }} accessible accessibilityLabel={`${character.name}, ${d.primaryRoleLabel}, ${character.masked ? 'note cachée' : `note ${character.overall}`}`}>
       <Svg width={w} height={h} style={StyleSheet.absoluteFill}>
         <Defs>
           <LinearGradient id={`${gid}-bg`} x1="0" y1="0" x2="0.3" y2="1">
@@ -118,7 +118,7 @@ export const PlayerCard = memo(function PlayerCard({ character, pack, width, var
       </View>
 
       <View style={{ position: 'absolute', left: w * 0.08, top: w * 0.07, alignItems: 'flex-start' }}>
-        <Text style={{ fontFamily: fonts.hero, fontSize: ratingSize, lineHeight: ratingSize * 1.08, color: p.ink, letterSpacing: -0.5 }}>{character.overall}</Text>
+        <Text style={{ fontFamily: fonts.hero, fontSize: ratingSize, lineHeight: ratingSize * 1.08, color: p.ink, letterSpacing: -0.5 }}>{character.masked ? '?' : character.overall}</Text>
         <View
           style={{
             marginTop: full ? w * 0.01 : 0,
@@ -154,7 +154,7 @@ export const PlayerCard = memo(function PlayerCard({ character, pack, width, var
         <View style={{ position: 'absolute', left: w * 0.08, right: w * 0.08, top: h * 0.665, flexDirection: 'row', flexWrap: 'wrap', rowGap: w * 0.008 }}>
           {d.stats.map((s) => (
             <View key={s.key} style={{ width: '33.33%', alignItems: 'center' }}>
-              <Text style={{ fontFamily: fonts.heroBold, fontSize: w * 0.074, lineHeight: w * 0.09, color: p.ink }}>{s.value}</Text>
+              <Text style={{ fontFamily: fonts.heroBold, fontSize: w * 0.074, lineHeight: w * 0.09, color: p.ink }}>{character.masked ? '?' : s.value}</Text>
               <Text style={{ fontFamily: fonts.bodyBold, fontSize: w * 0.041, lineHeight: w * 0.05, color: p.sub, letterSpacing: 1, opacity: 0.85 }}>{s.key}</Text>
             </View>
           ))}

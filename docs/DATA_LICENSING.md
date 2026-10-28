@@ -15,7 +15,9 @@
 
 ## 0. Mode « Joueurs réels » (ajouté le 26/10/2026, à la demande du propriétaire)
 
-Le jeu propose désormais deux jeux de joueurs, au choix à la création de la partie. Le mode **Réels** est celui par défaut.
+> **Mise à jour du 28/10/2026 :** à la demande du propriétaire, le jeu fictif `football-demo@1.0.0` a été **retiré**. Le football ne propose plus que des joueurs réels (colonne de gauche). La colonne « Fictifs » est conservée ci-dessous pour mémoire. Le seul univers fictif restant est **Arènes de Solcendre**, un univers original dont les héros sont inventés et étiquetés comme tels.
+
+Jusqu'au 28/10/2026, le jeu proposait deux jeux de joueurs au choix à la création de la partie, avec **Réels** par défaut.
 
 | | **Réels** (`football-real@1.0.0`, 162 joueurs) | **Fictifs** (`football-demo@1.0.0`, 180 joueurs) |
 |---|---|---|
@@ -33,6 +35,18 @@ Le jeu propose désormais deux jeux de joueurs, au choix à la création de la p
 - étiquetage « Basket · joueurs réels · notes estimées par Build Your Team (non officielles) ».
 
 Avant une sortie commerciale, les droits sur le nom et l'image se négocient auprès du syndicat des joueurs concerné (aux États-Unis, la NBPA gère les licences collectives de groupe). Les noms et logos d'équipes et de ligue relèvent de la ligue. Aucun logo n'est utilisé ; les noms d'équipe sont cités comme simple information factuelle, à valider avec un juriste.
+
+**Rugby** (`rugby-real`, 239 joueurs) et **F1** (`motorsport-real`, 22 pilotes, 11 écuries et 11 directeurs ; ajoutés le 28/10/2026). Même dispositif :
+
+- effectifs indicatifs (saison 2025-2026 pour le rugby, grille 2026 pour la F1) ;
+- notes et statistiques estimées par notre modèle, sans reprise de notes officielles ni de jeux vidéo ;
+- silhouettes neutres à la place des photos ;
+- aucun logo ni livrée ;
+- étiquetage « notes estimées par Build Your Team (non officielles) ».
+
+Les droits sur le nom et l'image restent à acquérir avant toute sortie commerciale : auprès des joueurs, fédérations et ligues pour le rugby ; des pilotes, écuries, de Formula One Management et de la FIA pour la F1. « Formule 1 » et « F1 » sont des marques : leur usage public doit être validé par un juriste.
+
+**Arènes de Solcendre** (`arena`, 90 héros) : univers **entièrement original**. Les royaumes, les héros et les statistiques sont générés par `packages/arena/scripts/generate-heroes.ts`, et les portraits sont des avatars procéduraux. Les cartes et l'accueil indiquent que les héros sont inventés.
 
 **Ce qui est respecté :**
 

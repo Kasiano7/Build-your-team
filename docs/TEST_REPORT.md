@@ -52,6 +52,27 @@ Autres comportements testés :
 - **Moteur** : réserve, chrono porté à 12 s, offre engageante, joueurs libres (le moins bien noté compatible, à 10M), plafond d'enchères, mode classique à 11 titulaires, changement de formation, échanges incompatibles refusés, départage par la note d'équipe.
 - **Import de données** : CSV avec champs entre guillemets, rejet des lignes invalides avec motif, doublons détectés par `externalId` et par identité, refus d'écraser une version publiée (CLI exécutée).
 
+### Mise à jour du 28/10/2026 (soir) — modes de jeu, Rugby, F1, Arènes, football réel uniquement
+
+| Suite | Commande | Résultat |
+|---|---|---|
+| Toutes les suites (moteur, packs, serveur) | `npx vitest run` | **92/92 OK** (10 fichiers) |
+| Moteur : nouveaux modes (`packages/game-engine/test/modes.test.ts`) | `npx vitest run packages/game-engine` | **56/56 OK** |
+| Serveur : modes sur vrai Socket.IO + PGlite (`services/realtime/test/modes.test.ts`) | `npx vitest run services` | **OK**. Couvre : 1 joueur contre 3 bots pilotés par le serveur jusqu'au tournoi, puis revanche enregistrée en SQL (round 2) ; duo et exclusion de l'équipe entière ; enchère sous pli ; veto ; mercato avec échange tracé en SQL ; votes du chat injectés |
+| TypeScript strict (7 packages, serveur, app) | `npm run typecheck` | **OK** |
+| ESLint app | `npx eslint src` (apps/game) | **0 problème** |
+| E2E navigateur des modes | `node e2e/modes.mjs` | **OK**. Partie 1 (desktop) : enchères hollandaises, moitié prix, 3 bots, mercato, vote puis tournoi, vue TV, revanche en manche 2. Partie 2 (390×844) : sous pli, Mystère (carte « ? »), Éclair, tournoi seul |
+| Connexion Twitch anonyme | script ponctuel vers `irc-ws.chat.twitch.tv` | **OK** : connexion et entrée dans un salon en lecture seule. Le décodage des messages est testé à part ; aucun message réel de chat n'a été reçu pendant l'essai |
+
+Vérifications visuelles (captures dans `test-results/modes`) : création, salon avec bots, enchère hollandaise, TV pendant la draft et le mercato, mercato, tableau du tournoi, carte mystère sur téléphone. Les agents ont aussi vérifié dans le navigateur le joker vol, la vente à la banque, l'échange accepté par un bot, la poule à 3 équipes, le Grand Prix F1 et les surfaces rugby, stand F1 et arène (1280 et 375 px).
+
+**Non vérifié :**
+- applications natives iOS et Android, et build Docker de ces changements ;
+- scan réel des QR codes par un téléphone ;
+- votes envoyés par un vrai chat Twitch ;
+- duo joué dans l'interface : il est testé dans le moteur et sur Socket.IO, pas dans le navigateur ;
+- timing des animations de révélation au premier plan : les captures automatiques ne le montrent pas.
+
 ### Mise à jour du 28/10/2026
 
 - **Design v2** (verre, typographies Unbounded/Manrope, cartes holographiques, stade). L'E2E à 4 navigateurs passe toujours.

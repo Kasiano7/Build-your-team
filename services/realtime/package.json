@@ -10,9 +10,12 @@
     "migrate": "tsx src/migrate-cli.ts"
   },
   "dependencies": {
+    "@byt/arena": "*",
     "@byt/basketball": "*",
     "@byt/football": "*",
     "@byt/game-engine": "*",
+    "@byt/motorsport": "*",
+    "@byt/rugby": "*",
     "@byt/shared": "*",
     "@electric-sql/pglite": "^0.5.12",
     "pg": "^8.23.1",

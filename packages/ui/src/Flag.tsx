@@ -1,16 +1,17 @@
 /**
  * Stylised flags drawn in SVG (emoji flags do not render on every platform).
- * Unknown codes fall back to a neutral chip with the code.
+ * Unknown codes (including the invented realms of fictional universes such as
+ * the Arènes de Solcendre) fall back to a neutral chip with the code.
  */
 import { memo } from 'react';
 import { Text, View } from 'react-native';
-import Svg, { Circle, Path, Rect } from 'react-native-svg';
+import Svg, { Circle, G, Path, Rect } from 'react-native-svg';
 
 type Spec =
   | { h: string[] }
   | { v: string[] }
   | { nordic: [string, string] }
-  | { custom: 'GRE' | 'ISR' | 'DOM' | 'MNE' | 'BAH' | 'GBR' | 'AUS' | 'CAN' | 'GEO' | 'JPN' | 'KOR' | 'BRA' | 'USA' | 'ENG' | 'SCO' | 'SUI' | 'MAR' | 'ALG' | 'TUN' | 'CMR' | 'GHA' | 'SEN' | 'CRO' | 'SRB' | 'POR' | 'URU' | 'ARG' | 'TUR' };
+  | { custom: 'GRE' | 'ISR' | 'DOM' | 'MNE' | 'BAH' | 'GBR' | 'AUS' | 'CAN' | 'GEO' | 'JPN' | 'KOR' | 'BRA' | 'USA' | 'ENG' | 'SCO' | 'SUI' | 'MAR' | 'ALG' | 'TUN' | 'CMR' | 'GHA' | 'SEN' | 'CRO' | 'SRB' | 'POR' | 'URU' | 'ARG' | 'TUR' | 'NZL' | 'RSA' | 'WAL' | 'FIJ' | 'SAM' | 'TGA' | 'MEX' };
 
 const FLAGS: Record<string, Spec> = {
   FRA: { v: ['#1F3C88', '#F4F4F4', '#D5263B'] },
@@ -66,7 +67,32 @@ const FLAGS: Record<string, Spec> = {
   URU: { custom: 'URU' },
   ARG: { custom: 'ARG' },
   TUR: { custom: 'TUR' },
+  MON: { h: ['#CE1126', '#F4F4F4'] },
+  THA: { h: ['#A51931', '#F4F5F8', '#2D2A4A', '#2D2A4A', '#F4F5F8', '#A51931'] },
+  NZL: { custom: 'NZL' },
+  RSA: { custom: 'RSA' },
+  WAL: { custom: 'WAL' },
+  FIJ: { custom: 'FIJ' },
+  SAM: { custom: 'SAM' },
+  TGA: { custom: 'TGA' },
+  MEX: { custom: 'MEX' },
 };
+
+/** Union Jack canton (top-left quarter) on a coloured ensign, shared by NZL and FIJ. */
+function Ensign({ field }: { field: string }) {
+  return (
+    <>
+      <Rect width="30" height="20" fill={field} />
+      <Rect width="15" height="10" fill="#012169" />
+      <Path d="M0 0 15 10M15 0 0 10" stroke="#F4F4F4" strokeWidth="2" />
+      <Path d="M0 0 15 10M15 0 0 10" stroke="#C8102E" strokeWidth="0.7" />
+      <Rect x="6" width="3" height="10" fill="#F4F4F4" />
+      <Rect y="3.5" width="15" height="3" fill="#F4F4F4" />
+      <Rect x="6.8" width="1.4" height="10" fill="#C8102E" />
+      <Rect y="4.3" width="15" height="1.4" fill="#C8102E" />
+    </>
+  );
+}
 
 function Custom({ code }: { code: string }) {
   switch (code) {
@@ -126,6 +152,20 @@ function Custom({ code }: { code: string }) {
       return (<><Rect width="30" height="20" fill="#74ACDF" /><Rect y="6.67" width="30" height="6.67" fill="#F4F4F4" /><Circle cx="15" cy="10" r="2" fill="#F6B40E" /></>);
     case 'TUR':
       return (<><Rect width="30" height="20" fill="#E30A17" /><Circle cx="12" cy="10" r="5" fill="#F4F4F4" /><Circle cx="13.3" cy="10" r="4" fill="#E30A17" /></>);
+    case 'NZL':
+      return (<><Ensign field="#012169" />{[[23, 4.5, 1.1], [20, 9.5, 1.1], [26, 8.6, 1], [23, 15.5, 1.2]].map(([x, y, r], i) => (<Circle key={i} cx={x} cy={y} r={r} fill="#C8102E" stroke="#F4F4F4" strokeWidth="0.5" />))}</>);
+    case 'FIJ':
+      return (<><Ensign field="#68BFE5" /><Path d="M19.5 5.5h7v5.5c0 2.6-1.6 4.2-3.5 5-1.9-.8-3.5-2.4-3.5-5z" fill="#F4F4F4" stroke="#C8102E" strokeWidth="0.4" /><Rect x="19.5" y="5.5" width="7" height="2.2" fill="#C8102E" /><Rect x="22.6" y="7.7" width="0.8" height="7.6" fill="#C8102E" /><Rect x="19.6" y="10.4" width="6.8" height="0.8" fill="#C8102E" /></>);
+    case 'RSA':
+      return (<><Rect width="30" height="10" fill="#E03C31" /><Rect y="10" width="30" height="10" fill="#001489" /><Path d="M0 0 12 10 0 20M12 10H30" fill="none" stroke="#F4F4F4" strokeWidth="6.7" /><Path d="M0 0 12 10 0 20M12 10H30" fill="none" stroke="#007749" strokeWidth="4" /><Path d="M0 2.6 8.9 10 0 17.4z" fill="#FFB81C" /><Path d="M0 4.4 6.8 10 0 15.6z" fill="#111" /></>);
+    case 'WAL':
+      return (<><Rect width="30" height="10" fill="#F4F4F4" /><Rect y="10" width="30" height="10" fill="#00AB39" /><G transform="translate(30 0) scale(-1 1)"><Path d="M8 13c1-3 4-4 7-3l2-4 2 3 2-2-.5 3.5c1.5 0 2.5 1 3 2h-1.5l-.5 1.5-1.5-1.2-2 .4.5 2.3H17l-.5-2H13l-.5 2H11l.5-2c-1.5.3-2.7 1.3-4 2-1 .5-1.5-.7-.5-1.3z" fill="#D30731" /></G></>);
+    case 'SAM':
+      return (<><Rect width="30" height="20" fill="#CE1126" /><Rect width="15" height="10" fill="#002B7F" />{[[7.5, 2.2, 0.9], [4.6, 5, 0.9], [10.2, 4.4, 0.9], [8.6, 6.6, 0.6], [7.2, 8, 0.9]].map(([x, y, r], i) => (<Circle key={i} cx={x} cy={y} r={r} fill="#F4F4F4" />))}</>);
+    case 'TGA':
+      return (<><Rect width="30" height="20" fill="#C10000" /><Rect width="12" height="9" fill="#F4F4F4" /><Rect x="4.9" y="1.4" width="2.2" height="6.2" fill="#C10000" /><Rect x="2.9" y="3.4" width="6.2" height="2.2" fill="#C10000" /></>);
+    case 'MEX':
+      return (<><Rect width="10" height="20" fill="#006847" /><Rect x="10" width="10" height="20" fill="#F4F4F4" /><Rect x="20" width="10" height="20" fill="#CE1126" /><Circle cx="15" cy="10" r="2.6" fill="none" stroke="#2E7D32" strokeWidth="0.8" /><Circle cx="15" cy="9.6" r="1.5" fill="#8C5A2B" /></>);
     default:
       return null;
   }
@@ -135,9 +175,12 @@ export const Flag = memo(function Flag({ code, width }: { code: string; width: n
   const spec = FLAGS[code];
   const height = (width * 2) / 3;
   if (!spec) {
+    // Neutral chip: unknown country codes and invented realms (never a fake flag).
     return (
-      <View style={{ width, height, borderRadius: 2, backgroundColor: '#2A3440', alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ color: '#C9D2DA', fontSize: height * 0.5, fontWeight: '700' }}>{code.slice(0, 3)}</Text>
+      <View style={{ width, height, borderRadius: 2, backgroundColor: '#1C2530', borderWidth: 0.5, borderColor: 'rgba(230,193,112,0.45)', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+        <Text numberOfLines={1} style={{ color: '#D9E1E8', fontSize: height * 0.46, lineHeight: height * 0.9, fontWeight: '800', letterSpacing: height * 0.03, includeFontPadding: false }}>
+          {code.slice(0, 3).toUpperCase()}
+        </Text>
       </View>
     );
   }

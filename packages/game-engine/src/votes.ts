@@ -1,11 +1,12 @@
 /**
  * Final ranking. Order: votes ↓, team rating ↓, remaining budget ↓, seat ↑.
  * The criterion that separated the top two teams is reported as `tieBreak`.
+ * When `ranking` is given (simulated tournament), it decides the order instead.
  */
 import type { ContentPack, GameResult, RoomState, TeamStanding } from '@byt/shared';
 import { teamRating, teamSpent } from './team';
 
-export function computeResult(state: RoomState, pack: ContentPack, now: number): GameResult {
+export function computeResult(state: RoomState, pack: ContentPack, now: number, ranking?: string[]): GameResult {
   const votes = state.voting?.votes ?? [];
   const rows = state.participants.map((p) => ({
     participantId: p.id,
@@ -15,13 +16,12 @@ export function computeResult(state: RoomState, pack: ContentPack, now: number):
     spent: teamSpent(p.team),
     remaining: p.budget,
   }));
-  rows.sort(
-    (a, b) => b.votes - a.votes || b.teamRating - a.teamRating || b.remaining - a.remaining || a.seat - b.seat,
-  );
+  if (ranking) rows.sort((a, b) => ranking.indexOf(a.participantId) - ranking.indexOf(b.participantId));
+  else rows.sort((a, b) => b.votes - a.votes || b.teamRating - a.teamRating || b.remaining - a.remaining || a.seat - b.seat);
 
   let tieBreak: GameResult['tieBreak'] = null;
   const [first, second] = rows;
-  if (first && second && first.votes === second.votes) {
+  if (!ranking && first && second && first.votes === second.votes) {
     if (first.teamRating !== second.teamRating) tieBreak = 'team_rating';
     else if (first.remaining !== second.remaining) tieBreak = 'remaining_budget';
     else tieBreak = 'seat';

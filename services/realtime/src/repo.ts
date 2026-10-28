@@ -77,7 +77,7 @@ export class RoomRepository {
 
   async loadActiveRooms(): Promise<RoomState[]> {
     const res = await this.db.query<{ state: RoomState | string }>(
-      `SELECT state FROM rooms WHERE status IN ('lobby','drafting','voting') AND updated_at > now() - interval '12 hours'`,
+      `SELECT state FROM rooms WHERE status IN ('lobby','drafting','mercato','voting') AND updated_at > now() - interval '12 hours'`,
     );
     return res.rows.map((r) => (typeof r.state === 'string' ? JSON.parse(r.state) : r.state));
   }
@@ -130,11 +130,14 @@ export class RoomRepository {
         ],
       );
       if (meta.newParticipant) {
-        const p = state.participants.find((x) => x.id === meta.newParticipant!.id)!;
+        // A person: the creator of a team, or (duo) the second member of a team.
+        const id = meta.newParticipant.id;
+        const p = state.participants.find((x) => x.id === id || x.members?.some((m) => m.id === id))!;
+        const nickname = p.members?.find((m) => m.id === id)?.nickname ?? p.nickname;
         await tx.query(
           `INSERT INTO participants(id, room_code, nickname, seat, session_token_hash, is_host, joined_at)
            VALUES ($1,$2,$3,$4,$5,$6,$7)`,
-          [p.id, state.code, p.nickname, p.seat, meta.newParticipant.tokenHash, p.isHost, ts(p.joinedAt)],
+          [id, state.code, nickname, p.seat, meta.newParticipant.tokenHash, p.isHost && p.id === id, ts(state.updatedAt)],
         );
       }
       for (const e of events) await this.applyEvent(tx, state, e, meta);
@@ -142,6 +145,8 @@ export class RoomRepository {
   }
 
   private async applyEvent(tx: Queryable, state: RoomState, e: GameEvent, meta: PersistMeta): Promise<void> {
+    /** Game number inside the room (rematch series). */
+    const round = state.series?.round ?? 1;
     await tx.query('INSERT INTO game_events(room_code, version, type, actor_id, payload) VALUES ($1,$2,$3,$4,$5)', [
       state.code,
       state.version,
@@ -161,9 +166,9 @@ export class RoomRepository {
         break;
       case 'auction_revealed': {
         await tx.query(
-          `INSERT INTO auctions(id, room_code, no, character_id, status, started_at) VALUES ($1,$2,$3,$4,'reveal',$5)
+          `INSERT INTO auctions(id, room_code, no, character_id, status, started_at, round) VALUES ($1,$2,$3,$4,'reveal',$5,$6)
            ON CONFLICT (id) DO NOTHING`,
-          [e.auctionId, state.code, e.no, e.characterId, ts(state.auction?.startedAt ?? state.updatedAt)],
+          [e.auctionId, state.code, e.no, e.characterId, ts(state.auction?.startedAt ?? state.updatedAt), round],
         );
         break;
       }
@@ -187,34 +192,72 @@ export class RoomRepository {
           e.amount,
         ]);
         await tx.query(
-          `INSERT INTO team_assignments(room_code, participant_id, character_id, price, kind, slot_kind, slot_index)
-           VALUES ($1,$2,$3,$4,'auction',$5,$6)`,
-          [state.code, e.participantId, e.characterId, e.amount, e.slotKind, e.slotIndex],
+          `INSERT INTO team_assignments(room_code, participant_id, character_id, price, kind, slot_kind, slot_index, round)
+           VALUES ($1,$2,$3,$4,'auction',$5,$6,$7)`,
+          [state.code, e.participantId, e.characterId, e.amount, e.slotKind, e.slotIndex, round],
         );
         break;
       case 'auction_unsold':
         await tx.query(`UPDATE auctions SET status='unsold', closed_at=now() WHERE id=$1`, [e.auctionId]);
         break;
+      case 'sealed_offer': {
+        const bid = state.auction?.bids.find((b) => b.participantId === e.participantId);
+        if (bid) {
+          await tx.query('INSERT INTO bids(id, auction_id, participant_id, amount, placed_at) VALUES ($1,$2,$3,$4,$5)', [
+            bid.id,
+            e.auctionId,
+            e.participantId,
+            bid.amount,
+            ts(bid.at),
+          ]);
+        }
+        break;
+      }
+      case 'auction_vetoed':
+        await tx.query(`UPDATE auctions SET status='vetoed', closed_at=now() WHERE id=$1`, [e.auctionId]);
+        break;
+      case 'joker_steal':
+        await tx.query(
+          `UPDATE team_assignments SET participant_id=$4, price=$5, kind='steal', assigned_at=now()
+           WHERE room_code=$1 AND round=$2 AND character_id=$3`,
+          [state.code, round, e.characterId, e.participantId, e.price],
+        );
+        break;
+      case 'trade_resolved': {
+        const o = state.mercato?.offers.find((x) => x.id === e.offerId);
+        if (!e.accepted || !o) break;
+        for (const [characterId, owner] of [[o.give, o.toId], [o.take, o.fromId]] as const) {
+          await tx.query(
+            `UPDATE team_assignments SET participant_id=$4, kind='trade', assigned_at=now()
+             WHERE room_code=$1 AND round=$2 AND character_id=$3`,
+            [state.code, round, characterId, owner],
+          );
+        }
+        break;
+      }
+      case 'player_sold_to_bank':
+        await tx.query('DELETE FROM team_assignments WHERE room_code=$1 AND round=$2 AND character_id=$3', [state.code, round, e.characterId]);
+        break;
       case 'free_agent_assigned':
         await tx.query(
-          `INSERT INTO team_assignments(room_code, participant_id, character_id, price, kind) VALUES ($1,$2,$3,$4,'free_agent')`,
-          [state.code, e.participantId, e.characterId, e.price],
+          `INSERT INTO team_assignments(room_code, participant_id, character_id, price, kind, round) VALUES ($1,$2,$3,$4,'free_agent',$5)`,
+          [state.code, e.participantId, e.characterId, e.price, round],
         );
         break;
       case 'vote_cast': {
         const v = state.voting?.votes.find((x) => x.voterId === e.voterId);
         if (v) {
           await tx.query(
-            'INSERT INTO votes(room_code, voter_id, voter_kind, target_id, ip_hash, cast_at) VALUES ($1,$2,$3,$4,$5,$6)',
-            [state.code, v.voterId, v.voterKind, v.targetId, meta.ipHash ?? null, ts(v.at)],
+            'INSERT INTO votes(room_code, voter_id, voter_kind, target_id, ip_hash, cast_at, round) VALUES ($1,$2,$3,$4,$5,$6,$7)',
+            [state.code, v.voterId, v.voterKind, v.targetId, meta.ipHash ?? null, ts(v.at), round],
           );
         }
         break;
       }
       case 'game_finished':
         await tx.query(
-          'INSERT INTO results(room_code, winner_id, payload) VALUES ($1,$2,$3) ON CONFLICT (room_code) DO NOTHING',
-          [state.code, e.winnerId, JSON.stringify(state.result)],
+          'INSERT INTO results(room_code, winner_id, payload, round) VALUES ($1,$2,$3,$4) ON CONFLICT (room_code, round) DO NOTHING',
+          [state.code, e.winnerId, JSON.stringify(state.result), round],
         );
         break;
       default:

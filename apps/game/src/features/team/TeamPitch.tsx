@@ -3,7 +3,7 @@
  * empty slots show their tactical label, the slot the current auction would
  * fill pulses, and newly acquired players land with an arrival animation.
  */
-import { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useState, type ComponentType } from 'react';
 import { Platform, Pressable, Text, View } from 'react-native';
 import Animated, {
   Easing,
@@ -16,7 +16,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import Svg, { Path } from 'react-native-svg';
 import type { Character, FormationDef, PackMeta, Team } from '@byt/shared';
-import { Court, PlayerCard, Pitch, colors, fonts } from '@byt/ui';
+import { ArenaRing, Court, PitLane, PlayerCard, Pitch, RugbyPitch, colors, fonts, type PitchProps } from '@byt/ui';
 import { useReduceMotion } from '@/state/settings';
 
 export interface TeamPitchProps {
@@ -32,6 +32,14 @@ export interface TeamPitchProps {
   animateArrivals?: boolean;
   accent?: string;
 }
+
+/** Playing surface per universe (pack.universeId); anything else gets the football pitch. */
+const SURFACES: Record<string, ComponentType<PitchProps>> = {
+  basketball: Court,
+  rugby: RugbyPitch,
+  motorsport: PitLane,
+  arena: ArenaRing,
+};
 
 function chamfer(w: number, h: number) {
   const c = w * 0.16;
@@ -102,7 +110,7 @@ export function TeamPitch({ pack, formation, team, characters, targetSlot = null
   const fresh = new Set(team.starters.filter((id): id is string => !!id && !initial.has(id)));
 
   // The playing surface follows the universe; slots, cards and animations are shared.
-  const Surface = pack.universeId === 'basketball' ? Court : Pitch;
+  const Surface = SURFACES[pack.universeId] ?? Pitch;
   return (
     <Surface
       slots={formation.slots}
