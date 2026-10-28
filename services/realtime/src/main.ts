@@ -16,13 +16,18 @@ if (databaseUrl) {
   const applied = await migrate(db);
   if (applied.length) log('info', 'migrations_applied', { applied });
 } else {
-  try {
-    releaseLock = acquireLock(pgliteDir);
-  } catch (err) {
-    log('error', 'local_db_locked', { message: (err as Error).message });
-    process.exit(1);
+  // The anti-double-server lock protects local development (Windows hot reload).
+  // In production a single container owns the volume, and a stale lock left on
+  // the persistent disk must never block a restart.
+  if (process.env.NODE_ENV !== 'production') {
+    try {
+      releaseLock = acquireLock(pgliteDir);
+    } catch (err) {
+      log('error', 'local_db_locked', { message: (err as Error).message });
+      process.exit(1);
+    }
+    process.on('exit', () => releaseLock());
   }
-  process.on('exit', () => releaseLock());
   db = await openLocalDb(pgliteDir);
 }
 

@@ -72,6 +72,7 @@ docs                 Documentation
 | [GAME_RULES](docs/GAME_RULES.md) | Règles exactes : enchères, réserve, placement, joueurs libres, vote, égalités |
 | [DESIGN_SYSTEM](docs/DESIGN_SYSTEM.md) | Couleurs, typographie, cartes, terrain, animations, accessibilité |
 | [DATA_LICENSING](docs/DATA_LICENSING.md) | Notes EA FC, fournisseurs sous licence, droits à l'image |
+| [FLY_DEPLOY](docs/FLY_DEPLOY.md) | **Mettre le serveur de jeu en ligne sur Fly.io**, pas à pas |
 | [DEPLOYMENT](docs/DEPLOYMENT.md) | Vercel (web), Fly.io ou Render (temps réel), Supabase (PostgreSQL) |
 | [PREVIEW_BUILD](docs/PREVIEW_BUILD.md) | **Tester sur vos téléphones** : build EAS preview pas à pas |
 | [STORE_RELEASE](docs/STORE_RELEASE.md) | EAS Build/Submit, TestFlight, Google Play, métadonnées |

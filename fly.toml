@@ -10,11 +10,13 @@
 #
 # Déploiement (depuis la racine du repo, contexte Docker = racine) :
 #   fly deploy --ha=false   (sans --ha=false, le 1er déploiement crée 2 Machines)
+# Données : par défaut, PostgreSQL embarqué (PGlite) sur le volume persistant
+# `byt_data` monté sur /data (à créer une fois : fly volumes create byt_data --region cdg --size 1).
+# Pour une base gérée à la place : fly secrets set DATABASE_URL="postgresql://...?sslmode=require"
 # Secrets (jamais dans ce fichier) :
-#   fly secrets set DATABASE_URL="postgresql://...?sslmode=require"
-#   fly secrets set CORS_ORIGIN="https://buildyourteam.app,https://www.buildyourteam.app"
+#   fly secrets set CORS_ORIGIN="https://<votre-site>.vercel.app"
 
-app = "REPLACE-ME-byt-realtime"
+app = "byt-realtime-kasiano7"   # nom unique sur Fly.io : changez-le si `fly apps create` le refuse
 primary_region = "cdg"
 
 [build]
@@ -25,6 +27,10 @@ primary_region = "cdg"
   LOG_LEVEL = "info"
   NODE_ENV = "production"
   TRUST_PROXY = "1"
+
+[mounts]
+  source = "byt_data"
+  destination = "/data"
 
 [http_service]
   internal_port = 4000
