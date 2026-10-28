@@ -12,7 +12,7 @@ Ce guide met en ligne le **serveur temps réel** (`services/realtime`). Le site 
 
 **Données :** le serveur utilise son moteur PostgreSQL intégré (PGlite) sur un **disque persistant Fly de 1 Go**, sans compte Supabase. Pour passer plus tard sur une base gérée, il suffira d'un secret `DATABASE_URL`.
 
-**Coût :** Fly.io facture à l'usage. Une petite machine (1 vCPU partagé, 512 Mo) allumée en permanence, plus 1 Go de volume, coûte de l'ordre de quelques dollars par mois. Vérifiez la grille tarifaire et le crédit d'essai sur fly.io/pricing.
+**Coût :** Fly.io facture à l'usage. Une petite machine (1 vCPU partagé, 1 Go — nécessaire pour la base intégrée) allumée en permanence, plus 1 Go de volume, coûte de l'ordre de quelques dollars par mois. Vérifiez la grille tarifaire et le crédit d'essai sur fly.io/pricing.
 
 ## 1. Installer l'outil `flyctl` (une fois)
 

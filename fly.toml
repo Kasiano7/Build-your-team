@@ -18,6 +18,8 @@
 
 app = "build-your-team"
 primary_region = "cdg"
+# Filet de sécurité contre les pics mémoire au démarrage.
+swap_size_mb = 512
 
 [build]
   dockerfile = "services/realtime/Dockerfile"
@@ -61,6 +63,9 @@ primary_region = "cdg"
   # se reconnectent automatiquement (coupure de quelques secondes).
   strategy = "rolling"
 
+# Mémoire : le PostgreSQL embarqué (PGlite, WASM) culmine vers 0,85-1,1 Go au
+# démarrage (mesuré). 512 Mo = arrêt pour manque de mémoire avant le health check.
+# Avec DATABASE_URL (base gérée), 512 Mo suffiraient.
 [[vm]]
   size = "shared-cpu-1x"
-  memory = "512mb"
+  memory = "1gb"
