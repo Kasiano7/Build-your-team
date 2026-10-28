@@ -43,7 +43,7 @@ Le navigateur s'ouvre : c'est vous qui saisissez vos identifiants et le moyen de
 Depuis la **racine du projet** (`Build Your team`) :
 
 ```powershell
-fly apps create byt-realtime-kasiano7
+fly apps create build-your-team
 ```
 
 Si le nom est déjà pris, choisissez-en un autre et reportez-le sur la ligne `app = "..."` de `fly.toml`.
@@ -74,7 +74,7 @@ L'option `--ha=false` est indispensable : **une seule machine** doit tourner, ca
 fly status
 ```
 
-Puis ouvrez `https://byt-realtime-kasiano7.fly.dev/health` (avec votre nom d'application). Vous devez voir `{"ok":true,"db":"pglite",...}`.
+Puis ouvrez `https://build-your-team.fly.dev/health` (avec votre nom d'application). Vous devez voir `{"ok":true,"db":"pglite",...}`.
 
 ## 7. Brancher le site Vercel
 
@@ -82,7 +82,7 @@ Dans Vercel → votre projet → **Settings → Environment Variables**, ajoutez
 
 | Nom | Valeur |
 |---|---|
-| `EXPO_PUBLIC_SERVER_URL` | `https://byt-realtime-kasiano7.fly.dev` |
+| `EXPO_PUBLIC_SERVER_URL` | `https://build-your-team.fly.dev` |
 | `EXPO_PUBLIC_WEB_URL` | `https://VOTRE-SITE.vercel.app` |
 
 Puis **Deployments → Redeploy**. Ces variables sont intégrées au moment du build, d'où le redéploiement. Le bandeau « Serveur de jeu non configuré » disparaît, et les parties fonctionnent entre plusieurs navigateurs et téléphones, même sur des réseaux différents.

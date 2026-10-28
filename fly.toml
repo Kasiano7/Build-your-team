@@ -16,7 +16,7 @@
 # Secrets (jamais dans ce fichier) :
 #   fly secrets set CORS_ORIGIN="https://<votre-site>.vercel.app"
 
-app = "byt-realtime-kasiano7"   # nom unique sur Fly.io : changez-le si `fly apps create` le refuse
+app = "build-your-team"
 primary_region = "cdg"
 
 [build]
