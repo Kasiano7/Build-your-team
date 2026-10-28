@@ -10,6 +10,7 @@
     "migrate": "tsx src/migrate-cli.ts"
   },
   "dependencies": {
+    "@byt/basketball": "*",
     "@byt/football": "*",
     "@byt/game-engine": "*",
     "@byt/shared": "*",

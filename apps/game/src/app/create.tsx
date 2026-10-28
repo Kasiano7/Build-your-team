@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
 import { router } from 'expo-router';
+import { builtInBasketballPacks } from '@byt/basketball';
 import { builtInFootballPacks } from '@byt/football';
+import type { ContentPack } from '@byt/shared';
 import { nicknameSchema } from '@byt/shared';
 import { colors } from '@byt/ui';
 import { PageHeader } from '@/components/Header';
@@ -10,15 +12,21 @@ import { errorMessage } from '@/lib/errors';
 import { getItem, keys, setItem } from '@/lib/storage';
 import { gameClient } from '@/state/game-client';
 
-// Shared rules (modes, formations) are identical across football packs.
-const pack = builtInFootballPacks[0]!;
+/** Playable universes and their datasets (first = default). Modes and line-ups come from the chosen pack. */
+const UNIVERSES: { id: string; label: string; sub: string; packs: ContentPack[] }[] = [
+  { id: 'football', label: 'Football', sub: '5 ou 11 joueurs', packs: builtInFootballPacks },
+  { id: 'basketball', label: 'Basket', sub: '5 joueurs + banc', packs: builtInBasketballPacks },
+];
 
 export default function CreateRoom() {
   const toast = useToast();
   const [nickname, setNickname] = useState('');
   const [nickError, setNickError] = useState<string | null>(null);
   const [players, setPlayers] = useState<2 | 3 | 4>(4);
+  const [universeId, setUniverseId] = useState('football');
+  const universe = UNIVERSES.find((u) => u.id === universeId)!;
   const [packId, setPackId] = useState(builtInFootballPacks[0]!.id);
+  const pack = universe.packs.find((p) => p.id === packId) ?? universe.packs[0]!;
   const [mode, setMode] = useState<'quick' | 'classic'>('quick');
   const modeDef = pack.modes.find((m) => m.id === mode)!;
   const [budget, setBudget] = useState(modeDef.defaultBudget);
@@ -31,12 +39,19 @@ export default function CreateRoom() {
     gameClient.ensureConnected();
   }, []);
 
-  const changeMode = (next: 'quick' | 'classic') => {
-    const def = pack.modes.find((m) => m.id === next)!;
+  const changeMode = (next: 'quick' | 'classic', inPack: ContentPack = pack) => {
+    const def = inPack.modes.find((m) => m.id === next)!;
     setMode(next);
     setBudget(def.defaultBudget);
     setFormationId(def.defaultFormationId);
     setTimer(next === 'quick' ? 15 : 20);
+  };
+
+  const changeUniverse = (id: string) => {
+    const u = UNIVERSES.find((x) => x.id === id)!;
+    setUniverseId(id);
+    setPackId(u.packs[0]!.id);
+    changeMode(mode, u.packs[0]!);
   };
 
   const submit = async () => {
@@ -50,7 +65,7 @@ export default function CreateRoom() {
     await setItem(keys.nickname, parsed.data);
     const res = await gameClient.create({
       nickname: parsed.data,
-      packId,
+      packId: pack.id,
       mode,
       maxParticipants: players,
       budget,
@@ -95,21 +110,27 @@ export default function CreateRoom() {
                   { value: 4, label: '4', sub: 'vote croisé' },
                 ]}
               />
+              <Segmented label="Univers" value={universeId} onChange={changeUniverse} options={UNIVERSES.map((u) => ({ value: u.id, label: u.label, sub: u.sub }))} />
+              {universe.packs.length > 1 && (
               <Segmented
                 label="Joueurs à recruter"
                 value={packId}
                 onChange={setPackId}
-                options={builtInFootballPacks.map((p) => ({
+                options={universe.packs.map((p) => ({
                   value: p.id,
                   label: p.dataset.fictional ? 'Fictifs' : 'Réels',
                   sub: p.dataset.fictional ? 'démo, 100 % inventés' : 'notes estimées, non officielles',
                 }))}
               />
+              )}
               <Segmented
                 label="Mode"
                 value={mode}
-                onChange={changeMode}
-                options={pack.modes.map((m) => ({ value: m.id, label: m.label, sub: m.id === 'quick' ? '5 joueurs' : '11 + 3 remplaçants' }))}
+                onChange={(m) => changeMode(m)}
+                options={pack.modes.map((m) => {
+                  const starters = pack.formations.find((f) => f.id === m.defaultFormationId)!.slots.length;
+                  return { value: m.id, label: m.label, sub: m.benchSize ? `${starters} + ${m.benchSize} remplaçants` : `${starters} joueurs` };
+                })}
               />
               <Segmented label="Budget de départ" value={budget} onChange={setBudget} options={modeDef.allowedBudgets.map((b) => ({ value: b, label: `${b}M` }))} />
               {modeDef.formationIds.length > 1 && (

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "dependencies": {
+    "@byt/basketball": "*",
     "@byt/football": "*",
     "@byt/game-engine": "*",
     "@byt/shared": "*",

@@ -128,7 +128,24 @@ L'écran de résultats indique quel critère a départagé le premier et le deux
 - À la reconnexion, que ce soit après un rechargement, une sortie de l'arrière-plan ou un changement de réseau, le client reprend automatiquement sa session et retrouve tout son état : budget, équipe, enchère en cours.
 - Si le serveur redémarre, les salons actifs sont rechargés depuis PostgreSQL et leurs chronos reprennent.
 
-## 9. Données des joueurs
+## 9. Univers Basket (ajouté le 28/10/2026)
+
+Mêmes règles d'enchères, de réserve, de joueurs libres et de vote que pour le football. Seul le contenu change :
+
+| | Rapide | Classique |
+|---|---|---|
+| Budget | 200M (150 / 200 / 300) | 300M (250 / 300 / 400) |
+| Titulaires | 5 : meneur (MEN), arrière (ARR), ailier (AIL), ailier fort (AF), pivot (PIV) | 5, avec trois compositions : **cinq classique**, **small ball** (meneur, arrière et trois ailiers), **twin towers** (meneur, deux ailiers, deux pivots) |
+| Banc | 0 | 3 remplaçants |
+
+- **Statistiques des cartes :** SHT (tir extérieur), INS (jeu intérieur), PAS (passe), DRI (dribble), DEF (défense), REB (rebond).
+- **Placement :**
+  - chaque emplacement préfère son poste ;
+  - un poste secondaire est accepté (score 2) ;
+  - un joueur de la même famille (extérieurs, ailiers, intérieurs) est accepté hors poste, avec la marque « ! ».
+- **Terrain :** un demi-terrain en 2,5D (tracés FIBA, panier au fond).
+
+## 10. Données des joueurs
 
 À la création de la partie, l'hôte choisit le jeu de joueurs :
 

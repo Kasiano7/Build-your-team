@@ -1,46 +1,73 @@
 /**
- * Offline interface tour with fictional data. Clearly labelled: no server,
- * no other players, nothing here pretends to be a connected game.
+ * Offline interface tour. Clearly labelled: no server, no other players,
+ * nothing here pretends to be a connected game. Switches between universes
+ * to show that the same engine drives football and basketball.
  */
 import { useMemo, useState } from 'react';
 import { ScrollView, Text, View, useWindowDimensions } from 'react-native';
+import { basketballRealPack } from '@byt/basketball';
 import { footballRealPack } from '@byt/football';
-import { emptyTeam, getFormation, reformTeam, toPackMeta, bestSlotFor, placeCharacter } from '@byt/game-engine';
-import type { Character, Team } from '@byt/shared';
+import { bestSlotFor, emptyTeam, getFormation, placeCharacter, reformTeam, toPackMeta } from '@byt/game-engine';
+import type { Character, ContentPack, Team } from '@byt/shared';
 import { PlayerCard, colors, fonts, radii } from '@byt/ui';
 import { PageHeader } from '@/components/Header';
 import { Body, Button, Eyebrow, Panel, Screen, Segmented, Title } from '@/components/ui';
 import { TeamPitch } from '@/features/team/TeamPitch';
 import { playSound } from '@/lib/sound';
 
-const pack = footballRealPack;
-const meta = toPackMeta(pack);
-const characters: Record<string, Character> = Object.fromEntries(pack.characters.map((c) => [c.id, c]));
+const PACKS: Record<string, ContentPack> = { football: footballRealPack, basketball: basketballRealPack };
 
-function byTier(): Character[] {
+function tierOf(pack: ContentPack, c: Character) {
+  return [...pack.tiers].sort((a, b) => b.minOverall - a.minOverall).find((t) => c.overall >= t.minOverall)!;
+}
+
+/** Best player of each tier present in the pack, lowest tier first. */
+function byTier(pack: ContentPack): Character[] {
   const sorted = [...pack.characters].sort((a, b) => b.overall - a.overall);
   return pack.tiers
-    .map((t) => sorted.find((c) => c.overall >= t.minOverall && !pack.tiers.some((u) => u.minOverall > t.minOverall && c.overall >= u.minOverall)))
-    .filter((c): c is Character => !!c)
-    .reverse();
+    .map((t) => sorted.find((c) => tierOf(pack, c).id === t.id))
+    .filter((c): c is Character => !!c);
+}
+
+/** Every formation of the pack once, with the bench size of the first mode that uses it. */
+function lineups(pack: ContentPack) {
+  const seen = new Set<string>();
+  return pack.modes
+    .flatMap((m) => m.formationIds.map((f) => ({ id: f, bench: m.benchSize, label: m.id === 'quick' && m.formationIds.length === 1 && pack.modes.every((o) => o === m || !o.formationIds.includes(f)) ? 'Rapide' : pack.formations.find((x) => x.id === f)!.label })))
+    .filter((o) => !seen.has(o.id) && seen.add(o.id));
 }
 
 export default function Demo() {
   const { width } = useWindowDimensions();
   const wide = width >= 900;
-  const [formationId, setFormationId] = useState('quick-5');
+  const [universe, setUniverse] = useState<'football' | 'basketball'>('football');
+  const pack = PACKS[universe]!;
+  const meta = useMemo(() => toPackMeta(pack), [pack]);
+  const characters = useMemo(() => Object.fromEntries(pack.characters.map((c) => [c.id, c])), [pack]);
+  const options = useMemo(() => lineups(pack), [pack]);
+  const [formationId, setFormationId] = useState(options[0]!.id);
   const formation = getFormation(pack, formationId);
-  const [team, setTeam] = useState<Team>(() => emptyTeam(getFormation(pack, 'quick-5'), 0));
+  const bench = options.find((o) => o.id === formationId)?.bench ?? 0;
+  const [team, setTeam] = useState<Team>(() => emptyTeam(getFormation(pack, options[0]!.id), 0));
   const [cursor, setCursor] = useState(0);
-  const order = useMemo(() => [...pack.characters].sort((a, b) => (a.id < b.id ? -1 : 1)).filter((_, i) => i % 7 === 0), []);
-  const tiers = useMemo(() => byTier(), []);
+  const order = useMemo(() => [...pack.characters].sort((a, b) => (a.id < b.id ? -1 : 1)).filter((_, i) => i % 5 === 0), [pack]);
+  const tiers = useMemo(() => byTier(pack), [pack]);
+
+  const changeUniverse = (u: 'football' | 'basketball') => {
+    const p = PACKS[u]!;
+    const first = lineups(p)[0]!;
+    setUniverse(u);
+    setFormationId(first.id);
+    setTeam(emptyTeam(getFormation(p, first.id), first.bench));
+    setCursor(0);
+  };
 
   const changeFormation = (id: string) => {
-    setFormationId(id);
     const f = getFormation(pack, id);
-    const bench = id === 'quick-5' ? 0 : 3;
-    const reformed = reformTeam(pack, { ...team, bench: Array.from({ length: bench }, () => null) }, f);
-    setTeam(reformed ?? emptyTeam(f, bench));
+    const b = options.find((o) => o.id === id)?.bench ?? 0;
+    setFormationId(id);
+    const reformed = reformTeam(pack, { ...team, bench: Array.from({ length: b }, () => null) }, f);
+    setTeam(reformed ?? emptyTeam(f, b));
   };
 
   const addNext = () => {
@@ -68,16 +95,25 @@ export default function Demo() {
               Démo hors ligne — aucune connexion, aucun autre joueur. Joueurs réels, notes estimées (non officielles).
             </Text>
           </View>
-          <Title size={38}>Découvrir l’interface</Title>
+          <Title size={34}>Découvrir l’interface</Title>
           <View style={{ flexDirection: wide ? 'row' : 'column', gap: 16 }}>
             <Panel style={{ flex: 1.3, gap: 12 }}>
-              <Segmented label="Formation" value={formationId} onChange={changeFormation} options={['quick-5', '4-3-3', '4-4-2', '4-2-3-1'].map((f) => ({ value: f, label: f === 'quick-5' ? 'Rapide' : f }))} />
+              <Segmented
+                label="Univers"
+                value={universe}
+                onChange={changeUniverse}
+                options={[
+                  { value: 'football', label: 'Football' },
+                  { value: 'basketball', label: 'Basket' },
+                ]}
+              />
+              <Segmented label="Composition" value={formationId} onChange={changeFormation} options={options.map((o) => ({ value: o.id, label: o.label }))} />
               <View style={{ height: wide ? 520 : 420 }}>
-                <TeamPitch pack={meta} formation={formation} team={team} characters={characters} targetSlot={null} />
+                <TeamPitch key={universe} pack={meta} formation={formation} team={team} characters={characters} targetSlot={null} />
               </View>
               <View style={{ flexDirection: 'row', gap: 10 }}>
                 <Button label="Ajouter un joueur" onPress={addNext} style={{ flex: 1 }} disabled={!team.starters.includes(null)} />
-                <Button label="Vider" variant="secondary" onPress={() => setTeam(emptyTeam(formation, formationId === 'quick-5' ? 0 : 3))} />
+                <Button label="Vider" variant="secondary" onPress={() => setTeam(emptyTeam(formation, bench))} />
               </View>
               <Body dim style={{ fontSize: 13 }}>
                 Le placement utilise le même algorithme que la partie : poste naturel d’abord, puis postes secondaires, puis poste du même groupe.
@@ -89,7 +125,7 @@ export default function Demo() {
                 {tiers.map((c) => (
                   <View key={c.id} style={{ alignItems: 'center', gap: 6 }}>
                     <PlayerCard character={c} pack={meta} width={wide ? 150 : 140} />
-                    <Text style={{ fontFamily: fonts.bodySemi, fontSize: 12, color: colors.textDim }}>{pack.tiers.find((t) => c.overall >= t.minOverall && !pack.tiers.some((u) => u.minOverall > t.minOverall && c.overall >= u.minOverall))?.label}</Text>
+                    <Text style={{ fontFamily: fonts.bodySemi, fontSize: 12, color: colors.textDim }}>{tierOf(pack, c).label}</Text>
                   </View>
                 ))}
               </View>

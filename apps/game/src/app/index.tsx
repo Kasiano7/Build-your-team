@@ -4,6 +4,7 @@ import { router } from 'expo-router';
 import { BlurView } from 'expo-blur';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withTiming } from 'react-native-reanimated';
 import Svg, { Circle, Path } from 'react-native-svg';
+import { basketballRealPack } from '@byt/basketball';
 import { footballRealPack } from '@byt/football';
 import { emptyTeam, getFormation, toPackMeta } from '@byt/game-engine';
 import type { Character, Team } from '@byt/shared';
@@ -226,7 +227,7 @@ export default function Home() {
                 </Pressable>
               )}
               <View style={{ flexDirection: 'row', gap: wide ? 40 : 28, paddingTop: 6 }}>
-                <Stat value={String(pack.characters.length)} label="vrais joueurs" />
+                <Stat value={String(pack.characters.length + basketballRealPack.characters.length)} label="vrais joueurs" />
                 <Stat value="2–4" label="joueurs par salon" />
                 <Stat value="10 min" label="la partie rapide" />
               </View>
@@ -257,8 +258,10 @@ export default function Home() {
                 </Svg>
               </View>
               <View style={{ flex: 1, gap: 2 }}>
-                <Text style={{ fontFamily: fonts.heroSemi, fontSize: 16, color: colors.text }}>Univers Football</Text>
-                <Text style={{ fontFamily: fonts.bodyMedium, fontSize: 13, color: colors.textDim }}>Mode rapide (5 joueurs) · Mode classique (11 + banc). D’autres univers pourront s’ajouter au même moteur.</Text>
+                <Text style={{ fontFamily: fonts.heroSemi, fontSize: 16, color: colors.text }}>Football · Basket</Text>
+                <Text style={{ fontFamily: fonts.bodyMedium, fontSize: 13, color: colors.textDim }}>
+                  Foot : 5 ou 11 joueurs · Basket : 5 joueurs + banc. Le même moteur accueillera d’autres univers.
+                </Text>
               </View>
             </View>
             <View style={{ flexDirection: 'row', gap: 18, alignItems: 'center' }}>

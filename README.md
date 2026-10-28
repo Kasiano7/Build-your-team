@@ -1,6 +1,6 @@
 # BUILD YOUR TEAM — Bid. Build. Win.
 
-Jeu d'enchères multijoueur entre amis, de 2 à 4 joueurs. Chacun a le même budget virtuel. Les footballeurs passent aux enchères un par un, le plus offrant l'emporte et sa carte rejoint son terrain. À la fin, on vote pour la meilleure équipe.
+Jeu d'enchères multijoueur entre amis, de 2 à 4 joueurs, en **football** ou en **basket**. Chacun a le même budget virtuel. Les footballeurs passent aux enchères un par un, le plus offrant l'emporte et sa carte rejoint son terrain. À la fin, on vote pour la meilleure équipe.
 
 Une seule base de code **Expo / React Native** pour le **web, iOS et Android**. Un **serveur temps réel autoritaire** (Node.js, Socket.IO, PostgreSQL) gère les budgets, les enchères, les chronos et les votes.
 
@@ -57,6 +57,7 @@ services/realtime    Serveur de jeu autoritaire (Socket.IO + PostgreSQL)
 packages/shared      Types du domaine génériques, contrats Zod, modération
 packages/game-engine Moteur d'enchères pur et déterministe
 packages/football    Pack « Football » : postes, formations, modes, dataset fictif, import sous licence
+packages/basketball  Pack « Basket » : postes, compositions, modes, joueurs réels (notes estimées)
 packages/ui          Cartes, terrain 2,5D, avatars, drapeaux, jetons de design
 database/migrations  Schéma PostgreSQL
 e2e                  Scénarios Playwright multi-navigateurs
@@ -82,6 +83,7 @@ docs                 Documentation
 | Commande | Effet |
 |---|---|
 | `npm run data:demo` | Régénère le dataset fictif (déterministe) |
+| `npm run data:basketball` | Régénère le jeu de données Basket depuis `packages/basketball/scripts/real-players.source.ts` |
 | `npm run data:real` | Régénère le dataset « Réels » depuis `packages/football/scripts/real-players.source.ts` |
 | `npm run data:import -- --file x.csv --id … --version … --label … --source … --license …` | Importe un dataset **sous licence**, versionné et validé |
 | `npm run typecheck` | Vérifie les types de tous les packages |

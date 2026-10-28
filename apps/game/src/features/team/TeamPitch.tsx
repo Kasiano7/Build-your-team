@@ -16,7 +16,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import Svg, { Path } from 'react-native-svg';
 import type { Character, FormationDef, PackMeta, Team } from '@byt/shared';
-import { PlayerCard, Pitch, colors, fonts } from '@byt/ui';
+import { Court, PlayerCard, Pitch, colors, fonts } from '@byt/ui';
 import { useReduceMotion } from '@/state/settings';
 
 export interface TeamPitchProps {
@@ -101,8 +101,10 @@ export function TeamPitch({ pack, formation, team, characters, targetSlot = null
   const [initial] = useState(() => new Set(team.starters.filter((x): x is string => !!x)));
   const fresh = new Set(team.starters.filter((id): id is string => !!id && !initial.has(id)));
 
+  // The playing surface follows the universe; slots, cards and animations are shared.
+  const Surface = pack.universeId === 'basketball' ? Court : Pitch;
   return (
-    <Pitch
+    <Surface
       slots={formation.slots}
       renderSlot={(slot, index, { cardWidth }) => {
         const id = team.starters[index] ?? null;

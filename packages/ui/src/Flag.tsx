@@ -10,7 +10,7 @@ type Spec =
   | { h: string[] }
   | { v: string[] }
   | { nordic: [string, string] }
-  | { custom: 'CAN' | 'GEO' | 'JPN' | 'KOR' | 'BRA' | 'USA' | 'ENG' | 'SCO' | 'SUI' | 'MAR' | 'ALG' | 'TUN' | 'CMR' | 'GHA' | 'SEN' | 'CRO' | 'SRB' | 'POR' | 'URU' | 'ARG' | 'TUR' };
+  | { custom: 'GRE' | 'ISR' | 'DOM' | 'MNE' | 'BAH' | 'GBR' | 'AUS' | 'CAN' | 'GEO' | 'JPN' | 'KOR' | 'BRA' | 'USA' | 'ENG' | 'SCO' | 'SUI' | 'MAR' | 'ALG' | 'TUN' | 'CMR' | 'GHA' | 'SEN' | 'CRO' | 'SRB' | 'POR' | 'URU' | 'ARG' | 'TUR' };
 
 const FLAGS: Record<string, Spec> = {
   FRA: { v: ['#1F3C88', '#F4F4F4', '#D5263B'] },
@@ -27,6 +27,16 @@ const FLAGS: Record<string, Spec> = {
   COL: { h: ['#FCD116', '#FCD116', '#003893', '#CE1126'] },
   POL: { h: ['#F4F4F4', '#DC143C'] },
   HUN: { h: ['#CE2939', '#F4F4F4', '#477050'] },
+  LTU: { h: ['#FDB913', '#006A44', '#C1272D'] },
+  LAT: { h: ['#9E3039', '#9E3039', '#F4F4F4', '#9E3039', '#9E3039'] },
+  FIN: { nordic: ['#F4F4F4', '#003580'] },
+  GRE: { custom: 'GRE' },
+  ISR: { custom: 'ISR' },
+  DOM: { custom: 'DOM' },
+  MNE: { custom: 'MNE' },
+  BAH: { custom: 'BAH' },
+  GBR: { custom: 'GBR' },
+  AUS: { custom: 'AUS' },
   SVN: { h: ['#F4F4F4', '#0057B8', '#ED1C24'] },
   SVK: { h: ['#F4F4F4', '#0B4EA2', '#EE1C25'] },
   ECU: { h: ['#FFD100', '#FFD100', '#034EA2', '#ED1C24'] },
@@ -60,6 +70,20 @@ const FLAGS: Record<string, Spec> = {
 
 function Custom({ code }: { code: string }) {
   switch (code) {
+    case 'GRE':
+      return (<>{[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (<Rect key={i} y={i * (20 / 9)} width="30" height={20 / 9} fill={i % 2 ? '#F4F4F4' : '#0D5EAF'} />))}<Rect width="11.1" height="11.1" fill="#0D5EAF" /><Rect x="4.44" width="2.22" height="11.1" fill="#F4F4F4" /><Rect y="4.44" width="11.1" height="2.22" fill="#F4F4F4" /></>);
+    case 'ISR':
+      return (<><Rect width="30" height="20" fill="#F4F4F4" /><Rect y="2.5" width="30" height="2.6" fill="#0038B8" /><Rect y="14.9" width="30" height="2.6" fill="#0038B8" /><Path d="M15 6.6l3 5.2h-6zM15 13.4l-3-5.2h6z" fill="none" stroke="#0038B8" strokeWidth="0.9" /></>);
+    case 'DOM':
+      return (<><Rect width="30" height="20" fill="#F4F4F4" /><Rect width="13" height="8.5" fill="#002D62" /><Rect x="17" width="13" height="8.5" fill="#CE1126" /><Rect y="11.5" width="13" height="8.5" fill="#CE1126" /><Rect x="17" y="11.5" width="13" height="8.5" fill="#002D62" /></>);
+    case 'MNE':
+      return (<><Rect width="30" height="20" fill="#D4AF37" /><Rect x="1.2" y="1.2" width="27.6" height="17.6" fill="#C40308" /><Circle cx="15" cy="10" r="3.2" fill="#D4AF37" /></>);
+    case 'BAH':
+      return (<><Rect width="30" height="20" fill="#00778B" /><Rect y="6.67" width="30" height="6.67" fill="#FFC72C" /><Path d="M0 0 L11 10 L0 20 Z" fill="#111" /></>);
+    case 'GBR':
+      return (<><Rect width="30" height="20" fill="#012169" /><Path d="M0 0 30 20M30 0 0 20" stroke="#F4F4F4" strokeWidth="4" /><Path d="M0 0 30 20M30 0 0 20" stroke="#C8102E" strokeWidth="1.6" /><Rect x="12" width="6" height="20" fill="#F4F4F4" /><Rect y="7" width="30" height="6" fill="#F4F4F4" /><Rect x="13.3" width="3.4" height="20" fill="#C8102E" /><Rect y="8.3" width="30" height="3.4" fill="#C8102E" /></>);
+    case 'AUS':
+      return (<><Rect width="30" height="20" fill="#012169" /><Rect width="15" height="10" fill="#012169" /><Path d="M0 0 15 10M15 0 0 10" stroke="#F4F4F4" strokeWidth="2" /><Rect x="6" width="3" height="10" fill="#F4F4F4" /><Rect y="3.5" width="15" height="3" fill="#F4F4F4" /><Rect x="6.8" width="1.4" height="10" fill="#C8102E" /><Rect y="4.3" width="15" height="1.4" fill="#C8102E" /><Circle cx="7.5" cy="15" r="1.6" fill="#F4F4F4" /><Circle cx="23" cy="5" r="0.9" fill="#F4F4F4" /><Circle cx="20" cy="10" r="0.9" fill="#F4F4F4" /><Circle cx="25.5" cy="9" r="0.9" fill="#F4F4F4" /><Circle cx="23" cy="16" r="0.9" fill="#F4F4F4" /></>);
     case 'CAN':
       return (<><Rect width="30" height="20" fill="#F4F4F4" /><Rect width="7.5" height="20" fill="#D52B1E" /><Rect x="22.5" width="7.5" height="20" fill="#D52B1E" /><Path d="M15 5l1.2 2.6 1.6-.6-.5 3 1.7-1-.3 1.6 1.4.3-1.6 1.8.3 1.1h-3.2v2.2h-1.2v-2.2h-3.2l.3-1.1-1.6-1.8 1.4-.3-.3-1.6 1.7 1-.5-3 1.6.6z" fill="#D52B1E" /></>);
     case 'GEO':

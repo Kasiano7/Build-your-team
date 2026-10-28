@@ -62,6 +62,42 @@ describe('content pack', () => {
     expect(pack.dataset.label).toMatch(/fictifs/);
   });
 
+  it('basketball pack: valid, same engine, full classic game with formation change', async () => {
+    const { basketballRealPack: bk } = await import('@byt/basketball');
+    expect(validatePack(bk)).toEqual([]);
+    expect(bk.universeId).toBe('basketball');
+    expect(bk.dataset.fictional).toBe(false);
+    expect(bk.dataset.label).toMatch(/estimées.*non officielles/);
+    const ctxB = { pack: bk, now: 1_000_000 };
+    let s = createRoomState({ code: 'BASKET', settings: buildSettings(bk, { mode: 'classic', maxParticipants: 4 }), host: { id: 'p1', nickname: 'A' }, seed: 11, ctx: ctxB });
+    expect(s.settings.budget).toBe(300);
+    expect(s.participants[0]!.team.starters).toHaveLength(5);
+    expect(s.participants[0]!.team.bench).toHaveLength(3);
+    for (const id of ['p2', 'p3', 'p4']) s = unwrap(addParticipant(s, id, id, ctxB));
+    s = unwrap(changeFormation(s, 'p2', 'bk-twin', ctxB));
+    s = unwrap(startGame(s, 'p1', ctxB));
+    let t = ctxB.now;
+    for (let i = 0; i < 2000 && s.status === 'drafting'; i++) {
+      t = Math.max(t, nextDeadline(s)!);
+      s = unwrap(advance(s, { pack: bk, now: t }));
+    }
+    expect(s.status).toBe('voting');
+    for (const p of s.participants) expect(p.team.starters.every(Boolean)).toBe(true);
+    // Twin towers: both centre slots hold players able to play there.
+    const twin = s.participants.find((p) => p.id === 'p2')!;
+    const formation = getFormation(bk, twin.team.formationId);
+    twin.team.starters.forEach((id, i) => expect(compatibility(bk, getCharacter(bk, id!), formation.slots[i]!)).toBeGreaterThan(0));
+  });
+
+  it('basketball auto-placement puts each position in its own slot', async () => {
+    const { basketballRealPack: bk } = await import('@byt/basketball');
+    const team = createRoomState({ code: 'BASKE2', settings: buildSettings(bk, { mode: 'quick', maxParticipants: 2 }), host: { id: 'p1', nickname: 'A' }, seed: 1, ctx: { pack: bk, now: 0 } }).participants[0]!.team;
+    const by = (role: string) => bk.characters.find((c) => c.roles[0] === role && c.roles.length === 1)!;
+    expect(bestSlotFor(bk, team, by('SG'))).toEqual({ kind: 'starter', index: 1 });
+    expect(bestSlotFor(bk, team, by('PG'))).toEqual({ kind: 'starter', index: 0 });
+    expect(bestSlotFor(bk, team, by('C'))).toEqual({ kind: 'starter', index: 4 });
+  });
+
   it('real-players pack is valid, labelled as estimated, and plays a full game', async () => {
     const { footballRealPack } = await import('@byt/football');
     expect(validatePack(footballRealPack)).toEqual([]);

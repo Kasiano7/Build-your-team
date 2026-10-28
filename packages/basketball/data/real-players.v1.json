@@ -1,0 +1,1600 @@
+{
+ "dataset": {
+  "id": "basketball-real",
+  "version": "1.0.0",
+  "label": "Basket · joueurs réels · notes estimées par Build Your Team (non officielles)",
+  "fictional": false,
+  "source": "Liste Build Your Team — effectifs indicatifs saison 2025-2026 ; notes et statistiques estimées par un modèle interne",
+  "license": "Noms de personnes réelles : usage privé et tests uniquement tant que les droits nom/image (syndicat des joueurs, ligue) ne sont pas acquis. Aucune donnée de jeu vidéo ni note officielle.",
+  "contentHash": "48e1bf0d1248960907b5601be6a1776284695491c04d5cc8c255cbeb7b7c3d7e"
+ },
+ "characters": [
+  {
+   "id": "bk-shai-gilgeous-alexander",
+   "name": "Shai Gilgeous-Alexander",
+   "shortName": "Gilgeous-Alexander",
+   "nationality": "CAN",
+   "roles": [
+    "PG",
+    "SG"
+   ],
+   "overall": 96,
+   "attributes": {
+    "SHT": 88,
+    "INS": 85,
+    "PAS": 98,
+    "DRI": 98,
+    "DEF": 82,
+    "REB": 60
+   },
+   "portraitSeed": 3472085330,
+   "affiliation": "Oklahoma City Thunder"
+  },
+  {
+   "id": "bk-stephen-curry",
+   "name": "Stephen Curry",
+   "shortName": "Curry",
+   "nationality": "USA",
+   "roles": [
+    "PG"
+   ],
+   "overall": 92,
+   "attributes": {
+    "SHT": 98,
+    "INS": 71,
+    "PAS": 98,
+    "DRI": 97,
+    "DEF": 73,
+    "REB": 53
+   },
+   "portraitSeed": 1213675065,
+   "affiliation": "Golden State Warriors"
+  },
+  {
+   "id": "bk-luka-doncic",
+   "name": "Luka Dončić",
+   "shortName": "Dončić",
+   "nationality": "SVN",
+   "roles": [
+    "PG",
+    "SG"
+   ],
+   "overall": 95,
+   "attributes": {
+    "SHT": 90,
+    "INS": 76,
+    "PAS": 98,
+    "DRI": 98,
+    "DEF": 75,
+    "REB": 60
+   },
+   "portraitSeed": 928624930,
+   "affiliation": "Los Angeles Lakers"
+  },
+  {
+   "id": "bk-jalen-brunson",
+   "name": "Jalen Brunson",
+   "shortName": "Brunson",
+   "nationality": "USA",
+   "roles": [
+    "PG"
+   ],
+   "overall": 90,
+   "attributes": {
+    "SHT": 85,
+    "INS": 73,
+    "PAS": 93,
+    "DRI": 98,
+    "DEF": 75,
+    "REB": 54
+   },
+   "portraitSeed": 874578698,
+   "affiliation": "New York Knicks"
+  },
+  {
+   "id": "bk-anthony-edwards",
+   "name": "Anthony Edwards",
+   "shortName": "Edwards",
+   "nationality": "USA",
+   "roles": [
+    "SG"
+   ],
+   "overall": 92,
+   "attributes": {
+    "SHT": 98,
+    "INS": 85,
+    "PAS": 83,
+    "DRI": 87,
+    "DEF": 78,
+    "REB": 54
+   },
+   "portraitSeed": 2409895614,
+   "affiliation": "Minnesota Timberwolves"
+  },
+  {
+   "id": "bk-donovan-mitchell",
+   "name": "Donovan Mitchell",
+   "shortName": "Mitchell",
+   "nationality": "USA",
+   "roles": [
+    "SG"
+   ],
+   "overall": 90,
+   "attributes": {
+    "SHT": 97,
+    "INS": 79,
+    "PAS": 84,
+    "DRI": 89,
+    "DEF": 75,
+    "REB": 56
+   },
+   "portraitSeed": 3836100424,
+   "affiliation": "Cleveland Cavaliers"
+  },
+  {
+   "id": "bk-devin-booker",
+   "name": "Devin Booker",
+   "shortName": "Booker",
+   "nationality": "USA",
+   "roles": [
+    "SG"
+   ],
+   "overall": 88,
+   "attributes": {
+    "SHT": 98,
+    "INS": 78,
+    "PAS": 80,
+    "DRI": 83,
+    "DEF": 71,
+    "REB": 54
+   },
+   "portraitSeed": 1929384891,
+   "affiliation": "Phoenix Suns"
+  },
+  {
+   "id": "bk-tyrese-haliburton",
+   "name": "Tyrese Haliburton",
+   "shortName": "Haliburton",
+   "nationality": "USA",
+   "roles": [
+    "PG"
+   ],
+   "overall": 88,
+   "attributes": {
+    "SHT": 81,
+    "INS": 68,
+    "PAS": 94,
+    "DRI": 92,
+    "DEF": 72,
+    "REB": 55
+   },
+   "portraitSeed": 2502484923,
+   "affiliation": "Indiana Pacers"
+  },
+  {
+   "id": "bk-cade-cunningham",
+   "name": "Cade Cunningham",
+   "shortName": "Cunningham",
+   "nationality": "USA",
+   "roles": [
+    "PG"
+   ],
+   "overall": 90,
+   "attributes": {
+    "SHT": 86,
+    "INS": 74,
+    "PAS": 97,
+    "DRI": 97,
+    "DEF": 76,
+    "REB": 53
+   },
+   "portraitSeed": 3709068576,
+   "affiliation": "Detroit Pistons"
+  },
+  {
+   "id": "bk-ja-morant",
+   "name": "Ja Morant",
+   "shortName": "Morant",
+   "nationality": "USA",
+   "roles": [
+    "PG"
+   ],
+   "overall": 87,
+   "attributes": {
+    "SHT": 86,
+    "INS": 76,
+    "PAS": 92,
+    "DRI": 95,
+    "DEF": 71,
+    "REB": 52
+   },
+   "portraitSeed": 2498739987,
+   "affiliation": "Memphis Grizzlies"
+  },
+  {
+   "id": "bk-trae-young",
+   "name": "Trae Young",
+   "shortName": "Young",
+   "nationality": "USA",
+   "roles": [
+    "PG"
+   ],
+   "overall": 87,
+   "attributes": {
+    "SHT": 84,
+    "INS": 67,
+    "PAS": 93,
+    "DRI": 90,
+    "DEF": 69,
+    "REB": 54
+   },
+   "portraitSeed": 3932507841,
+   "affiliation": "Atlanta Hawks"
+  },
+  {
+   "id": "bk-de-aaron-fox",
+   "name": "De'Aaron Fox",
+   "shortName": "Fox",
+   "nationality": "USA",
+   "roles": [
+    "PG"
+   ],
+   "overall": 87,
+   "attributes": {
+    "SHT": 86,
+    "INS": 68,
+    "PAS": 92,
+    "DRI": 96,
+    "DEF": 70,
+    "REB": 53
+   },
+   "portraitSeed": 1103646897,
+   "affiliation": "San Antonio Spurs"
+  },
+  {
+   "id": "bk-tyrese-maxey",
+   "name": "Tyrese Maxey",
+   "shortName": "Maxey",
+   "nationality": "USA",
+   "roles": [
+    "PG",
+    "SG"
+   ],
+   "overall": 88,
+   "attributes": {
+    "SHT": 86,
+    "INS": 68,
+    "PAS": 93,
+    "DRI": 94,
+    "DEF": 71,
+    "REB": 55
+   },
+   "portraitSeed": 1464820847,
+   "affiliation": "Philadelphia 76ers"
+  },
+  {
+   "id": "bk-jalen-williams",
+   "name": "Jalen Williams",
+   "shortName": "J. Williams",
+   "nationality": "USA",
+   "roles": [
+    "SG",
+    "SF"
+   ],
+   "overall": 88,
+   "attributes": {
+    "SHT": 92,
+    "INS": 79,
+    "PAS": 82,
+    "DRI": 87,
+    "DEF": 76,
+    "REB": 53
+   },
+   "portraitSeed": 1158439027,
+   "affiliation": "Oklahoma City Thunder"
+  },
+  {
+   "id": "bk-kyrie-irving",
+   "name": "Kyrie Irving",
+   "shortName": "Irving",
+   "nationality": "AUS",
+   "roles": [
+    "PG"
+   ],
+   "overall": 87,
+   "attributes": {
+    "SHT": 82,
+    "INS": 70,
+    "PAS": 94,
+    "DRI": 98,
+    "DEF": 73,
+    "REB": 49
+   },
+   "portraitSeed": 1348267612,
+   "affiliation": "Dallas Mavericks"
+  },
+  {
+   "id": "bk-james-harden",
+   "name": "James Harden",
+   "shortName": "Harden",
+   "nationality": "USA",
+   "roles": [
+    "PG"
+   ],
+   "overall": 87,
+   "attributes": {
+    "SHT": 80,
+    "INS": 72,
+    "PAS": 98,
+    "DRI": 91,
+    "DEF": 72,
+    "REB": 50
+   },
+   "portraitSeed": 3813944083,
+   "affiliation": "Los Angeles Clippers"
+  },
+  {
+   "id": "bk-jamal-murray",
+   "name": "Jamal Murray",
+   "shortName": "Murray",
+   "nationality": "CAN",
+   "roles": [
+    "PG"
+   ],
+   "overall": 87,
+   "attributes": {
+    "SHT": 91,
+    "INS": 73,
+    "PAS": 91,
+    "DRI": 94,
+    "DEF": 68,
+    "REB": 55
+   },
+   "portraitSeed": 2597973858,
+   "affiliation": "Denver Nuggets"
+  },
+  {
+   "id": "bk-damian-lillard",
+   "name": "Damian Lillard",
+   "shortName": "Lillard",
+   "nationality": "USA",
+   "roles": [
+    "PG"
+   ],
+   "overall": 85,
+   "attributes": {
+    "SHT": 83,
+    "INS": 66,
+    "PAS": 86,
+    "DRI": 88,
+    "DEF": 73,
+    "REB": 50
+   },
+   "portraitSeed": 1662491739,
+   "affiliation": "Portland Trail Blazers"
+  },
+  {
+   "id": "bk-lamelo-ball",
+   "name": "LaMelo Ball",
+   "shortName": "Ball",
+   "nationality": "USA",
+   "roles": [
+    "PG"
+   ],
+   "overall": 86,
+   "attributes": {
+    "SHT": 81,
+    "INS": 72,
+    "PAS": 92,
+    "DRI": 88,
+    "DEF": 70,
+    "REB": 49
+   },
+   "portraitSeed": 3082305938,
+   "affiliation": "Charlotte Hornets"
+  },
+  {
+   "id": "bk-darius-garland",
+   "name": "Darius Garland",
+   "shortName": "Garland",
+   "nationality": "USA",
+   "roles": [
+    "PG"
+   ],
+   "overall": 85,
+   "attributes": {
+    "SHT": 80,
+    "INS": 68,
+    "PAS": 94,
+    "DRI": 88,
+    "DEF": 72,
+    "REB": 52
+   },
+   "portraitSeed": 4252681308,
+   "affiliation": "Cleveland Cavaliers"
+  },
+  {
+   "id": "bk-derrick-white",
+   "name": "Derrick White",
+   "shortName": "White",
+   "nationality": "USA",
+   "roles": [
+    "SG",
+    "PG"
+   ],
+   "overall": 85,
+   "attributes": {
+    "SHT": 88,
+    "INS": 75,
+    "PAS": 79,
+    "DRI": 86,
+    "DEF": 74,
+    "REB": 50
+   },
+   "portraitSeed": 371359242,
+   "affiliation": "Boston Celtics"
+  },
+  {
+   "id": "bk-jrue-holiday",
+   "name": "Jrue Holiday",
+   "shortName": "Holiday",
+   "nationality": "USA",
+   "roles": [
+    "PG",
+    "SG"
+   ],
+   "overall": 83,
+   "attributes": {
+    "SHT": 78,
+    "INS": 68,
+    "PAS": 89,
+    "DRI": 85,
+    "DEF": 72,
+    "REB": 53
+   },
+   "portraitSeed": 2030371099,
+   "affiliation": "Portland Trail Blazers"
+  },
+  {
+   "id": "bk-desmond-bane",
+   "name": "Desmond Bane",
+   "shortName": "Bane",
+   "nationality": "USA",
+   "roles": [
+    "SG"
+   ],
+   "overall": 84,
+   "attributes": {
+    "SHT": 89,
+    "INS": 70,
+    "PAS": 74,
+    "DRI": 83,
+    "DEF": 68,
+    "REB": 51
+   },
+   "portraitSeed": 2501496099,
+   "affiliation": "Orlando Magic"
+  },
+  {
+   "id": "bk-zach-lavine",
+   "name": "Zach LaVine",
+   "shortName": "LaVine",
+   "nationality": "USA",
+   "roles": [
+    "SG"
+   ],
+   "overall": 84,
+   "attributes": {
+    "SHT": 94,
+    "INS": 75,
+    "PAS": 75,
+    "DRI": 79,
+    "DEF": 69,
+    "REB": 50
+   },
+   "portraitSeed": 1929927046,
+   "affiliation": "Sacramento Kings"
+  },
+  {
+   "id": "bk-austin-reaves",
+   "name": "Austin Reaves",
+   "shortName": "Reaves",
+   "nationality": "USA",
+   "roles": [
+    "SG"
+   ],
+   "overall": 85,
+   "attributes": {
+    "SHT": 86,
+    "INS": 76,
+    "PAS": 75,
+    "DRI": 83,
+    "DEF": 68,
+    "REB": 53
+   },
+   "portraitSeed": 2448714075,
+   "affiliation": "Los Angeles Lakers"
+  },
+  {
+   "id": "bk-fred-vanvleet",
+   "name": "Fred VanVleet",
+   "shortName": "VanVleet",
+   "nationality": "USA",
+   "roles": [
+    "PG"
+   ],
+   "overall": 82,
+   "attributes": {
+    "SHT": 76,
+    "INS": 68,
+    "PAS": 85,
+    "DRI": 89,
+    "DEF": 71,
+    "REB": 48
+   },
+   "portraitSeed": 3396363687,
+   "affiliation": "Houston Rockets"
+  },
+  {
+   "id": "bk-dejounte-murray",
+   "name": "Dejounte Murray",
+   "shortName": "D. Murray",
+   "nationality": "USA",
+   "roles": [
+    "PG"
+   ],
+   "overall": 82,
+   "attributes": {
+    "SHT": 79,
+    "INS": 68,
+    "PAS": 87,
+    "DRI": 83,
+    "DEF": 69,
+    "REB": 48
+   },
+   "portraitSeed": 287176507,
+   "affiliation": "New Orleans Pelicans"
+  },
+  {
+   "id": "bk-stephon-castle",
+   "name": "Stephon Castle",
+   "shortName": "Castle",
+   "nationality": "USA",
+   "roles": [
+    "SG",
+    "PG"
+   ],
+   "overall": 82,
+   "attributes": {
+    "SHT": 85,
+    "INS": 70,
+    "PAS": 71,
+    "DRI": 80,
+    "DEF": 68,
+    "REB": 49
+   },
+   "portraitSeed": 2321229636,
+   "affiliation": "San Antonio Spurs"
+  },
+  {
+   "id": "bk-dylan-harper",
+   "name": "Dylan Harper",
+   "shortName": "Harper",
+   "nationality": "USA",
+   "roles": [
+    "SG"
+   ],
+   "overall": 79,
+   "attributes": {
+    "SHT": 82,
+    "INS": 70,
+    "PAS": 71,
+    "DRI": 83,
+    "DEF": 69,
+    "REB": 48
+   },
+   "portraitSeed": 2789266117,
+   "affiliation": "San Antonio Spurs"
+  },
+  {
+   "id": "bk-lebron-james",
+   "name": "LeBron James",
+   "shortName": "James",
+   "nationality": "USA",
+   "roles": [
+    "SF",
+    "PF"
+   ],
+   "overall": 91,
+   "attributes": {
+    "SHT": 84,
+    "INS": 88,
+    "PAS": 81,
+    "DRI": 83,
+    "DEF": 80,
+    "REB": 74
+   },
+   "portraitSeed": 534911035,
+   "affiliation": "Los Angeles Lakers"
+  },
+  {
+   "id": "bk-kevin-durant",
+   "name": "Kevin Durant",
+   "shortName": "Durant",
+   "nationality": "USA",
+   "roles": [
+    "SF",
+    "PF"
+   ],
+   "overall": 91,
+   "attributes": {
+    "SHT": 96,
+    "INS": 87,
+    "PAS": 77,
+    "DRI": 81,
+    "DEF": 85,
+    "REB": 72
+   },
+   "portraitSeed": 3863454410,
+   "affiliation": "Houston Rockets"
+  },
+  {
+   "id": "bk-giannis-antetokounmpo",
+   "name": "Giannis Antetokounmpo",
+   "shortName": "Antetokounmpo",
+   "nationality": "GRE",
+   "roles": [
+    "PF"
+   ],
+   "overall": 95,
+   "attributes": {
+    "SHT": 83,
+    "INS": 98,
+    "PAS": 76,
+    "DRI": 77,
+    "DEF": 85,
+    "REB": 98
+   },
+   "portraitSeed": 543328174,
+   "affiliation": "Milwaukee Bucks"
+  },
+  {
+   "id": "bk-jayson-tatum",
+   "name": "Jayson Tatum",
+   "shortName": "Tatum",
+   "nationality": "USA",
+   "roles": [
+    "SF",
+    "PF"
+   ],
+   "overall": 92,
+   "attributes": {
+    "SHT": 93,
+    "INS": 88,
+    "PAS": 77,
+    "DRI": 84,
+    "DEF": 83,
+    "REB": 74
+   },
+   "portraitSeed": 2537759954,
+   "affiliation": "Boston Celtics"
+  },
+  {
+   "id": "bk-jaylen-brown",
+   "name": "Jaylen Brown",
+   "shortName": "Brown",
+   "nationality": "USA",
+   "roles": [
+    "SF"
+   ],
+   "overall": 88,
+   "attributes": {
+    "SHT": 81,
+    "INS": 81,
+    "PAS": 73,
+    "DRI": 81,
+    "DEF": 78,
+    "REB": 69
+   },
+   "portraitSeed": 99877998,
+   "affiliation": "Boston Celtics"
+  },
+  {
+   "id": "bk-kawhi-leonard",
+   "name": "Kawhi Leonard",
+   "shortName": "Leonard",
+   "nationality": "USA",
+   "roles": [
+    "SF"
+   ],
+   "overall": 88,
+   "attributes": {
+    "SHT": 84,
+    "INS": 78,
+    "PAS": 74,
+    "DRI": 78,
+    "DEF": 84,
+    "REB": 67
+   },
+   "portraitSeed": 3287820050,
+   "affiliation": "Los Angeles Clippers"
+  },
+  {
+   "id": "bk-jimmy-butler",
+   "name": "Jimmy Butler",
+   "shortName": "Butler",
+   "nationality": "USA",
+   "roles": [
+    "SF"
+   ],
+   "overall": 86,
+   "attributes": {
+    "SHT": 82,
+    "INS": 79,
+    "PAS": 77,
+    "DRI": 75,
+    "DEF": 80,
+    "REB": 65
+   },
+   "portraitSeed": 1871148965,
+   "affiliation": "Golden State Warriors"
+  },
+  {
+   "id": "bk-paul-george",
+   "name": "Paul George",
+   "shortName": "George",
+   "nationality": "USA",
+   "roles": [
+    "SF"
+   ],
+   "overall": 83,
+   "attributes": {
+    "SHT": 81,
+    "INS": 74,
+    "PAS": 72,
+    "DRI": 76,
+    "DEF": 78,
+    "REB": 62
+   },
+   "portraitSeed": 3455755836,
+   "affiliation": "Philadelphia 76ers"
+  },
+  {
+   "id": "bk-paolo-banchero",
+   "name": "Paolo Banchero",
+   "shortName": "Banchero",
+   "nationality": "USA",
+   "roles": [
+    "PF",
+    "SF"
+   ],
+   "overall": 88,
+   "attributes": {
+    "SHT": 75,
+    "INS": 93,
+    "PAS": 69,
+    "DRI": 70,
+    "DEF": 84,
+    "REB": 85
+   },
+   "portraitSeed": 1297661688,
+   "affiliation": "Orlando Magic"
+  },
+  {
+   "id": "bk-franz-wagner",
+   "name": "Franz Wagner",
+   "shortName": "F. Wagner",
+   "nationality": "GER",
+   "roles": [
+    "SF"
+   ],
+   "overall": 86,
+   "attributes": {
+    "SHT": 85,
+    "INS": 82,
+    "PAS": 76,
+    "DRI": 79,
+    "DEF": 78,
+    "REB": 70
+   },
+   "portraitSeed": 673501582,
+   "affiliation": "Orlando Magic"
+  },
+  {
+   "id": "bk-zion-williamson",
+   "name": "Zion Williamson",
+   "shortName": "Williamson",
+   "nationality": "USA",
+   "roles": [
+    "PF"
+   ],
+   "overall": 86,
+   "attributes": {
+    "SHT": 71,
+    "INS": 95,
+    "PAS": 72,
+    "DRI": 70,
+    "DEF": 81,
+    "REB": 80
+   },
+   "portraitSeed": 3147214084,
+   "affiliation": "New Orleans Pelicans"
+  },
+  {
+   "id": "bk-scottie-barnes",
+   "name": "Scottie Barnes",
+   "shortName": "Barnes",
+   "nationality": "CAN",
+   "roles": [
+    "SF",
+    "PF"
+   ],
+   "overall": 86,
+   "attributes": {
+    "SHT": 82,
+    "INS": 78,
+    "PAS": 82,
+    "DRI": 76,
+    "DEF": 77,
+    "REB": 64
+   },
+   "portraitSeed": 2972060215,
+   "affiliation": "Toronto Raptors"
+  },
+  {
+   "id": "bk-pascal-siakam",
+   "name": "Pascal Siakam",
+   "shortName": "Siakam",
+   "nationality": "CMR",
+   "roles": [
+    "PF"
+   ],
+   "overall": 86,
+   "attributes": {
+    "SHT": 73,
+    "INS": 88,
+    "PAS": 71,
+    "DRI": 72,
+    "DEF": 77,
+    "REB": 86
+   },
+   "portraitSeed": 827619721,
+   "affiliation": "Indiana Pacers"
+  },
+  {
+   "id": "bk-lauri-markkanen",
+   "name": "Lauri Markkanen",
+   "shortName": "Markkanen",
+   "nationality": "FIN",
+   "roles": [
+    "PF"
+   ],
+   "overall": 85,
+   "attributes": {
+    "SHT": 75,
+    "INS": 87,
+    "PAS": 69,
+    "DRI": 67,
+    "DEF": 81,
+    "REB": 84
+   },
+   "portraitSeed": 1733968286,
+   "affiliation": "Utah Jazz"
+  },
+  {
+   "id": "bk-mikal-bridges",
+   "name": "Mikal Bridges",
+   "shortName": "Bridges",
+   "nationality": "USA",
+   "roles": [
+    "SF"
+   ],
+   "overall": 84,
+   "attributes": {
+    "SHT": 82,
+    "INS": 78,
+    "PAS": 73,
+    "DRI": 77,
+    "DEF": 83,
+    "REB": 65
+   },
+   "portraitSeed": 3408988215,
+   "affiliation": "New York Knicks"
+  },
+  {
+   "id": "bk-og-anunoby",
+   "name": "OG Anunoby",
+   "shortName": "Anunoby",
+   "nationality": "GBR",
+   "roles": [
+    "SF",
+    "PF"
+   ],
+   "overall": 84,
+   "attributes": {
+    "SHT": 83,
+    "INS": 76,
+    "PAS": 71,
+    "DRI": 75,
+    "DEF": 84,
+    "REB": 66
+   },
+   "portraitSeed": 532485147,
+   "affiliation": "New York Knicks"
+  },
+  {
+   "id": "bk-jalen-johnson",
+   "name": "Jalen Johnson",
+   "shortName": "J. Johnson",
+   "nationality": "USA",
+   "roles": [
+    "SF",
+    "PF"
+   ],
+   "overall": 86,
+   "attributes": {
+    "SHT": 79,
+    "INS": 80,
+    "PAS": 74,
+    "DRI": 77,
+    "DEF": 79,
+    "REB": 72
+   },
+   "portraitSeed": 390873580,
+   "affiliation": "Atlanta Hawks"
+  },
+  {
+   "id": "bk-cooper-flagg",
+   "name": "Cooper Flagg",
+   "shortName": "Flagg",
+   "nationality": "USA",
+   "roles": [
+    "SF",
+    "PF"
+   ],
+   "overall": 84,
+   "attributes": {
+    "SHT": 80,
+    "INS": 74,
+    "PAS": 71,
+    "DRI": 76,
+    "DEF": 80,
+    "REB": 68
+   },
+   "portraitSeed": 2993162024,
+   "affiliation": "Dallas Mavericks"
+  },
+  {
+   "id": "bk-brandon-miller",
+   "name": "Brandon Miller",
+   "shortName": "Miller",
+   "nationality": "USA",
+   "roles": [
+    "SF"
+   ],
+   "overall": 83,
+   "attributes": {
+    "SHT": 81,
+    "INS": 79,
+    "PAS": 73,
+    "DRI": 78,
+    "DEF": 74,
+    "REB": 62
+   },
+   "portraitSeed": 856519544,
+   "affiliation": "Charlotte Hornets"
+  },
+  {
+   "id": "bk-amen-thompson",
+   "name": "Amen Thompson",
+   "shortName": "A. Thompson",
+   "nationality": "USA",
+   "roles": [
+    "SF",
+    "SG"
+   ],
+   "overall": 85,
+   "attributes": {
+    "SHT": 84,
+    "INS": 75,
+    "PAS": 71,
+    "DRI": 80,
+    "DEF": 84,
+    "REB": 68
+   },
+   "portraitSeed": 3546764180,
+   "affiliation": "Houston Rockets"
+  },
+  {
+   "id": "bk-deni-avdija",
+   "name": "Deni Avdija",
+   "shortName": "Avdija",
+   "nationality": "ISR",
+   "roles": [
+    "SF",
+    "PF"
+   ],
+   "overall": 85,
+   "attributes": {
+    "SHT": 82,
+    "INS": 77,
+    "PAS": 73,
+    "DRI": 75,
+    "DEF": 74,
+    "REB": 63
+   },
+   "portraitSeed": 2685612820,
+   "affiliation": "Portland Trail Blazers"
+  },
+  {
+   "id": "bk-trey-murphy-iii",
+   "name": "Trey Murphy III",
+   "shortName": "Murphy III",
+   "nationality": "USA",
+   "roles": [
+    "SF"
+   ],
+   "overall": 83,
+   "attributes": {
+    "SHT": 82,
+    "INS": 77,
+    "PAS": 74,
+    "DRI": 72,
+    "DEF": 74,
+    "REB": 65
+   },
+   "portraitSeed": 906052617,
+   "affiliation": "New Orleans Pelicans"
+  },
+  {
+   "id": "bk-jaden-mcdaniels",
+   "name": "Jaden McDaniels",
+   "shortName": "McDaniels",
+   "nationality": "USA",
+   "roles": [
+    "SF",
+    "PF"
+   ],
+   "overall": 82,
+   "attributes": {
+    "SHT": 79,
+    "INS": 72,
+    "PAS": 68,
+    "DRI": 76,
+    "DEF": 77,
+    "REB": 63
+   },
+   "portraitSeed": 924074995,
+   "affiliation": "Minnesota Timberwolves"
+  },
+  {
+   "id": "bk-demar-derozan",
+   "name": "DeMar DeRozan",
+   "shortName": "DeRozan",
+   "nationality": "USA",
+   "roles": [
+    "SF"
+   ],
+   "overall": 82,
+   "attributes": {
+    "SHT": 78,
+    "INS": 80,
+    "PAS": 72,
+    "DRI": 71,
+    "DEF": 71,
+    "REB": 62
+   },
+   "portraitSeed": 3349392983,
+   "affiliation": "Sacramento Kings"
+  },
+  {
+   "id": "bk-michael-porter-jr",
+   "name": "Michael Porter Jr.",
+   "shortName": "Porter Jr.",
+   "nationality": "USA",
+   "roles": [
+    "SF",
+    "PF"
+   ],
+   "overall": 83,
+   "attributes": {
+    "SHT": 83,
+    "INS": 76,
+    "PAS": 70,
+    "DRI": 76,
+    "DEF": 75,
+    "REB": 64
+   },
+   "portraitSeed": 1500955948,
+   "affiliation": "Brooklyn Nets"
+  },
+  {
+   "id": "bk-aaron-gordon",
+   "name": "Aaron Gordon",
+   "shortName": "Gordon",
+   "nationality": "USA",
+   "roles": [
+    "PF"
+   ],
+   "overall": 83,
+   "attributes": {
+    "SHT": 72,
+    "INS": 83,
+    "PAS": 67,
+    "DRI": 65,
+    "DEF": 81,
+    "REB": 82
+   },
+   "portraitSeed": 4271142323,
+   "affiliation": "Denver Nuggets"
+  },
+  {
+   "id": "bk-jaren-jackson-jr",
+   "name": "Jaren Jackson Jr.",
+   "shortName": "Jackson Jr.",
+   "nationality": "USA",
+   "roles": [
+    "PF",
+    "C"
+   ],
+   "overall": 87,
+   "attributes": {
+    "SHT": 73,
+    "INS": 90,
+    "PAS": 70,
+    "DRI": 71,
+    "DEF": 88,
+    "REB": 87
+   },
+   "portraitSeed": 1401445934,
+   "affiliation": "Memphis Grizzlies"
+  },
+  {
+   "id": "bk-evan-mobley",
+   "name": "Evan Mobley",
+   "shortName": "Mobley",
+   "nationality": "USA",
+   "roles": [
+    "PF",
+    "C"
+   ],
+   "overall": 88,
+   "attributes": {
+    "SHT": 76,
+    "INS": 90,
+    "PAS": 72,
+    "DRI": 70,
+    "DEF": 84,
+    "REB": 89
+   },
+   "portraitSeed": 1737712123,
+   "affiliation": "Cleveland Cavaliers"
+  },
+  {
+   "id": "bk-anthony-davis",
+   "name": "Anthony Davis",
+   "shortName": "Davis",
+   "nationality": "USA",
+   "roles": [
+    "PF",
+    "C"
+   ],
+   "overall": 89,
+   "attributes": {
+    "SHT": 72,
+    "INS": 92,
+    "PAS": 69,
+    "DRI": 73,
+    "DEF": 87,
+    "REB": 91
+   },
+   "portraitSeed": 1140105701,
+   "affiliation": "Dallas Mavericks"
+  },
+  {
+   "id": "bk-nikola-jokic",
+   "name": "Nikola Jokić",
+   "shortName": "Jokić",
+   "nationality": "SRB",
+   "roles": [
+    "C"
+   ],
+   "overall": 97,
+   "attributes": {
+    "SHT": 69,
+    "INS": 98,
+    "PAS": 95,
+    "DRI": 59,
+    "DEF": 90,
+    "REB": 98
+   },
+   "portraitSeed": 130599449,
+   "affiliation": "Denver Nuggets"
+  },
+  {
+   "id": "bk-victor-wembanyama",
+   "name": "Victor Wembanyama",
+   "shortName": "Wembanyama",
+   "nationality": "FRA",
+   "roles": [
+    "C",
+    "PF"
+   ],
+   "overall": 94,
+   "attributes": {
+    "SHT": 71,
+    "INS": 98,
+    "PAS": 68,
+    "DRI": 60,
+    "DEF": 98,
+    "REB": 98
+   },
+   "portraitSeed": 943923682,
+   "affiliation": "San Antonio Spurs"
+  },
+  {
+   "id": "bk-joel-embiid",
+   "name": "Joel Embiid",
+   "shortName": "Embiid",
+   "nationality": "USA",
+   "roles": [
+    "C"
+   ],
+   "overall": 89,
+   "attributes": {
+    "SHT": 63,
+    "INS": 98,
+    "PAS": 70,
+    "DRI": 58,
+    "DEF": 83,
+    "REB": 96
+   },
+   "portraitSeed": 338091095,
+   "affiliation": "Philadelphia 76ers"
+  },
+  {
+   "id": "bk-karl-anthony-towns",
+   "name": "Karl-Anthony Towns",
+   "shortName": "Towns",
+   "nationality": "DOM",
+   "roles": [
+    "C",
+    "PF"
+   ],
+   "overall": 89,
+   "attributes": {
+    "SHT": 68,
+    "INS": 96,
+    "PAS": 71,
+    "DRI": 56,
+    "DEF": 85,
+    "REB": 97
+   },
+   "portraitSeed": 2470003926,
+   "affiliation": "New York Knicks"
+  },
+  {
+   "id": "bk-bam-adebayo",
+   "name": "Bam Adebayo",
+   "shortName": "Adebayo",
+   "nationality": "USA",
+   "roles": [
+    "C"
+   ],
+   "overall": 87,
+   "attributes": {
+    "SHT": 63,
+    "INS": 88,
+    "PAS": 68,
+    "DRI": 55,
+    "DEF": 88,
+    "REB": 95
+   },
+   "portraitSeed": 88290326,
+   "affiliation": "Miami Heat"
+  },
+  {
+   "id": "bk-domantas-sabonis",
+   "name": "Domantas Sabonis",
+   "shortName": "Sabonis",
+   "nationality": "LTU",
+   "roles": [
+    "C",
+    "PF"
+   ],
+   "overall": 87,
+   "attributes": {
+    "SHT": 63,
+    "INS": 88,
+    "PAS": 70,
+    "DRI": 58,
+    "DEF": 82,
+    "REB": 98
+   },
+   "portraitSeed": 3635664919,
+   "affiliation": "Sacramento Kings"
+  },
+  {
+   "id": "bk-alperen-sengun",
+   "name": "Alperen Şengün",
+   "shortName": "Şengün",
+   "nationality": "TUR",
+   "roles": [
+    "C"
+   ],
+   "overall": 88,
+   "attributes": {
+    "SHT": 64,
+    "INS": 91,
+    "PAS": 73,
+    "DRI": 54,
+    "DEF": 84,
+    "REB": 93
+   },
+   "portraitSeed": 1425565436,
+   "affiliation": "Houston Rockets"
+  },
+  {
+   "id": "bk-chet-holmgren",
+   "name": "Chet Holmgren",
+   "shortName": "Holmgren",
+   "nationality": "USA",
+   "roles": [
+    "C",
+    "PF"
+   ],
+   "overall": 87,
+   "attributes": {
+    "SHT": 63,
+    "INS": 89,
+    "PAS": 64,
+    "DRI": 58,
+    "DEF": 89,
+    "REB": 94
+   },
+   "portraitSeed": 3113656449,
+   "affiliation": "Oklahoma City Thunder"
+  },
+  {
+   "id": "bk-rudy-gobert",
+   "name": "Rudy Gobert",
+   "shortName": "Gobert",
+   "nationality": "FRA",
+   "roles": [
+    "C"
+   ],
+   "overall": 85,
+   "attributes": {
+    "SHT": 61,
+    "INS": 91,
+    "PAS": 64,
+    "DRI": 53,
+    "DEF": 87,
+    "REB": 97
+   },
+   "portraitSeed": 1665994300,
+   "affiliation": "Minnesota Timberwolves"
+  },
+  {
+   "id": "bk-jarrett-allen",
+   "name": "Jarrett Allen",
+   "shortName": "Allen",
+   "nationality": "USA",
+   "roles": [
+    "C"
+   ],
+   "overall": 84,
+   "attributes": {
+    "SHT": 62,
+    "INS": 85,
+    "PAS": 65,
+    "DRI": 56,
+    "DEF": 79,
+    "REB": 91
+   },
+   "portraitSeed": 74753487,
+   "affiliation": "Cleveland Cavaliers"
+  },
+  {
+   "id": "bk-myles-turner",
+   "name": "Myles Turner",
+   "shortName": "Turner",
+   "nationality": "USA",
+   "roles": [
+    "C"
+   ],
+   "overall": 84,
+   "attributes": {
+    "SHT": 57,
+    "INS": 85,
+    "PAS": 62,
+    "DRI": 51,
+    "DEF": 86,
+    "REB": 90
+   },
+   "portraitSeed": 2998707487,
+   "affiliation": "Milwaukee Bucks"
+  },
+  {
+   "id": "bk-ivica-zubac",
+   "name": "Ivica Zubac",
+   "shortName": "Zubac",
+   "nationality": "CRO",
+   "roles": [
+    "C"
+   ],
+   "overall": 84,
+   "attributes": {
+    "SHT": 61,
+    "INS": 86,
+    "PAS": 64,
+    "DRI": 52,
+    "DEF": 83,
+    "REB": 91
+   },
+   "portraitSeed": 1451750344,
+   "affiliation": "Los Angeles Clippers"
+  },
+  {
+   "id": "bk-kristaps-porzingis",
+   "name": "Kristaps Porziņģis",
+   "shortName": "Porziņģis",
+   "nationality": "LAT",
+   "roles": [
+    "C",
+    "PF"
+   ],
+   "overall": 84,
+   "attributes": {
+    "SHT": 66,
+    "INS": 85,
+    "PAS": 65,
+    "DRI": 54,
+    "DEF": 82,
+    "REB": 86
+   },
+   "portraitSeed": 199725485,
+   "affiliation": "Atlanta Hawks"
+  },
+  {
+   "id": "bk-jalen-duren",
+   "name": "Jalen Duren",
+   "shortName": "Duren",
+   "nationality": "USA",
+   "roles": [
+    "C"
+   ],
+   "overall": 84,
+   "attributes": {
+    "SHT": 60,
+    "INS": 90,
+    "PAS": 65,
+    "DRI": 52,
+    "DEF": 79,
+    "REB": 94
+   },
+   "portraitSeed": 3548926055,
+   "affiliation": "Detroit Pistons"
+  },
+  {
+   "id": "bk-isaiah-hartenstein",
+   "name": "Isaiah Hartenstein",
+   "shortName": "Hartenstein",
+   "nationality": "GER",
+   "roles": [
+    "C"
+   ],
+   "overall": 82,
+   "attributes": {
+    "SHT": 58,
+    "INS": 85,
+    "PAS": 64,
+    "DRI": 51,
+    "DEF": 75,
+    "REB": 90
+   },
+   "portraitSeed": 1584585445,
+   "affiliation": "Oklahoma City Thunder"
+  },
+  {
+   "id": "bk-nikola-vucevic",
+   "name": "Nikola Vučević",
+   "shortName": "Vučević",
+   "nationality": "MNE",
+   "roles": [
+    "C"
+   ],
+   "overall": 82,
+   "attributes": {
+    "SHT": 54,
+    "INS": 85,
+    "PAS": 64,
+    "DRI": 51,
+    "DEF": 81,
+    "REB": 92
+   },
+   "portraitSeed": 1451290062,
+   "affiliation": "Chicago Bulls"
+  },
+  {
+   "id": "bk-brook-lopez",
+   "name": "Brook Lopez",
+   "shortName": "Lopez",
+   "nationality": "USA",
+   "roles": [
+    "C"
+   ],
+   "overall": 80,
+   "attributes": {
+    "SHT": 57,
+    "INS": 80,
+    "PAS": 62,
+    "DRI": 51,
+    "DEF": 84,
+    "REB": 86
+   },
+   "portraitSeed": 3213839168,
+   "affiliation": "Los Angeles Clippers"
+  },
+  {
+   "id": "bk-walker-kessler",
+   "name": "Walker Kessler",
+   "shortName": "Kessler",
+   "nationality": "USA",
+   "roles": [
+    "C"
+   ],
+   "overall": 81,
+   "attributes": {
+    "SHT": 56,
+    "INS": 86,
+    "PAS": 62,
+    "DRI": 52,
+    "DEF": 83,
+    "REB": 86
+   },
+   "portraitSeed": 1392905670,
+   "affiliation": "Utah Jazz"
+  },
+  {
+   "id": "bk-deandre-ayton",
+   "name": "Deandre Ayton",
+   "shortName": "Ayton",
+   "nationality": "BAH",
+   "roles": [
+    "C"
+   ],
+   "overall": 81,
+   "attributes": {
+    "SHT": 56,
+    "INS": 82,
+    "PAS": 64,
+    "DRI": 53,
+    "DEF": 80,
+    "REB": 94
+   },
+   "portraitSeed": 3150261945,
+   "affiliation": "Los Angeles Lakers"
+  },
+  {
+   "id": "bk-clint-capela",
+   "name": "Clint Capela",
+   "shortName": "Capela",
+   "nationality": "SUI",
+   "roles": [
+    "C"
+   ],
+   "overall": 78,
+   "attributes": {
+    "SHT": 56,
+    "INS": 81,
+    "PAS": 57,
+    "DRI": 53,
+    "DEF": 75,
+    "REB": 86
+   },
+   "portraitSeed": 2355498813,
+   "affiliation": "Houston Rockets"
+  }
+ ]
+}

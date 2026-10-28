@@ -25,6 +25,15 @@ Le jeu propose désormais deux jeux de joueurs, au choix à la création de la p
 | Portrait | **Silhouette neutre**, sans visage, pour ne jamais attribuer un faux visage à une personne réelle | Avatar procédural |
 | Étiquetage à l'écran | « Joueurs réels · notes estimées par Build Your Team (non officielles) » dans le lobby et la fiche joueur ; mention « NOTE ESTIMÉE » sur les cartes ; mentions sur l'accueil et dans la politique de confidentialité | « Données de démonstration — joueurs fictifs » |
 
+**Basket** (`basketball-real@1.0.0`, 78 joueurs, ajouté le 28/10/2026). Même dispositif que le mode Réels du football :
+
+- effectifs indicatifs de la saison 2025-2026 ;
+- notes et statistiques **estimées** par notre modèle (`packages/basketball/scripts`), sans reprise de notes officielles ni de jeux vidéo (ni NBA 2K, ni autre) ;
+- silhouettes neutres à la place des photos ;
+- étiquetage « Basket · joueurs réels · notes estimées par Build Your Team (non officielles) ».
+
+Avant une sortie commerciale, les droits sur le nom et l'image se négocient auprès du syndicat des joueurs concerné (aux États-Unis, la NBPA gère les licences collectives de groupe). Les noms et logos d'équipes et de ligue relèvent de la ligue. Aucun logo n'est utilisé ; les noms d'équipe sont cités comme simple information factuelle, à valider avec un juriste.
+
 **Ce qui est respecté :**
 
 - aucune donnée EA SPORTS FC n'est reprise ;

@@ -8,7 +8,7 @@ Ce rapport sépare **ce qui a été développé**, **ce qui a été réellement 
 
 | Suite | Commande | Résultat |
 |---|---|---|
-| Moteur de jeu (unitaires, dont jeu complet avec le pack « Réels ») | `npx vitest run packages` | **26/26 OK** |
+| Moteur de jeu (unitaires, dont des parties complètes avec les packs « Réels » foot et basket) | `npx vitest run packages` | **28/28 OK** |
 | Intégration temps réel : vrai `GameServer`, vrai SQL PostgreSQL via PGlite, clients socket.io-client indépendants ; verrou et récupération de la base locale | `npx vitest run services` | **15/15 OK** |
 | TypeScript strict (tous les packages et l'app) | `npm run typecheck` | **OK** |
 | ESLint (`eslint-config-expo` et règles React Compiler) | `npx eslint src` (apps/game) | **0 problème** |
@@ -20,6 +20,7 @@ Ce rapport sépare **ce qui a été développé**, **ce qui a été réellement 
 | E2E 4 navigateurs sur le serveur de dev | `node e2e/four-players.mjs` | **OK** |
 | E2E 2 joueurs et 3 spectateurs | `node e2e/spectators.mjs` | **OK** |
 | E2E mode classique (formation, banc) | `node e2e/classic.mjs` | **OK** (contrôle visuel) |
+| E2E Basket : choix de l'univers, enchères sur le terrain, draft, vote spectateur, résultat | `node e2e/basketball.mjs` | **OK** |
 
 ### Les 14 scénarios multijoueurs obligatoires
 
@@ -50,6 +51,11 @@ Autres comportements testés :
 - **Modération** : retrait d'un participant par l'hôte avec révocation de sa session, refus des pseudos injurieux (y compris en leetspeak et avec accents), sans faux positif sur des noms réels comme « Dickson ».
 - **Moteur** : réserve, chrono porté à 12 s, offre engageante, joueurs libres (le moins bien noté compatible, à 10M), plafond d'enchères, mode classique à 11 titulaires, changement de formation, échanges incompatibles refusés, départage par la note d'équipe.
 - **Import de données** : CSV avec champs entre guillemets, rejet des lignes invalides avec motif, doublons détectés par `externalId` et par identité, refus d'écraser une version publiée (CLI exécutée).
+
+### Mise à jour du 28/10/2026
+
+- **Design v2** (verre, typographies Unbounded/Manrope, cartes holographiques, stade). L'E2E à 4 navigateurs passe toujours.
+- **Univers Basket :** pack validé, partie classique simulée à 4 avec changement de composition, placement automatique par poste, E2E dans l'interface à 2 joueurs plus un spectateur. Captures sur desktop et mobile.
 
 ### Mise à jour du 26/10/2026 (soir)
 

@@ -29,6 +29,7 @@
 | `packages/shared` | Types du domaine **indépendants de l'univers** (`Character`, `FormationSlot`, `RoomState`…), contrats Socket.IO avec schémas Zod, codes d'erreur, modération des pseudos. |
 | `packages/game-engine` | Moteur d'enchères **pur et déterministe** : chaque fonction prend `(état, commande, {pack, now})` et renvoie un nouvel état et des événements, ou une erreur. Il couvre les règles de compatibilité, de placement, de réserve, les joueurs libres, le vote, la vue publique et la validation des packs. Aucune entrée/sortie. |
 | `packages/football` | Premier **pack de contenu** : postes, familles, attributs (PAC…PHY, et DIV…POS pour les gardiens), paliers de cartes, formations, modes. Il contient aussi le dataset fictif et la **couche d'import** (CSV/JSON → schéma → normalisation → dédoublonnage → fichier versionné). |
+| `packages/basketball` | Deuxième **pack de contenu** : postes (meneur, arrière, ailier, ailier fort, pivot), familles, statistiques basket, trois compositions, modes, jeu de 78 joueurs réels aux notes estimées. Il n'a demandé **aucune modification** du moteur, du serveur, de la base ni de l'écran d'enchères. |
 | `packages/ui` | Composants visuels réutilisables et sans lien avec un univers : jetons de design, `PlayerCard`, `Pitch` (projection 2,5D), `Avatar` procédural, `Flag`. |
 | `services/realtime` | Serveur de jeu autoritaire : Socket.IO, accès PostgreSQL, persistance, planification. |
 | `apps/game` | Application Expo universelle : écrans, état client, sons. |
@@ -49,7 +50,7 @@ Le moteur ne sait pas ce qu'est un footballeur. Un univers est décrit par un `C
 - `tiers` : des seuils de note associés à un style visuel générique (`bronze` … `icon`) ;
 - `characters` : rôles (le premier est le rôle naturel), note générale, attributs libres, graine de portrait ou URL sous licence.
 
-Ajouter un univers « animation » revient à écrire un nouveau package. Le moteur, le serveur, la base, l'écran d'enchères, la carte et le terrain restent inchangés : le terrain place n'importe quelle liste d'emplacements, et la carte affiche les attributs déclarés par le pack. Seul le décor du terrain, la pelouse, est propre au football. Le prévoir comme un rendu de fond paramétrable fait partie de la roadmap.
+Ajouter un univers « animation » revient à écrire un nouveau package. Le moteur, le serveur, la base, l'écran d'enchères, la carte et le terrain restent inchangés : le terrain place n'importe quelle liste d'emplacements, et la carte affiche les attributs déclarés par le pack. **Vérifié avec l'univers Basket :** la surface de jeu est un rendu interchangeable. `PerspectiveSurface` gère la projection et le placement des cartes ; `Pitch` dessine la pelouse et `Court` le demi-terrain de basket. `TeamPitch` choisit le rendu selon `pack.universeId`.
 
 ## Modèle de données (correspondance avec la demande)
 
