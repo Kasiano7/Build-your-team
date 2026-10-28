@@ -73,8 +73,8 @@ export function webOrigin(): string {
     const u = new URL(override);
     return `http://${u.hostname}:8081`;
   }
-  // Placeholder until the public domain exists: production builds must set EXPO_PUBLIC_WEB_URL (eas.json).
-  return 'https://buildyourteam.app';
+  // Public site (production builds also set EXPO_PUBLIC_WEB_URL in eas.json).
+  return 'https://build-your-team.io';
 }
 
 export const inviteLink = (code: string) => `${webOrigin()}/r/${code}`;

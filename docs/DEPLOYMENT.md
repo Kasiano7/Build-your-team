@@ -295,3 +295,26 @@ Le site a été construit sans `EXPO_PUBLIC_SERVER_URL`. Pour corriger :
    - `EXPO_PUBLIC_WEB_URL=https://<votre-site>.vercel.app`.
 3. **Redéployez**. Ces variables sont intégrées au moment du build.
 4. Sur le serveur temps réel, ajoutez l'URL Vercel à `CORS_ORIGIN`.
+
+## Nom de domaine `build-your-team.io`
+
+État au 28/10/2026 : aucune entrée DNS n'existe pour ce nom. Il est probablement libre ; seul un registrar peut le confirmer, au moment de l'achat.
+
+1. **Acheter le domaine.** Le plus simple est Vercel → onglet **Domains** → **Buy** : le DNS est alors configuré automatiquement. Vous pouvez aussi passer par un autre registrar (OVH, Namecheap, Cloudflare…).
+2. **Rattacher le domaine au site.** Dans le projet Vercel, ouvrez **Settings → Domains → Add**, puis ajoutez `build-your-team.io`, et `www.build-your-team.io` en redirection vers le domaine principal. Si le domaine a été acheté ailleurs, créez chez le registrar les enregistrements DNS **exactement tels que Vercel les affiche** (en général un `A` pour `@` et un `CNAME` pour `www`). Le certificat HTTPS est automatique.
+3. **Mettre à jour la variable du site.** Dans Vercel, réglez `EXPO_PUBLIC_WEB_URL=https://build-your-team.io` (Production et Preview), puis **Redeploy**.
+4. **Autoriser le domaine sur le serveur de jeu**, en gardant l'ancienne adresse Vercel tant qu'elle sert :
+
+   ```powershell
+   fly secrets set CORS_ORIGIN="https://build-your-team.io,https://www.build-your-team.io,https://realtime-henna-five.vercel.app"
+   ```
+
+5. **(Facultatif) Une adresse dédiée au serveur : `api.build-your-team.io`.**
+
+   ```powershell
+   fly certs add api.build-your-team.io
+   ```
+
+   Créez ensuite l'enregistrement DNS indiqué par Fly (un `CNAME api` vers `build-your-team.fly.dev`, ou des enregistrements `A`/`AAAA`). Une fois le certificat émis (vérifiable avec `fly certs show api.build-your-team.io`), passez `EXPO_PUBLIC_SERVER_URL=https://api.build-your-team.io` dans Vercel et dans `apps/game/eas.json`, puis redéployez.
+
+Les builds mobiles (`apps/game/eas.json`, profils `preview` et `production`) pointent déjà vers `https://build-your-team.fly.dev` pour le jeu et vers `https://build-your-team.io` pour les liens d'invitation.
