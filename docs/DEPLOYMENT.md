@@ -270,3 +270,28 @@ Réf. : <https://fly.io/docs/about/pricing/>, <https://render.com/pricing>, <htt
 - [ ] `eas.json` : valeurs `REPLACE-ME` remplacées (ou variables EAS définies).
 - [ ] Moniteur externe sur `/health` ; logs consultables.
 - [ ] Page `/privacy` complétée (contact éditeur) et accessible publiquement.
+
+## Dépannage Vercel
+
+### `500 FUNCTION_INVOCATION_FAILED`
+
+Vercel a tenté d'exécuter du code comme **fonction serveur**. Cela arrive quand le projet Vercel pointe sur `services/realtime` : Vercel détecte `src/index.ts` et le lance comme un serveur. Or le serveur temps réel (WebSockets permanents, chronos en mémoire) **ne peut pas tourner sur Vercel**.
+
+Le site, lui, est **100 % statique** (export web Expo). Aucune fonction Vercel n'est nécessaire.
+
+**Correction**, dans Vercel → Project → Settings → Build & Deployment :
+
+- **Root Directory** : laisser la **racine du dépôt**. Le fichier `vercel.json` à la racine construit `apps/game` et publie `apps/game/dist`. `apps/game` fonctionne aussi, grâce à `apps/game/vercel.json`. Ne **jamais** choisir `services/realtime` : son `vercel.json` fait désormais échouer le build avec un message explicite, au lieu de produire une erreur 500.
+- **Framework Preset** : « Other ». Les fichiers `vercel.json` imposent `framework: null`.
+- Redéployer.
+
+### « Serveur de jeu non configuré » sur la page d'accueil
+
+Le site a été construit sans `EXPO_PUBLIC_SERVER_URL`. Pour corriger :
+
+1. Déployez le serveur temps réel sur Fly.io ou Render (sections ci-dessus).
+2. Dans Vercel → Settings → Environment Variables, ajoutez :
+   - `EXPO_PUBLIC_SERVER_URL=https://<votre-serveur>` (Production et Preview) ;
+   - `EXPO_PUBLIC_WEB_URL=https://<votre-site>.vercel.app`.
+3. **Redéployez**. Ces variables sont intégrées au moment du build.
+4. Sur le serveur temps réel, ajoutez l'URL Vercel à `CORS_ORIGIN`.
