@@ -55,6 +55,14 @@ export function hasServerConfigured(): boolean {
   return (canOverrideServer && !!override) || defaultServerUrl() !== null;
 }
 
+/**
+ * A production web build without EXPO_PUBLIC_SERVER_URL cannot reach any game
+ * server (the static host does not run one): the UI says so instead of failing silently.
+ */
+export function webServerMissing(): boolean {
+  return Platform.OS === 'web' && !__DEV__ && !process.env.EXPO_PUBLIC_SERVER_URL && !(canOverrideServer && override);
+}
+
 /** Public web origin used in invitation and spectator links. */
 export function webOrigin(): string {
   const env = process.env.EXPO_PUBLIC_WEB_URL;

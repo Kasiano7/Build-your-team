@@ -1,0 +1,6 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "echo skip",
+  "buildCommand": "echo \"Le serveur temps reel (WebSockets permanents) ne peut pas tourner sur Vercel. Deployez-le sur Fly.io ou Render (docs/DEPLOYMENT.md). Sur Vercel, Root Directory = racine du depot ou apps/game.\" && exit 1"
+}

@@ -12,7 +12,7 @@ import { PlayerCard, colors, fonts, radii } from '@byt/ui';
 import { Logo } from '@/components/Logo';
 import { Body, Button, Eyebrow, Panel, PlayerBadge, Screen } from '@/components/ui';
 import { TeamPitch } from '@/features/team/TeamPitch';
-import { appVariant, hasServerConfigured } from '@/lib/config';
+import { appVariant, hasServerConfigured, webServerMissing } from '@/lib/config';
 import { useServerSetting } from '@/lib/server-setting';
 import { getJSON, keys } from '@/lib/storage';
 import { warmUpSounds } from '@/lib/sound';
@@ -185,6 +185,15 @@ export default function Home() {
           <View style={{ paddingTop: 14 }}>
             <NavBar wide={wide} onSettings={() => go('/settings')} onDemo={() => go('/demo')} />
           </View>
+
+          {webServerMissing() && (
+            <View style={{ padding: 14, paddingHorizontal: 18, borderRadius: radii.lg, borderWidth: 1, borderColor: 'rgba(255,181,71,0.45)', backgroundColor: 'rgba(255,181,71,0.08)', gap: 4 }}>
+              <Text style={{ fontFamily: fonts.bodyBold, fontSize: 14, color: colors.warn }}>Serveur de jeu non configuré</Text>
+              <Text style={{ fontFamily: fonts.bodyMedium, fontSize: 13, color: colors.textDim }}>
+                Ce site a été publié sans adresse de serveur temps réel : les parties ne peuvent pas démarrer. Définissez EXPO_PUBLIC_SERVER_URL dans Vercel puis redéployez (voir docs/DEPLOYMENT.md).
+              </Text>
+            </View>
+          )}
 
           {testBuild && (
             <Pressable

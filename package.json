@@ -18,7 +18,8 @@
     "data:demo": "tsx packages/football/scripts/generate-demo-dataset.ts",
     "data:real": "tsx packages/football/scripts/generate-real-dataset.ts",
     "data:basketball": "tsx packages/basketball/scripts/generate-real-dataset.ts",
-    "data:import": "tsx packages/football/scripts/import-dataset.ts"
+    "data:import": "tsx packages/football/scripts/import-dataset.ts",
+    "build:web": "npm run build:web -w game"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
