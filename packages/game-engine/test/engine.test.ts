@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { footballDemoPack as pack } from '@byt/football';
+import { footballRealPack as pack } from '@byt/football';
 import type { RoomState } from '@byt/shared';
 import {
   TIMINGS,
@@ -56,10 +56,10 @@ function openAuction(s: RoomState): RoomState {
 }
 
 describe('content pack', () => {
-  it('demo pack is structurally valid and labelled fictional', () => {
+  it('football pack is structurally valid, real players only, labelled as estimated', () => {
     expect(validatePack(pack)).toEqual([]);
-    expect(pack.dataset.fictional).toBe(true);
-    expect(pack.dataset.label).toMatch(/fictifs/);
+    expect(pack.dataset.fictional).toBe(false);
+    expect(pack.dataset.label).toMatch(/estimées/);
   });
 
   it('basketball pack: valid, same engine, full classic game with formation change', async () => {

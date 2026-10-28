@@ -1,5 +1,4 @@
 import type { ContentPack } from '@byt/shared';
-import demo from '../data/demo-players.v1.json';
 import real from '../data/real-players.v1.json';
 import {
   FOOTBALL_FORMATIONS,
@@ -32,11 +31,8 @@ export function createFootballPack(file: DatasetFile): ContentPack {
   };
 }
 
-/** Built-in pack: fictional demo players, clearly labelled as such. */
-export const footballDemoPack: ContentPack = createFootballPack(demo as unknown as DatasetFile);
-
 /** Real footballers with Build Your Team ESTIMATED ratings (not official). Private / test use until name & image rights are licensed. */
 export const footballRealPack: ContentPack = createFootballPack(real as unknown as DatasetFile);
 
 /** Packs shipped with the app, default first. */
-export const builtInFootballPacks: ContentPack[] = [footballRealPack, footballDemoPack];
+export const builtInFootballPacks: ContentPack[] = [footballRealPack];

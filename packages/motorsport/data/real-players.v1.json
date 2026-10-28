@@ -1,0 +1,893 @@
+{
+ "dataset": {
+  "id": "motorsport-real",
+  "version": "1.0.0",
+  "label": "Formule 1 · pilotes et écuries réels · notes estimées par Build Your Team (non officielles)",
+  "fictional": false,
+  "source": "Liste Build Your Team — grille indicative de la saison 2026 (22 pilotes, 11 écuries, 11 directeurs) ; notes et statistiques estimées par un modèle interne",
+  "license": "Noms de personnes et d'écuries réelles : usage privé et tests uniquement tant que les droits nom/image (pilotes, écuries, Formula One Management, FIA) ne sont pas acquis. Aucune donnée de jeu vidéo ni note officielle. Aucun logo ni livrée.",
+  "contentHash": "2f88a0fc58c4c08d104f6dee002dea82e048fa5cad30dbad1df624879be9bb1e"
+ },
+ "characters": [
+  {
+   "id": "f1-max-verstappen",
+   "name": "Max Verstappen",
+   "shortName": "Verstappen",
+   "nationality": "NED",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 96,
+   "attributes": {
+    "QUA": 96,
+    "RYT": 98,
+    "DEP": 98,
+    "PLU": 97,
+    "REG": 90,
+    "EXP": 88
+   },
+   "portraitSeed": 3758757437,
+   "affiliation": "Red Bull Racing"
+  },
+  {
+   "id": "f1-isack-hadjar",
+   "name": "Isack Hadjar",
+   "shortName": "Hadjar",
+   "nationality": "FRA",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 83,
+   "attributes": {
+    "QUA": 85,
+    "RYT": 85,
+    "DEP": 87,
+    "PLU": 75,
+    "REG": 84,
+    "EXP": 67
+   },
+   "portraitSeed": 4209189224,
+   "affiliation": "Red Bull Racing"
+  },
+  {
+   "id": "f1-george-russell",
+   "name": "George Russell",
+   "shortName": "Russell",
+   "nationality": "GBR",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 92,
+   "attributes": {
+    "QUA": 98,
+    "RYT": 94,
+    "DEP": 89,
+    "PLU": 85,
+    "REG": 88,
+    "EXP": 80
+   },
+   "portraitSeed": 2271614006,
+   "affiliation": "Mercedes"
+  },
+  {
+   "id": "f1-andrea-kimi-antonelli",
+   "name": "Andrea Kimi Antonelli",
+   "shortName": "Antonelli",
+   "nationality": "ITA",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 88,
+   "attributes": {
+    "QUA": 93,
+    "RYT": 89,
+    "DEP": 85,
+    "PLU": 86,
+    "REG": 84,
+    "EXP": 71
+   },
+   "portraitSeed": 2589952110,
+   "affiliation": "Mercedes"
+  },
+  {
+   "id": "f1-lando-norris",
+   "name": "Lando Norris",
+   "shortName": "Norris",
+   "nationality": "GBR",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 92,
+   "attributes": {
+    "QUA": 97,
+    "RYT": 91,
+    "DEP": 86,
+    "PLU": 88,
+    "REG": 91,
+    "EXP": 83
+   },
+   "portraitSeed": 3789883444,
+   "affiliation": "McLaren"
+  },
+  {
+   "id": "f1-oscar-piastri",
+   "name": "Oscar Piastri",
+   "shortName": "Piastri",
+   "nationality": "AUS",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 91,
+   "attributes": {
+    "QUA": 88,
+    "RYT": 92,
+    "DEP": 85,
+    "PLU": 88,
+    "REG": 93,
+    "EXP": 83
+   },
+   "portraitSeed": 336274415,
+   "affiliation": "McLaren"
+  },
+  {
+   "id": "f1-charles-leclerc",
+   "name": "Charles Leclerc",
+   "shortName": "Leclerc",
+   "nationality": "MON",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 92,
+   "attributes": {
+    "QUA": 98,
+    "RYT": 89,
+    "DEP": 86,
+    "PLU": 87,
+    "REG": 92,
+    "EXP": 80
+   },
+   "portraitSeed": 1898366683,
+   "affiliation": "Ferrari"
+  },
+  {
+   "id": "f1-lewis-hamilton",
+   "name": "Lewis Hamilton",
+   "shortName": "Hamilton",
+   "nationality": "GBR",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 89,
+   "attributes": {
+    "QUA": 90,
+    "RYT": 91,
+    "DEP": 83,
+    "PLU": 90,
+    "REG": 87,
+    "EXP": 93
+   },
+   "portraitSeed": 678876761,
+   "affiliation": "Ferrari"
+  },
+  {
+   "id": "f1-fernando-alonso",
+   "name": "Fernando Alonso",
+   "shortName": "Alonso",
+   "nationality": "ESP",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 87,
+   "attributes": {
+    "QUA": 89,
+    "RYT": 90,
+    "DEP": 91,
+    "PLU": 84,
+    "REG": 85,
+    "EXP": 90
+   },
+   "portraitSeed": 3932115012,
+   "affiliation": "Aston Martin"
+  },
+  {
+   "id": "f1-lance-stroll",
+   "name": "Lance Stroll",
+   "shortName": "Stroll",
+   "nationality": "CAN",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 76,
+   "attributes": {
+    "QUA": 79,
+    "RYT": 79,
+    "DEP": 71,
+    "PLU": 74,
+    "REG": 71,
+    "EXP": 71
+   },
+   "portraitSeed": 1342164708,
+   "affiliation": "Aston Martin"
+  },
+  {
+   "id": "f1-carlos-sainz",
+   "name": "Carlos Sainz",
+   "shortName": "Sainz",
+   "nationality": "ESP",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 87,
+   "attributes": {
+    "QUA": 85,
+    "RYT": 84,
+    "DEP": 84,
+    "PLU": 80,
+    "REG": 91,
+    "EXP": 80
+   },
+   "portraitSeed": 2219150510,
+   "affiliation": "Williams"
+  },
+  {
+   "id": "f1-alexander-albon",
+   "name": "Alexander Albon",
+   "shortName": "Albon",
+   "nationality": "THA",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 84,
+   "attributes": {
+    "QUA": 84,
+    "RYT": 81,
+    "DEP": 78,
+    "PLU": 82,
+    "REG": 89,
+    "EXP": 78
+   },
+   "portraitSeed": 3719906973,
+   "affiliation": "Williams"
+  },
+  {
+   "id": "f1-liam-lawson",
+   "name": "Liam Lawson",
+   "shortName": "Lawson",
+   "nationality": "NZL",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 79,
+   "attributes": {
+    "QUA": 76,
+    "RYT": 79,
+    "DEP": 80,
+    "PLU": 75,
+    "REG": 79,
+    "EXP": 74
+   },
+   "portraitSeed": 4225170196,
+   "affiliation": "Racing Bulls"
+  },
+  {
+   "id": "f1-arvid-lindblad",
+   "name": "Arvid Lindblad",
+   "shortName": "Lindblad",
+   "nationality": "GBR",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 76,
+   "attributes": {
+    "QUA": 79,
+    "RYT": 76,
+    "DEP": 75,
+    "PLU": 68,
+    "REG": 71,
+    "EXP": 53
+   },
+   "portraitSeed": 1858818285,
+   "affiliation": "Racing Bulls"
+  },
+  {
+   "id": "f1-pierre-gasly",
+   "name": "Pierre Gasly",
+   "shortName": "Gasly",
+   "nationality": "FRA",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 84,
+   "attributes": {
+    "QUA": 84,
+    "RYT": 86,
+    "DEP": 80,
+    "PLU": 76,
+    "REG": 87,
+    "EXP": 75
+   },
+   "portraitSeed": 4031162382,
+   "affiliation": "Alpine"
+  },
+  {
+   "id": "f1-franco-colapinto",
+   "name": "Franco Colapinto",
+   "shortName": "Colapinto",
+   "nationality": "ARG",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 76,
+   "attributes": {
+    "QUA": 77,
+    "RYT": 74,
+    "DEP": 80,
+    "PLU": 68,
+    "REG": 71,
+    "EXP": 62
+   },
+   "portraitSeed": 2083615261,
+   "affiliation": "Alpine"
+  },
+  {
+   "id": "f1-esteban-ocon",
+   "name": "Esteban Ocon",
+   "shortName": "Ocon",
+   "nationality": "FRA",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "QUA": 84,
+    "RYT": 81,
+    "DEP": 78,
+    "PLU": 75,
+    "REG": 82,
+    "EXP": 72
+   },
+   "portraitSeed": 512207878,
+   "affiliation": "Haas"
+  },
+  {
+   "id": "f1-oliver-bearman",
+   "name": "Oliver Bearman",
+   "shortName": "Bearman",
+   "nationality": "GBR",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "QUA": 84,
+    "RYT": 82,
+    "DEP": 85,
+    "PLU": 76,
+    "REG": 77,
+    "EXP": 64
+   },
+   "portraitSeed": 3844387464,
+   "affiliation": "Haas"
+  },
+  {
+   "id": "f1-nico-hulkenberg",
+   "name": "Nico Hülkenberg",
+   "shortName": "Hülkenberg",
+   "nationality": "GER",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "QUA": 82,
+    "RYT": 81,
+    "DEP": 78,
+    "PLU": 75,
+    "REG": 76,
+    "EXP": 75
+   },
+   "portraitSeed": 1555890878,
+   "affiliation": "Audi"
+  },
+  {
+   "id": "f1-gabriel-bortoleto",
+   "name": "Gabriel Bortoleto",
+   "shortName": "Bortoleto",
+   "nationality": "BRA",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 80,
+   "attributes": {
+    "QUA": 83,
+    "RYT": 81,
+    "DEP": 76,
+    "PLU": 74,
+    "REG": 81,
+    "EXP": 64
+   },
+   "portraitSeed": 1150131129,
+   "affiliation": "Audi"
+  },
+  {
+   "id": "f1-sergio-perez",
+   "name": "Sergio Pérez",
+   "shortName": "Pérez",
+   "nationality": "MEX",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 81,
+   "attributes": {
+    "QUA": 82,
+    "RYT": 84,
+    "DEP": 75,
+    "PLU": 74,
+    "REG": 77,
+    "EXP": 81
+   },
+   "portraitSeed": 4053462966,
+   "affiliation": "Cadillac"
+  },
+  {
+   "id": "f1-valtteri-bottas",
+   "name": "Valtteri Bottas",
+   "shortName": "Bottas",
+   "nationality": "FIN",
+   "roles": [
+    "PIL"
+   ],
+   "overall": 80,
+   "attributes": {
+    "QUA": 88,
+    "RYT": 77,
+    "DEP": 76,
+    "PLU": 76,
+    "REG": 76,
+    "EXP": 77
+   },
+   "portraitSeed": 1627545421,
+   "affiliation": "Cadillac"
+  },
+  {
+   "id": "f1-ecu-mercedes",
+   "name": "Mercedes",
+   "shortName": "Mercedes",
+   "nationality": "GER",
+   "roles": [
+    "ECU"
+   ],
+   "overall": 92,
+   "attributes": {
+    "MOT": 96,
+    "AER": 94,
+    "CHA": 89,
+    "FIA": 91,
+    "STR": 87,
+    "STA": 84
+   },
+   "portraitSeed": 1447410905,
+   "affiliation": "Moteur Mercedes"
+  },
+  {
+   "id": "f1-ecu-mclaren",
+   "name": "McLaren",
+   "shortName": "McLaren",
+   "nationality": "GBR",
+   "roles": [
+    "ECU"
+   ],
+   "overall": 90,
+   "attributes": {
+    "MOT": 92,
+    "AER": 95,
+    "CHA": 92,
+    "FIA": 86,
+    "STR": 86,
+    "STA": 84
+   },
+   "portraitSeed": 3253254995,
+   "affiliation": "Moteur Mercedes"
+  },
+  {
+   "id": "f1-ecu-ferrari",
+   "name": "Ferrari",
+   "shortName": "Ferrari",
+   "nationality": "ITA",
+   "roles": [
+    "ECU"
+   ],
+   "overall": 88,
+   "attributes": {
+    "MOT": 91,
+    "AER": 86,
+    "CHA": 86,
+    "FIA": 86,
+    "STR": 82,
+    "STA": 86
+   },
+   "portraitSeed": 1364931758,
+   "affiliation": "Moteur Ferrari"
+  },
+  {
+   "id": "f1-ecu-red-bull-racing",
+   "name": "Red Bull Racing",
+   "shortName": "Red Bull",
+   "nationality": "AUT",
+   "roles": [
+    "ECU"
+   ],
+   "overall": 86,
+   "attributes": {
+    "MOT": 83,
+    "AER": 83,
+    "CHA": 86,
+    "FIA": 84,
+    "STR": 82,
+    "STA": 84
+   },
+   "portraitSeed": 420286517,
+   "affiliation": "Moteur Red Bull Ford"
+  },
+  {
+   "id": "f1-ecu-alpine",
+   "name": "Alpine",
+   "shortName": "Alpine",
+   "nationality": "FRA",
+   "roles": [
+    "ECU"
+   ],
+   "overall": 78,
+   "attributes": {
+    "MOT": 85,
+    "AER": 76,
+    "CHA": 77,
+    "FIA": 72,
+    "STR": 74,
+    "STA": 75
+   },
+   "portraitSeed": 3319886078,
+   "affiliation": "Moteur Mercedes"
+  },
+  {
+   "id": "f1-ecu-williams",
+   "name": "Williams",
+   "shortName": "Williams",
+   "nationality": "GBR",
+   "roles": [
+    "ECU"
+   ],
+   "overall": 78,
+   "attributes": {
+    "MOT": 76,
+    "AER": 76,
+    "CHA": 78,
+    "FIA": 76,
+    "STR": 79,
+    "STA": 72
+   },
+   "portraitSeed": 2865727175,
+   "affiliation": "Moteur Mercedes"
+  },
+  {
+   "id": "f1-ecu-haas",
+   "name": "Haas",
+   "shortName": "Haas",
+   "nationality": "USA",
+   "roles": [
+    "ECU"
+   ],
+   "overall": 77,
+   "attributes": {
+    "MOT": 79,
+    "AER": 76,
+    "CHA": 76,
+    "FIA": 76,
+    "STR": 76,
+    "STA": 73
+   },
+   "portraitSeed": 1674531518,
+   "affiliation": "Moteur Ferrari"
+  },
+  {
+   "id": "f1-ecu-racing-bulls",
+   "name": "Racing Bulls",
+   "shortName": "RB",
+   "nationality": "ITA",
+   "roles": [
+    "ECU"
+   ],
+   "overall": 76,
+   "attributes": {
+    "MOT": 75,
+    "AER": 75,
+    "CHA": 71,
+    "FIA": 76,
+    "STR": 75,
+    "STA": 72
+   },
+   "portraitSeed": 3327536981,
+   "affiliation": "Moteur Red Bull Ford"
+  },
+  {
+   "id": "f1-ecu-audi",
+   "name": "Audi",
+   "shortName": "Audi",
+   "nationality": "GER",
+   "roles": [
+    "ECU"
+   ],
+   "overall": 74,
+   "attributes": {
+    "MOT": 73,
+    "AER": 71,
+    "CHA": 74,
+    "FIA": 70,
+    "STR": 72,
+    "STA": 67
+   },
+   "portraitSeed": 4103365356,
+   "affiliation": "Moteur Audi"
+  },
+  {
+   "id": "f1-ecu-aston-martin",
+   "name": "Aston Martin",
+   "shortName": "Aston M.",
+   "nationality": "GBR",
+   "roles": [
+    "ECU"
+   ],
+   "overall": 74,
+   "attributes": {
+    "MOT": 73,
+    "AER": 78,
+    "CHA": 73,
+    "FIA": 67,
+    "STR": 70,
+    "STA": 68
+   },
+   "portraitSeed": 513980509,
+   "affiliation": "Moteur Honda"
+  },
+  {
+   "id": "f1-ecu-cadillac",
+   "name": "Cadillac",
+   "shortName": "Cadillac",
+   "nationality": "USA",
+   "roles": [
+    "ECU"
+   ],
+   "overall": 68,
+   "attributes": {
+    "MOT": 66,
+    "AER": 67,
+    "CHA": 70,
+    "FIA": 62,
+    "STR": 65,
+    "STA": 66
+   },
+   "portraitSeed": 524571734,
+   "affiliation": "Moteur Ferrari"
+  },
+  {
+   "id": "f1-dir-toto-wolff",
+   "name": "Toto Wolff",
+   "shortName": "Wolff",
+   "nationality": "AUT",
+   "roles": [
+    "DIR"
+   ],
+   "overall": 91,
+   "attributes": {
+    "LEA": 92,
+    "STR": 92,
+    "TEC": 87,
+    "POL": 86,
+    "DEV": 87,
+    "GES": 89
+   },
+   "portraitSeed": 3245379323,
+   "affiliation": "Mercedes"
+  },
+  {
+   "id": "f1-dir-andrea-stella",
+   "name": "Andrea Stella",
+   "shortName": "Stella",
+   "nationality": "ITA",
+   "roles": [
+    "DIR"
+   ],
+   "overall": 90,
+   "attributes": {
+    "LEA": 89,
+    "STR": 91,
+    "TEC": 89,
+    "POL": 80,
+    "DEV": 89,
+    "GES": 86
+   },
+   "portraitSeed": 2197039411,
+   "affiliation": "McLaren"
+  },
+  {
+   "id": "f1-dir-adrian-newey",
+   "name": "Adrian Newey",
+   "shortName": "Newey",
+   "nationality": "GBR",
+   "roles": [
+    "DIR"
+   ],
+   "overall": 86,
+   "attributes": {
+    "LEA": 83,
+    "STR": 81,
+    "TEC": 94,
+    "POL": 74,
+    "DEV": 80,
+    "GES": 81
+   },
+   "portraitSeed": 3768480150,
+   "affiliation": "Aston Martin"
+  },
+  {
+   "id": "f1-dir-frederic-vasseur",
+   "name": "Frédéric Vasseur",
+   "shortName": "Vasseur",
+   "nationality": "FRA",
+   "roles": [
+    "DIR"
+   ],
+   "overall": 85,
+   "attributes": {
+    "LEA": 83,
+    "STR": 83,
+    "TEC": 81,
+    "POL": 78,
+    "DEV": 84,
+    "GES": 88
+   },
+   "portraitSeed": 546099638,
+   "affiliation": "Ferrari"
+  },
+  {
+   "id": "f1-dir-laurent-mekies",
+   "name": "Laurent Mekies",
+   "shortName": "Mekies",
+   "nationality": "FRA",
+   "roles": [
+    "DIR"
+   ],
+   "overall": 84,
+   "attributes": {
+    "LEA": 81,
+    "STR": 80,
+    "TEC": 79,
+    "POL": 76,
+    "DEV": 79,
+    "GES": 78
+   },
+   "portraitSeed": 194640908,
+   "affiliation": "Red Bull Racing"
+  },
+  {
+   "id": "f1-dir-james-vowles",
+   "name": "James Vowles",
+   "shortName": "Vowles",
+   "nationality": "GBR",
+   "roles": [
+    "DIR"
+   ],
+   "overall": 84,
+   "attributes": {
+    "LEA": 84,
+    "STR": 81,
+    "TEC": 79,
+    "POL": 80,
+    "DEV": 86,
+    "GES": 78
+   },
+   "portraitSeed": 369509737,
+   "affiliation": "Williams"
+  },
+  {
+   "id": "f1-dir-flavio-briatore",
+   "name": "Flavio Briatore",
+   "shortName": "Briatore",
+   "nationality": "ITA",
+   "roles": [
+    "DIR"
+   ],
+   "overall": 82,
+   "attributes": {
+    "LEA": 80,
+    "STR": 81,
+    "TEC": 67,
+    "POL": 87,
+    "DEV": 80,
+    "GES": 81
+   },
+   "portraitSeed": 516807630,
+   "affiliation": "Alpine"
+  },
+  {
+   "id": "f1-dir-mattia-binotto",
+   "name": "Mattia Binotto",
+   "shortName": "Binotto",
+   "nationality": "ITA",
+   "roles": [
+    "DIR"
+   ],
+   "overall": 81,
+   "attributes": {
+    "LEA": 81,
+    "STR": 82,
+    "TEC": 82,
+    "POL": 75,
+    "DEV": 78,
+    "GES": 78
+   },
+   "portraitSeed": 2235817698,
+   "affiliation": "Audi"
+  },
+  {
+   "id": "f1-dir-ayao-komatsu",
+   "name": "Ayao Komatsu",
+   "shortName": "Komatsu",
+   "nationality": "JPN",
+   "roles": [
+    "DIR"
+   ],
+   "overall": 80,
+   "attributes": {
+    "LEA": 78,
+    "STR": 78,
+    "TEC": 78,
+    "POL": 73,
+    "DEV": 74,
+    "GES": 75
+   },
+   "portraitSeed": 2391295639,
+   "affiliation": "Haas"
+  },
+  {
+   "id": "f1-dir-alan-permane",
+   "name": "Alan Permane",
+   "shortName": "Permane",
+   "nationality": "GBR",
+   "roles": [
+    "DIR"
+   ],
+   "overall": 79,
+   "attributes": {
+    "LEA": 82,
+    "STR": 84,
+    "TEC": 72,
+    "POL": 71,
+    "DEV": 79,
+    "GES": 76
+   },
+   "portraitSeed": 2390465999,
+   "affiliation": "Racing Bulls"
+  },
+  {
+   "id": "f1-dir-graeme-lowdon",
+   "name": "Graeme Lowdon",
+   "shortName": "Lowdon",
+   "nationality": "GBR",
+   "roles": [
+    "DIR"
+   ],
+   "overall": 78,
+   "attributes": {
+    "LEA": 78,
+    "STR": 74,
+    "TEC": 69,
+    "POL": 74,
+    "DEV": 77,
+    "GES": 78
+   },
+   "portraitSeed": 1577183503,
+   "affiliation": "Cadillac"
+  }
+ ]
+}

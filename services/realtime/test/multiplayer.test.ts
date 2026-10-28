@@ -6,7 +6,7 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { io as connect, type Socket } from 'socket.io-client';
 import { randomUUID } from 'node:crypto';
-import { footballDemoPack } from '@byt/football';
+import { footballRealPack } from '@byt/football';
 import { C2S, S2C, type RoomUpdate, type RoomView, type SessionAck, type SpectatorAck } from '@byt/shared';
 import { createDb, migrate, type Db } from '../src/db';
 import { GameServer } from '../src/server';
@@ -22,7 +22,7 @@ const sockets: Socket[] = [];
 beforeAll(async () => {
   db = await createDb();
   await migrate(db);
-  server = new GameServer({ db, packs: [footballDemoPack], timeScale: TIME_SCALE });
+  server = new GameServer({ db, packs: [footballRealPack], timeScale: TIME_SCALE });
   const port = await server.start(0);
   url = `http://127.0.0.1:${port}`;
 });
@@ -95,14 +95,14 @@ describe('four-client multiplayer game', () => {
   it('1. host creates a room', async () => {
     const ack = await alice.session(C2S.create, {
       nickname: 'Alice',
-      packId: footballDemoPack.id,
+      packId: footballRealPack.id,
       mode: 'quick',
       maxParticipants: 4,
     });
     expect(ack.ok).toBe(true);
     code = ack.roomCode;
     expect(code).toMatch(/^[A-Z2-9]{6}$/);
-    expect(ack.pack.dataset.fictional).toBe(true);
+    expect(ack.pack.dataset.fictional).toBe(false);
     expect(alice.view!.settings.budget).toBe(200);
     // Persisted in PostgreSQL.
     const rows = await db.query('SELECT status FROM rooms WHERE code = $1', [code]);
@@ -266,7 +266,7 @@ describe('lobby moderation', () => {
   it('the host removes a participant; the removed session is revoked', async () => {
     const h = new Client('kick-host');
     const g = new Client('kick-guest');
-    const created = await h.session(C2S.create, { nickname: 'Host', packId: footballDemoPack.id, mode: 'quick', maxParticipants: 3 });
+    const created = await h.session(C2S.create, { nickname: 'Host', packId: footballRealPack.id, mode: 'quick', maxParticipants: 3 });
     await g.session(C2S.join, { roomCode: created.roomCode, nickname: 'Guest' });
     const notHost = await g.emit(C2S.kick, { actionId: randomUUID(), participantId: h.participantId });
     expect(notHost).toMatchObject({ ok: false, code: 'NOT_HOST' });
@@ -284,7 +284,7 @@ describe('two-player game with spectator voting', () => {
   it('spectators vote through a link, with one vote per spectator and an IP cap', async () => {
     const a = new Client('host2');
     const b = new Client('guest2');
-    const created = await a.session(C2S.create, { nickname: 'Hana', packId: footballDemoPack.id, mode: 'quick', maxParticipants: 2 });
+    const created = await a.session(C2S.create, { nickname: 'Hana', packId: footballRealPack.id, mode: 'quick', maxParticipants: 2 });
     const code = created.roomCode;
     await b.session(C2S.join, { roomCode: code, nickname: 'Ilan' });
     await a.emit(C2S.start, { actionId: randomUUID() });
@@ -322,13 +322,13 @@ describe('server restart', () => {
   it('reloads an in-progress room from PostgreSQL and keeps running its timers', async () => {
     const a = new Client('r1');
     const b = new Client('r2');
-    const created = await a.session(C2S.create, { nickname: 'Rui', packId: footballDemoPack.id, mode: 'quick', maxParticipants: 2 });
+    const created = await a.session(C2S.create, { nickname: 'Rui', packId: footballRealPack.id, mode: 'quick', maxParticipants: 2 });
     await b.session(C2S.join, { roomCode: created.roomCode, nickname: 'Sam' });
     await a.emit(C2S.start, { actionId: randomUUID() });
     await a.waitFor((x) => x.auction?.stage === 'open');
 
     // A second server instance on the same database (simulates a restart).
-    const second = new GameServer({ db, packs: [footballDemoPack], timeScale: TIME_SCALE });
+    const second = new GameServer({ db, packs: [footballRealPack], timeScale: TIME_SCALE });
     const port = await second.start(0);
     const c = connect(`http://127.0.0.1:${port}`, { transports: ['websocket'], forceNew: true });
     sockets.push(c);

@@ -83,7 +83,6 @@ docs                 Documentation
 
 | Commande | Effet |
 |---|---|
-| `npm run data:demo` | Régénère le dataset fictif (déterministe) |
 | `npm run data:basketball` | Régénère le jeu de données Basket depuis `packages/basketball/scripts/real-players.source.ts` |
 | `npm run data:real` | Régénère le dataset « Réels » depuis `packages/football/scripts/real-players.source.ts` |
 | `npm run data:import -- --file x.csv --id … --version … --label … --source … --license …` | Importe un dataset **sous licence**, versionné et validé |

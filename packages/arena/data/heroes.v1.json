@@ -1,0 +1,1826 @@
+{
+ "dataset": {
+  "id": "arena-heroes",
+  "version": "1.0.0",
+  "label": "Arènes de Solcendre · héros originaux (univers inventé)",
+  "fictional": true,
+  "source": "Contenu original Build Your Team (packages/arena/scripts/generate-heroes.ts) — univers, royaumes et héros inventés",
+  "license": "Propriété Build Your Team — contenu original fictif, sans référence à une œuvre existante",
+  "contentHash": "d8738c022f7800bf78a687bd3ccc18492384ca7d68737eb880a2d8a73403d5ea"
+ },
+ "characters": [
+  {
+   "id": "ar-bragh-holmskjold",
+   "name": "Bragh Holmskjold",
+   "shortName": "Bragh",
+   "nationality": "HVE",
+   "roles": [
+    "GAR"
+   ],
+   "overall": 95,
+   "attributes": {
+    "FOR": 89,
+    "AGI": 67,
+    "ARN": 53,
+    "DEF": 99,
+    "VIT": 99,
+    "ESP": 79
+   },
+   "portraitSeed": 3115578049,
+   "affiliation": "Jarlats de Hvessa"
+  },
+  {
+   "id": "ar-itzal-tecuamani",
+   "name": "Itzal Tecuamani",
+   "shortName": "Itzal",
+   "nationality": "TZA",
+   "roles": [
+    "GAR",
+    "LAM"
+   ],
+   "overall": 92,
+   "attributes": {
+    "FOR": 91,
+    "AGI": 65,
+    "ARN": 48,
+    "DEF": 99,
+    "VIT": 98,
+    "ESP": 71
+   },
+   "portraitSeed": 822257723,
+   "affiliation": "Empire de Tzalmec"
+  },
+  {
+   "id": "ar-ombeline-de-vaucrest",
+   "name": "Ombeline de Vaucrest",
+   "shortName": "Ombeline",
+   "nationality": "MOR",
+   "roles": [
+    "GAR"
+   ],
+   "overall": 89,
+   "attributes": {
+    "FOR": 88,
+    "AGI": 63,
+    "ARN": 49,
+    "DEF": 99,
+    "VIT": 93,
+    "ESP": 71
+   },
+   "portraitSeed": 2434460707,
+   "affiliation": "Duché de Morvaille"
+  },
+  {
+   "id": "ar-oumarou-kessende",
+   "name": "Oumarou Kessendé",
+   "shortName": "Oumarou",
+   "nationality": "KOU",
+   "roles": [
+    "GAR"
+   ],
+   "overall": 87,
+   "attributes": {
+    "FOR": 81,
+    "AGI": 58,
+    "ARN": 45,
+    "DEF": 91,
+    "VIT": 98,
+    "ESP": 71
+   },
+   "portraitSeed": 2017602548,
+   "affiliation": "Royaume de Kounama"
+  },
+  {
+   "id": "ar-ravil-tcherkhane",
+   "name": "Ravil Tcherkhane",
+   "shortName": "Ravil",
+   "nationality": "IRK",
+   "roles": [
+    "GAR",
+    "LAM"
+   ],
+   "overall": 85,
+   "attributes": {
+    "FOR": 85,
+    "AGI": 61,
+    "ARN": 45,
+    "DEF": 88,
+    "VIT": 90,
+    "ESP": 70
+   },
+   "portraitSeed": 1216780061,
+   "affiliation": "Steppes d'Irkhane"
+  },
+  {
+   "id": "ar-daromir-velkosz",
+   "name": "Daromir Velkosz",
+   "shortName": "Daromir",
+   "nationality": "DRE",
+   "roles": [
+    "GAR"
+   ],
+   "overall": 84,
+   "attributes": {
+    "FOR": 82,
+    "AGI": 54,
+    "ARN": 48,
+    "DEF": 99,
+    "VIT": 85,
+    "ESP": 66
+   },
+   "portraitSeed": 2001998794,
+   "affiliation": "Principauté de Drevna"
+  },
+  {
+   "id": "ar-hakan-seyrun",
+   "name": "Hakan Seyrûn",
+   "shortName": "Hakan",
+   "nationality": "KHE",
+   "roles": [
+    "GAR"
+   ],
+   "overall": 82,
+   "attributes": {
+    "FOR": 75,
+    "AGI": 59,
+    "ARN": 46,
+    "DEF": 90,
+    "VIT": 85,
+    "ESP": 63
+   },
+   "portraitSeed": 1472398709,
+   "affiliation": "Sultanat de Kheyrân"
+  },
+  {
+   "id": "ar-tessaly-morne-ecu",
+   "name": "Tessaly Morne-Écu",
+   "shortName": "Tessaly",
+   "nationality": "SOL",
+   "roles": [
+    "GAR"
+   ],
+   "overall": 81,
+   "attributes": {
+    "FOR": 77,
+    "AGI": 53,
+    "ARN": 44,
+    "DEF": 88,
+    "VIT": 84,
+    "ESP": 64
+   },
+   "portraitSeed": 1255327720,
+   "affiliation": "Cité libre de Solcendre"
+  },
+  {
+   "id": "ar-gaius-peravento",
+   "name": "Gaïus Peravento",
+   "shortName": "Gaïus",
+   "nationality": "CAL",
+   "roles": [
+    "GAR"
+   ],
+   "overall": 79,
+   "attributes": {
+    "FOR": 73,
+    "AGI": 51,
+    "ARN": 45,
+    "DEF": 81,
+    "VIT": 84,
+    "ESP": 61
+   },
+   "portraitSeed": 3097107417,
+   "affiliation": "Sérénissime de Calvèze"
+  },
+  {
+   "id": "ar-rendai-tsugawara",
+   "name": "Rendaï Tsugawara",
+   "shortName": "Rendaï",
+   "nationality": "OSE",
+   "roles": [
+    "GAR"
+   ],
+   "overall": 78,
+   "attributes": {
+    "FOR": 75,
+    "AGI": 52,
+    "ARN": 46,
+    "DEF": 86,
+    "VIT": 81,
+    "ESP": 62
+   },
+   "portraitSeed": 890419160,
+   "affiliation": "Archipel d'Ōsenka"
+  },
+  {
+   "id": "ar-brannoc-lierre-dur",
+   "name": "Brannoc Lierre-Dur",
+   "shortName": "Brannoc",
+   "nationality": "ORV",
+   "roles": [
+    "GAR"
+   ],
+   "overall": 76,
+   "attributes": {
+    "FOR": 71,
+    "AGI": 52,
+    "ARN": 45,
+    "DEF": 84,
+    "VIT": 76,
+    "ESP": 63
+   },
+   "portraitSeed": 2727292946,
+   "affiliation": "Sylves d'Orvanne"
+  },
+  {
+   "id": "ar-yelka-zorevna",
+   "name": "Yelka Zorevna",
+   "shortName": "Yelka",
+   "nationality": "DRE",
+   "roles": [
+    "GAR"
+   ],
+   "overall": 74,
+   "attributes": {
+    "FOR": 70,
+    "AGI": 53,
+    "ARN": 38,
+    "DEF": 79,
+    "VIT": 81,
+    "ESP": 56
+   },
+   "portraitSeed": 3389470561,
+   "affiliation": "Principauté de Drevna"
+  },
+  {
+   "id": "ar-mbaye-torounde",
+   "name": "Mbaye Toroundé",
+   "shortName": "Mbaye",
+   "nationality": "KOU",
+   "roles": [
+    "GAR"
+   ],
+   "overall": 72,
+   "attributes": {
+    "FOR": 70,
+    "AGI": 50,
+    "ARN": 38,
+    "DEF": 74,
+    "VIT": 73,
+    "ESP": 58
+   },
+   "portraitSeed": 1234339992,
+   "affiliation": "Royaume de Kounama"
+  },
+  {
+   "id": "ar-solveig-ankerhal",
+   "name": "Solveig Ankerhal",
+   "shortName": "Solveig",
+   "nationality": "HVE",
+   "roles": [
+    "GAR"
+   ],
+   "overall": 70,
+   "attributes": {
+    "FOR": 65,
+    "AGI": 51,
+    "ARN": 36,
+    "DEF": 78,
+    "VIT": 75,
+    "ESP": 54
+   },
+   "portraitSeed": 188499191,
+   "affiliation": "Jarlats de Hvessa"
+  },
+  {
+   "id": "ar-feyrouz-al-qaram",
+   "name": "Feyrouz al-Qaram",
+   "shortName": "Feyrouz",
+   "nationality": "KHE",
+   "roles": [
+    "GAR",
+    "SOI"
+   ],
+   "overall": 68,
+   "attributes": {
+    "FOR": 67,
+    "AGI": 48,
+    "ARN": 37,
+    "DEF": 73,
+    "VIT": 69,
+    "ESP": 59
+   },
+   "portraitSeed": 1088550164,
+   "affiliation": "Sultanat de Kheyrân"
+  },
+  {
+   "id": "ar-aubin-grisemaille",
+   "name": "Aubin Grisemaille",
+   "shortName": "Aubin",
+   "nationality": "MOR",
+   "roles": [
+    "GAR"
+   ],
+   "overall": 66,
+   "attributes": {
+    "FOR": 64,
+    "AGI": 42,
+    "ARN": 35,
+    "DEF": 68,
+    "VIT": 71,
+    "ESP": 50
+   },
+   "portraitSeed": 765230189,
+   "affiliation": "Duché de Morvaille"
+  },
+  {
+   "id": "ar-sarnai-dzoloo",
+   "name": "Sarnaï Dzöloo",
+   "shortName": "Sarnaï",
+   "nationality": "IRK",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 97,
+   "attributes": {
+    "FOR": 99,
+    "AGI": 99,
+    "ARN": 53,
+    "DEF": 81,
+    "VIT": 84,
+    "ESP": 70
+   },
+   "portraitSeed": 3642057540,
+   "affiliation": "Steppes d'Irkhane"
+  },
+  {
+   "id": "ar-isarre-nocteval",
+   "name": "Isarre Nocteval",
+   "shortName": "Isarre",
+   "nationality": "SOL",
+   "roles": [
+    "LAM",
+    "ARC"
+   ],
+   "overall": 93,
+   "attributes": {
+    "FOR": 95,
+    "AGI": 99,
+    "ARN": 54,
+    "DEF": 73,
+    "VIT": 82,
+    "ESP": 69
+   },
+   "portraitSeed": 2003513866,
+   "affiliation": "Cité libre de Solcendre"
+  },
+  {
+   "id": "ar-tomasz-ryveniec",
+   "name": "Tomasz Ryveniec",
+   "shortName": "Tomasz",
+   "nationality": "DRE",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 90,
+   "attributes": {
+    "FOR": 99,
+    "AGI": 94,
+    "ARN": 50,
+    "DEF": 76,
+    "VIT": 80,
+    "ESP": 65
+   },
+   "portraitSeed": 3860087829,
+   "affiliation": "Principauté de Drevna"
+  },
+  {
+   "id": "ar-akemi-haragane",
+   "name": "Akemi Haragane",
+   "shortName": "Akemi",
+   "nationality": "OSE",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 88,
+   "attributes": {
+    "FOR": 92,
+    "AGI": 99,
+    "ARN": 51,
+    "DEF": 71,
+    "VIT": 77,
+    "ESP": 65
+   },
+   "portraitSeed": 3629095102,
+   "affiliation": "Archipel d'Ōsenka"
+  },
+  {
+   "id": "ar-zahir-ben-sahar",
+   "name": "Zahir ben-Sahar",
+   "shortName": "Zahir",
+   "nationality": "KHE",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 87,
+   "attributes": {
+    "FOR": 90,
+    "AGI": 91,
+    "ARN": 47,
+    "DEF": 74,
+    "VIT": 77,
+    "ESP": 62
+   },
+   "portraitSeed": 3252417045,
+   "affiliation": "Sultanat de Kheyrân"
+  },
+  {
+   "id": "ar-cuauhtli-ixmana",
+   "name": "Cuauhtli Ixmaná",
+   "shortName": "Cuauhtli",
+   "nationality": "TZA",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 85,
+   "attributes": {
+    "FOR": 96,
+    "AGI": 86,
+    "ARN": 50,
+    "DEF": 69,
+    "VIT": 76,
+    "ESP": 60
+   },
+   "portraitSeed": 1409177903,
+   "affiliation": "Empire de Tzalmec"
+  },
+  {
+   "id": "ar-rodolphe-de-malvigne",
+   "name": "Rodolphe de Malvigne",
+   "shortName": "Rodolphe",
+   "nationality": "MOR",
+   "roles": [
+    "LAM",
+    "GAR"
+   ],
+   "overall": 84,
+   "attributes": {
+    "FOR": 85,
+    "AGI": 83,
+    "ARN": 44,
+    "DEF": 71,
+    "VIT": 74,
+    "ESP": 62
+   },
+   "portraitSeed": 958318443,
+   "affiliation": "Duché de Morvaille"
+  },
+  {
+   "id": "ar-ilvane-coudrier",
+   "name": "Ilvane Coudrier",
+   "shortName": "Ilvane",
+   "nationality": "ORV",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 83,
+   "attributes": {
+    "FOR": 88,
+    "AGI": 93,
+    "ARN": 43,
+    "DEF": 70,
+    "VIT": 78,
+    "ESP": 63
+   },
+   "portraitSeed": 1898231616,
+   "affiliation": "Sylves d'Orvanne"
+  },
+  {
+   "id": "ar-eskil-ravnstad",
+   "name": "Eskil Ravnstad",
+   "shortName": "Eskil",
+   "nationality": "HVE",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 81,
+   "attributes": {
+    "FOR": 96,
+    "AGI": 81,
+    "ARN": 48,
+    "DEF": 64,
+    "VIT": 75,
+    "ESP": 57
+   },
+   "portraitSeed": 2812433285,
+   "affiliation": "Jarlats de Hvessa"
+  },
+  {
+   "id": "ar-nnenna-obakoro",
+   "name": "Nnenna Obakoro",
+   "shortName": "Nnenna",
+   "nationality": "KOU",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 80,
+   "attributes": {
+    "FOR": 81,
+    "AGI": 87,
+    "ARN": 44,
+    "DEF": 68,
+    "VIT": 70,
+    "ESP": 60
+   },
+   "portraitSeed": 1724479397,
+   "affiliation": "Royaume de Kounama"
+  },
+  {
+   "id": "ar-lucan-ferravelli",
+   "name": "Lucan Ferravelli",
+   "shortName": "Lucan",
+   "nationality": "CAL",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 79,
+   "attributes": {
+    "FOR": 84,
+    "AGI": 81,
+    "ARN": 44,
+    "DEF": 68,
+    "VIT": 70,
+    "ESP": 59
+   },
+   "portraitSeed": 1597505339,
+   "affiliation": "Sérénissime de Calvèze"
+  },
+  {
+   "id": "ar-temur-ogedal",
+   "name": "Temür Ögedal",
+   "shortName": "Temür",
+   "nationality": "IRK",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 77,
+   "attributes": {
+    "FOR": 87,
+    "AGI": 76,
+    "ARN": 39,
+    "DEF": 62,
+    "VIT": 71,
+    "ESP": 54
+   },
+   "portraitSeed": 2054459861,
+   "affiliation": "Steppes d'Irkhane"
+  },
+  {
+   "id": "ar-mireille-fendacier",
+   "name": "Mireille Fendacier",
+   "shortName": "Mireille",
+   "nationality": "SOL",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 76,
+   "attributes": {
+    "FOR": 78,
+    "AGI": 83,
+    "ARN": 45,
+    "DEF": 65,
+    "VIT": 71,
+    "ESP": 56
+   },
+   "portraitSeed": 1802816122,
+   "affiliation": "Cité libre de Solcendre"
+  },
+  {
+   "id": "ar-yaotl-chimalpan",
+   "name": "Yaotl Chimalpan",
+   "shortName": "Yaotl",
+   "nationality": "TZA",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 74,
+   "attributes": {
+    "FOR": 77,
+    "AGI": 74,
+    "ARN": 44,
+    "DEF": 64,
+    "VIT": 75,
+    "ESP": 51
+   },
+   "portraitSeed": 3404884110,
+   "affiliation": "Empire de Tzalmec"
+  },
+  {
+   "id": "ar-haruto-sagiri",
+   "name": "Haruto Sagiri",
+   "shortName": "Haruto",
+   "nationality": "OSE",
+   "roles": [
+    "LAM",
+    "ARC"
+   ],
+   "overall": 72,
+   "attributes": {
+    "FOR": 72,
+    "AGI": 81,
+    "ARN": 37,
+    "DEF": 62,
+    "VIT": 65,
+    "ESP": 49
+   },
+   "portraitSeed": 2590917686,
+   "affiliation": "Archipel d'Ōsenka"
+  },
+  {
+   "id": "ar-vesna-krobatek",
+   "name": "Vesna Krobatek",
+   "shortName": "Vesna",
+   "nationality": "DRE",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 70,
+   "attributes": {
+    "FOR": 72,
+    "AGI": 71,
+    "ARN": 40,
+    "DEF": 54,
+    "VIT": 63,
+    "ESP": 51
+   },
+   "portraitSeed": 3103940258,
+   "affiliation": "Principauté de Drevna"
+  },
+  {
+   "id": "ar-dunstan-orgemoule",
+   "name": "Dunstan Orgemoule",
+   "shortName": "Dunstan",
+   "nationality": "ORV",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 68,
+   "attributes": {
+    "FOR": 73,
+    "AGI": 66,
+    "ARN": 35,
+    "DEF": 55,
+    "VIT": 58,
+    "ESP": 50
+   },
+   "portraitSeed": 354854526,
+   "affiliation": "Sylves d'Orvanne"
+  },
+  {
+   "id": "ar-kassim-ouarzel",
+   "name": "Kassim Ouarzel",
+   "shortName": "Kassim",
+   "nationality": "KHE",
+   "roles": [
+    "LAM"
+   ],
+   "overall": 65,
+   "attributes": {
+    "FOR": 70,
+    "AGI": 66,
+    "ARN": 37,
+    "DEF": 54,
+    "VIT": 58,
+    "ESP": 46
+   },
+   "portraitSeed": 23406984,
+   "affiliation": "Sultanat de Kheyrân"
+  },
+  {
+   "id": "ar-elowen-flechebrume",
+   "name": "Elowen Fléchebrume",
+   "shortName": "Elowen",
+   "nationality": "ORV",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 94,
+   "attributes": {
+    "FOR": 75,
+    "AGI": 99,
+    "ARN": 55,
+    "DEF": 61,
+    "VIT": 73,
+    "ESP": 90
+   },
+   "portraitSeed": 463128472,
+   "affiliation": "Sylves d'Orvanne"
+  },
+  {
+   "id": "ar-tsetseg-altanbar",
+   "name": "Tsetseg Altanbar",
+   "shortName": "Tsetseg",
+   "nationality": "IRK",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 91,
+   "attributes": {
+    "FOR": 74,
+    "AGI": 99,
+    "ARN": 53,
+    "DEF": 58,
+    "VIT": 74,
+    "ESP": 82
+   },
+   "portraitSeed": 3534329728,
+   "affiliation": "Steppes d'Irkhane"
+  },
+  {
+   "id": "ar-nayeli-ixcatlan",
+   "name": "Nayeli Ixcatlán",
+   "shortName": "Nayeli",
+   "nationality": "TZA",
+   "roles": [
+    "ARC",
+    "LAM"
+   ],
+   "overall": 88,
+   "attributes": {
+    "FOR": 69,
+    "AGI": 93,
+    "ARN": 56,
+    "DEF": 57,
+    "VIT": 69,
+    "ESP": 82
+   },
+   "portraitSeed": 1500720132,
+   "affiliation": "Empire de Tzalmec"
+  },
+  {
+   "id": "ar-ysolde-pertuis",
+   "name": "Ysolde Pertuis",
+   "shortName": "Ysolde",
+   "nationality": "MOR",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 86,
+   "attributes": {
+    "FOR": 70,
+    "AGI": 89,
+    "ARN": 55,
+    "DEF": 59,
+    "VIT": 69,
+    "ESP": 79
+   },
+   "portraitSeed": 803966082,
+   "affiliation": "Duché de Morvaille"
+  },
+  {
+   "id": "ar-ragnfrid-ulvhorn",
+   "name": "Ragnfrid Ulvhorn",
+   "shortName": "Ragnfrid",
+   "nationality": "HVE",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 84,
+   "attributes": {
+    "FOR": 70,
+    "AGI": 90,
+    "ARN": 51,
+    "DEF": 52,
+    "VIT": 66,
+    "ESP": 79
+   },
+   "portraitSeed": 2314460979,
+   "affiliation": "Jarlats de Hvessa"
+  },
+  {
+   "id": "ar-amara-dialle",
+   "name": "Amara Diallé",
+   "shortName": "Amara",
+   "nationality": "KOU",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 83,
+   "attributes": {
+    "FOR": 67,
+    "AGI": 90,
+    "ARN": 48,
+    "DEF": 56,
+    "VIT": 69,
+    "ESP": 75
+   },
+   "portraitSeed": 3116188395,
+   "affiliation": "Royaume de Kounama"
+  },
+  {
+   "id": "ar-corvin-saltarel",
+   "name": "Corvin Saltarel",
+   "shortName": "Corvin",
+   "nationality": "CAL",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 82,
+   "attributes": {
+    "FOR": 61,
+    "AGI": 85,
+    "ARN": 51,
+    "DEF": 57,
+    "VIT": 65,
+    "ESP": 77
+   },
+   "portraitSeed": 3175668903,
+   "affiliation": "Sérénissime de Calvèze"
+  },
+  {
+   "id": "ar-rin-kazehaya",
+   "name": "Rin Kazehaya",
+   "shortName": "Rin",
+   "nationality": "OSE",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 80,
+   "attributes": {
+    "FOR": 65,
+    "AGI": 96,
+    "ARN": 50,
+    "DEF": 50,
+    "VIT": 66,
+    "ESP": 70
+   },
+   "portraitSeed": 1213842797,
+   "affiliation": "Archipel d'Ōsenka"
+  },
+  {
+   "id": "ar-bohdan-lutovski",
+   "name": "Bohdan Lutovski",
+   "shortName": "Bohdan",
+   "nationality": "DRE",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 79,
+   "attributes": {
+    "FOR": 64,
+    "AGI": 87,
+    "ARN": 46,
+    "DEF": 50,
+    "VIT": 68,
+    "ESP": 74
+   },
+   "portraitSeed": 3274953159,
+   "affiliation": "Principauté de Drevna"
+  },
+  {
+   "id": "ar-samira-qassan",
+   "name": "Samira Qassân",
+   "shortName": "Samira",
+   "nationality": "KHE",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 77,
+   "attributes": {
+    "FOR": 62,
+    "AGI": 84,
+    "ARN": 45,
+    "DEF": 52,
+    "VIT": 63,
+    "ESP": 71
+   },
+   "portraitSeed": 2725530927,
+   "affiliation": "Sultanat de Kheyrân"
+  },
+  {
+   "id": "ar-faelan-mousseronde",
+   "name": "Faelan Mousseronde",
+   "shortName": "Faelan",
+   "nationality": "ORV",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 76,
+   "attributes": {
+    "FOR": 57,
+    "AGI": 80,
+    "ARN": 50,
+    "DEF": 47,
+    "VIT": 60,
+    "ESP": 65
+   },
+   "portraitSeed": 437547765,
+   "affiliation": "Sylves d'Orvanne"
+  },
+  {
+   "id": "ar-leonce-tirevent",
+   "name": "Léonce Tirevent",
+   "shortName": "Léonce",
+   "nationality": "SOL",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 74,
+   "attributes": {
+    "FOR": 55,
+    "AGI": 83,
+    "ARN": 43,
+    "DEF": 52,
+    "VIT": 56,
+    "ESP": 68
+   },
+   "portraitSeed": 2370866497,
+   "affiliation": "Cité libre de Solcendre"
+  },
+  {
+   "id": "ar-chagatai-burkhal",
+   "name": "Chagatai Burkhal",
+   "shortName": "Chagatai",
+   "nationality": "IRK",
+   "roles": [
+    "ARC",
+    "LAM"
+   ],
+   "overall": 73,
+   "attributes": {
+    "FOR": 64,
+    "AGI": 77,
+    "ARN": 48,
+    "DEF": 46,
+    "VIT": 57,
+    "ESP": 67
+   },
+   "portraitSeed": 2387784349,
+   "affiliation": "Steppes d'Irkhane"
+  },
+  {
+   "id": "ar-ines-calavrone",
+   "name": "Ines Calavrone",
+   "shortName": "Ines",
+   "nationality": "CAL",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 71,
+   "attributes": {
+    "FOR": 58,
+    "AGI": 77,
+    "ARN": 43,
+    "DEF": 46,
+    "VIT": 56,
+    "ESP": 65
+   },
+   "portraitSeed": 1909961868,
+   "affiliation": "Sérénissime de Calvèze"
+  },
+  {
+   "id": "ar-ayo-sekunde",
+   "name": "Ayo Sekundé",
+   "shortName": "Ayo",
+   "nationality": "KOU",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 69,
+   "attributes": {
+    "FOR": 52,
+    "AGI": 75,
+    "ARN": 44,
+    "DEF": 43,
+    "VIT": 58,
+    "ESP": 63
+   },
+   "portraitSeed": 2195711944,
+   "affiliation": "Royaume de Kounama"
+  },
+  {
+   "id": "ar-thyra-vindsund",
+   "name": "Thyra Vindsund",
+   "shortName": "Thyra",
+   "nationality": "HVE",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 67,
+   "attributes": {
+    "FOR": 54,
+    "AGI": 71,
+    "ARN": 39,
+    "DEF": 43,
+    "VIT": 53,
+    "ESP": 57
+   },
+   "portraitSeed": 3853953245,
+   "affiliation": "Jarlats de Hvessa"
+  },
+  {
+   "id": "ar-pernelle-gaudrive",
+   "name": "Pernelle Gaudrive",
+   "shortName": "Pernelle",
+   "nationality": "MOR",
+   "roles": [
+    "ARC"
+   ],
+   "overall": 65,
+   "attributes": {
+    "FOR": 49,
+    "AGI": 66,
+    "ARN": 41,
+    "DEF": 44,
+    "VIT": 52,
+    "ESP": 61
+   },
+   "portraitSeed": 896113508,
+   "affiliation": "Duché de Morvaille"
+  },
+  {
+   "id": "ar-azenor-cendrelys",
+   "name": "Azénor Cendrelys",
+   "shortName": "Azénor",
+   "nationality": "SOL",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 96,
+   "attributes": {
+    "FOR": 47,
+    "AGI": 74,
+    "ARN": 99,
+    "DEF": 60,
+    "VIT": 72,
+    "ESP": 95
+   },
+   "portraitSeed": 544539566,
+   "affiliation": "Cité libre de Solcendre"
+  },
+  {
+   "id": "ar-malik-zaffaran",
+   "name": "Malik Zaffarân",
+   "shortName": "Malik",
+   "nationality": "KHE",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 92,
+   "attributes": {
+    "FOR": 45,
+    "AGI": 66,
+    "ARN": 99,
+    "DEF": 57,
+    "VIT": 67,
+    "ESP": 88
+   },
+   "portraitSeed": 4144221078,
+   "affiliation": "Sultanat de Kheyrân"
+  },
+  {
+   "id": "ar-xochiyotl-amacueyo",
+   "name": "Xochiyotl Amacueyo",
+   "shortName": "Xochiyotl",
+   "nationality": "TZA",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 89,
+   "attributes": {
+    "FOR": 45,
+    "AGI": 69,
+    "ARN": 92,
+    "DEF": 56,
+    "VIT": 67,
+    "ESP": 94
+   },
+   "portraitSeed": 1973182053,
+   "affiliation": "Empire de Tzalmec"
+  },
+  {
+   "id": "ar-vasilisa-mrakova",
+   "name": "Vasilisa Mrakova",
+   "shortName": "Vasilisa",
+   "nationality": "DRE",
+   "roles": [
+    "MAG",
+    "AUG"
+   ],
+   "overall": 87,
+   "attributes": {
+    "FOR": 41,
+    "AGI": 64,
+    "ARN": 91,
+    "DEF": 52,
+    "VIT": 64,
+    "ESP": 92
+   },
+   "portraitSeed": 3005743449,
+   "affiliation": "Principauté de Drevna"
+  },
+  {
+   "id": "ar-seiran-tokimura",
+   "name": "Seiran Tokimura",
+   "shortName": "Seiran",
+   "nationality": "OSE",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 86,
+   "attributes": {
+    "FOR": 42,
+    "AGI": 62,
+    "ARN": 99,
+    "DEF": 54,
+    "VIT": 59,
+    "ESP": 85
+   },
+   "portraitSeed": 1092475592,
+   "affiliation": "Archipel d'Ōsenka"
+  },
+  {
+   "id": "ar-gwenvael-brisetorche",
+   "name": "Gwenvaël Brisetorche",
+   "shortName": "Gwenvaël",
+   "nationality": "ORV",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 84,
+   "attributes": {
+    "FOR": 42,
+    "AGI": 60,
+    "ARN": 88,
+    "DEF": 53,
+    "VIT": 61,
+    "ESP": 85
+   },
+   "portraitSeed": 407222967,
+   "affiliation": "Sylves d'Orvanne"
+  },
+  {
+   "id": "ar-adaeze-ndomare",
+   "name": "Adaeze Ndomaré",
+   "shortName": "Adaeze",
+   "nationality": "KOU",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 83,
+   "attributes": {
+    "FOR": 42,
+    "AGI": 64,
+    "ARN": 93,
+    "DEF": 49,
+    "VIT": 57,
+    "ESP": 78
+   },
+   "portraitSeed": 1883182120,
+   "affiliation": "Royaume de Kounama"
+  },
+  {
+   "id": "ar-ottavio-brunalesco",
+   "name": "Ottavio Brunalesco",
+   "shortName": "Ottavio",
+   "nationality": "CAL",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 81,
+   "attributes": {
+    "FOR": 42,
+    "AGI": 62,
+    "ARN": 86,
+    "DEF": 52,
+    "VIT": 60,
+    "ESP": 84
+   },
+   "portraitSeed": 1149038312,
+   "affiliation": "Sérénissime de Calvèze"
+  },
+  {
+   "id": "ar-sigrun-eldhjarta",
+   "name": "Sigrún Eldhjarta",
+   "shortName": "Sigrún",
+   "nationality": "HVE",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 80,
+   "attributes": {
+    "FOR": 37,
+    "AGI": 60,
+    "ARN": 93,
+    "DEF": 47,
+    "VIT": 55,
+    "ESP": 79
+   },
+   "portraitSeed": 125462762,
+   "affiliation": "Jarlats de Hvessa"
+  },
+  {
+   "id": "ar-barsoum-elkhair",
+   "name": "Barsoum Elkhaïr",
+   "shortName": "Barsoum",
+   "nationality": "KHE",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 78,
+   "attributes": {
+    "FOR": 41,
+    "AGI": 59,
+    "ARN": 82,
+    "DEF": 51,
+    "VIT": 57,
+    "ESP": 73
+   },
+   "portraitSeed": 764137883,
+   "affiliation": "Sultanat de Kheyrân"
+  },
+  {
+   "id": "ar-clemence-sombrevaux",
+   "name": "Clémence Sombrevaux",
+   "shortName": "Clémence",
+   "nationality": "MOR",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 77,
+   "attributes": {
+    "FOR": 40,
+    "AGI": 57,
+    "ARN": 85,
+    "DEF": 51,
+    "VIT": 57,
+    "ESP": 77
+   },
+   "portraitSeed": 2792485448,
+   "affiliation": "Duché de Morvaille"
+  },
+  {
+   "id": "ar-altan-gerelkhan",
+   "name": "Altan Gerelkhan",
+   "shortName": "Altan",
+   "nationality": "IRK",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 75,
+   "attributes": {
+    "FOR": 39,
+    "AGI": 56,
+    "ARN": 86,
+    "DEF": 50,
+    "VIT": 55,
+    "ESP": 76
+   },
+   "portraitSeed": 1603545297,
+   "affiliation": "Steppes d'Irkhane"
+  },
+  {
+   "id": "ar-yuna-akishiro",
+   "name": "Yūna Akishiro",
+   "shortName": "Yūna",
+   "nationality": "OSE",
+   "roles": [
+    "MAG",
+    "SOI"
+   ],
+   "overall": 73,
+   "attributes": {
+    "FOR": 35,
+    "AGI": 52,
+    "ARN": 80,
+    "DEF": 48,
+    "VIT": 55,
+    "ESP": 79
+   },
+   "portraitSeed": 2199462109,
+   "affiliation": "Archipel d'Ōsenka"
+  },
+  {
+   "id": "ar-radek-volchanin",
+   "name": "Radek Volchanin",
+   "shortName": "Radek",
+   "nationality": "DRE",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 71,
+   "attributes": {
+    "FOR": 39,
+    "AGI": 54,
+    "ARN": 79,
+    "DEF": 47,
+    "VIT": 51,
+    "ESP": 69
+   },
+   "portraitSeed": 4033443055,
+   "affiliation": "Principauté de Drevna"
+  },
+  {
+   "id": "ar-tiago-serramor",
+   "name": "Tiago Serramor",
+   "shortName": "Tiago",
+   "nationality": "SOL",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 69,
+   "attributes": {
+    "FOR": 32,
+    "AGI": 55,
+    "ARN": 81,
+    "DEF": 45,
+    "VIT": 51,
+    "ESP": 70
+   },
+   "portraitSeed": 3600619889,
+   "affiliation": "Cité libre de Solcendre"
+  },
+  {
+   "id": "ar-eithne-saulecreuse",
+   "name": "Eithne Saulecreuse",
+   "shortName": "Eithne",
+   "nationality": "ORV",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 67,
+   "attributes": {
+    "FOR": 32,
+    "AGI": 50,
+    "ARN": 75,
+    "DEF": 41,
+    "VIT": 46,
+    "ESP": 65
+   },
+   "portraitSeed": 1313481590,
+   "affiliation": "Sylves d'Orvanne"
+  },
+  {
+   "id": "ar-bakari-ousmanou",
+   "name": "Bakari Ousmanou",
+   "shortName": "Bakari",
+   "nationality": "KOU",
+   "roles": [
+    "MAG"
+   ],
+   "overall": 65,
+   "attributes": {
+    "FOR": 36,
+    "AGI": 52,
+    "ARN": 72,
+    "DEF": 39,
+    "VIT": 49,
+    "ESP": 67
+   },
+   "portraitSeed": 1227950169,
+   "affiliation": "Royaume de Kounama"
+  },
+  {
+   "id": "ar-seraphine-aubeclaire",
+   "name": "Séraphine Aubeclaire",
+   "shortName": "Séraphine",
+   "nationality": "SOL",
+   "roles": [
+    "SOI"
+   ],
+   "overall": 93,
+   "attributes": {
+    "FOR": 54,
+    "AGI": 69,
+    "ARN": 87,
+    "DEF": 66,
+    "VIT": 84,
+    "ESP": 99
+   },
+   "portraitSeed": 3964667182,
+   "affiliation": "Cité libre de Solcendre"
+  },
+  {
+   "id": "ar-imani-keladou",
+   "name": "Imani Kéladou",
+   "shortName": "Imani",
+   "nationality": "KOU",
+   "roles": [
+    "SOI"
+   ],
+   "overall": 89,
+   "attributes": {
+    "FOR": 49,
+    "AGI": 65,
+    "ARN": 82,
+    "DEF": 63,
+    "VIT": 78,
+    "ESP": 96
+   },
+   "portraitSeed": 4155001631,
+   "affiliation": "Royaume de Kounama"
+  },
+  {
+   "id": "ar-citlali-ozomalcan",
+   "name": "Citlali Ozomalcan",
+   "shortName": "Citlali",
+   "nationality": "TZA",
+   "roles": [
+    "SOI"
+   ],
+   "overall": 86,
+   "attributes": {
+    "FOR": 44,
+    "AGI": 65,
+    "ARN": 80,
+    "DEF": 61,
+    "VIT": 80,
+    "ESP": 86
+   },
+   "portraitSeed": 20989444,
+   "affiliation": "Empire de Tzalmec"
+  },
+  {
+   "id": "ar-aurele-mainsauve",
+   "name": "Aurèle Mainsauve",
+   "shortName": "Aurèle",
+   "nationality": "MOR",
+   "roles": [
+    "SOI"
+   ],
+   "overall": 84,
+   "attributes": {
+    "FOR": 44,
+    "AGI": 57,
+    "ARN": 83,
+    "DEF": 60,
+    "VIT": 76,
+    "ESP": 93
+   },
+   "portraitSeed": 1720226212,
+   "affiliation": "Duché de Morvaille"
+  },
+  {
+   "id": "ar-ingrid-lysthaven",
+   "name": "Ingrid Lysthaven",
+   "shortName": "Ingrid",
+   "nationality": "HVE",
+   "roles": [
+    "SOI",
+    "GAR"
+   ],
+   "overall": 82,
+   "attributes": {
+    "FOR": 43,
+    "AGI": 57,
+    "ARN": 79,
+    "DEF": 66,
+    "VIT": 74,
+    "ESP": 88
+   },
+   "portraitSeed": 3916236613,
+   "affiliation": "Jarlats de Hvessa"
+  },
+  {
+   "id": "ar-nour-saffiye",
+   "name": "Nour Saffiyé",
+   "shortName": "Nour",
+   "nationality": "KHE",
+   "roles": [
+    "SOI"
+   ],
+   "overall": 80,
+   "attributes": {
+    "FOR": 41,
+    "AGI": 57,
+    "ARN": 75,
+    "DEF": 58,
+    "VIT": 73,
+    "ESP": 89
+   },
+   "portraitSeed": 2159229731,
+   "affiliation": "Sultanat de Kheyrân"
+  },
+  {
+   "id": "ar-hana-mizuchiyo",
+   "name": "Hana Mizuchiyo",
+   "shortName": "Hana",
+   "nationality": "OSE",
+   "roles": [
+    "SOI"
+   ],
+   "overall": 78,
+   "attributes": {
+    "FOR": 42,
+    "AGI": 55,
+    "ARN": 75,
+    "DEF": 61,
+    "VIT": 69,
+    "ESP": 83
+   },
+   "portraitSeed": 915894939,
+   "affiliation": "Archipel d'Ōsenka"
+  },
+  {
+   "id": "ar-bryony-coeurdechene",
+   "name": "Bryony Cœurdechêne",
+   "shortName": "Bryony",
+   "nationality": "ORV",
+   "roles": [
+    "SOI"
+   ],
+   "overall": 76,
+   "attributes": {
+    "FOR": 43,
+    "AGI": 58,
+    "ARN": 73,
+    "DEF": 56,
+    "VIT": 71,
+    "ESP": 81
+   },
+   "portraitSeed": 554175247,
+   "affiliation": "Sylves d'Orvanne"
+  },
+  {
+   "id": "ar-mirela-dobrovan",
+   "name": "Mirela Dobrovan",
+   "shortName": "Mirela",
+   "nationality": "DRE",
+   "roles": [
+    "SOI"
+   ],
+   "overall": 74,
+   "attributes": {
+    "FOR": 41,
+    "AGI": 51,
+    "ARN": 72,
+    "DEF": 54,
+    "VIT": 64,
+    "ESP": 79
+   },
+   "portraitSeed": 3235453753,
+   "affiliation": "Principauté de Drevna"
+  },
+  {
+   "id": "ar-bataar-khoomel",
+   "name": "Bataar Khöömel",
+   "shortName": "Bataar",
+   "nationality": "IRK",
+   "roles": [
+    "SOI"
+   ],
+   "overall": 71,
+   "attributes": {
+    "FOR": 40,
+    "AGI": 48,
+    "ARN": 65,
+    "DEF": 52,
+    "VIT": 62,
+    "ESP": 74
+   },
+   "portraitSeed": 447536520,
+   "affiliation": "Steppes d'Irkhane"
+  },
+  {
+   "id": "ar-fiorella-santaguzzi",
+   "name": "Fiorella Santaguzzi",
+   "shortName": "Fiorella",
+   "nationality": "CAL",
+   "roles": [
+    "SOI"
+   ],
+   "overall": 69,
+   "attributes": {
+    "FOR": 40,
+    "AGI": 48,
+    "ARN": 69,
+    "DEF": 51,
+    "VIT": 64,
+    "ESP": 78
+   },
+   "portraitSeed": 3676813880,
+   "affiliation": "Sérénissime de Calvèze"
+  },
+  {
+   "id": "ar-abel-pansevent",
+   "name": "Abel Pansevent",
+   "shortName": "Abel",
+   "nationality": "SOL",
+   "roles": [
+    "SOI"
+   ],
+   "overall": 66,
+   "attributes": {
+    "FOR": 38,
+    "AGI": 50,
+    "ARN": 65,
+    "DEF": 47,
+    "VIT": 57,
+    "ESP": 69
+   },
+   "portraitSeed": 193188312,
+   "affiliation": "Cité libre de Solcendre"
+  },
+  {
+   "id": "ar-oriane-chantegivre",
+   "name": "Oriane Chantegivre",
+   "shortName": "Oriane",
+   "nationality": "SOL",
+   "roles": [
+    "AUG"
+   ],
+   "overall": 91,
+   "attributes": {
+    "FOR": 55,
+    "AGI": 79,
+    "ARN": 88,
+    "DEF": 67,
+    "VIT": 72,
+    "ESP": 97
+   },
+   "portraitSeed": 1384059446,
+   "affiliation": "Cité libre de Solcendre"
+  },
+  {
+   "id": "ar-kaito-yorunagi",
+   "name": "Kaito Yorunagi",
+   "shortName": "Kaito",
+   "nationality": "OSE",
+   "roles": [
+    "AUG",
+    "MAG"
+   ],
+   "overall": 88,
+   "attributes": {
+    "FOR": 54,
+    "AGI": 75,
+    "ARN": 86,
+    "DEF": 59,
+    "VIT": 73,
+    "ESP": 90
+   },
+   "portraitSeed": 2185141948,
+   "affiliation": "Archipel d'Ōsenka"
+  },
+  {
+   "id": "ar-djeneba-sorokane",
+   "name": "Djeneba Sorokané",
+   "shortName": "Djeneba",
+   "nationality": "KOU",
+   "roles": [
+    "AUG"
+   ],
+   "overall": 85,
+   "attributes": {
+    "FOR": 54,
+    "AGI": 71,
+    "ARN": 81,
+    "DEF": 59,
+    "VIT": 65,
+    "ESP": 93
+   },
+   "portraitSeed": 540208953,
+   "affiliation": "Royaume de Kounama"
+  },
+  {
+   "id": "ar-halvard-runeskog",
+   "name": "Halvard Runeskog",
+   "shortName": "Halvard",
+   "nationality": "HVE",
+   "roles": [
+    "AUG"
+   ],
+   "overall": 83,
+   "attributes": {
+    "FOR": 52,
+    "AGI": 68,
+    "ARN": 78,
+    "DEF": 55,
+    "VIT": 71,
+    "ESP": 85
+   },
+   "portraitSeed": 701870668,
+   "affiliation": "Jarlats de Hvessa"
+  },
+  {
+   "id": "ar-shirin-ashkavan",
+   "name": "Shirin Ashkavan",
+   "shortName": "Shirin",
+   "nationality": "KHE",
+   "roles": [
+    "AUG"
+   ],
+   "overall": 81,
+   "attributes": {
+    "FOR": 49,
+    "AGI": 69,
+    "ARN": 75,
+    "DEF": 57,
+    "VIT": 64,
+    "ESP": 91
+   },
+   "portraitSeed": 1950276682,
+   "affiliation": "Sultanat de Kheyrân"
+  },
+  {
+   "id": "ar-teodora-belcastro",
+   "name": "Teodora Belcastro",
+   "shortName": "Teodora",
+   "nationality": "CAL",
+   "roles": [
+    "AUG"
+   ],
+   "overall": 78,
+   "attributes": {
+    "FOR": 51,
+    "AGI": 69,
+    "ARN": 70,
+    "DEF": 53,
+    "VIT": 65,
+    "ESP": 77
+   },
+   "portraitSeed": 2159552105,
+   "affiliation": "Sérénissime de Calvèze"
+  },
+  {
+   "id": "ar-mazatl-ocuitec",
+   "name": "Mazatl Ocuitec",
+   "shortName": "Mazatl",
+   "nationality": "TZA",
+   "roles": [
+    "AUG",
+    "ARC"
+   ],
+   "overall": 76,
+   "attributes": {
+    "FOR": 44,
+    "AGI": 69,
+    "ARN": 72,
+    "DEF": 56,
+    "VIT": 61,
+    "ESP": 75
+   },
+   "portraitSeed": 4106632933,
+   "affiliation": "Empire de Tzalmec"
+  },
+  {
+   "id": "ar-gildas-carillonne",
+   "name": "Gildas Carillonne",
+   "shortName": "Gildas",
+   "nationality": "MOR",
+   "roles": [
+    "AUG"
+   ],
+   "overall": 73,
+   "attributes": {
+    "FOR": 48,
+    "AGI": 63,
+    "ARN": 66,
+    "DEF": 53,
+    "VIT": 59,
+    "ESP": 77
+   },
+   "portraitSeed": 977622463,
+   "affiliation": "Duché de Morvaille"
+  },
+  {
+   "id": "ar-oyuun-tsagaanbel",
+   "name": "Oyuun Tsagaanbel",
+   "shortName": "Oyuun",
+   "nationality": "IRK",
+   "roles": [
+    "AUG"
+   ],
+   "overall": 70,
+   "attributes": {
+    "FOR": 40,
+    "AGI": 56,
+    "ARN": 64,
+    "DEF": 46,
+    "VIT": 58,
+    "ESP": 74
+   },
+   "portraitSeed": 2017522512,
+   "affiliation": "Steppes d'Irkhane"
+  },
+  {
+   "id": "ar-lazar-svetomir",
+   "name": "Lazar Svetomir",
+   "shortName": "Lazar",
+   "nationality": "DRE",
+   "roles": [
+    "AUG"
+   ],
+   "overall": 67,
+   "attributes": {
+    "FOR": 40,
+    "AGI": 55,
+    "ARN": 66,
+    "DEF": 44,
+    "VIT": 57,
+    "ESP": 71
+   },
+   "portraitSeed": 1592035941,
+   "affiliation": "Principauté de Drevna"
+  }
+ ]
+}
