@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import { teamRating, teamSpent } from '@byt/game-engine';
 import type { PackMeta, Participant, RoomView } from '@byt/shared';
 import { colors, fonts, radii } from '@byt/ui';
+import { PlayerBadge } from '@/components/ui';
 import { enginePack, formationOf } from '../room/derive';
 import { TeamPitch } from '../team/TeamPitch';
 
@@ -52,7 +53,7 @@ export function TeamBoard({
       accessibilityLabel={`Équipe de ${participant.nickname}, note ${s.rating}, dépensé ${s.spent} millions`}
     >
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, padding: 12, paddingBottom: 6 }}>
-        <View style={{ width: 6, height: 26, borderRadius: 3, backgroundColor: participant.color }} />
+        <PlayerBadge name={participant.nickname} color={participant.color} size={32} ring={highlight} />
         <Text style={{ flex: 1, fontFamily: fonts.display, fontSize: 21, color: colors.text, letterSpacing: 0.5 }} numberOfLines={1}>
           {participant.nickname}
           {participant.id === meId ? <Text style={{ color: colors.textMute, fontSize: 15 }}> · vous</Text> : null}

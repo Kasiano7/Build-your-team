@@ -17,13 +17,13 @@ export function LogoMark({ size = 40 }: { size?: number }) {
 export function Logo({ size = 1, tagline = true }: { size?: number; tagline?: boolean }) {
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 * size }} accessibilityRole="header" accessibilityLabel="Build Your Team">
-      <LogoMark size={34 * size} />
+      <LogoMark size={26 * size} />
       <View>
-        <Text style={{ fontFamily: fonts.displayBlack, fontSize: 30 * size, lineHeight: 30 * size, color: colors.text, letterSpacing: 1.2 }}>
+        <Text style={{ fontFamily: fonts.hero, fontSize: 17 * size, lineHeight: 20 * size, color: colors.text, letterSpacing: 0.4 }}>
           BUILD YOUR <Text style={{ color: colors.accent }}>TEAM</Text>
         </Text>
         {tagline && (
-          <Text style={{ fontFamily: fonts.bodySemi, fontSize: 11 * size, letterSpacing: 4 * size, color: colors.textDim, marginTop: 4 }}>
+          <Text style={{ fontFamily: fonts.bodyBold, fontSize: 9.5 * size, letterSpacing: 3.4 * size, color: colors.textMute, marginTop: 3 }}>
             BID · BUILD · WIN
           </Text>
         )}

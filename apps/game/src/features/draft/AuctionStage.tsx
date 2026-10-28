@@ -126,11 +126,11 @@ export function AuctionStage({
               alignItems: 'center',
             }}
           >
-            <Text style={{ fontFamily: fonts.displayBlack, fontSize: width * 0.2, color: sold ? winner?.color ?? colors.accent : colors.textDim, letterSpacing: 3 }}>
+            <Text style={{ fontFamily: fonts.hero, fontSize: width * (sold ? 0.15 : 0.12), color: sold ? winner?.color ?? colors.accent : colors.textDim, letterSpacing: 1.5 }}>
               {sold ? 'VENDU' : 'INVENDU'}
             </Text>
             {sold && auction.result?.type === 'sold' && (
-              <Text style={{ fontFamily: fonts.display, fontSize: width * 0.085, color: colors.text, letterSpacing: 1 }} numberOfLines={1}>
+              <Text style={{ fontFamily: fonts.display, fontSize: width * 0.075, color: colors.text, letterSpacing: 0.4 }} numberOfLines={1}>
                 {winner?.nickname} · {auction.result.amount}M
               </Text>
             )}

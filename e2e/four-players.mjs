@@ -129,7 +129,7 @@ while (Date.now() < deadline) {
     await A.page.waitForTimeout(1500);
     B.page = await B.context.newPage();
     await B.page.goto(`${BASE}/room/${code}`);
-    await B.page.getByText(/VOTRE ÉQUIPE/).first().waitFor({ timeout: 15000 });
+    await B.page.getByText(/votre équipe/i).first().waitFor({ timeout: 15000 });
     await B.page.waitForTimeout(500);
     const after = await tid(B.page, 'budget-1').textContent();
     const hostNow = await tid(A.page, 'budget-1').textContent();

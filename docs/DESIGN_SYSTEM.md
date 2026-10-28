@@ -1,26 +1,42 @@
 # Design system — Build Your Team
 
-**Direction : un stade, la nuit, vu depuis un tableau tactique.** On part des codes visuels du stade : panneaux d'affichage, typographie condensée des tableaux de score, pelouse tondue en bandes sous les projecteurs. On évite le look « dashboard IA générique » : pas de halos néon partout, une seule couleur d'accent, l'or réservé au prestige.
+**Direction : un stade, la nuit, version premium.** Profondeur (verre dépoli, lueurs de projecteurs), typographie contemporaine, pelouse tondue en bandes sous les projecteurs. On évite le look « dashboard IA générique » : pas de halos néon partout, une seule couleur d'accent, l'or réservé au prestige.
 
 Source unique des valeurs : `packages/ui/src/tokens.ts`.
+
+## Version 2 (28/10/2026) : « stadium night, premium »
+
+Objectif : une interface plus actuelle et plus haut de gamme, sans quitter la palette du brief (noir profond, cyan, or discret, vert de pelouse).
+
+| Élément | Choix |
+|---|---|
+| **Fond** | Composant `Backdrop` (`packages/ui`) : fond nuit avec une lueur cyan en haut à gauche (projecteurs), une lueur émeraude en bas (pelouse), une touche d'or, deux faisceaux de projecteurs, un grain fin et une vignette. Le rendu est statique, donc sans coût à l'exécution. |
+| **Surfaces** | `Panel` en verre dépoli : vrai flou via `expo-blur` (`backdrop-filter` sur le web), remplissage translucide, reflet en haut, bordure fine, rayon de 22 et ombre portée sur le web. |
+| **Contrôles** | Boutons en pilule. Le bouton principal a un dégradé cyan → menthe (`#2BE3D0` → `#8DF7C4`) et un léger halo ; les boutons secondaires sont en verre. Champs et sélecteurs en pilule dans une piste vitrée. |
+| **Typographie** | **Unbounded** (600/700/800) pour les titres et tous les chiffres importants : notes, budgets, offres, chrono, code du salon. **Manrope** (400–800) pour le texte et les libellés. Titres en casse normale avec un interlettrage resserré. |
+| **Cartes** | Plaque arrondie avec un coin biseauté, bordure en dégradé selon le palier, feuille holographique (plus marquée pour Élite et Légende), halo lumineux derrière le portrait, plaque de nom vitrée avec le club, statistiques sur une grille 3 × 2. |
+| **Terrain** | Tribunes au fond avec une foule ponctuée de lumières, deux projecteurs, bords adoucis qui se fondent dans le stade, lignes légèrement lumineuses, halo vert autour de la pelouse. |
+| **Joueurs du salon** | Pastille ronde avec les initiales, à la couleur du siège (`PlayerBadge`), dans le lobby, la bande des participants, le classement et les équipes. |
+| **Barre de jeu** | Pilule vitrée (`GameTopBar`) : code du salon, état, bouton son, réglages. Les métadonnées sont masquées sur les écrans étroits. |
+| **Accueil** | Barre de navigation vitrée, pastille « live », titre « Bid. Build. Win. », boutons côte à côte, trois chiffres clés, carte d'enchère flottante avec des bulles d'offres sur le terrain, section « Comment ça marche » en trois étapes. |
 
 ## Couleurs
 
 | Jeton | Valeur | Usage |
 |---|---|---|
-| `ink` | `#06080B` | Fond principal |
-| `graphite` / `steel` / `steelHi` | `#10161D` / `#18212B` / `#222D39` | Surfaces, champs, boutons secondaires |
-| `text` / `textDim` / `textMute` | `#EEF3F6` / `#A7B3BE` / `#6E7B88` | Hiérarchie du texte |
-| `accent` | `#19E3C8` (turquoise) | **Uniquement l'interaction et l'état actif** : bouton principal, emplacement cible, chrono, sélection |
-| `gold` | `#D9B45F` | Prestige : cartes de haut niveau, vainqueur, trophée |
-| `grass` / `grassStripe` / `grassDeep` | `#0F3F27` / `#124A2E` / `#0A2C1B` | Pelouse (vert foncé naturel) |
+| `ink` | `#05070A` | Fond principal (sous le `Backdrop`) |
+| `glass` / `glassHi` | blanc à 4,5 % / 8 % | Surfaces vitrées |
+| `text` / `textDim` / `textMute` | `#F3F6F8` / `#A6B1BC` / `#66727E` | Hiérarchie du texte |
+| `accent` → `accent2` | `#2BE3D0` → `#8DF7C4` | **Uniquement l'interaction et l'état actif** (dégradé des boutons principaux, emplacement cible, chrono) |
+| `gold` → `gold2` | `#E6C170` → `#B98A3A` | Prestige : cartes Légende, vainqueur, trophée, partage du résultat |
+| `grass` / `grassStripe` / `grassDeep` | `#0E4429` / `#125234` / `#082A19` | Pelouse |
 | `danger` / `warn` / `success` | `#FF5D6C` / `#FFB547` / `#3DDC97` | PASSER, chrono sous 3 s, messages |
-| Couleurs des participants | `#5AA9FF` `#FFB547` `#FF6B8A` `#B18CFF` | Une par siège, distinctes de l'accent. Utilisées pour la meilleure offre, le tampon VENDU et les puces |
+| Couleurs des participants | `#5AA9FF` `#FFB547` `#FF6B8A` `#B18CFF` | Une par siège, distinctes de l'accent |
 
 ## Typographie
 
-- **Big Shoulders Display** (800/900) : titres, notes, montants, chrono, boutons. C'est la typographie condensée des tableaux d'affichage de stade, très lisible en grand et dense en petit.
-- **Archivo** (400–700) : texte courant, libellés, statistiques secondaires.
+- **Unbounded** : titres, notes, montants, chrono, code du salon.
+- **Manrope** : interface, libellés, noms.
 - Les chiffres changeants (budgets, offres, chrono) utilisent des chiffres tabulaires.
 
 ## Signature : le terrain 2,5D (`packages/ui/src/Pitch.tsx`)

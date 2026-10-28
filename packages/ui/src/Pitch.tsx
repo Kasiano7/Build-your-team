@@ -126,7 +126,26 @@ export function Pitch({ slots, renderSlot, style, children }: PitchProps) {
       const x0 = (WIDTH - 7.32) / 2;
       return metricPath(geo, [[x0, y], [x0, y - dir * 1.8], [x0 + 7.32, y - dir * 1.8], [x0 + 7.32, y]]);
     };
-    return { stripes, lines, spots, surround, goals: [goal(0, 1), goal(LENGTH, -1)] };
+    // Far stands: a dark band behind the far touchline with a deterministic crowd of light specks.
+    const farL = geo.project(-12 / WIDTH, (LENGTH + 4) / LENGTH);
+    const farR = geo.project((WIDTH + 12) / WIDTH, (LENGTH + 4) / LENGTH);
+    const standH = Math.max(14, geo.fieldHeight * 0.16);
+    const stands = `M${farL.x - standH * 0.6} ${farL.y - standH} L${farR.x + standH * 0.6} ${farR.y - standH} L${farR.x} ${farR.y} L${farL.x} ${farL.y} Z`;
+    const crowd: { x: number; y: number; o: number }[] = [];
+    let seed = 7;
+    const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+    for (let i = 0; i < 160; i++) {
+      const t = rnd();
+      const v = rnd();
+      const y = farL.y - standH * (0.15 + v * 0.8);
+      const spread = (farR.x - farL.x) + standH * 1.2 * (1 - (y - (farL.y - standH)) / standH);
+      crowd.push({ x: farL.x - standH * 0.6 * (1 - (y - (farL.y - standH)) / standH) + t * spread, y, o: 0.06 + rnd() * 0.22 });
+    }
+    const lights = [
+      { x: farL.x - standH * 0.4, y: farL.y - standH * 1.15 },
+      { x: farR.x + standH * 0.4, y: farR.y - standH * 1.15 },
+    ];
+    return { stripes, lines, spots, surround, stands, crowd, lights, standH, goals: [goal(0, 1), goal(LENGTH, -1)] };
   }, [geo]);
 
   return (
@@ -149,11 +168,41 @@ export function Pitch({ slots, renderSlot, style, children }: PitchProps) {
                 <Stop offset="0.7" stopColor="#000" stopOpacity="0" />
                 <Stop offset="1" stopColor="#000" stopOpacity="0.45" />
               </RadialGradient>
+              <RadialGradient id="halo" cx="50%" cy="50%" r="50%">
+                <Stop offset="0" stopColor="#1FAE68" stopOpacity="0.28" />
+                <Stop offset="1" stopColor="#1FAE68" stopOpacity="0" />
+              </RadialGradient>
+              <LinearGradient id="stands" x1="0" y1="0" x2="0" y2="1">
+                <Stop offset="0" stopColor="#0B1016" stopOpacity="0" />
+                <Stop offset="1" stopColor="#0B1016" stopOpacity="0.95" />
+              </LinearGradient>
+              <RadialGradient id="lamp" cx="50%" cy="50%" r="50%">
+                <Stop offset="0" stopColor="#FFFFFF" stopOpacity="0.95" />
+                <Stop offset="0.18" stopColor="#DFFBFF" stopOpacity="0.45" />
+                <Stop offset="1" stopColor="#DFFBFF" stopOpacity="0" />
+              </RadialGradient>
             </Defs>
+            {/* Ambient glow of the lit pitch spilling onto the night backdrop */}
+            <Ellipse cx={geo.width / 2} cy={geo.height / 2} rx={geo.width / 2} ry={geo.height / 2} fill="url(#halo)" />
+            <Path d={field.stands} fill="url(#stands)" />
+            {field.crowd.map((c, i) => (
+              <Ellipse key={`c${i}`} cx={c.x} cy={c.y} rx={1.1} ry={1.1} fill="#DDEBFF" fillOpacity={c.o} />
+            ))}
+            {field.lights.map((l, i) => (
+              <Ellipse key={`l${i}`} cx={l.x} cy={l.y} rx={field.standH * 1.4} ry={field.standH * 1.1} fill="url(#lamp)" />
+            ))}
+            {/* Feathered edge so the pitch melts into the stadium instead of ending on a hard line */}
+            <Path d={field.surround} fill="none" stroke={colors.grassDeep} strokeOpacity={0.18} strokeWidth={34} strokeLinejoin="round" />
+            <Path d={field.surround} fill="none" stroke={colors.grassDeep} strokeOpacity={0.35} strokeWidth={14} strokeLinejoin="round" />
             <Path d={field.surround} fill={colors.grassDeep} />
             {field.stripes.map((d, i) => (
               <Path key={i} d={d} fill={i % 2 === 0 ? colors.grass : colors.grassStripe} />
             ))}
+            <G stroke="#EFFFF6" strokeOpacity={0.12} strokeWidth={Math.max(3, geo.fieldBottomWidth / 120)} fill="none" strokeLinejoin="round">
+              {field.lines.map((d, i) => (
+                <Path key={`glow${i}`} d={d} />
+              ))}
+            </G>
             <G stroke={colors.chalk} strokeWidth={Math.max(1, geo.fieldBottomWidth / 360)} fill="none" strokeLinejoin="round">
               {field.lines.map((d, i) => (
                 <Path key={i} d={d} />
@@ -168,7 +217,7 @@ export function Pitch({ slots, renderSlot, style, children }: PitchProps) {
             <Path d={field.surround} fill="url(#depth)" />
             <Path d={field.surround} fill="url(#flood)" />
             <Path d={field.surround} fill="url(#vignette)" />
-            <Path d={field.surround} fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth={1} />
+            <Path d={field.surround} fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth={1} />
           </Svg>
           {slots.map((slot, index) => {
             const p = geo.project(slot.x, slot.y);

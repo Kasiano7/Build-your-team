@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, Text, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
-import { colors, fonts } from '@byt/ui';
-import { LogoMark } from '@/components/Logo';
-import { Body, Button, ConnectionBadge, Screen, Title } from '@/components/ui';
+import { colors } from '@byt/ui';
+import { GameTopBar } from '@/components/TopBar';
+import { Body, Button, Screen, Title } from '@/components/ui';
 import { EndScreen } from '@/features/end/EndScreen';
 import { errorMessage } from '@/lib/errors';
 import { gameClient } from '@/state/game-client';
@@ -27,15 +27,7 @@ export default function SpectatorScreen() {
 
   return (
     <Screen edges={['top', 'left', 'right']}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 14, paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: colors.line }}>
-        <Pressable onPress={() => router.replace('/')} accessibilityRole="button" accessibilityLabel="Accueil">
-          <LogoMark size={22} />
-        </Pressable>
-        <Text style={{ fontFamily: fonts.display, fontSize: 17, color: colors.text, letterSpacing: 2 }}>{code}</Text>
-        <Text style={{ fontFamily: fonts.bodySemi, fontSize: 12, color: colors.textMute }}>SPECTATEUR</Text>
-        <View style={{ flex: 1 }} />
-        <ConnectionBadge state={g.connection} />
-      </View>
+      <GameTopBar code={code} tag="SPECTATEUR" connection={g.connection} />
       {!view || !g.pack ? (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 12, padding: 24 }}>
           {error ? (

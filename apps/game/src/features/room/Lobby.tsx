@@ -3,7 +3,7 @@ import * as Clipboard from 'expo-clipboard';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import type { PackMeta, RoomView } from '@byt/shared';
 import { colors, fonts, radii } from '@byt/ui';
-import { Body, Button, Eyebrow, Panel, Title, useToast } from '@/components/ui';
+import { Body, Button, Eyebrow, Panel, PlayerBadge, Title, useToast } from '@/components/ui';
 import { inviteLink } from '@/lib/config';
 import { errorMessage } from '@/lib/errors';
 import { gameClient } from '@/state/game-client';
@@ -51,7 +51,7 @@ export function Lobby({ view, pack, meId, onLeave }: { view: RoomView; pack: Pac
             <Pressable onPress={copy} accessibilityRole="button" accessibilityLabel={`Code ${view.code.split('').join(' ')}, appuyer pour copier le lien`}>
               <View style={{ flexDirection: 'row', gap: 6 }}>
                 {view.code.split('').map((ch, i) => (
-                  <View key={i} style={{ flex: 1, maxWidth: 64, aspectRatio: 0.78, borderRadius: radii.sm, backgroundColor: colors.ink, borderWidth: 1, borderColor: colors.lineStrong, alignItems: 'center', justifyContent: 'center' }}>
+                  <View key={i} style={{ flex: 1, maxWidth: 64, aspectRatio: 0.8, borderRadius: radii.md, backgroundColor: 'rgba(43,227,208,0.06)', borderWidth: 1, borderColor: 'rgba(43,227,208,0.25)', alignItems: 'center', justifyContent: 'center' }}>
                     <Text testID={i === 0 ? 'lobby-code' : undefined} style={{ fontFamily: fonts.displayBlack, fontSize: wide ? 48 : 36, color: colors.accent }}>
                       {ch}
                     </Text>
@@ -100,19 +100,23 @@ export function Lobby({ view, pack, meId, onLeave }: { view: RoomView; pack: Pac
                 entering={reduce ? undefined : FadeInDown.duration(300)}
                 style={{
                   flex: wide ? 1 : undefined,
-                  minHeight: 64,
-                  borderRadius: radii.md,
+                  minHeight: 72,
+                  borderRadius: radii.lg,
                   borderWidth: 1,
                   borderStyle: p ? 'solid' : 'dashed',
                   borderColor: p ? colors.lineStrong : colors.line,
-                  backgroundColor: p ? colors.steel : 'transparent',
+                  backgroundColor: p ? 'rgba(255,255,255,0.045)' : 'transparent',
                   flexDirection: 'row',
                   alignItems: 'center',
                   gap: 12,
                   paddingHorizontal: 14,
                 }}
               >
-                <View style={{ width: 10, height: 36, borderRadius: 3, backgroundColor: p?.color ?? colors.line }} />
+                {p ? (
+                  <PlayerBadge name={p.nickname} color={p.color} size={38} ring={p.connected} />
+                ) : (
+                  <View style={{ width: 38, height: 38, borderRadius: 19, borderWidth: 1, borderStyle: 'dashed', borderColor: colors.lineStrong }} />
+                )}
                 <View style={{ flex: 1 }}>
                   <Text style={{ fontFamily: fonts.display, fontSize: 20, color: p ? colors.text : colors.textMute, letterSpacing: 0.5 }} numberOfLines={1}>
                     {p ? p.nickname : 'En attente…'}

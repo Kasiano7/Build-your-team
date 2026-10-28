@@ -165,7 +165,7 @@ export function AuctionPanel({ view, pack, me, compact, dense }: { view: RoomVie
           {dense && passButton}
         </View>
         <View style={{ flexDirection: 'row', gap: 8 }}>
-          <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', borderRadius: radii.md, borderWidth: 1, borderColor: colors.lineStrong, backgroundColor: colors.graphite, paddingHorizontal: 12, height: compact ? 48 : 52 }}>
+          <View style={{ flex: 1, minWidth: 0, flexDirection: 'row', alignItems: 'center', borderRadius: radii.pill, borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)', backgroundColor: 'rgba(255,255,255,0.04)', paddingHorizontal: 18, height: compact ? 50 : 58 }}>
             <TextInput
               value={custom}
               onChangeText={(t) => setCustom(t.replace(/[^0-9]/g, '').slice(0, 4))}
@@ -175,12 +175,12 @@ export function AuctionPanel({ view, pack, me, compact, dense }: { view: RoomVie
               editable={canBid}
               onSubmitEditing={() => customValid && send(customValue)}
               accessibilityLabel="Montant personnalisé en millions"
-              style={[{ flex: 1, color: colors.text, fontFamily: fonts.display, fontSize: 22 }, Platform.OS === 'web' ? ({ outlineStyle: 'none' } as object) : null]}
+              style={[{ flex: 1, width: 0, minWidth: 0, color: colors.text, fontFamily: fonts.heroSemi, fontSize: 18 }, Platform.OS === 'web' ? ({ outlineStyle: 'none' } as object) : null]}
               testID="bid-custom"
             />
             <Text style={{ fontFamily: fonts.display, color: colors.textMute, fontSize: 20 }}>M</Text>
           </View>
-          <Button label="Enchérir" variant="secondary" size={compact ? 'md' : 'lg'} disabled={!customValid} onPress={() => send(customValue)} testID="bid-custom-send" />
+          <Button label="Enchérir" variant="secondary" size={compact ? 'md' : 'lg'} disabled={!customValid} onPress={() => send(customValue)} testID="bid-custom-send" style={{ flexShrink: 0 }} />
         </View>
         {!dense && passButton}
       </View>

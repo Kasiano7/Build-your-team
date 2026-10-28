@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, Text, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import { roomCodeSchema } from '@byt/shared';
-import { colors, fonts } from '@byt/ui';
-import { LogoMark } from '@/components/Logo';
-import { Body, Button, ConnectionBadge, Screen, Title } from '@/components/ui';
+import { colors } from '@byt/ui';
+import { GameTopBar } from '@/components/TopBar';
+import { Body, Button, Screen, Title } from '@/components/ui';
 import { DraftScreen } from '@/features/draft/DraftScreen';
 import { Lobby } from '@/features/room/Lobby';
 import { EndScreen } from '@/features/end/EndScreen';
-import { updateSettings, useSettings } from '@/state/settings';
 import { gameClient } from '@/state/game-client';
 import { useGame } from '@/state/hooks';
 
@@ -17,7 +16,6 @@ export default function RoomScreen() {
   const { code: raw } = useLocalSearchParams<{ code: string }>();
   const code = (raw ?? '').toUpperCase();
   const g = useGame();
-  const settings = useSettings();
   const validCode = roomCodeSchema.safeParse(code).success;
   const [checking, setChecking] = useState(validCode);
 
@@ -37,31 +35,11 @@ export default function RoomScreen() {
   const mine = g.role === 'player' && g.roomCode === code && g.view && g.pack && g.participantId;
 
   const topBar = (
-    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 14, paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: colors.line }}>
-      <Pressable onPress={() => router.replace('/')} accessibilityRole="button" accessibilityLabel="Accueil">
-        <LogoMark size={22} />
-      </Pressable>
-      <Text style={{ fontFamily: fonts.display, fontSize: 17, color: colors.text, letterSpacing: 2 }}>{code}</Text>
-      {g.view?.status === 'drafting' && (
-        <Text style={{ fontFamily: fonts.bodyMedium, fontSize: 12, color: colors.textMute }}>
-          {g.view.auctionCount} enchère{g.view.auctionCount > 1 ? 's' : ''} · {g.view.poolSize} joueurs restants
-        </Text>
-      )}
-      <View style={{ flex: 1 }} />
-      <ConnectionBadge state={g.connection} />
-      <Pressable
-        onPress={() => updateSettings({ muted: !settings.muted })}
-        accessibilityRole="switch"
-        accessibilityState={{ checked: !settings.muted }}
-        accessibilityLabel="Sons"
-        style={{ paddingHorizontal: 10, paddingVertical: 6, borderRadius: 8, borderWidth: 1, borderColor: colors.line }}
-      >
-        <Text style={{ fontFamily: fonts.bodySemi, fontSize: 12, color: settings.muted ? colors.textMute : colors.accent }}>{settings.muted ? 'SON OFF' : 'SON ON'}</Text>
-      </Pressable>
-      <Pressable onPress={() => router.push('/settings')} accessibilityRole="button" accessibilityLabel="Paramètres" style={{ paddingHorizontal: 10, paddingVertical: 6, borderRadius: 8, borderWidth: 1, borderColor: colors.line }}>
-        <Text style={{ fontFamily: fonts.bodySemi, fontSize: 12, color: colors.textDim }}>RÉGLAGES</Text>
-      </Pressable>
-    </View>
+    <GameTopBar
+      code={code}
+      connection={g.connection}
+      meta={g.view?.status === 'drafting' ? `${g.view.auctionCount} enchère${g.view.auctionCount > 1 ? 's' : ''} · ${g.view.poolSize} joueurs restants` : undefined}
+    />
   );
 
   if (g.removed && g.roomCode === code) {

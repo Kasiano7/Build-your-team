@@ -4,14 +4,8 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import {
-  useFonts as useDisplayFonts,
-  BigShouldersDisplay_600SemiBold,
-  BigShouldersDisplay_700Bold,
-  BigShouldersDisplay_800ExtraBold,
-  BigShouldersDisplay_900Black,
-} from '@expo-google-fonts/big-shoulders-display';
-import { Archivo_400Regular, Archivo_500Medium, Archivo_600SemiBold, Archivo_700Bold } from '@expo-google-fonts/archivo';
+import { useFonts, Unbounded_600SemiBold, Unbounded_700Bold, Unbounded_800ExtraBold } from '@expo-google-fonts/unbounded';
+import { Manrope_400Regular, Manrope_500Medium, Manrope_600SemiBold, Manrope_700Bold, Manrope_800ExtraBold } from '@expo-google-fonts/manrope';
 import { colors } from '@byt/ui';
 import { ToastProvider } from '@/components/ui';
 import '@/lib/server-setting';
@@ -19,15 +13,15 @@ import '@/lib/server-setting';
 void SplashScreen.preventAutoHideAsync().catch(() => undefined);
 
 export default function RootLayout() {
-  const [loaded, error] = useDisplayFonts({
-    BigShouldersDisplay_600SemiBold,
-    BigShouldersDisplay_700Bold,
-    BigShouldersDisplay_800ExtraBold,
-    BigShouldersDisplay_900Black,
-    Archivo_400Regular,
-    Archivo_500Medium,
-    Archivo_600SemiBold,
-    Archivo_700Bold,
+  const [loaded, error] = useFonts({
+    Unbounded_600SemiBold,
+    Unbounded_700Bold,
+    Unbounded_800ExtraBold,
+    Manrope_400Regular,
+    Manrope_500Medium,
+    Manrope_600SemiBold,
+    Manrope_700Bold,
+    Manrope_800ExtraBold,
   });
 
   useEffect(() => {

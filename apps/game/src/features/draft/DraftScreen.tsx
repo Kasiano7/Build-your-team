@@ -51,7 +51,9 @@ export function DraftScreen({ view, pack, meId }: { view: RoomView; pack: PackMe
 
   const header = (
     <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 10, paddingHorizontal: 4 }}>
-      <Text style={{ fontFamily: fonts.display, fontSize: 18, color: viewed.color, letterSpacing: 0.5 }}>{viewed.id === meId ? 'VOTRE ÉQUIPE' : `ÉQUIPE DE ${viewed.nickname.toUpperCase()}`}</Text>
+      <Text style={{ fontFamily: fonts.heroSemi, fontSize: 16, color: colors.text, letterSpacing: -0.2 }}>
+        {viewed.id === meId ? 'Votre équipe' : <>Équipe de <Text style={{ color: viewed.color }}>{viewed.nickname}</Text></>}
+      </Text>
       <Text style={{ fontFamily: fonts.bodyMedium, fontSize: 12, color: colors.textMute }}>
         {viewed.team.starters.filter(Boolean).length}/{viewed.team.starters.length} · {pack.formations.find((f) => f.id === viewed.team.formationId)?.label}
       </Text>

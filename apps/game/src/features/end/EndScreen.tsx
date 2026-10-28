@@ -10,7 +10,7 @@ import * as Clipboard from 'expo-clipboard';
 import Animated, { FadeInUp } from 'react-native-reanimated';
 import type { PackMeta, RoomView } from '@byt/shared';
 import { PlayerCard, colors, fonts, radii } from '@byt/ui';
-import { Body, Button, Eyebrow, Panel, Title, useToast } from '@/components/ui';
+import { Body, Button, Eyebrow, Panel, PlayerBadge, Title, useToast } from '@/components/ui';
 import { resultLink, spectatorLink } from '@/lib/config';
 import { errorMessage } from '@/lib/errors';
 import { playSound } from '@/lib/sound';
@@ -266,7 +266,7 @@ function Results({ view, pack, meId }: { view: RoomView; pack: PackMeta; meId: s
               return (
                 <View key={s.participantId} style={{ flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 6 }}>
                   <Text style={{ width: 26, fontFamily: fonts.displayBlack, fontSize: 24, color: s.rank === 1 ? colors.gold : colors.textMute }}>{s.rank}</Text>
-                  <View style={{ width: 6, height: 22, borderRadius: 3, backgroundColor: p.color }} />
+                  <PlayerBadge name={p.nickname} color={p.color} size={30} ring={s.rank === 1} />
                   <Text style={{ flex: 1, fontFamily: fonts.display, fontSize: 19, color: colors.text }} numberOfLines={1}>
                     {p.nickname}
                   </Text>
